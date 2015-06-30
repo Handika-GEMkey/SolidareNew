@@ -1,0 +1,262 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="BantuAnakAsuh.Views.PageProfilGBSA"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    shell:SystemTray.IsVisible="False">
+
+    <toolkit:TransitionService.NavigationInTransition>
+        <toolkit:NavigationInTransition>
+            <toolkit:NavigationInTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardIn"/>
+            </toolkit:NavigationInTransition.Backward>
+            <toolkit:NavigationInTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardIn"/>
+            </toolkit:NavigationInTransition.Forward>
+        </toolkit:NavigationInTransition>
+    </toolkit:TransitionService.NavigationInTransition>
+    <toolkit:TransitionService.NavigationOutTransition>
+        <toolkit:NavigationOutTransition>
+            <toolkit:NavigationOutTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardOut"/>
+            </toolkit:NavigationOutTransition.Backward>
+            <toolkit:NavigationOutTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardOut"/>
+            </toolkit:NavigationOutTransition.Forward>
+        </toolkit:NavigationOutTransition>
+    </toolkit:TransitionService.NavigationOutTransition>
+
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="61"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Background="#FF032754">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="403*"/>
+                    <ColumnDefinition Width="77*"/>
+                </Grid.ColumnDefinitions>
+            <TextBlock Text="SOLIDARE's PROFILE" Foreground="White" VerticalAlignment="Center" Margin="31,0,0,0"/>
+                <Grid Grid.Column="1" Background="#00365A"/>
+                <Image x:Name="buttonMenu" Grid.Column="1" Source="/Assets/Icons/ic_48_menu.png" Stretch="UniformToFill" Width="40" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Height="40" Tap="buttonMenu_Tap"/>
+            </Grid>
+            <Grid Grid.Row="1">
+            <Image Source="/Assets/Images/Solidare (biru).png" Margin="40,20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+            <Grid Grid.Row="2" Margin="20,0,20,40">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" x:Name="tapProfile" Tap="Tap_selectionChangedPivot">
+                    <TextBlock x:Name="tbProfile" Text="PROFILE" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FF062D5A" FontSize="18"/>
+                </Grid>
+                <Grid Grid.Column="1" x:Name="tapCaraKerja" Tap="Tap_selectionChangedPivot">
+                <TextBlock x:Name="tbCaraKerja" Text="HOW IT WORKS" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="DarkGray" FontSize="18"/>
+                </Grid>
+                <Grid Grid.Column="2" x:Name="tapVisiMisi" Tap="Tap_selectionChangedPivot">
+                <TextBlock x:Name="tbVisiMisi" Text="VISION MISION" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="DarkGray" FontSize="18"/>
+                </Grid>
+            </Grid>
+        
+            <!--Pivot Control-->
+        <phone:Pivot Grid.Row="3" x:Name="pivotControl" SelectionChanged="Pivot_SelectionChanged">
+            <!--Pivot item one-->
+            <phone:PivotItem Tag="Profile" Margin="40,0">
+                <ScrollViewer>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock TextWrapping="Wrap" Text="PROFILE" FontSize="18" Foreground="#FF062D5A" FontWeight="Bold" Margin="0,0,0,5"/>
+                        <TextBlock TextWrapping="Wrap" Text="Solidare Apps is a windows based phone application that makes us donate to orphans or poor children who threatened dropouts easily, so with this application they can get a decent education. We expect the number of children out of school, especially in Indonesia and generally in the world can be reduced through this application. Solidare Apps involving the participation of all parts in reducing dropout rates in the world. The parts are involved in this application include, donors, charities organization that already have the legality from government, social community / movement of children out of school, society, government, and also the schools that have direct contact with children. Thus the number of parts participating equally expected to decrease the dropout rate can be done quickly and thoroughly and can create a better world with no out of school children. The main problem in low-income developing countries is a matter of education. We expect, without out of school children, will strengthen developing countries to build a strong country in many aspects, especially the economic aspects. Since much time ago, out of school children has happened because poverty. When all the children in school, in the future they are going to change their family's life be better and also will become a higher middle-income country." FontSize="16" Foreground="#FF062D5A"/>
+                        <TextBlock TextWrapping="Wrap" Text="This application is a new tool for the donors and people who care about the importance of formal education and help children to achieve their dream." FontSize="16" Foreground="#FF062D5A" Margin="0,5,0,0"/>
+                        <Grid Margin="0,0,0,30" />
+                        <!--<TextBlock TextWrapping="Wrap" Text="TIM KAMI" FontSize="18" Foreground="#FF062D5A" FontWeight="Bold" Margin="0,0,0,5"/>
+                        <Image Source="/Assets/Images/im_timgbsa.jpg" Margin="0,0,0,15"/>
+                        <Grid Margin="0,0,0,5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.1*"/>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" TextWrapping="Wrap" Text="KETUA" FontSize="16" Foreground="#FF062D5A"/>
+                            <TextBlock Grid.Column="1" TextWrapping="Wrap" Text=":" FontSize="16" Foreground="#FF062D5A"/>
+                            <TextBlock Grid.Column="2" TextWrapping="Wrap" Text="Fakhrizal Teri Triasto" FontSize="16" Foreground="#FF062D5A"/>
+                        </Grid>
+                        <Grid Margin="0,0,0,5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.1*"/>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="2*"/>
+
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" TextWrapping="Wrap" Text="SEKRETARIS" FontSize="16" Foreground="#FF062D5A"/>
+                            <TextBlock Grid.Column="1" TextWrapping="Wrap" Text=":" FontSize="16" Foreground="#FF062D5A"/>
+                            <TextBlock Grid.Column="2" TextWrapping="Wrap" Text="Dini Wijayathi" FontSize="16" Foreground="#FF062D5A"/>
+                        </Grid>
+                        <Grid Margin="0,0,0,5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.1*"/>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" TextWrapping="Wrap" Text="BENDAHARA" FontSize="16" Foreground="#FF062D5A"/>
+                            <TextBlock Grid.Column="1" TextWrapping="Wrap" Text=":" FontSize="16" Foreground="#FF062D5A"/>
+                            <TextBlock Grid.Column="2" TextWrapping="Wrap" Text="Reni Nuryanti" FontSize="16" Foreground="#FF062D5A"/>
+                        </Grid>
+                        <Grid Margin="0,0,0,5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.1*"/>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" TextWrapping="Wrap" Text="ADMINISTRASI" FontSize="16" Foreground="#FF062D5A"/>
+                            <TextBlock Grid.Column="1" TextWrapping="Wrap" Text=":" FontSize="16" Foreground="#FF062D5A"/>
+                            <TextBlock Grid.Column="2" TextWrapping="Wrap" Text="Dinda" FontSize="16" Foreground="#FF062D5A"/>
+                        </Grid>
+                        <Grid Margin="0,0,0,5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.1*"/>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" TextWrapping="Wrap" Text="SERVICE" FontSize="16" Foreground="#FF062D5A"/>
+                            <TextBlock Grid.Column="1" TextWrapping="Wrap" Text=":" FontSize="16" Foreground="#FF062D5A"/>
+                            <TextBlock Grid.Column="2" TextWrapping="Wrap" Text="Farni Nur Amalia" FontSize="16" Foreground="#FF062D5A"/>
+                        </Grid>
+                        <Grid Margin="0,0,0,5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.1*"/>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" TextWrapping="Wrap" Text="ADMINISTRASI" FontSize="16" Foreground="#FF062D5A"/>
+                            <TextBlock Grid.Column="1" TextWrapping="Wrap" Text=":" FontSize="16" Foreground="#FF062D5A"/>
+                            <TextBlock Grid.Column="2" TextWrapping="Wrap" Text="Lela Mulyani" FontSize="16" Foreground="#FF062D5A"/>
+                        </Grid>
+                        <Grid Margin="0,0,0,5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.1*"/>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" TextWrapping="Wrap" Text="MEDIA" FontSize="16" Foreground="#FF062D5A"/>
+                            <TextBlock Grid.Column="1" TextWrapping="Wrap" Text=":" FontSize="16" Foreground="#FF062D5A"/>
+                            <TextBlock Grid.Column="2" TextWrapping="Wrap" Text="Doni Zohar Ramdhani" FontSize="16" Foreground="#FF062D5A"/>
+                        </Grid>
+                        <Grid Margin="0,0,0,5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.1*"/>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" TextWrapping="Wrap" Text="KOORDINATOR" FontSize="16" Foreground="#FF062D5A"/>
+                            <TextBlock Grid.Column="1" TextWrapping="Wrap" Text=":" FontSize="16" Foreground="#FF062D5A"/>
+                            <TextBlock Grid.Column="2" TextWrapping="Wrap" Text="Rochman Budiyana" FontSize="16" Foreground="#FF062D5A"/>
+                        </Grid>
+                        <Grid Margin="0,0,0,40" />-->
+                    </StackPanel>
+                </ScrollViewer>
+            </phone:PivotItem>
+
+            <!--Pivot item two-->
+            <phone:PivotItem Margin="40,0" Tag="Cara Kerja">
+                <ScrollViewer>
+                    <StackPanel>
+                        <Grid Background="#FF062D5A" Margin="0,0,0,10">
+                            <Grid Margin="0,20" VerticalAlignment="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="1" TextWrapping="Wrap" Text="WE ARE LOOKING FOR FOSTER CHILDREN" FontSize="18" Foreground="White" FontWeight="Bold" Margin="0,10,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <Ellipse Grid.Row="0" Height="100" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <Ellipse.Fill>
+                                        <ImageBrush Stretch="Uniform" ImageSource="/Assets/Images/cr1.png"/>
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                            </Grid>
+                        </Grid>
+                        <TextBlock TextWrapping="Wrap" Text="Solidare is looking for foster children. Solidare has a team and partners from various non-governmental organizations and communities who are ready to provide data foster children that truly deserves to receive assistance. Data from Solidare have been through the process of checking the field by the Coordinator of the locality in its territory." FontSize="16" Foreground="#FF062D5A"/>
+                        <Grid Margin="20"/>
+                        <Grid Background="#FF062D5A" Margin="0,0,0,10">
+                            <Grid Margin="0,20" VerticalAlignment="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="1" TextWrapping="Wrap" Text="YOU HELP TO GIVE A SCHOLARSHIP" FontSize="18" Foreground="White" FontWeight="Bold" Margin="0,10,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <Ellipse Grid.Row="0" Height="100" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <Ellipse.Fill>
+                                        <ImageBrush Stretch="Uniform" ImageSource="/Assets/Images/cr2.png"/>
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                            </Grid>
+                        </Grid>
+                        <TextBlock TextWrapping="Wrap" Text="Parents foster care helps to provide scholarships, where foster parents were asked their willingness to provide assistance to any child asuhnya for at least one year. Can be donated each month or outright for one year. Foster parents may choose an existing foster children from existing data and transfer the donation. After that, Solidare administrator will send the data foster children via email." FontSize="16" Foreground="#FF062D5A"/>
+                        <Grid Margin="20"/>
+                        <Grid Background="#FF062D5A" Margin="0,0,0,10">
+                            <Grid Margin="0,20" VerticalAlignment="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="1" TextWrapping="Wrap" Text="FOSTER CHILDREN CAN REACH THEIR DREAMS" FontSize="18" Foreground="White" FontWeight="Bold" Margin="0,10,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <Ellipse Grid.Row="0" Height="100" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <Ellipse.Fill>
+                                        <ImageBrush Stretch="Uniform" ImageSource="/Assets/Images/cr3.png"/>
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                            </Grid>
+                        </Grid>
+                        <TextBlock TextWrapping="Wrap" Text="Foster children can reach their dreams, it means Solidare will be funneling donations from foster parents to their foster children and do the coaching each month. Solidare will monitor their progress and give a report on child progress of each semester to foster parents." FontSize="16" Foreground="#FF062D5A"/>
+                        <Grid Margin="40"/>
+                    </StackPanel>
+                </ScrollViewer>
+            </phone:PivotItem>
+            
+            <!--Pivot item three-->
+            <phone:PivotItem Margin="40,0" Tag="Visi Misi">
+                <Grid>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock TextWrapping="Wrap" Text="VISION" FontSize="18" Foreground="#FF062D5A" FontWeight="Bold" Margin="0,0,0,5"/>
+                        <TextBlock TextWrapping="Wrap" Text="Vision of Solidare is to participate in educating children in Indonesia" FontSize="16" Foreground="#FF062D5A"/>
+                        <Grid Margin="0,0,0,30" />
+                        <TextBlock TextWrapping="Wrap" Text="MISION" FontSize="18" Foreground="#FF062D5A" FontWeight="Bold" Margin="0,0,0,5"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" TextWrapping="Wrap" Text="1." FontSize="18" Foreground="#FF062D5A"/>
+                            <TextBlock Grid.Column="1" TextWrapping="Wrap" Text="Provide assistance to disadvantaged children in order to continue school and develop talent." FontSize="18" Foreground="#FF062D5A"/>
+                        </Grid>
+                        <Grid Margin="0,0,0,15" />
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" TextWrapping="Wrap" Text="2." FontSize="18" Foreground="#FF062D5A"/>
+                            <TextBlock Grid.Column="1" TextWrapping="Wrap" Text="Together provide guidance to foster children to form the Indonesian youths who are intelligent, creative and quality." FontSize="18" Foreground="#FF062D5A"/>
+                        </Grid>
+                        <Grid Margin="0,0,0,40" />
+                    </StackPanel>
+                </Grid>
+            </phone:PivotItem>
+        </phone:Pivot>
+    </Grid>
+
+</phone:PhoneApplicationPage>

@@ -1,0 +1,582 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0016F280-7B2C-4F1B-891D-5D0D738C4EE6}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BantuAnakAsuh</RootNamespace>
+    <AssemblyName>BantuAnakAsuh</AssemblyName>
+    <TargetFrameworkIdentifier>WindowsPhone</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>BantuAnakAsuh.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>BantuAnakAsuh.App</SilverlightAppEntry>
+    <ValidateXaml>true</ValidateXaml>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\x86\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\x86\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|ARM' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\ARM\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|ARM' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\ARM\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\NavBarDrawer.cs" />
+    <Compile Include="Helper\NavDrawMargin.cs" />
+    <Compile Include="Models\ModelBank.cs" />
+    <Compile Include="Models\ModelDetailDonation.cs" />
+    <Compile Include="Models\ModelKeranjang.cs" />
+    <Compile Include="Common\DelegateCommand.cs" />
+    <Compile Include="Common\ViewModelBase.cs" />
+    <Compile Include="Helper\Navigation.cs" />
+    <Compile Include="Helper\URL.cs" />
+    <Compile Include="LocalizedStrings.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelDetailAnakAsuh.cs" />
+    <Compile Include="Models\ModelDonasi.cs" />
+    <Compile Include="Models\ModelGetKeranjang.cs" />
+    <Compile Include="Models\ModelListOrder.cs" />
+    <Compile Include="Models\ModelLogin.cs" />
+    <Compile Include="Models\ModelNews.cs" />
+    <Compile Include="Models\ModelOrganization.cs" />
+    <Compile Include="Models\ModelProfileDonatur.cs" />
+    <Compile Include="Models\ModelProgram.cs" />
+    <Compile Include="Models\ModelRapot.cs" />
+    <Compile Include="Models\ModelRekomendasi.cs" />
+    <Compile Include="Models\ModelRekomendasiLingkungan.cs" />
+    <Compile Include="Models\ModelSearch.cs" />
+    <Compile Include="Models\ModelSetting.cs" />
+    <Compile Include="Models\ModelValidasiPost.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\AppResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\ViewModelBank.cs" />
+    <Compile Include="ViewModels\ViewModelDetailAnakAsuh.cs" />
+    <Compile Include="ViewModels\ViewModelDetailDonation.cs" />
+    <Compile Include="ViewModels\ViewModelDetailNews.cs" />
+    <Compile Include="ViewModels\ViewModelDonasi.cs" />
+    <Compile Include="ViewModels\ViewModelEnvironment.cs" />
+    <Compile Include="ViewModels\ViewModelGetKeranjang.cs" />
+    <Compile Include="ViewModels\ViewModelHasilFilter.cs" />
+    <Compile Include="ViewModels\ViewModelKeranjang.cs" />
+    <Compile Include="ViewModels\ViewModelKonfirmasi.cs" />
+    <Compile Include="ViewModels\ViewModelNews.cs" />
+    <Compile Include="ViewModels\ViewModelOrganization.cs" />
+    <Compile Include="ViewModels\ViewModelPassword.cs" />
+    <Compile Include="ViewModels\ViewModelProfileDonatur.cs" />
+    <Compile Include="ViewModels\ViewModelProgram.cs" />
+    <Compile Include="ViewModels\ViewModelRapot.cs" />
+    <Compile Include="ViewModels\ViewModelRekomendasi.cs" />
+    <Compile Include="ViewModels\ViewModelSearch.cs" />
+    <Compile Include="ViewModels\ViewModelSetting.cs" />
+    <Compile Include="Views\DetailDonation.xaml.cs">
+      <DependentUpon>DetailDonation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DonationPopUp.xaml.cs">
+      <DependentUpon>DonationPopUp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MapViewDetailsPage.xaml.cs">
+      <DependentUpon>MapViewDetailsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NewHomepage.xaml.cs">
+      <DependentUpon>NewHomepage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageDetailNews.xaml.cs">
+      <DependentUpon>PageDetailNews.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageDonasi.xaml.cs">
+      <DependentUpon>PageDonasi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageFilter.xaml.cs">
+      <DependentUpon>PageFilter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageForgotPass.xaml.cs">
+      <DependentUpon>PageForgotPass.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageHasilFilter.xaml.cs">
+      <DependentUpon>PageHasilFilter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageHome.xaml.cs">
+      <DependentUpon>PageHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageKeranjangDonasi.xaml.cs">
+      <DependentUpon>PageKeranjangDonasi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageKonfirmasi.xaml.cs">
+      <DependentUpon>PageKonfirmasi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageKonsultasi.xaml.cs">
+      <DependentUpon>PageKonsultasi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageLaporanTransaksi.xaml.cs">
+      <DependentUpon>PageLaporanTransaksi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageLoading.xaml.cs">
+      <DependentUpon>PageLoading.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageLogin.xaml.cs">
+      <DependentUpon>PageLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageMenu.xaml.cs">
+      <DependentUpon>PageMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageNearby.xaml.cs">
+      <DependentUpon>PageNearby.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageNews.xaml.cs">
+      <DependentUpon>PageNews.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PagePassword.xaml.cs">
+      <DependentUpon>PagePassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageProfileAnak.xaml.cs">
+      <DependentUpon>PageProfileAnak.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageProfileDonatur.xaml.cs">
+      <DependentUpon>PageProfileDonatur.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageProfilGBSA.xaml.cs">
+      <DependentUpon>PageProfilGBSA.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageRapotAnak.xaml.cs">
+      <DependentUpon>PageRapotAnak.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageRegister.xaml.cs">
+      <DependentUpon>PageRegister.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageRekomendasi.xaml.cs">
+      <DependentUpon>PageRekomendasi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageRekomendasiLingkungan.xaml.cs">
+      <DependentUpon>PageRekomendasiLingkungan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageSearch.xaml.cs">
+      <DependentUpon>PageSearch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageSetting.xaml.cs">
+      <DependentUpon>PageSetting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageStart.xaml.cs">
+      <DependentUpon>PageStart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageStart1.xaml.cs">
+      <DependentUpon>PageStart1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageStart2.xaml.cs">
+      <DependentUpon>PageStart2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageStart3.xaml.cs">
+      <DependentUpon>PageStart3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageStart4.xaml.cs">
+      <DependentUpon>PageStart4.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageTentang.xaml.cs">
+      <DependentUpon>PageTentang.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UCCustomToolTip.xaml.cs">
+      <DependentUpon>UCCustomToolTip.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+    <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DetailDonation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DonationPopUp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MapViewDetailsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NewHomepage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PageDetailNews.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PageDonasi.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PageFilter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PageForgotPass.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PageHasilFilter.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PageHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PageKeranjangDonasi.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PageKonfirmasi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PageKonsultasi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PageLaporanTransaksi.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PageLoading.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PageLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PageMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PageNearby.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PageNews.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PagePassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PageProfileAnak.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PageProfileDonatur.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PageProfilGBSA.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PageRapotAnak.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PageRegister.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PageRekomendasi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PageRekomendasiLingkungan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PageSearch.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PageSetting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PageStart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PageStart1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PageStart2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PageStart3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PageStart4.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PageTentang.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UCCustomToolTip.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\AppManifest.xml" />
+    <None Include="Properties\WMAppManifest.xml">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\10624671_992033550812550_3110916633634790844_n.jpg" />
+    <Content Include="Assets\AlignmentGrid.png" />
+    <Content Include="Assets\AppBar1\feature.email.png" />
+    <Content Include="Assets\AppBar\check.png" />
+    <Content Include="Assets\AppBar\Document-Download.png" />
+    <Content Include="Assets\AppBar\Documents.png" />
+    <Content Include="Assets\AppBar\flower116.png" />
+    <Content Include="Assets\AppBar\heart316.png" />
+    <Content Include="Assets\AppBar\message30.png" />
+    <Content Include="Assets\AppBar\Previous.png" />
+    <Content Include="Assets\AppBar\Refresh.png" />
+    <Content Include="Assets\AppBar\Settings.png" />
+    <Content Include="Assets\AppBar\shopping111.png" />
+    <Content Include="Assets\AppBar\Submit.png" />
+    <Content Include="Assets\ApplicationIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Icons\baa.png" />
+    <Content Include="Assets\Icons\ic_125_markorang.png" />
+    <Content Include="Assets\Icons\ic_256_camera.png" />
+    <Content Include="Assets\Icons\ic_256_marker.png" />
+    <Content Include="Assets\Icons\ic_25_mylocat.png" />
+    <Content Include="Assets\Icons\ic_32_about.png" />
+    <Content Include="Assets\Icons\ic_32_checklist.png" />
+    <Content Include="Assets\Icons\ic_32_donasi.png" />
+    <Content Include="Assets\Icons\ic_32_filter.png" />
+    <Content Include="Assets\Icons\ic_32_gbsa.png" />
+    <Content Include="Assets\Icons\ic_32_getdirection.png" />
+    <Content Include="Assets\Icons\ic_32_home.png" />
+    <Content Include="Assets\Icons\ic_32_konfirmasi.png" />
+    <Content Include="Assets\Icons\ic_32_konsultasi.png" />
+    <Content Include="Assets\Icons\ic_32_laporan.png" />
+    <Content Include="Assets\Icons\ic_32_logout.png" />
+    <Content Include="Assets\Icons\ic_32_menu.png" />
+    <Content Include="Assets\Icons\ic_32_nearby.png" />
+    <Content Include="Assets\Icons\ic_32_news.png" />
+    <Content Include="Assets\Icons\ic_32_rapor.png" />
+    <Content Include="Assets\Icons\ic_32_search.png" />
+    <Content Include="Assets\Icons\ic_32_swipe.png" />
+    <Content Include="Assets\Icons\ic_48_anak.png" />
+    <Content Include="Assets\Icons\ic_48_back_button.png" />
+    <Content Include="Assets\Icons\ic_48_checklist.png" />
+    <Content Include="Assets\Icons\ic_48_donasi.png" />
+    <Content Include="Assets\Icons\ic_48_donlod.png" />
+    <Content Include="Assets\Icons\ic_48_facebook.png" />
+    <Content Include="Assets\Icons\ic_48_filter.png" />
+    <Content Include="Assets\Icons\ic_48_getdirection.png" />
+    <Content Include="Assets\Icons\ic_48_home.png" />
+    <Content Include="Assets\Icons\ic_48_mail.png" />
+    <Content Include="Assets\Icons\ic_48_menu.png" />
+    <Content Include="Assets\Icons\ic_48_mylocat.png" />
+    <Content Include="Assets\Icons\ic_48_nearby.png" />
+    <Content Include="Assets\Icons\ic_48_news.png" />
+    <Content Include="Assets\Icons\ic_48_phone.png" />
+    <Content Include="Assets\Icons\ic_48_search.png" />
+    <Content Include="Assets\Icons\ic_48_setting.png" />
+    <Content Include="Assets\Icons\ic_48_user.png" />
+    <Content Include="Assets\Icons\ic_child_slider.png" />
+    <Content Include="Assets\Icons\ic_give_slider.png" />
+    <Content Include="Assets\Icons\ic_logos.png" />
+    <Content Include="Assets\Icons\ic_report_slider.png" />
+    <Content Include="Assets\Icons\ic_side_gbsa.png" />
+    <Content Include="Assets\Icons\ic_slide_next.png" />
+    <Content Include="Assets\Icons\ic_status.png" />
+    <Content Include="Assets\Icons\ic_rekomendasi.png" />
+    <Content Include="Assets\Images\baa imagine cup biru.png" />
+    <Content Include="Assets\Images\baa imagine cup.png" />
+    <Content Include="Assets\Images\bg1.png" />
+    <Content Include="Assets\Images\bg2.png" />
+    <Content Include="Assets\Images\bg3.png" />
+    <Content Include="Assets\Images\bg4.png" />
+    <Content Include="Assets\Images\cr1.png" />
+    <Content Include="Assets\Images\cr2.png" />
+    <Content Include="Assets\Images\cr3.png" />
+    <Content Include="Assets\Images\ic_logo_launcha.png" />
+    <Content Include="Assets\Images\im_child1.jpg" />
+    <Content Include="Assets\Images\im_child2.jpg" />
+    <Content Include="Assets\Images\im_child3.jpg" />
+    <Content Include="Assets\Images\im_child4.jpg" />
+    <Content Include="Assets\Images\im_child5.jpg" />
+    <Content Include="Assets\Images\im_fachrel.JPG" />
+    <Content Include="Assets\Images\im_pratiwialfiah.png" />
+    <Content Include="Assets\Images\im_timgbsa.jpg" />
+    <Content Include="Assets\Images\logo gbsa.png" />
+    <Content Include="Assets\Images\Solidare %28biru%29.png" />
+    <Content Include="Assets\Images\Solidare.png" />
+    <Content Include="Assets\logo.png" />
+    <Content Include="Assets\logo2.png" />
+    <Content Include="Assets\Marker-White.png" />
+    <Content Include="Assets\Report-Logo.png" />
+    <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Tiles\FlipCycleTileMedium.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Tiles\FlipCycleTileSmall.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Tiles\IconicTileMediumLarge.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Tiles\IconicTileSmall.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Timeline-Logo.png" />
+    <Content Include="Assets\wallrecomend.png" />
+    <Content Include="ic_logo.png" />
+    <Content Include="README_FIRST.txt" />
+    <Content Include="Toolkit.Content\ApplicationBar.Add.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Check.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Delete.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Select.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Upload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\AppResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Reference Include="MapPushpinSample">
+      <HintPath>..\..\..\Project\Crimezone\Crimezone - New\packages\MapPushpinSample.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=3.9.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Phone.Controls.Maps, Version=8.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Phone.Controls.Toolkit">
+      <HintPath>..\packages\WPtoolkit.4.2013.08.16\lib\wp8\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.0.3.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Project\Crimezone\Crimezone - New\Crimezone - New\Bin\Release\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp.WindowsPhone">
+      <HintPath>..\..\..\Project\Crimezone\Crimezone - New\packages\RestSharp.WindowsPhone.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <HintPath>E:\LAPORAN RPL\APLIKASI\MENTAH\dapurmasak.com\dapurmasak.com\Bin\Debug\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions">
+      <HintPath>E:\LAPORAN RPL\APLIKASI\MENTAH\dapurmasak.com\dapurmasak.com\Bin\Debug\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives">
+      <HintPath>E:\LAPORAN RPL\APLIKASI\MENTAH\dapurmasak.com\dapurmasak.com\Bin\Debug\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Interactivity, Version=3.9.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions />
+</Project>

@@ -1,0 +1,140 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="BantuAnakAsuh.Views.PageHome"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:ec="clr-namespace:Microsoft.Expression.Interactivity.Core;assembly=Microsoft.Expression.Interactions"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    shell:SystemTray.IsVisible="False">
+
+
+    <toolkit:TransitionService.NavigationInTransition>
+        <toolkit:NavigationInTransition>
+            <toolkit:NavigationInTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardIn"/>
+            </toolkit:NavigationInTransition.Backward>
+            <toolkit:NavigationInTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardIn"/>
+            </toolkit:NavigationInTransition.Forward>
+        </toolkit:NavigationInTransition>
+    </toolkit:TransitionService.NavigationInTransition>
+    <toolkit:TransitionService.NavigationOutTransition>
+        <toolkit:NavigationOutTransition>
+            <toolkit:NavigationOutTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardOut"/>
+            </toolkit:NavigationOutTransition.Backward>
+            <toolkit:NavigationOutTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardOut"/>
+            </toolkit:NavigationOutTransition.Forward>
+        </toolkit:NavigationOutTransition>
+    </toolkit:TransitionService.NavigationOutTransition>
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="#E6E6E6">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="#FF032754">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="403*"/>
+                <ColumnDefinition Width="77*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="DONASI" Foreground="White" VerticalAlignment="Center" Margin="25,0,0,0"/>
+            <Grid Grid.Column="1" Background="#00365A"/>
+            <Image x:Name="buttonMenu" Grid.Column="1" Source="/Assets/Icons/ic_48_menu.png" Stretch="UniformToFill" Width="40" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Height="40" Tap="buttonMenu_Tap"/>
+        </Grid>
+
+        <ListBox Grid.Row="1" x:Name="ListDonasi" ItemsSource="{Binding CollectionDonasi}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Grid.Row="1" Width="480" Height="164" VerticalAlignment="Top">
+                        <StackPanel>
+                            <Grid Height="150">
+                                <Grid.Background>
+                                    <SolidColorBrush Color="White" Opacity="1"/>
+                                </Grid.Background>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="180"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Ellipse Width="120" Height="120" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,30,0">
+                                    <Ellipse.Fill>
+                                        <ImageBrush ImageSource="{Binding foto_anak}" Stretch="UniformToFill"/>
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                                <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                                    <TextBlock Text="{Binding nama_anak_asuh}" TextWrapping="Wrap" Foreground="#FF032754" FontSize="24" FontFamily="Segoe WP Semibold" Width="200" HorizontalAlignment="Left"/>
+                                    <TextBlock Text="{Binding status_anak}" FontFamily="Segoe WP SemiLight" FontSize="16" Foreground="#FF032754" Margin="0,5,0,0"/>
+                                    <TextBlock Text="{Binding jenjang_pendidikan}" FontFamily="Segoe WP SemiLight" FontSize="16" Foreground="#FF032754"/>
+                                </StackPanel>
+                            </Grid>
+                            <Border Background="#FF999999" Height="2"/>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+
+
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <i:InvokeCommandAction Command="{Binding SetDonasi}" 
+                                                   CommandParameter="{Binding Path=SelectedItem, ElementName=ListDonasi}"/>
+                    <ec:NavigateToPageAction TargetPage="/Views/PageProfileAnak.xaml" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </ListBox>
+
+        <!--<ListBox Grid.Row="1" x:Name="ListDonasi" ItemsSource="{Binding CollectionDonasi}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Height="280" Width="480" Background="White">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="3*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Grid.Background>
+                                <ImageBrush ImageSource="{Binding foto_anak}" Stretch="UniformToFill"/>
+                            </Grid.Background>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.25*"/>
+                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition Width="0.5*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Margin="10,0,0,0" TextWrapping="Wrap" Foreground="#FF062D5A" TextAlignment="Center" Grid.Column="0" Text="{Binding nama_anak_asuh}" VerticalAlignment="Center" HorizontalAlignment="Left" FontWeight="Bold" FontSize="14"/>
+                            <Image Grid.Column="1" Width="25" Height="25" Source="/Assets/icons/ic_status.png" Stretch="Fill"/>
+                            <StackPanel Grid.Column="2" Orientation="Vertical" VerticalAlignment="Center" Margin="5,10">
+                                <TextBlock HorizontalAlignment="Left" Margin="0" TextWrapping="Wrap" Text="{Binding status_anak}" VerticalAlignment="Top" Foreground="#FF062D5A" FontSize="14" />
+                                <TextBlock HorizontalAlignment="Left" Margin="0" TextWrapping="Wrap" Text="{Binding jenjang_pendidikan}" VerticalAlignment="Top" Foreground="#FF062D5A" FontSize="14" />
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <i:InvokeCommandAction Command="{Binding SetDonasi}" 
+                                                   CommandParameter="{Binding Path=SelectedItem, ElementName=ListDonasi}"/>
+                    <ec:NavigateToPageAction TargetPage="/Views/PageProfileAnak.xaml" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </ListBox>-->
+    </Grid>
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="False" BackgroundColor="White" Opacity="0.925" ForegroundColor="#FF062D5A" Mode="Default">
+            <shell:ApplicationBarIconButton x:Name="apbarNearby" IconUri="/Assets/icons/ic_48_nearby.png" Text="nearby" Click="apbarNearby_Click"/>
+            <shell:ApplicationBarIconButton x:Name="apbarFilter" IconUri="/Assets/icons/ic_48_filter.png" Text="filter" Click="apbarFilter_Click"/>
+            <shell:ApplicationBarIconButton x:Name="apbarSearch" IconUri="/Assets/icons/ic_48_search.png" Text="search" Click="apbarSearch_Click"/>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+</phone:PhoneApplicationPage>

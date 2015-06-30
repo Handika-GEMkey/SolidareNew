@@ -1,0 +1,99 @@
+﻿<phone:PhoneApplicationPage
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:maps="clr-namespace:Microsoft.Phone.Maps.Controls;assembly=Microsoft.Phone.Maps"
+    x:Class="BantuAnakAsuh.Views.PageKonsultasi"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    xmlns:my="clr-namespace:Microsoft.Phone.Controls.Maps;assembly=Microsoft.Phone.Controls.Maps"  
+        xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    shell:SystemTray.IsVisible="False">
+
+
+    <toolkit:TransitionService.NavigationInTransition>
+        <toolkit:NavigationInTransition>
+            <toolkit:NavigationInTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardIn"/>
+            </toolkit:NavigationInTransition.Backward>
+            <toolkit:NavigationInTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardIn"/>
+            </toolkit:NavigationInTransition.Forward>
+        </toolkit:NavigationInTransition>
+    </toolkit:TransitionService.NavigationInTransition>
+    <toolkit:TransitionService.NavigationOutTransition>
+        <toolkit:NavigationOutTransition>
+            <toolkit:NavigationOutTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardOut"/>
+            </toolkit:NavigationOutTransition.Backward>
+            <toolkit:NavigationOutTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardOut"/>
+            </toolkit:NavigationOutTransition.Forward>
+        </toolkit:NavigationOutTransition>
+    </toolkit:TransitionService.NavigationOutTransition>
+
+
+
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="61"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="#FF032754" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="403*"/>
+                <ColumnDefinition Width="77*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="CONSULTATION" Foreground="White" VerticalAlignment="Center" Margin="25,0,0,0"/>
+            <Grid Grid.Column="1" Background="#00365A"/>
+            <Image x:Name="buttonMenu" Grid.Column="1" Source="/Assets/Icons/ic_48_menu.png" Stretch="UniformToFill" Width="40" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Height="40" Tap="buttonMenu_Tap"/>
+        </Grid>
+        <my:Map CredentialsProvider="AshKWOaqn6cAspjH4tAotTVjqqgF49jI2TLTZ-lY7gE1OrGo0-7Lh0QsT1odNMPe" Center="-6.934801, 107.629852" ZoomBarVisibility="Collapsed" ZoomLevel="12" Grid.Row="1"  x:Name="map">
+            <my:Pushpin x:Name="pushPin" Location="-6.934801, 107.629852" >
+                <my:Pushpin.Template>
+                    <ControlTemplate TargetType="my:Pushpin">
+                        <StackPanel>
+                            <ContentPresenter x:Name="content" HorizontalAlignment="Center"
+                                              Content="{TemplateBinding Content}"
+                                             />
+                            <Path 
+							Data="M0,0 L0,1 L1,0"
+							Fill="{TemplateBinding Background}"
+							Stretch="Fill"
+							Margin="15,0,32,0"
+							Height="12"
+							Width="18"
+							Visibility="{Binding RelativeSource={RelativeSource TemplatedParent},
+Path=Content.Visibility, Mode=TwoWay}"
+							HorizontalAlignment="Left" />
+                            <Image Source="/Assets/Icons/ic_256_marker.png" HorizontalAlignment="Left" Width="60" Height="60"/>
+                        </StackPanel>
+                    </ControlTemplate>
+                </my:Pushpin.Template>
+                <my:Pushpin.Content>
+                    <Border Background="Black"  Width="200" Visibility="Visible" x:Name="border"  HorizontalAlignment="Center" Margin="-120,0,0,0" >
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Rumah Zakat" Margin="0,10" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </Border>
+                </my:Pushpin.Content>
+            </my:Pushpin>
+        </my:Map>
+
+    </Grid>
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="False" BackgroundColor="White" Opacity="0.925" ForegroundColor="#FF062D5A" Mode="Default">
+            <shell:ApplicationBarIconButton x:Name="buttonGetdirection" IconUri="/Assets/icons/ic_48_getdirection.png" Text="direction" Click="buttonGetdirection_Click"/>
+            <shell:ApplicationBarIconButton x:Name="buttonPhone" IconUri="/Assets/icons/ic_48_phone.png" Text="call" Click="buttonPhone_Click"/>
+            <shell:ApplicationBarIconButton x:Name="buttonMail" IconUri="/Assets/icons/ic_48_mail.png" Text="email" Click="buttonMail_Click" />
+            <shell:ApplicationBarIconButton x:Name="buttonFacebook" IconUri="/Assets/icons/ic_48_facebook.png" Text="facebook" Click="buttonFacebook_Click" />
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+</phone:PhoneApplicationPage>

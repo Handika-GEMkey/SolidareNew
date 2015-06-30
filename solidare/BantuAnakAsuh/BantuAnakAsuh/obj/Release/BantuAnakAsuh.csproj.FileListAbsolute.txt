@@ -1,0 +1,415 @@
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\App.g.cs
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\MainPage.g.cs
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageDetailNews.g.cs
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageDonasi.g.cs
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageFilter.g.cs
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageForgotPass.g.cs
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageHasilFilter.g.cs
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageHome.g.cs
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageKeranjangDonasi.g.cs
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageKonfirmasi.g.cs
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageKonsultasi.g.cs
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageLaporanTransaksi.g.cs
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageLogin.g.cs
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageMenu.g.cs
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageNearby.g.cs
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageNews.g.cs
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageProfileAnak.g.cs
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageProfileDonatur.g.cs
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageProfilGBSA.g.cs
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageRapotAnak.g.cs
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageRegister.g.cs
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageSearch.g.cs
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageSetting.g.cs
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageStart.g.cs
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageStart1.g.cs
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageStart2.g.cs
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageStart3.g.cs
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageStart4.g.cs
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageTentang.g.cs
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\BantuAnakAsuh.g.resources
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\BantuAnakAsuh.Resources.AppResources.resources
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\BantuAnakAsuh.csproj.GenerateResource.Cache
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\Assets\ApplicationIcon.png
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\Assets\Tiles\FlipCycleTileLarge.png
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\Assets\Tiles\FlipCycleTileMedium.png
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\Assets\Tiles\FlipCycleTileSmall.png
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\Assets\Tiles\IconicTileMediumLarge.png
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\Assets\Tiles\IconicTileSmall.png
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\BantuAnakAsuh.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\BantuAnakAsuh.pdb
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\AppManifest.xaml
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\Properties\WMAppManifest.xml
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\dapurmasak.com_Release_AnyCPU.xap
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\Microsoft.Expression.Interactions.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\Microsoft.Phone.Controls.Maps.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\Microsoft.Phone.Controls.Toolkit.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\Newtonsoft.Json.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\System.Net.Http.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\System.Net.Http.Extensions.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\System.Net.Http.Primitives.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\System.Windows.Interactivity.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\Newtonsoft.Json.pdb
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\Newtonsoft.Json.xml
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\System.Net.Http.xml
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\System.Net.Http.Extensions.xml
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\System.Net.Http.Primitives.xml
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\de\Microsoft.Expression.Interactions.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\en\Microsoft.Expression.Interactions.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\es\Microsoft.Expression.Interactions.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\fr\Microsoft.Expression.Interactions.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\it\Microsoft.Expression.Interactions.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\ja\Microsoft.Expression.Interactions.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\ko\Microsoft.Expression.Interactions.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\ru\Microsoft.Expression.Interactions.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\zh-Hans\Microsoft.Expression.Interactions.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\zh-Hant\Microsoft.Expression.Interactions.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\ar-SA\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\az-Latn-AZ\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\be-BY\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\bg-BG\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\ca-ES\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\cs-CZ\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\da-DK\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\de-DE\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\el-GR\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\en-GB\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\es-ES\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\es-MX\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\et-EE\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\fa-IR\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\fi-FI\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\fil-PH\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\fr-CA\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\fr-FR\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\he-IL\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\hi-IN\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\hr-HR\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\hu-HU\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\id-ID\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\it-IT\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\ja-JP\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\kk-KZ\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\ko-KR\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\lt-LT\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\lv-LV\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\mk-MK\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\ms-MY\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\nb-NO\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\nl-NL\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\pl-PL\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\pt-BR\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\pt-PT\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\ro-RO\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\ru-RU\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\sk-SK\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\sl-SI\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\sq-AL\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\sr-Latn-CS\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\sv-SE\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\th-TH\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\tr-TR\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\uk-UA\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\uz-Latn-UZ\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\vi-VN\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\zh-CN\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\zh-TW\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\de\System.Windows.Interactivity.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\en\System.Windows.Interactivity.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\es\System.Windows.Interactivity.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\fr\System.Windows.Interactivity.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\it\System.Windows.Interactivity.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\ja\System.Windows.Interactivity.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\ko\System.Windows.Interactivity.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\ru\System.Windows.Interactivity.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\zh-Hans\System.Windows.Interactivity.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\zh-Hant\System.Windows.Interactivity.resources.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\BantuAnakAsuh.dll
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\BantuAnakAsuh.pdb
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\XapCacheFile.xml
+C:\Users\Alih Purwandius\documents\visual studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\BantuAnakAsuh.csprojResolveAssemblyReference.cache
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\Assets\ApplicationIcon.png
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\Assets\Tiles\FlipCycleTileLarge.png
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\Assets\Tiles\FlipCycleTileMedium.png
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\Assets\Tiles\FlipCycleTileSmall.png
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\Assets\Tiles\IconicTileMediumLarge.png
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\Assets\Tiles\IconicTileSmall.png
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\BantuAnakAsuh.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\BantuAnakAsuh.pdb
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\AppManifest.xaml
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\Properties\WMAppManifest.xml
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\dapurmasak.com_Release_AnyCPU.xap
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\Microsoft.Expression.Interactions.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\Microsoft.Phone.Controls.Maps.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\Microsoft.Phone.Controls.Toolkit.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\System.Windows.Interactivity.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\Newtonsoft.Json.pdb
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\Newtonsoft.Json.xml
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\System.Net.Http.xml
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\System.Net.Http.Extensions.xml
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\System.Net.Http.Primitives.xml
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\de\Microsoft.Expression.Interactions.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\en\Microsoft.Expression.Interactions.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\es\Microsoft.Expression.Interactions.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\fr\Microsoft.Expression.Interactions.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\it\Microsoft.Expression.Interactions.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\ja\Microsoft.Expression.Interactions.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\ko\Microsoft.Expression.Interactions.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\ru\Microsoft.Expression.Interactions.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\zh-Hans\Microsoft.Expression.Interactions.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\zh-Hant\Microsoft.Expression.Interactions.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\ar-SA\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\az-Latn-AZ\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\be-BY\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\bg-BG\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\ca-ES\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\cs-CZ\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\da-DK\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\de-DE\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\el-GR\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\en-GB\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\es-ES\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\es-MX\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\et-EE\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\fa-IR\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\fi-FI\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\fil-PH\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\fr-CA\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\fr-FR\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\he-IL\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\hi-IN\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\hr-HR\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\hu-HU\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\id-ID\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\it-IT\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\ja-JP\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\kk-KZ\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\ko-KR\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\lt-LT\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\lv-LV\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\mk-MK\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\ms-MY\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\nb-NO\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\nl-NL\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\pl-PL\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\pt-BR\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\pt-PT\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\ro-RO\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\ru-RU\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\sk-SK\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\sl-SI\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\sq-AL\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\sr-Latn-CS\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\sv-SE\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\th-TH\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\tr-TR\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\uk-UA\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\uz-Latn-UZ\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\vi-VN\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\zh-CN\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\zh-TW\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\de\System.Windows.Interactivity.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\en\System.Windows.Interactivity.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\es\System.Windows.Interactivity.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\fr\System.Windows.Interactivity.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\it\System.Windows.Interactivity.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\ja\System.Windows.Interactivity.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\ko\System.Windows.Interactivity.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\ru\System.Windows.Interactivity.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\zh-Hans\System.Windows.Interactivity.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\zh-Hant\System.Windows.Interactivity.resources.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\BantuAnakAsuh.csprojResolveAssemblyReference.cache
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\App.g.cs
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\MainPage.g.cs
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageDetailNews.g.cs
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageDonasi.g.cs
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageFilter.g.cs
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageForgotPass.g.cs
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageHasilFilter.g.cs
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageHome.g.cs
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageKeranjangDonasi.g.cs
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageKonfirmasi.g.cs
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageKonsultasi.g.cs
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageLaporanTransaksi.g.cs
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageLogin.g.cs
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageMenu.g.cs
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageNearby.g.cs
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageNews.g.cs
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageProfileAnak.g.cs
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageProfileDonatur.g.cs
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageProfilGBSA.g.cs
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageRapotAnak.g.cs
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageRegister.g.cs
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageSearch.g.cs
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageSetting.g.cs
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageStart.g.cs
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageStart1.g.cs
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageStart2.g.cs
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageStart3.g.cs
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageStart4.g.cs
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageTentang.g.cs
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\BantuAnakAsuh.g.resources
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\BantuAnakAsuh.Resources.AppResources.resources
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\BantuAnakAsuh.csproj.GenerateResource.Cache
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\BantuAnakAsuh.dll
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\BantuAnakAsuh.pdb
+C:\Users\Alih Purwandi\Downloads\Project\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\XapCacheFile.xml
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\Assets\ApplicationIcon.png
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\Assets\Tiles\FlipCycleTileLarge.png
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\Assets\Tiles\FlipCycleTileMedium.png
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\Assets\Tiles\FlipCycleTileSmall.png
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\Assets\Tiles\IconicTileMediumLarge.png
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\Assets\Tiles\IconicTileSmall.png
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\BantuAnakAsuh.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\BantuAnakAsuh.pdb
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\AppManifest.xaml
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\Properties\WMAppManifest.xml
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\dapurmasak.com_Release_AnyCPU.xap
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\Microsoft.Expression.Interactions.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\Microsoft.Phone.Controls.Maps.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\Microsoft.Phone.Controls.Toolkit.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\System.Windows.Interactivity.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\de\Microsoft.Expression.Interactions.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\en\Microsoft.Expression.Interactions.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\es\Microsoft.Expression.Interactions.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\fr\Microsoft.Expression.Interactions.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\it\Microsoft.Expression.Interactions.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\ja\Microsoft.Expression.Interactions.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\ko\Microsoft.Expression.Interactions.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\ru\Microsoft.Expression.Interactions.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\zh-Hans\Microsoft.Expression.Interactions.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\zh-Hant\Microsoft.Expression.Interactions.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\ar-SA\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\az-Latn-AZ\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\be-BY\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\bg-BG\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\ca-ES\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\cs-CZ\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\da-DK\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\de-DE\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\el-GR\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\en-GB\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\es-ES\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\es-MX\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\et-EE\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\fa-IR\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\fi-FI\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\fil-PH\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\fr-CA\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\fr-FR\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\he-IL\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\hi-IN\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\hr-HR\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\hu-HU\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\id-ID\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\it-IT\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\ja-JP\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\kk-KZ\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\ko-KR\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\lt-LT\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\lv-LV\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\mk-MK\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\ms-MY\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\nb-NO\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\nl-NL\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\pl-PL\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\pt-BR\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\pt-PT\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\ro-RO\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\ru-RU\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\sk-SK\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\sl-SI\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\sq-AL\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\sr-Latn-CS\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\sv-SE\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\th-TH\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\tr-TR\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\uk-UA\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\uz-Latn-UZ\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\vi-VN\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\zh-CN\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\zh-TW\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\de\System.Windows.Interactivity.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\en\System.Windows.Interactivity.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\es\System.Windows.Interactivity.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\fr\System.Windows.Interactivity.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\it\System.Windows.Interactivity.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\ja\System.Windows.Interactivity.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\ko\System.Windows.Interactivity.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\ru\System.Windows.Interactivity.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\zh-Hans\System.Windows.Interactivity.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\Bin\Release\zh-Hant\System.Windows.Interactivity.resources.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\BantuAnakAsuh.csprojResolveAssemblyReference.cache
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\App.g.cs
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\MainPage.g.cs
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageDetailNews.g.cs
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageDonasi.g.cs
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageFilter.g.cs
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageForgotPass.g.cs
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageHasilFilter.g.cs
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageHome.g.cs
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageKeranjangDonasi.g.cs
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageKonfirmasi.g.cs
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageKonsultasi.g.cs
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageLaporanTransaksi.g.cs
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageLogin.g.cs
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageMenu.g.cs
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageNearby.g.cs
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageNews.g.cs
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageProfileAnak.g.cs
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageProfileDonatur.g.cs
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageProfilGBSA.g.cs
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageRapotAnak.g.cs
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageRegister.g.cs
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageSearch.g.cs
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageSetting.g.cs
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageStart.g.cs
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageStart1.g.cs
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageStart2.g.cs
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageStart3.g.cs
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageStart4.g.cs
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageTentang.g.cs
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\BantuAnakAsuh.g.resources
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\BantuAnakAsuh.Resources.AppResources.resources
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\BantuAnakAsuh.csproj.GenerateResource.Cache
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\BantuAnakAsuh.dll
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\BantuAnakAsuh.pdb
+C:\Users\Firdaus Akhmad M\Documents\Visual Studio 2013\Projects\BantuAnakAsuh\BantuAnakAsuh\obj\Release\XapCacheFile.xml
+I:\baa baru\BAA apps Imagine Cup\BantuAnakAsuh\BantuAnakAsuh\obj\Release\BantuAnakAsuh.csprojResolveAssemblyReference.cache
+I:\baa baru\BAA apps Imagine Cup\BantuAnakAsuh\BantuAnakAsuh\obj\Release\App.g.cs
+I:\baa baru\BAA apps Imagine Cup\BantuAnakAsuh\BantuAnakAsuh\obj\Release\MainPage.g.cs
+I:\baa baru\BAA apps Imagine Cup\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\MapViewDetailsPage.g.cs
+I:\baa baru\BAA apps Imagine Cup\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageDetailNews.g.cs
+I:\baa baru\BAA apps Imagine Cup\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageDonasi.g.cs
+I:\baa baru\BAA apps Imagine Cup\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageFilter.g.cs
+I:\baa baru\BAA apps Imagine Cup\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageForgotPass.g.cs
+I:\baa baru\BAA apps Imagine Cup\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageHasilFilter.g.cs
+I:\baa baru\BAA apps Imagine Cup\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageHome.g.cs
+I:\baa baru\BAA apps Imagine Cup\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageKeranjangDonasi.g.cs
+I:\baa baru\BAA apps Imagine Cup\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageKonfirmasi.g.cs
+I:\baa baru\BAA apps Imagine Cup\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageKonsultasi.g.cs
+I:\baa baru\BAA apps Imagine Cup\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageLaporanTransaksi.g.cs
+I:\baa baru\BAA apps Imagine Cup\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageLogin.g.cs
+I:\baa baru\BAA apps Imagine Cup\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageMenu.g.cs
+I:\baa baru\BAA apps Imagine Cup\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageNearby.g.cs
+I:\baa baru\BAA apps Imagine Cup\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageNews.g.cs
+I:\baa baru\BAA apps Imagine Cup\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageProfileAnak.g.cs
+I:\baa baru\BAA apps Imagine Cup\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageProfileDonatur.g.cs
+I:\baa baru\BAA apps Imagine Cup\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageProfilGBSA.g.cs
+I:\baa baru\BAA apps Imagine Cup\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageRapotAnak.g.cs
+I:\baa baru\BAA apps Imagine Cup\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageRegister.g.cs
+I:\baa baru\BAA apps Imagine Cup\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageRekomendasi.g.cs
+I:\baa baru\BAA apps Imagine Cup\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageSearch.g.cs
+I:\baa baru\BAA apps Imagine Cup\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageSetting.g.cs
+I:\baa baru\BAA apps Imagine Cup\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageStart.g.cs
+I:\baa baru\BAA apps Imagine Cup\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageStart1.g.cs
+I:\baa baru\BAA apps Imagine Cup\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageStart2.g.cs
+I:\baa baru\BAA apps Imagine Cup\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageStart3.g.cs
+I:\baa baru\BAA apps Imagine Cup\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageStart4.g.cs
+I:\baa baru\BAA apps Imagine Cup\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\PageTentang.g.cs
+I:\baa baru\BAA apps Imagine Cup\BantuAnakAsuh\BantuAnakAsuh\obj\Release\Views\UCCustomToolTip.g.cs
+I:\baa baru\BAA apps Imagine Cup\BantuAnakAsuh\BantuAnakAsuh\obj\Release\BantuAnakAsuh.g.resources
+I:\baa baru\BAA apps Imagine Cup\BantuAnakAsuh\BantuAnakAsuh\obj\Release\BantuAnakAsuh.Resources.AppResources.resources
+I:\baa baru\BAA apps Imagine Cup\BantuAnakAsuh\BantuAnakAsuh\obj\Release\BantuAnakAsuh.csproj.GenerateResource.Cache
+I:\baa baru\BAA apps Imagine Cup\BantuAnakAsuh\BantuAnakAsuh\obj\Release\BantuAnakAsuh.dll
+I:\baa baru\BAA apps Imagine Cup\BantuAnakAsuh\BantuAnakAsuh\obj\Release\BantuAnakAsuh.pdb

@@ -1,0 +1,87 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="BantuAnakAsuh.Views.PageKeranjangDonasi"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"  
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:ec="clr-namespace:Microsoft.Expression.Interactivity.Core;assembly=Microsoft.Expression.Interactions"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    shell:SystemTray.IsVisible="False">
+
+
+   
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="61"/>
+            <RowDefinition Height="43"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+       <ListBox Grid.RowSpan="3" Height="800">
+            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" Height="60" Width="480" Background="#0071BC" VerticalAlignment="Top">
+                <Grid x:Name="home" Width="70" Height="60">
+                    <Image x:Name="buttonMenu" Source="/Assets/Icons/ic_48_back_button.png" Stretch="UniformToFill" Width="50" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Height="50" Tap="buttonMenu_Tap"/>
+                </Grid>
+                <Grid Grid.Column="0">
+                   
+
+                    <TextBlock Text="DONATION LIST" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+                </Grid>
+            </StackPanel>
+            <Grid>
+                <ProgressBar x:Name="LoadingBar" Visibility="Visible" IsEnabled="False" IsIndeterminate="true" Height="4" HorizontalAlignment="Stretch" Foreground="#FF1565C0"/>
+
+                <ListBox Grid.Row="1"  x:Name="ListDonasix" ItemsSource="{Binding CollectionGetKeranjang}" Height="740" Width="480">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Width="480" Height="103"  HorizontalAlignment="Left" Tap="Grid_Tap" >
+                            <StackPanel Width="480">
+                                <Grid Height="100" Margin="-50,0,0,0">
+                                    <Grid.Background>
+                                        <SolidColorBrush Color="White" Opacity="1"/>
+                                    </Grid.Background>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="180"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Ellipse Width="70" Height="70" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,30,0">
+                                        <Ellipse.Fill>
+                                            <ImageBrush ImageSource="{Binding photo}" Stretch="UniformToFill"/>
+                                        </Ellipse.Fill>
+                                    </Ellipse>
+                                    <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                                        <TextBlock Text="{Binding children_name}" TextWrapping="Wrap" Foreground="Black" FontSize="18" FontFamily="Segoe WP Semibold" Width="400" HorizontalAlignment="Left"/>
+                                        <TextBlock Text="{Binding cha_org_name}" FontFamily="Segoe WP SemiLight" FontSize="14" Foreground="Black" Margin="0,2,0,0"/>
+                                        <TextBlock Text="{Binding pre_donation_time}" FontFamily="Segoe WP SemiLight" FontSize="14" Foreground="Black"/>
+                                    </StackPanel>
+                                </Grid>
+                                <Border Background="Black" Height="1" Width="480" Opacity="0.5"/>
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding SetDonasi}" 
+                                                           CommandParameter="{Binding Path=SelectedItem, ElementName=ListDonasix}"/>
+
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </ListBox>
+                
+            </Grid>
+        </ListBox>
+    </Grid>
+    
+
+</phone:PhoneApplicationPage>

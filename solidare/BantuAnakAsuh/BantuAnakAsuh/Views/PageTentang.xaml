@@ -1,0 +1,69 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="BantuAnakAsuh.Views.PageTentang"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    shell:SystemTray.IsVisible="False">
+
+
+    <toolkit:TransitionService.NavigationInTransition>
+        <toolkit:NavigationInTransition>
+            <toolkit:NavigationInTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardIn"/>
+            </toolkit:NavigationInTransition.Backward>
+            <toolkit:NavigationInTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardIn"/>
+            </toolkit:NavigationInTransition.Forward>
+        </toolkit:NavigationInTransition>
+    </toolkit:TransitionService.NavigationInTransition>
+    <toolkit:TransitionService.NavigationOutTransition>
+        <toolkit:NavigationOutTransition>
+            <toolkit:NavigationOutTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardOut"/>
+            </toolkit:NavigationOutTransition.Backward>
+            <toolkit:NavigationOutTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardOut"/>
+            </toolkit:NavigationOutTransition.Forward>
+        </toolkit:NavigationOutTransition>
+    </toolkit:TransitionService.NavigationOutTransition>
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="61"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="#FF032754">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="403*"/>
+                <ColumnDefinition Width="77*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="ABOUT US" Foreground="White" VerticalAlignment="Center" Margin="25,0,0,0"/>
+            <Grid Grid.Column="1" Background="#00365A"/>
+            <Image x:Name="buttonMenu" Grid.Column="1" Source="/Assets/Icons/ic_48_menu.png" Stretch="UniformToFill" Width="40" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Height="40" Tap="buttonMenu_Tap"/>
+        </Grid>
+        <StackPanel Grid.Row="1" Orientation="Vertical" Margin="31,40,31,0" VerticalAlignment="Top">
+            <TextBlock Text="Version 1.2" Foreground="#FF00365A" FontSize="24" Margin="0,0,0,10"/>
+            <TextBlock Text="" Foreground="#FF00365A" Margin="0" FontSize="10"/>
+            <TextBlock Text="Copyright 2015" Foreground="#FF00365A" FontSize="24" Margin="0,0,0,10"/>
+            <TextBlock Text="" Foreground="#FF00365A" Margin="0" FontSize="10"/>
+            <TextBlock Text="Developed by" Foreground="#FF00365A" FontSize="24"/>
+            <TextBlock Text="" Foreground="#FF00365A" Margin="0" FontSize="1"/>
+            <TextBlock Text="ALIX" Foreground="#FF00365A" Margin="5" FontSize="18"/>
+            <TextBlock Text="" Foreground="#FF00365A" Margin="0" FontSize="10"/>
+            <TextBlock Text="Powered by" Foreground="#FF00365A" FontSize="24"/>
+            <TextBlock Text="" Foreground="#FF00365A" Margin="0" FontSize="1"/>
+            <TextBlock Text="Microsoft" Foreground="#FF00365A" Margin="5" FontSize="18"/>
+        </StackPanel>
+    </Grid>
+
+</phone:PhoneApplicationPage>
