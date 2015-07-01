@@ -22,17 +22,22 @@ namespace BantuAnakAsuh.Views
 
         private void apBarResetPassword_Click(object sender, EventArgs e)
         {
-            this.LoadUrl(textBox_email.Text);
+            this.LoadUrl(textBox_email.Text, textBox_phone.Text);
         }
 
-        private void LoadUrl(string email_donatur)
+        private void LoadUrl(string email_donatur, string phone)
         {
             StringBuilder parameter = new StringBuilder();
             parameter.AppendFormat("{0}={1}&", "email_donatur", HttpUtility.UrlEncode(email_donatur));
+            parameter.AppendFormat("{0}={1}&", "phone", HttpUtility.UrlEncode(phone));
 
             if (email_donatur.Equals(""))
             {
                 MessageBox.Show("Input your email!");
+            }
+            else if (phone.Equals(""))
+            {
+                MessageBox.Show("Input your phone number!");
             }
             else
             {
@@ -43,7 +48,7 @@ namespace BantuAnakAsuh.Views
                     clientLogin.Headers[HttpRequestHeader.ContentLength] = parameter.Length.ToString();
 
                     clientLogin.UploadStringCompleted += new UploadStringCompletedEventHandler(uploadResetComplete);
-                    clientLogin.UploadStringAsync(new Uri(URL.BASE3 + "api/forgot/forgot.php"), "POST", parameter.ToString());
+                    clientLogin.UploadStringAsync(new Uri(URL.BASE3 + "APIv2/landing/forgot.php"), "POST", parameter.ToString());
                 }
                 catch
                 {
@@ -59,7 +64,7 @@ namespace BantuAnakAsuh.Views
                 JObject jresult = JObject.Parse(e.Result);
                 string Result = jresult["result"].ToString();
 
-                if (Result.Equals("sukses"))
+                if (Result.Equals("success"))
                 {
                     MessageBox.Show("Please check your email!");
                     NavigationService.Navigate(new Uri("/Views/PageStart4.xaml", UriKind.Relative));

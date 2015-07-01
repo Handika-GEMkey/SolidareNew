@@ -288,58 +288,58 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-
-
-
         <ScrollViewer Grid.Row="0" Grid.RowSpan="2">
-            <Grid Height="1120">
+            <Grid Height="800">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="61"/>
-                    <RowDefinition Height="43"/>
-                    <RowDefinition Height="200"/>
-                    <RowDefinition Height="130"/>
-                    <RowDefinition Height="130"/>
-                    <RowDefinition Height="130"/>
+                    <RowDefinition Height="150"/>
                     <RowDefinition Height="130"/>
                     <RowDefinition Height="130"/>
                     <RowDefinition Height="130"/>
                     <RowDefinition Height="130"/>
                     <RowDefinition Height="130"/>
                 </Grid.RowDefinitions>
-                <TextBlock Grid.Row="0" TextWrapping="Wrap" Text="SETTING" Foreground="#FF032754" Margin="25,25,103,0" FontSize="22" VerticalAlignment="Top" />
-                <StackPanel Grid.Row="2" Orientation="Horizontal">
+                <!--<TextBlock Grid.Row="0" TextWrapping="Wrap" Text="SETTING" Foreground="#FF032754" Margin="25,25,103,0" FontSize="22" VerticalAlignment="Top" />-->
+                <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" Height="60" Width="480" Background="#0071BC" VerticalAlignment="Top">
+                    <Grid x:Name="home" Grid.Column="0" Width="70" Height="60">
+                        <Image x:Name="buttonMenu" Source="/Assets/Icons/ic_48_back_button.png" Stretch="UniformToFill" Width="50" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Height="50" Tap="buttonMenu_Tap"/>
+                    </Grid>
+                    <Grid Grid.Column="0">
+                        <TextBlock Text="SETTING" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+                    </Grid>
+                </StackPanel>
+
+                <StackPanel Grid.Row="1" Orientation="Horizontal">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="150"/>
-                        </Grid.ColumnDefinitions>                        
+                        </Grid.ColumnDefinitions>
                         <Ellipse Grid.Column="0" Height="100" Width="100"  VerticalAlignment="Center">
                             <Ellipse.Fill>
-                                <ImageBrush x:Name="imgDonatur" Stretch="UniformToFill" ImageSource="{Binding FotoDonatur}"/>
+                                <ImageBrush x:Name="imgDonatur" Stretch="UniformToFill" ImageSource="{Binding Photo}"/>
                             </Ellipse.Fill>
                         </Ellipse>
                     </Grid>
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="100"/>
-                            <RowDefinition Height="120"/>
+                            <RowDefinition Height="80"/>
+                            <RowDefinition Height="80"/>
                         </Grid.RowDefinitions>
-                        <Button Grid.Row="0" Margin="0,30,0,0" Command="{Binding GetImage}">
+                        <Button Grid.Row="0" Command="{Binding GetImage}">
                             <Button.Content>
-                                <TextBlock Width="300" x:Name="buttonChangePhoto" TextWrapping="Wrap" Text="Change Your Photo" Foreground="#FF00365A" FontSize="22" TextDecorations="Underline"/>
+                                <TextBlock Margin="0,10,0,0" Width="300" x:Name="buttonChangePhoto" TextWrapping="Wrap" Text="Change Your Photo" Foreground="#FF00365A" FontSize="16" TextDecorations="Underline"/>
                             </Button.Content>
                         </Button>
-                        <Button Grid.Row="1" Margin="0,0,0,50" >
+                        <Button Grid.Row="1" >
                             <Button.Content>
-                                <TextBlock Width="300" x:Name="buttonChangePassword" TextWrapping="Wrap" Text="Change Your Password" Foreground="#FF00365A" FontSize="22" TextDecorations="Underline" Tap="buttonChangePassword_Tap"/>
+                                <TextBlock Margin="0,0,0,10" Width="300" x:Name="buttonChangePassword" TextWrapping="Wrap" Text="Change Your Password" Foreground="#FF00365A" FontSize="16" TextDecorations="Underline" Tap="buttonChangePassword_Tap"/>
                             </Button.Content>
                         </Button>
                     </Grid>
-                    
-                    
                 </StackPanel>
-                <StackPanel Grid.Row="3" VerticalAlignment="Bottom" >
+                <StackPanel Grid.Row="2" VerticalAlignment="Bottom" >
                     <TextBlock TextWrapping="Wrap" Text="Username" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
-                    <TextBox x:Name="textUsername" Text="{Binding Username, Mode=TwoWay}"  FontSize="22"  Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754" />
+                    <TextBox x:Name="textUsername" Text="{Binding Name, Mode=TwoWay}"  FontSize="22"  Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754" />
                 </StackPanel>
                 <!--<StackPanel Grid.Row="4" VerticalAlignment="Bottom" >
                     <TextBlock TextWrapping="Wrap" Text="New Password" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
@@ -349,34 +349,40 @@
                     <TextBlock TextWrapping="Wrap" Text="Confirm New Password" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
                     <PasswordBox x:Name="textConfirmPassword" FontSize="22" Password="{Binding ConPassword, Mode=TwoWay}" Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource PasswordKu}" Foreground="#FF032754" />
                 </StackPanel>-->
-                <StackPanel Grid.Row="4" VerticalAlignment="Bottom" >
+                <StackPanel Grid.Row="3" VerticalAlignment="Bottom" >
                     <TextBlock TextWrapping="Wrap" Text="Email" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
                     <TextBox x:Name="textEmail" Text="{Binding Email, Mode=TwoWay}" FontSize="22"  Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754" />
                 </StackPanel>
-                <StackPanel Grid.Row="5" VerticalAlignment="Bottom" >
+                <StackPanel Grid.Row="4" VerticalAlignment="Bottom" >
                     <TextBlock TextWrapping="Wrap" Text="Phone Number" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
-                    <TextBox x:Name="textPhone" InputScope="Number" Text="{Binding No_tlp, Mode=TwoWay}" FontSize="22"  Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754" />
+                    <TextBox x:Name="textPhone" InputScope="Number" Text="{Binding Phone, Mode=TwoWay}" FontSize="22"  Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754" />
                 </StackPanel>
-                <StackPanel Grid.Row="6" VerticalAlignment="Bottom" >
+                <StackPanel Grid.Row="5" VerticalAlignment="Bottom" >
                     <TextBlock TextWrapping="Wrap" Text="Address" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
-                    <TextBox x:Name="textAlamat" Text="{Binding Alamat_donatur, Mode=TwoWay}" FontSize="22"  Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754" />
+                    <TextBox x:Name="textAlamat" Text="{Binding Address, Mode=TwoWay}" FontSize="22"  Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754" />
                 </StackPanel>
-                <Button Grid.Row="7" Height="88" Width="400" Content="Update" Command="{Binding PublishCommand}" Background="#FF032754"></Button>
+                <Button x:Name="btn_update" Grid.Row="6" Height="88" Width="400" Content="Update" Command="{Binding PublishCommand}" Background="#FF032754" Visibility="Collapsed"></Button>
 
 
             </Grid>
 
         </ScrollViewer>
 
-        <Grid Grid.Row="0">
+        <!--<Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="403*"/>
                 <ColumnDefinition Width="77*"/>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="1" Background="#00365A"/>
             <Image x:Name="buttonMenu" Grid.Column="1" Source="/Assets/Icons/ic_48_menu.png" Stretch="UniformToFill" Width="40" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Height="40" Tap="buttonMenu_Tap"/>
-        </Grid>
+        </Grid>-->
 
     </Grid>
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="False" BackgroundColor="WhiteSmoke" ForegroundColor="#FF062D5A" Mode="Default">
+            <shell:ApplicationBarIconButton IconUri="/Assets/Icons/ic_48_checklist.png" x:Name="saveChanges" Text="save" Click="saveChanges_Click"/>
+
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
 
 </phone:PhoneApplicationPage>
