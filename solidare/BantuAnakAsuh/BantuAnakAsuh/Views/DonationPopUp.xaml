@@ -147,7 +147,7 @@
                 <Grid x:Name="white_wall" Height="540" VerticalAlignment="Top" Width="400" Background="WhiteSmoke" Tap="Grid_Tap">
                     <StackPanel>                    
                         <Image Margin="0,200,0,0" Source="/Assets/Icons/ic_48_anak.png" Height="80" Width="80" Opacity="0.2"/>
-                        <TextBlock HorizontalAlignment="Center" FontSize="15" Margin="0,20,0,0" Text="Tap here for more information"  Opacity="0.5"/>
+                        <TextBlock HorizontalAlignment="Center" FontSize="15" Margin="0,20,0,0" Text="Tap here for more information" Foreground="Black" Opacity="0.5"/>
                     </StackPanel>
                 </Grid>
             </Grid>

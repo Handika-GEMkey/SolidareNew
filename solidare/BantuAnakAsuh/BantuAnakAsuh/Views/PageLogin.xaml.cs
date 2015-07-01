@@ -19,9 +19,10 @@ namespace BantuAnakAsuh.Views
 {
     public partial class PageLogin : PhoneApplicationPage
     {
+        Encrypt ec = new Encrypt();
         ModelLogin modelLogin = new ModelLogin();
         private String Result;
-        
+
         public PageLogin()
         {
             InitializeComponent();
@@ -30,7 +31,12 @@ namespace BantuAnakAsuh.Views
 
         private void ApplicationBarIconButton_Click(object sender, EventArgs e)
         {
-            this.LoadUrl(textBox_email.Text, passBox_password.Password);
+            String messageUser = textBox_email.Text;
+            String username = ec.EncryptIt(messageUser);
+            String messagePwd = passBox_password.Password;
+            String password = ec.EncryptIt(messagePwd);
+
+            this.LoadUrl(username, password);
         }
 
         private void LoadUrl(String us, String pwd)
@@ -38,6 +44,8 @@ namespace BantuAnakAsuh.Views
             StringBuilder parameter = new StringBuilder();
             parameter.AppendFormat("{0}={1}&", "username", HttpUtility.UrlEncode(us));
             parameter.AppendFormat("{0}={1}&", "password", HttpUtility.UrlEncode(pwd));
+            parameter.AppendFormat("{0}={1}&", "tag", HttpUtility.UrlEncode(us));
+            Navigation.Tag = parameter.AppendFormat("{0}={1}&", "tag", HttpUtility.UrlEncode(us)).ToString();
 
             if (us.Equals("") || pwd.Equals(""))
             {
@@ -53,7 +61,7 @@ namespace BantuAnakAsuh.Views
                     clientLogin.Headers[HttpRequestHeader.ContentLength] = parameter.Length.ToString();
 
                     clientLogin.UploadStringCompleted += new UploadStringCompletedEventHandler(uploadLoginComplete);
-                    clientLogin.UploadStringAsync(new Uri(URL.BASE3 + "api/login/login.php"), "POST", parameter.ToString());
+                    clientLogin.UploadStringAsync(new Uri(URL.BASE3 + "APIv2/landing/login.php"), "POST", parameter.ToString());
                 }
                 catch
                 {
@@ -69,72 +77,35 @@ namespace BantuAnakAsuh.Views
                 JObject jresult = JObject.Parse(e.Result);
                 Result = jresult["result"].ToString();
 
-                if (Result.Equals("sukses"))
+                if (Result.Equals("success"))
                 {
-                    modelLogin.Id_donatur = jresult["id_donatur"].ToString();
-                    modelLogin.Username = jresult["username"].ToString();
-                    modelLogin.Nama_donatur = jresult["nama_donatur"].ToString();
-                    modelLogin.Email_donatur = jresult["email_donatur"].ToString();
-                    modelLogin.No_tlp = jresult["no_tlp"].ToString();
-                    modelLogin.Jk_donatur = jresult["jk_donatur"].ToString();
-                    modelLogin.Tgl_register = jresult["tgl_register"].ToString();
-                    modelLogin.Status_donatur = jresult["status_donatur"].ToString();
+                    modelLogin.Id_donatur = jresult["id_donors"].ToString();
+                    modelLogin.FullName = jresult["fullname"].ToString();
+                    modelLogin.Token = jresult["token"].ToString();
+                    Navigation.navIdDonors = jresult["id_donors"].ToString();
+                    Navigation.token = jresult["token"].ToString();
+                    Navigation.navIdLogin = jresult["id_donors"].ToString();
 
                     using (IsolatedStorageFile isf = IsolatedStorageFile.GetUserStoreForApplication())
                     {
-                        using (IsolatedStorageFileStream rawStream = isf.CreateFile("id_donatur"))
+                        using (IsolatedStorageFileStream rawStream = isf.CreateFile("id_donors"))
                         {
                             StreamWriter writer = new StreamWriter(rawStream);
                             writer.Write(modelLogin.Id_donatur);
                             writer.Close();
                         }
 
-                        using (IsolatedStorageFileStream rawStream = isf.CreateFile("username"))
+                        using (IsolatedStorageFileStream rawStream = isf.CreateFile("fullname"))
                         {
                             StreamWriter writer = new StreamWriter(rawStream);
-                            writer.Write(modelLogin.Username);
+                            writer.Write(modelLogin.FullName);
                             writer.Close();
                         }
 
-                        using (IsolatedStorageFileStream rawStream = isf.CreateFile("nama_donatur"))
+                        using (IsolatedStorageFileStream rawStream = isf.CreateFile("token"))
                         {
                             StreamWriter writer = new StreamWriter(rawStream);
-                            writer.Write(modelLogin.Nama_donatur);
-                            writer.Close();
-                        }
-
-                        using (IsolatedStorageFileStream rawStream = isf.CreateFile("email_donatur"))
-                        {
-                            StreamWriter writer = new StreamWriter(rawStream);
-                            writer.Write(modelLogin.Email_donatur);
-                            writer.Close();
-                        }
-
-                        using (IsolatedStorageFileStream rawStream = isf.CreateFile("no_tlp"))
-                        {
-                            StreamWriter writer = new StreamWriter(rawStream);
-                            writer.Write(modelLogin.No_tlp);
-                            writer.Close();
-                        }
-
-                        using (IsolatedStorageFileStream rawStream = isf.CreateFile("jk_donatur"))
-                        {
-                            StreamWriter writer = new StreamWriter(rawStream);
-                            writer.Write(modelLogin.Jk_donatur);
-                            writer.Close();
-                        }
-
-                        using (IsolatedStorageFileStream rawStream = isf.CreateFile("tgl_register"))
-                        {
-                            StreamWriter writer = new StreamWriter(rawStream);
-                            writer.Write(modelLogin.Tgl_register);
-                            writer.Close();
-                        }
-
-                        using (IsolatedStorageFileStream rawStream = isf.CreateFile("status_donatur"))
-                        {
-                            StreamWriter writer = new StreamWriter(rawStream);
-                            writer.Write(modelLogin.Status_donatur);
+                            writer.Write(modelLogin.Token);
                             writer.Close();
                         }
                     }

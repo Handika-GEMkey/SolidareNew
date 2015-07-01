@@ -32,10 +32,10 @@ namespace BantuAnakAsuh.ViewModels
                 RestRequest request = new RestRequest(URL.BASE3 + "APIv2/charityorganization/charity_organization.php", Method.POST);
 
                 request.AddHeader("content-type", "multipart/form-data");
-                request.AddParameter("id_donors", "871");
-                request.AddParameter("token", ")GYaS6^cO!NL$eQDuzFZB952f");
+                request.AddParameter("id_donors", Navigation.navIdDonors);
+                request.AddParameter("token", Navigation.token);
 
-                request.AddParameter("id_cha_org", Navigation.navId_cha_org);
+                //request.AddParameter("id_cha_org", Navigation.navId_cha_org);
 
                 //calling server with restClient
                 RestClient restClient = new RestClient();
@@ -58,7 +58,6 @@ namespace BantuAnakAsuh.ViewModels
                         Photo = Navigation.navPhotoChild;
                         Children_name = Navigation.navNameChild;
                         Id_donation = Navigation.idDonation;
-
                     }
                     if (response.StatusCode == System.Net.HttpStatusCode.OK)
                     {
@@ -105,16 +104,13 @@ namespace BantuAnakAsuh.ViewModels
 
         private void LoadUrl()
         {
-            Photo = Navigation.navPhotoChild;
-            Children_name = Navigation.navNameChild;
-            Id_donation = Navigation.idDonation;
             try
             {
                 RestRequest request = new RestRequest(URL.BASE3 + "APIv2/charityorganization/charity_account.php", Method.POST);
 
                 request.AddHeader("content-type", "multipart/form-data");
-                request.AddParameter("id_donors", "871");
-                request.AddParameter("token", ")GYaS6^cO!NL$eQDuzFZB952f");
+                request.AddParameter("id_donors", Navigation.navIdDonors);
+                request.AddParameter("token", Navigation.token);
 
                 request.AddParameter("id_cha_org", Navigation.navId_cha_org);
 

@@ -31,24 +31,83 @@ namespace BantuAnakAsuh.ViewModels
 
         public ViewModelBank() 
         {
-            this.LoadUrl();
+            this.LoadUrl2();
         }
 
 
-        private void LoadUrl()
+        //private void LoadUrl()
+        //{
+        //    Photo = Navigation.navPhotoChild;
+        //    Children_name = Navigation.navNameChild;
+        //    Id_donation = Navigation.idDonation;
+        //    try
+        //    {
+        //        RestRequest request = new RestRequest(URL.BASE3 + "APIv2/charityorganization/charity_account.php", Method.POST);
+
+        //        request.AddHeader("content-type", "multipart/form-data");
+        //        request.AddParameter("id_donors", Navigation.navIdDonors);
+        //        request.AddParameter("token", Navigation.token);
+        //        request.AddParameter("id_cha_org", Navigation.navId_cha_org);
+
+        //        //calling server with restClient
+        //        RestClient restClient = new RestClient();
+        //        restClient.ExecuteAsync(request, (response) =>
+        //        {
+        //            ShellToast toast = new ShellToast();
+        //            toast.Title = "Status Upload";
+        //            JObject jRoot = JObject.Parse(response.Content);
+        //            String result = jRoot.SelectToken("result").ToString();
+        //            JArray JItem = JArray.Parse(jRoot.SelectToken("item").ToString());
+
+        //            foreach (JObject item in JItem)
+        //            {
+        //                ViewModelBank bank = new ViewModelBank();
+        //                bank.Id_account = item.SelectToken("id_account").ToString();
+        //                bank.Bank = item.SelectToken("bank").ToString();
+        //                bank.Account_number = item.SelectToken("account_number").ToString();
+        //                bank.Account_name = item.SelectToken("account_name").ToString();
+        //                CollectionBank.Add(bank);
+        //            }
+        //            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+        //            {
+        //                if (result.Equals("success"))
+        //                {
+                           
+
+        //                }
+        //                else
+        //                {
+
+        //                }
+
+        //            }
+        //            else
+        //            {
+        //                //error ocured during upload
+
+        //                toast.Content = "Your posting failed. Please check the Internet connection.";
+        //                toast.Show();
+        //                //progressBar1.Visibility = System.Windows.Visibility.Visible;
+
+        //            }
+        //        });
+        //    }
+        //    catch { }
+        //}
+
+        private void LoadUrl2()
         {
             Photo = Navigation.navPhotoChild;
             Children_name = Navigation.navNameChild;
             Id_donation = Navigation.idDonation;
             try
             {
-                RestRequest request = new RestRequest(URL.BASE3 + "APIv2/charityorganization/charity_account.php", Method.POST);
+                RestRequest request = new RestRequest(URL.BASE3 + "APIv2/charityorganization/charity_program.php", Method.POST);
 
                 request.AddHeader("content-type", "multipart/form-data");
-                request.AddParameter("id_donors", "871");
-                request.AddParameter("token", ")GYaS6^cO!NL$eQDuzFZB952f");
-
-                request.AddParameter("id_cha_org", Navigation.navId_cha_org);
+                request.AddParameter("id_donors", Navigation.navIdDonors);
+                request.AddParameter("token", Navigation.token);
+                request.AddParameter("id_program", Navigation.idProgram);
 
                 //calling server with restClient
                 RestClient restClient = new RestClient();
@@ -62,18 +121,15 @@ namespace BantuAnakAsuh.ViewModels
 
                     foreach (JObject item in JItem)
                     {
-                        ViewModelBank bank = new ViewModelBank();
-                        bank.Id_account = item.SelectToken("id_account").ToString();
-                        bank.Bank = item.SelectToken("bank").ToString();
-                        bank.Account_number = item.SelectToken("account_number").ToString();
-                        bank.Account_name = item.SelectToken("account_name").ToString();
-                        CollectionBank.Add(bank);
+                        Program = item.SelectToken("program_name").ToString();
+                        Description = item.SelectToken("description").ToString();
+                        
                     }
                     if (response.StatusCode == System.Net.HttpStatusCode.OK)
                     {
                         if (result.Equals("success"))
                         {
-                           
+
 
                         }
                         else

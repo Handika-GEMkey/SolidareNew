@@ -9,6 +9,60 @@ namespace BantuAnakAsuh.Models
 {
     class ModelLogin
     {
+        private String gender;
+
+        public String Gender
+        {
+            get { return gender; }
+            set { gender = value; }
+        }
+
+        private String photo;
+
+        public String Photo
+        {
+            get { return photo; }
+            set { photo = value; }
+        }
+        private String card_type;
+
+        public String Card_type
+        {
+            get { return card_type; }
+            set { card_type = value; }
+        }
+        private String id_number;
+
+        public String Id_number
+        {
+            get { return id_number; }
+            set { id_number = value; }
+        }
+
+        private String token;
+
+        public String Token
+        {
+            get { return token; }
+            set { token = value; }
+        }
+
+        private String fullName;
+
+        public String FullName
+        {
+            get { return fullName; }
+            set { fullName = value; }
+        }
+
+        private String tag;
+
+        public String Tag
+        {
+            get { return tag; }
+            set { tag = value; }
+        }
+
         private String id_donatur;
 
         public String Id_donatur

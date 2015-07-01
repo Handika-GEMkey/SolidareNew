@@ -25,5 +25,15 @@ namespace BantuAnakAsuh.Models
         public String status_donasi { get; set; }
         public String latitude { get; set; }
         public String longitude { get; set; }
+
+        public String id_fosterchildren { get; set; } //for list anak asuh donatur
+        public String name { get; set; }
+        
+        public String photo { get; set; }
+       
+        public String children_status { get; set; }
+        
+        public String study_level { get; set; } //for list anak asuh donatur
+        
     }
 }

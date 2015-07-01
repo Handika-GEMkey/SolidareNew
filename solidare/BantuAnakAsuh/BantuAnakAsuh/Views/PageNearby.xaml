@@ -47,32 +47,23 @@
             <RowDefinition Height="61"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
 
-        <Grid Grid.Row="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="403*"/>
-                <ColumnDefinition Width="77*"/>
-            </Grid.ColumnDefinitions>
-            <Grid Grid.Column="1" Background="#00365A"/>
-            <TextBlock Margin="30,0,0,15" Text="FOSTER CHILDREN'S NEARBY YOU" VerticalAlignment="Bottom" Foreground="#FF062D5A" FontWeight="Bold"/>
-            <Image x:Name="buttonMenu" Grid.Column="1" Source="/Assets/Icons/ic_48_menu.png" Stretch="UniformToFill" Width="40" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Height="40" Tap="buttonMenu_Tap"/>
-        </Grid>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" Height="60" Width="480" Background="#0071BC" VerticalAlignment="Top">
+            <Grid x:Name="home" Grid.Column="0" Width="70" Height="60">
+                <Image x:Name="buttonMenu" Source="/Assets/Icons/ic_48_back_button.png" Stretch="UniformToFill" Width="50" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Height="50" Tap="buttonMenu_Tap"/>
+            </Grid>
+            <Grid Grid.Column="0">
+                <TextBlock Text="FOSTER CHILDREN NEARBY YOU" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+            </Grid>
+        </StackPanel>
         <Grid Grid.Row="1"  HorizontalAlignment="Left" Height="660" VerticalAlignment="Top" Width="480">
             <maps:Map  Name="MapVieMode" LandmarksEnabled="true"  PedestrianFeaturesEnabled="true" HorizontalAlignment="Left"  MinWidth="500" MinHeight="750"  VerticalAlignment="Top" Loaded="Map_Loaded" Background="Black" />
         </Grid>
-        <!--<i:Interaction.Triggers>
-            <i:EventTrigger EventName="SelectionChanged">
-                <i:InvokeCommandAction Command="{Binding SetDonasi}" 
-                                                   CommandParameter="{Binding Path=SelectedItem, ElementName=ListDonasi}"/>
-                <ec:NavigateToPageAction TargetPage="/Views/PageProfileAnak.xaml" />
-            </i:EventTrigger>
-        </i:Interaction.Triggers>-->
-
-
+        
     </Grid>
     <phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="False" BackgroundColor="White" Opacity="0.925" ForegroundColor="#FF062D5A" Mode="Default">
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="False" BackgroundColor="WhiteSmoke" Opacity="0.925" ForegroundColor="#FF062D5A" Mode="Default">
             <shell:ApplicationBarIconButton x:Name="apbarHome" IconUri="/Assets/icons/ic_48_home.png" Text="Home" Click="apbarHome_Click"/>
             <!--<shell:ApplicationBarIconButton x:Name="apbarMylocat" IconUri="/Assets/icons/ic_48_mylocat.png" Text="my location" Click="apbarMylocat_Click"/>-->
         </shell:ApplicationBar>

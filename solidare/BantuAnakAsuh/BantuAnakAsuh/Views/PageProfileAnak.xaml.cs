@@ -41,7 +41,7 @@ namespace BantuAnakAsuh.Views
 
         private void buttonMenu_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/Views/PageMenu.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/Views/NewHomepage.xaml", UriKind.Relative));
         }
 
         private void apbarHome_Click(object sender, EventArgs e)

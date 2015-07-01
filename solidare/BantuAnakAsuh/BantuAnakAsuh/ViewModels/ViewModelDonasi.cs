@@ -17,8 +17,10 @@ using System.Windows.Input;
 
 namespace BantuAnakAsuh.ViewModels
 {
-    class ViewModelDonasi: ViewModelBase
+    class ViewModelDonasi : ViewModelBase
     {
+        ModelLogin modelLogin = new ModelLogin();
+
         private ObservableCollection<ModelDonasi> collectionDonasi = new ObservableCollection<ModelDonasi>();
         public ObservableCollection<ModelDonasi> CollectionDonasi
         {
@@ -33,23 +35,92 @@ namespace BantuAnakAsuh.ViewModels
             }
         }
 
+        private ObservableCollection<ModelProfileDonatur> collectionAnakAsuh = new ObservableCollection<ModelProfileDonatur>();
+        public ObservableCollection<ModelProfileDonatur> CollectionAnakAsuh
+        {
+            get { return collectionAnakAsuh; }
+            set
+            {
+                if (this.collectionAnakAsuh != value)
+                {
+                    collectionAnakAsuh = value;
+                    RaisePropertyChanged("");
+                }
+            }
+        }
+
         public ViewModelDonasi()
         {
             this.LoadUrl();
-            this.LoadUrlDonatur();
+            this.LoadUrlDonorProfile();
+            //this.LoadUrlFosterChildren();
+        }
+
+        private void LoadUrlFosterChildren()
+        {
+            try
+            {
+                RestRequest request = new RestRequest(URL.BASE3 + "APIv2/fosterchildren/fosterchildren.php", Method.POST);
+                request.AddHeader("content-type", "multipart/form-data");
+                request.AddParameter("id_donors", Navigation.navIdDonors);
+                request.AddParameter("token", Navigation.token);
+
+                //calling server with restClient
+                RestClient restClient = new RestClient();
+                restClient.ExecuteAsync(request, (response) =>
+                {
+
+                    JObject jRoot = JObject.Parse(response.Content);
+                    String result = jRoot.SelectToken("result").ToString();
+                    JArray JItem = JArray.Parse(jRoot.SelectToken("item").ToString());
+                    foreach (JObject item in JItem)
+                    {
+                        ModelProfileDonatur modelAnakAsuh = new ModelProfileDonatur();
+                        modelAnakAsuh.id_fosterchildren = item["id_fosterchildren"].ToString();
+                        modelAnakAsuh.name = item["name"].ToString();
+                        modelAnakAsuh.pob = item["pob"].ToString();
+                        modelAnakAsuh.dob = item["dob"].ToString();
+                        modelAnakAsuh.gender = item["gender"].ToString();
+                        modelAnakAsuh.address = item["address"].ToString();
+                        modelAnakAsuh.photo = URL.BASE3 + "modul/mod_AnakAsuh/photo/" + item["photo"].ToString();
+                        modelAnakAsuh.cost = item["cost"].ToString();
+                        modelAnakAsuh.children_status = item["children_status"].ToString();
+                        modelAnakAsuh.latitude = item["latitude"].ToString();
+                        modelAnakAsuh.longitude = item["longitude"].ToString();
+                        modelAnakAsuh.study_level = item["study_level"].ToString();
+                        modelAnakAsuh.school = item["school"].ToString();
+                        modelAnakAsuh.grade = item["grade"].ToString();
+                        modelAnakAsuh.parent_name = item["parent_name"].ToString();
+                        modelAnakAsuh.parent_address = item["parent_address"].ToString();
+                        modelAnakAsuh.jobs = item["jobs"].ToString();
+                        modelAnakAsuh.salary = item["salary"].ToString();
+                        modelAnakAsuh.id_cha_org = item["id_cha_org"].ToString();
+                        modelAnakAsuh.cha_org_name = item["cha_org_name"].ToString();
+                        modelAnakAsuh.id_program = item["id_program"].ToString();
+                        modelAnakAsuh.program_name = item["program_name"].ToString();
+
+                        collectionAnakAsuh.Add(modelAnakAsuh);
+                    }
+                });
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show("Failed to display, the Internet connection is unstable.");
+            }
+
         }
 
         private void LoadUrl()
         {
-           try
+            try
             {
 
                 RestRequest request = new RestRequest(URL.BASE3 + "APIv2/fosterchildren/fosterchildren.php", Method.POST);
 
                 request.AddHeader("content-type", "multipart/form-data");
-                request.AddParameter("id_donors", "871");
-                request.AddParameter("token", ")GYaS6^cO!NL$eQDuzFZB952f");
-
+                request.AddParameter("id_donors", Navigation.navIdDonors);
+                request.AddParameter("token", Navigation.token);
+                request.AddParameter("id_fosterchildren", Navigation.navIdAnak);
 
                 //calling server with restClient
                 RestClient restClient = new RestClient();
@@ -59,15 +130,19 @@ namespace BantuAnakAsuh.ViewModels
                     toast.Title = "Status Upload";
                     JObject jRoot = JObject.Parse(response.Content);
                     String result = jRoot.SelectToken("result").ToString();
+                    //String id_donasi = jRoot.SelectToken("id_donation").ToString();
+                    //String photo_child = jRoot.SelectToken("photo").ToString();
                     JArray JItem = JArray.Parse(jRoot.SelectToken("item").ToString());
                     foreach (JObject item in JItem)
                     {
                         ModelDonasi modelDonasi = new ModelDonasi();
-                        modelDonasi.id_anak_asuh = item.SelectToken("id_fosterchildren").ToString();
-                        modelDonasi.nama_anak_asuh = item.SelectToken("name").ToString();
-                        modelDonasi.foto_anak = URL.BASE3 + "modul/mod_AnakAsuh/photo/" + item.SelectToken("photo").ToString();
-                        modelDonasi.jenjang_pendidikan = "Jenjang " + item.SelectToken("study_level").ToString();
-                        modelDonasi.status_anak = "Status" + item.SelectToken("children_status").ToString();
+                        modelDonasi.id_fosterchildren = item.SelectToken("id_fosterchildren").ToString();
+                        modelDonasi.name = item.SelectToken("name").ToString();
+                        modelDonasi.photo = URL.BASE3 + "modul/mod_AnakAsuh/photo/" + item.SelectToken("photo").ToString();
+                        modelDonasi.study_level = item.SelectToken("study_level").ToString();
+                        modelDonasi.children_status = item.SelectToken("children_status").ToString();
+                        //Navigation.idDonation = id_donasi;
+                        //Navigation.navPhotoChild = photo_child;
                         collectionDonasi.Add(modelDonasi);
                     }
                     if (response.StatusCode == System.Net.HttpStatusCode.OK)
@@ -137,17 +212,12 @@ namespace BantuAnakAsuh.ViewModels
             ModelDonasi SelectedItem = obj as ModelDonasi;
 
             if (SelectedItem != null)
-                Navigation.navIdAnak = SelectedItem.id_anak_asuh;
+                Navigation.navIdAnak = SelectedItem.id_fosterchildren;
 
             listIndex = -1;
         }
 
-
-
-
-
         // Donatur 
-
         private String id_donatur;
         public String Id_donatur
         {
@@ -198,34 +268,42 @@ namespace BantuAnakAsuh.ViewModels
             }
         }
 
-        private void LoadUrlDonatur()
-        {
-            WebClient clientprofiledonatur = new WebClient();
-            clientprofiledonatur.DownloadStringCompleted += new DownloadStringCompletedEventHandler(DownloadProfileDonatur);
-            clientprofiledonatur.DownloadStringAsync(new Uri(URL.BASE3 + "api/donatur/donatur.php?id_donatur=" + Navigation.navIdLogin + "?nocache=" + Guid.NewGuid()));
-
-        }
-
-        public bool konek1 = true;
-
-        private void DownloadProfileDonatur(object sender, DownloadStringCompletedEventArgs e)
+        private void LoadUrlDonorProfile()
         {
             try
             {
-                JObject jresult = JObject.Parse(e.Result);
-                ModelLogin modelLogin = new ModelLogin();
-                modelLogin.Id_donatur = jresult.SelectToken("id_donatur").ToString();
-                modelLogin.Nama_donatur = jresult.SelectToken("nama_donatur").ToString();
-                modelLogin.Foto_donatur = URL.BASE3 + "modul/mod_OrangTuaAsuh/photo/" + jresult.SelectToken("foto_donatur").ToString();
-                modelLogin.No_tlp = jresult.SelectToken("no_tlp").ToString();
-                modelLogin.Email_donatur = jresult.SelectToken("email_donatur").ToString();
-                CollectionDonatur.Add(modelLogin);
+                RestRequest request = new RestRequest(URL.BASE3 + "APIv2/donors/profile.php", Method.POST);
+                request.AddHeader("content-type", "multipart/form-data");
+                request.AddParameter("id_donors", Navigation.navIdDonors);
+                request.AddParameter("token", Navigation.token);
 
+                //calling server with restClient
+                RestClient restClient = new RestClient();
+                restClient.ExecuteAsync(request, (response) =>
+                {
+
+                    JObject jRoot = JObject.Parse(response.Content);
+                    String result = jRoot.SelectToken("result").ToString();
+                    JArray JItem = JArray.Parse(jRoot.SelectToken("item").ToString());
+                    foreach (JObject item in JItem)
+                    {
+                        modelLogin.Username = item["username"].ToString();
+                        modelLogin.Nama_donatur = item.SelectToken("name").ToString();
+                        modelLogin.Alamat_donatur = item["address"].ToString();
+                        modelLogin.Email_donatur = item["email"].ToString();
+                        modelLogin.No_tlp = item["phone"].ToString();
+                        modelLogin.Photo = URL.BASE3 + "modul/mod_OrangTuaAsuh/photo/" + item["photo"].ToString();
+                        modelLogin.Gender = item["gender"].ToString();
+
+                        CollectionDonatur.Add(modelLogin);
+                    }
+                });
             }
-            catch
+            catch (Exception ec)
             {
-                konek1 = false;
+                MessageBox.Show("Failed to display, the Internet connection is unstable.");
             }
+
         }
     }
 }

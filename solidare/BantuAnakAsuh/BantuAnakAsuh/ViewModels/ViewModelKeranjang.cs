@@ -57,8 +57,8 @@ namespace BantuAnakAsuh.ViewModels
                 RestRequest request = new RestRequest(URL.BASE3 + "APIv2/donation/donation_list.php", Method.POST);
 
                 request.AddHeader("content-type", "multipart/form-data");
-                request.AddParameter("id_donors", "871");
-                request.AddParameter("token", ")GYaS6^cO!NL$eQDuzFZB952f");
+                request.AddParameter("id_donors", Navigation.navIdDonors);
+                request.AddParameter("token", Navigation.token);
                 request.AddParameter("id_fosterchildren", Navigation.navIdAnak);
 
                 //calling server with restClient
@@ -90,9 +90,9 @@ namespace BantuAnakAsuh.ViewModels
                     else
                     {
                         //error ocured during upload
-
                         toast.Content = "Your posting failed. Please check the Internet connection.";
                         toast.Show();
+
                         //progressBar1.Visibility = System.Windows.Visibility.Visible;
 
                     }

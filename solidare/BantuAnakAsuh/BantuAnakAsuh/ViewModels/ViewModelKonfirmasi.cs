@@ -17,17 +17,87 @@ using Newtonsoft.Json.Linq;
 using BantuAnakAsuh.Models;
 using System.Collections.ObjectModel;
 using System.IO.IsolatedStorage;
+using Microsoft.Phone.Controls;
 
 
 namespace BantuAnakAsuh.ViewModels
 {
     class ViewModelKonfirmasi :ViewModelBase
     {
-
+        ModelBank mBank = new ModelBank();
         public ViewModelKonfirmasi()
         {
-            this.LoadUrlKonfirmasi();
+            Id_Order = Navigation.navIdDonors;
+            Dari_Bank = mBank.Bank;
+            //this.LoadUrlKonfirmasi();
         }
+
+        private void PushToServer(object obj)
+        {
+            
+            try
+            {
+                RestRequest request = new RestRequest(URL.BASE3 + "APIv2/donation/confirmation.php", Method.POST);
+
+                request.AddHeader("content-type", "multipart/form-data");
+                request.AddParameter("id_donors", Navigation.navIdDonors);
+                request.AddParameter("token", Navigation.token);
+                request.AddParameter("id_donation", Navigation.idDonation);
+                request.AddParameter("photo", mBank.Photo);
+                request.AddParameter("from_bank", mBank.Bank);
+                request.AddParameter("to_bank", mBank.To_bank);
+                request.AddParameter("accont_number", mBank.Account_number);
+                request.AddParameter("account_name", mBank.Account_name);
+
+                //request.AddParameter("id_cha_org", Navigation.navId_cha_org);
+
+                //calling server with restClient
+                RestClient restClient = new RestClient();
+                restClient.ExecuteAsync(request, (response) =>
+                {
+                    ShellToast toast = new ShellToast();
+                    toast.Title = "Status Upload";
+                    JObject jRoot = JObject.Parse(response.Content);
+                    String result = jRoot.SelectToken("result").ToString();
+                    String jmessage = jRoot.SelectToken("message").ToString();
+                    JArray JItem = JArray.Parse(jRoot.SelectToken("item").ToString());
+
+                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                    {
+                        if (result.Equals("success"))
+                        {
+                            toast.Show();
+                            MessageBox.Show(jmessage);
+                            var frame = App.Current.RootVisual as PhoneApplicationFrame;
+                            frame.Navigate(new Uri("/Views/NewHomepage.xaml", UriKind.Relative));
+                        }
+                        else
+                        {
+
+                        }
+
+                    }
+                    else
+                    {
+                        //error ocured during upload
+
+                        toast.Content = "Your posting failed. Please check the Internet connection.";
+                        toast.Show();
+                        //progressBar1.Visibility = System.Windows.Visibility.Visible;
+
+                    }
+                });
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show("Failed to display, the Internet connection is unstable.");
+            }
+            finally
+            {
+                //ProgressVisibiliy = Visibility.Visible;
+            }
+        }
+        
         
         private Stream bitmapUserProfile;
         private Random rand = new Random();
@@ -70,69 +140,7 @@ namespace BantuAnakAsuh.ViewModels
             image.SetSource(e.ChosenPhoto);
 
             FotoKejahatan = (image);
-            //BitmapImage image = new BitmapImage();
-
-            //if (e == null || e.TaskResult != TaskResult.OK)
-            //{
-            //    return;
-            //}
-            //BitmapImage bitmap = new BitmapImage { CreateOptions = BitmapCreateOptions.None };
             
-            //WriteableBitmap writeableBitmap = new WriteableBitmap(bitmap);
-
-            //// Encode the WriteableBitmap object to a JPEG stream.
-            //writeableBitmap.SaveJpeg(e.ChosenPhoto, writeableBitmap.PixelWidth, writeableBitmap.PixelHeight, 300, 300);
-   
-
-
-
-
-            //bitmapUserProfile = e.ChosenPhoto;
-            //image.SetSource(writeableBitmap.LoadJpeg);
-           
-            //FotoKejahatan = (image);
-
-            ///////////////////
-            //if (e.TaskResult == TaskResult.OK)
-            //{
-            //    //here I save the image to Isolated Storage.  Also I am changing the size of it to not waste space!
-            //    WriteableBitmap writeableBitmap = new WriteableBitmap(300, 300);
-            //    writeableBitmap.LoadJpeg(e.ChosenPhoto);
-
-            //    string imageFolder = "Images";
-            //    string imageFileName = "TestImage3.jpg";
-            //    using (var isoFile = IsolatedStorageFile.GetUserStoreForApplication())
-            //    {
-
-            //        if (!isoFile.DirectoryExists(imageFolder))
-            //        {
-            //            isoFile.CreateDirectory(imageFolder);
-            //        }
-
-            //        string filePath = Path.Combine(imageFolder, imageFileName);
-            //        using (var stream = isoFile.CreateFile(filePath))
-            //        {
-            //            writeableBitmap.SaveJpeg(stream, writeableBitmap.PixelWidth, writeableBitmap.PixelHeight, 0, 100);
-            //        }
-            //    }
-
-            //    //now read the image back from storage to show it worked...
-            //    BitmapImage imageFromStorage = new BitmapImage();
-
-            //    using (var isoFile = IsolatedStorageFile.GetUserStoreForApplication())
-            //    {
-            //        string filePath = Path.Combine(imageFolder, imageFileName);
-            //        using (var imageStream = isoFile.OpenFile(
-            //            filePath, FileMode.Open, FileAccess.Read))
-            //        {
-                        
-            //            image.SetSource(imageStream);
-                        
-            //        }
-            //        FotoKejahatan = (image);
-            //        bitmapUserProfile = e.ChosenPhoto;
-            //    }
-            //}
         }
 
 
@@ -224,64 +232,64 @@ namespace BantuAnakAsuh.ViewModels
             }
         }
 
-        private void PushToServer(object obj)
-        {
-            try
-            {
+        //private void PushToServer(object obj)
+        //{
+        //    try
+        //    {
 
-                RestRequest request = new RestRequest(URL.BASE3 + "api/konfirmasi/konfirmasi.php", Method.POST);
+        //        RestRequest request = new RestRequest(URL.BASE3 + "api/konfirmasi/konfirmasi.php", Method.POST);
 
-                request.AddHeader("content-type", "multipart/form-data");
-                request.AddParameter("id_order", Id_Order);
-                request.AddParameter("jumlah_pembayaran", Jumlah_Pembayaran);
-                request.AddParameter("dari_bank", Dari_Bank);
-                request.AddParameter("nomor_rekening", Nomor_Rekening);
-                request.AddParameter("bank_tujuan", Bank_Tujuan);
-                request.AddParameter("pemilik_rekening", Pemilik_Rekening);
+        //        request.AddHeader("content-type", "multipart/form-data");
+        //        request.AddParameter("id_order", Id_Order);
+        //        request.AddParameter("jumlah_pembayaran", Jumlah_Pembayaran);
+        //        request.AddParameter("dari_bank", Dari_Bank);
+        //        request.AddParameter("nomor_rekening", Nomor_Rekening);
+        //        request.AddParameter("bank_tujuan", Bank_Tujuan);
+        //        request.AddParameter("pemilik_rekening", Pemilik_Rekening);
 
-                request.AddFile("url_img_post", ReadToEnd(bitmapUserProfile), "photo" + rand.Next(0, 99999999).ToString() + ".jpg");
+        //        request.AddFile("url_img_post", ReadToEnd(bitmapUserProfile), "photo" + rand.Next(0, 99999999).ToString() + ".jpg");
 
-                //calling server with restClient
-                RestClient restClient = new RestClient();
-                restClient.ExecuteAsync(request, (response) =>
-                {
-                    ShellToast toast = new ShellToast();
-                    toast.Title = "Status Upload";
-                    JObject jRoot = JObject.Parse(response.Content);
-                    String result = jRoot.SelectToken("result").ToString();
+        //        //calling server with restClient
+        //        RestClient restClient = new RestClient();
+        //        restClient.ExecuteAsync(request, (response) =>
+        //        {
+        //            ShellToast toast = new ShellToast();
+        //            toast.Title = "Status Upload";
+        //            JObject jRoot = JObject.Parse(response.Content);
+        //            String result = jRoot.SelectToken("result").ToString();
                        
-                   if (response.StatusCode == System.Net.HttpStatusCode.OK)
-                        {
-                            if (result.Equals("sukses"))
-                            {
-                                MessageBox.Show("Confirmation Success");
-                            }
-                            else
-                            {
+        //           if (response.StatusCode == System.Net.HttpStatusCode.OK)
+        //                {
+        //                    if (result.Equals("sukses"))
+        //                    {
+        //                        MessageBox.Show("Confirmation Success");
+        //                    }
+        //                    else
+        //                    {
                                 
-                                MessageBox.Show("Failed");
-                            }
-                    }
-                    else
-                    {
-                        //error ocured during upload
+        //                        MessageBox.Show("Failed");
+        //                    }
+        //            }
+        //            else
+        //            {
+        //                //error ocured during upload
 
-                        toast.Content = "Your posting failed. Please check the Internet connection.";
-                        toast.Show();
-                        //progressBar1.Visibility = System.Windows.Visibility.Visible;
+        //                toast.Content = "Your posting failed. Please check the Internet connection.";
+        //                toast.Show();
+        //                //progressBar1.Visibility = System.Windows.Visibility.Visible;
 
-                    }
-                });
-            }
-            catch (Exception ec)
-            {
-                MessageBox.Show("Failed to display, the Internet connection is unstable.");
-            }
-            finally
-            {
-                //ProgressVisibiliy = Visibility.Visible;
-            }
-        }
+        //            }
+        //        });
+        //    }
+        //    catch (Exception ec)
+        //    {
+        //        MessageBox.Show("Failed to display, the Internet connection is unstable.");
+        //    }
+        //    finally
+        //    {
+        //        //ProgressVisibiliy = Visibility.Visible;
+        //    }
+        //}
 
 
 

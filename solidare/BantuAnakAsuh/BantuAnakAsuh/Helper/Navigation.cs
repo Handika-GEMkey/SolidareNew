@@ -26,5 +26,11 @@ namespace BantuAnakAsuh.Helper
         public static String navId_cha_org;
         public static String navPhotoChild;
         public static String navNameChild;
+        public static String navIdDonors;
+        public static String token;
+        public static String id_recommendation;
+        public static String Tag = "";
+        public static String Latitude = "";
+        public static String Longitude = "";
     }
 }

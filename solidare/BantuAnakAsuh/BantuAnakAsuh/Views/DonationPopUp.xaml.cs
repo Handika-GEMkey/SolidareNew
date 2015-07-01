@@ -16,14 +16,12 @@ using System.Collections.ObjectModel;
 
 namespace BantuAnakAsuh.Views
 {
-    public partial class DonationPopUp 
+    public partial class DonationPopUp
     {
-       
         public DonationPopUp()
         {
             InitializeComponent();
             NavDrawMargin.left = 0;
-            
 
         }
 
@@ -50,8 +48,6 @@ namespace BantuAnakAsuh.Views
                         LayoutRoot.Margin = new Thickness(0, NavDrawMargin.left, 0, 0);
                     }
                 });
-
-
             }
             else
             {
@@ -64,9 +60,7 @@ namespace BantuAnakAsuh.Views
                         LayoutRoot.Margin = new Thickness(0, NavDrawMargin.left, 0, 0);
                     }
                 });
-
             }
-
         }
 
         private void Grid_Tap(object sender, System.Windows.Input.GestureEventArgs e)
@@ -75,7 +69,7 @@ namespace BantuAnakAsuh.Views
             ViewModelProgram viewmodelProgram = new ViewModelProgram();
             this.DataContext = viewmodelProgram;
             Donatebtn.Visibility = Visibility.Visible;
-            
+
         }
 
         private void Grid_Tap_1(object sender, System.Windows.Input.GestureEventArgs e)
@@ -83,7 +77,6 @@ namespace BantuAnakAsuh.Views
             ViewModelKeranjang keranjang = new ViewModelKeranjang();
             this.DataContext = keranjang;
             Donatebtn.Visibility = Visibility.Collapsed;
-            
 
         }
 
@@ -91,11 +84,7 @@ namespace BantuAnakAsuh.Views
         {
             SlideNavBarClose.Begin();
             Donatebtn.Visibility = Visibility.Collapsed;
-            
-        }
 
-            
-        
-        
+        }
     }
 }

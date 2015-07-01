@@ -105,180 +105,159 @@
     </phone:PhoneApplicationPage.Resources>
     <Grid>
         <Grid Background="White" Height="770" >
-        <Grid.RowDefinitions>
-            <RowDefinition Height="180"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="5"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <!--// grid 1-->
-        <Grid Grid.Row="0" Background="#1565C0">
-            <!--<Image Source="/Assets/Icons/baa.png" Width="480" Height="150" Opacity="0.03"/>-->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="180"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <!--// grid 1-->
+            <Grid Grid.Row="0" Background="#1565C0">
+                <!--<Image Source="/Assets/Icons/baa.png" Width="480" Height="150" Opacity="0.03"/>-->
 
-            <Grid Height="180" Width="90" HorizontalAlignment="Right" Background="#1565C0" VerticalAlignment="Top"/>
+                <Grid Height="180" Width="90" HorizontalAlignment="Right" Background="#1565C0" VerticalAlignment="Top"/>
 
-            <StackPanel HorizontalAlignment="Right"  Margin="0,0,0,0" Height="180" VerticalAlignment="Top" Width="90">
-                <Grid x:Name="timeLogo" Grid.Column="1"  Height="60"  Tap="timeLogo_Tap">
-                    <Image Source="/Assets/AppBar/shopping111.png" Height="35" Width="35"/>
-                </Grid>
-                <Grid x:Name="mapLogo" Grid.Column="2"   Height="60"   >
-                    <Image Source="/Assets/AppBar/message30.png" Height="35" Width="35"/>
-                </Grid>
-                <Grid x:Name="reportLogo" Grid.Column="3" Height="60"  >
-                    <Image Source="/Assets/AppBar/heart316.png" Height="35" Width="35"/>
+                <StackPanel HorizontalAlignment="Right"  Margin="0,0,0,0" Height="180" VerticalAlignment="Top" Width="90">
+                    <Grid x:Name="timeLogo" Grid.Column="1"  Height="60"  Tap="timeLogo_Tap">
+                        <Image Source="/Assets/AppBar/shopping111.png" Height="35" Width="35"/>
+                    </Grid>
+                    <Grid x:Name="mapLogo" Grid.Column="2"   Height="60"   >
+                        <Image Source="/Assets/AppBar/message30.png" Height="35" Width="35"/>
+                    </Grid>
+                    <Grid x:Name="reportLogo" Grid.Column="3" Height="60"  >
+                        <Image Source="/Assets/AppBar/heart316.png" Height="35" Width="35"/>
+                    </Grid>
+
+                </StackPanel>
+                <Grid>
+                    <Ellipse Height="120" Width="120" Margin="50,10,0,0" HorizontalAlignment="Left" >
+                        <Ellipse.Fill>
+                            <ImageBrush Stretch="UniformToFill" ImageSource="/Assets/Icons/ic_48_user.png" />
+                        </Ellipse.Fill>
+                    </Ellipse>
                 </Grid>
 
-            </StackPanel>
-            <Grid>
-                <Ellipse Height="120" Width="120" Margin="50,10,0,0" HorizontalAlignment="Left" >
-                    <Ellipse.Fill>
-                        <ImageBrush Stretch="UniformToFill" ImageSource="/Assets/Icons/ic_48_user.png" />
-                    </Ellipse.Fill>
-                </Ellipse>
+                <StackPanel x:Name="stackProfile" Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" Height="130" Tap="stackProfile_Tap">
+                    <ListBox x:Name="ListUserProfile" Width="370"  ItemsSource="{Binding CollectionDonatur}" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <StackPanel Orientation="Horizontal" Margin="50,10,0,0">
+                                        <Ellipse Height="120" Width="120" >
+                                            <Ellipse.Fill>
+                                                <ImageBrush Stretch="UniformToFill" ImageSource="{Binding photo}"/>
+                                            </Ellipse.Fill>
+                                        </Ellipse>
+                                        <StackPanel VerticalAlignment="Center">
+                                            <TextBlock Text="{Binding Nama_donatur}" TextWrapping="Wrap" Foreground="WhiteSmoke" FontWeight="Bold" Width="208" VerticalAlignment="Center" Margin="20,2,0,2" FontSize="21" FontFamily="Segoe WP SemiLight"/>
+                                            <TextBlock Text="See your profile" Foreground="WhiteSmoke" FontSize="16" Margin="20,0,0,0" FontFamily="Segoe UI Light"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </StackPanel>
             </Grid>
 
-            <StackPanel x:Name="stackProfile" Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" Height="130" Tap="stackProfile_Tap">
-                <ListBox x:Name="ListUserProfile" Width="370"  ItemsSource="{Binding CollectionDonatur}" ScrollViewer.VerticalScrollBarVisibility="Disabled">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <Grid>
-                                <StackPanel Orientation="Horizontal" Margin="50,10,0,0">
-                                    <Ellipse Height="120" Width="120" >
-                                        <Ellipse.Fill>
-                                            <ImageBrush Stretch="UniformToFill" ImageSource="{Binding Foto_donatur}"/>
-                                        </Ellipse.Fill>
-                                    </Ellipse>
-                                    <StackPanel VerticalAlignment="Center">
-                                        <TextBlock Text="{Binding Nama_donatur}" TextWrapping="Wrap" Foreground="WhiteSmoke" FontWeight="Bold" Width="208" VerticalAlignment="Center" Margin="20,2,0,2" FontSize="21" FontFamily="Segoe WP SemiLight"/>
-                                        <TextBlock Text="See your profile" Foreground="WhiteSmoke" FontSize="16" Margin="20,0,0,0" FontFamily="Segoe UI Light"/>
-                                    </StackPanel>
-                                </StackPanel>
-                            </Grid>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
+            <!--//grid 2-->
+            <Grid Grid.Row="1" >
+                <Grid Height="60" VerticalAlignment="Top">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0" x:Name="NewsTap" Background="#0071BC" Tap="Menu_Tap">
+                        <TextBlock Text="NEWS" Foreground="White" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Segoe WP Light"/>
+                    </Grid>
+                    <Grid  x:Name="DonateTap" Grid.Column="4" Background="#0071BC" Tap="Menu_Tap">
+                        <TextBlock Text="DONATION" Foreground="White" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Segoe WP Light"/>
+                    </Grid>
+                </Grid>
+            </Grid>
 
-            </StackPanel>
-
-        </Grid>
-
-
-
-
-
-        <!--//grid 2-->
-        <Grid Grid.Row="1" >
-            <Grid Height="60" VerticalAlignment="Top">
+            <Grid Grid.Row="2" Background="#FF0071BC">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Grid Grid.Column="0" x:Name="NewsTap" Background="#0071BC" Tap="Menu_Tap">
-                    <TextBlock Text="NEWS" Foreground="White" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Segoe WP Light"/>
-                </Grid>
-
-
-
-
-                <Grid  x:Name="DonateTap" Grid.Column="4" Background="#0071BC" Tap="Menu_Tap">
-                    <TextBlock Text="DONATION" Foreground="White" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Segoe WP Light"/>
-
-
-
-                </Grid>
-
+                <Border x:Name="NewsBorder" Visibility="Visible" Background="#37A7EA" Grid.Column="0" Height="5" Width="auto"/>
+                <Border x:Name="DonateBorder" Background="#37A7EA" Visibility="Collapsed" Grid.Column="2" Height="5" Width="auto"/>
             </Grid>
-        </Grid>
 
-
-
-        <Grid Grid.Row="2" Background="#FF0071BC">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Border x:Name="NewsBorder" Visibility="Visible" Background="#37A7EA" Grid.Column="0" Height="5" Width="auto"/>
-
-            <Border x:Name="DonateBorder" Background="#37A7EA" Visibility="Collapsed" Grid.Column="2" Height="5" Width="auto"/>
-        </Grid>
-
-
-
-
-        <!--//grid 3-->
-        <phone:Pivot x:Name="pivotControl" SelectionChanged="Pivot_SelectionChanged" Grid.Row="3"  VerticalAlignment="Top" HorizontalAlignment="Center" Width="480" Height="560" Background="White">
-            <phone:PivotItem Tag="satu" Width="480" Height="500" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="-10,-20,10,-260" >
-                <Grid Width="480">
-
-                    <ListBox x:Name="ListNews" Height="510" ItemsSource="{Binding CollectionNews}" Margin="0,10,0,-10" SelectionChanged="ListNews_SelectionChanged">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel>
-                                    <Grid Width="450" Height="130" Margin="30,10,10,0" Background="White">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="auto"/>
-                                            <ColumnDefinition Width="*"/>
-                                        </Grid.ColumnDefinitions>
-                                        <Ellipse Grid.Column="0" Height="80" Width="80" VerticalAlignment="Center" HorizontalAlignment="Center" StrokeThickness="4" Margin="10">
-                                            <Ellipse.Fill>
-                                                <ImageBrush ImageSource="{Binding gbr_news}" Stretch="UniformToFill"/>
-                                            </Ellipse.Fill>
-                                        </Ellipse>
-                                        <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center" Margin="5,10">
-                                            <TextBlock HorizontalAlignment="Left" Margin="0,0,0,3" TextWrapping="Wrap" Text="{Binding judul_news}" VerticalAlignment="Top" Foreground="Black" FontSize="16" />
-                                            <TextBlock HorizontalAlignment="Left" Margin="0" TextWrapping="Wrap" Text="{Binding tanggal_post}" VerticalAlignment="Top" Foreground="Black" FontSize="12" />
-                                            <TextBlock HorizontalAlignment="Left" Margin="0" TextWrapping="Wrap" Text="{Binding jam_post}" VerticalAlignment="Top" Foreground="Black" FontSize="12" />
-                                        </StackPanel>
-                                    </Grid>
-                                    <Border Background="Black" Width="480" Height="1" Opacity="0.5"/>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="SelectionChanged">
-                                <i:InvokeCommandAction Command="{Binding SetNews}" 
+            <!--//grid 3-->
+            <phone:Pivot x:Name="pivotControl" SelectionChanged="Pivot_SelectionChanged" Grid.Row="3"  VerticalAlignment="Top" HorizontalAlignment="Center" Width="480" Height="560" Background="White">
+                <phone:PivotItem Tag="satu" Width="480" Height="490" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,-10,0,0" >
+                    <Grid Width="480">
+                        <ListBox x:Name="ListNews" Height="490" ItemsSource="{Binding CollectionNews}" SelectionChanged="ListNews_SelectionChanged">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <Grid Width="450" Height="130" Margin="30,10,10,0" Background="White">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Ellipse Grid.Column="0" Height="80" Width="80" VerticalAlignment="Center" HorizontalAlignment="Center" StrokeThickness="4" Margin="10">
+                                                <Ellipse.Fill>
+                                                    <ImageBrush ImageSource="{Binding photo}" Stretch="UniformToFill"/>
+                                                </Ellipse.Fill>
+                                            </Ellipse>
+                                            <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center" Margin="5,10">
+                                                <TextBlock HorizontalAlignment="Left" Margin="0,0,0,3" TextWrapping="Wrap" Text="{Binding title}" VerticalAlignment="Top" Foreground="Black" FontSize="16" />
+                                                <TextBlock HorizontalAlignment="Left" Margin="0" TextWrapping="Wrap" Text="{Binding post_date}" VerticalAlignment="Top" Foreground="Black" FontSize="12" />
+                                                <TextBlock HorizontalAlignment="Left" Margin="0" TextWrapping="Wrap" Text="{Binding post_by}" VerticalAlignment="Top" Foreground="Black" FontSize="12" />
+                                            </StackPanel>
+                                        </Grid>
+                                        <Border Background="Black" Width="480" Height="1" Opacity="0.5"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="SelectionChanged">
+                                    <i:InvokeCommandAction Command="{Binding SetNews}" 
                                                    CommandParameter="{Binding Path=SelectedItem, ElementName=ListNews}"/>
-                                <ec:NavigateToPageAction TargetPage="/Views/PageDetailNews.xaml" />
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                    </ListBox>
-                </Grid>
-            </phone:PivotItem>
+                                    <ec:NavigateToPageAction TargetPage="/Views/PageDetailNews.xaml" />
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </ListBox>
+                    </Grid>
+                </phone:PivotItem>
 
-            <phone:PivotItem Tag="dua" Width="480" Height="500" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,-10,0,0"  >
+                <phone:PivotItem Tag="dua" Width="480" Height="490" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,-10,0,0"  >
                     <Grid>
                         <ProgressBar x:Name="LoadingBar" Visibility="Visible" IsEnabled="False" IsIndeterminate="true" Height="4" HorizontalAlignment="Stretch" Foreground="#FF1565C0"/>
 
                         <StackPanel>
                             <ListBox Grid.Row="1" x:Name="ListDonasi" Width="480" Height="490"  ItemsSource="{Binding CollectionDonasi}">
-                                        <ListBox.ItemTemplate>
-                                            <DataTemplate>
-                                                <Grid Width="480" Height="103"  HorizontalAlignment="Left" Tap="Children_onTap">
-                                                    <StackPanel Width="480">
-                                                        <Grid Height="100" Margin="-50,0,0,0">
-                                                            <Grid.Background>
-                                                                <SolidColorBrush Color="White" Opacity="1"/>
-                                                            </Grid.Background>
-                                                            <Grid.ColumnDefinitions>
-                                                                <ColumnDefinition Width="180"/>
-                                                                <ColumnDefinition Width="*"/>
-                                                            </Grid.ColumnDefinitions>
-                                                            <Ellipse Width="70" Height="70" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,30,0">
-                                                                <Ellipse.Fill>
-                                                                    <ImageBrush ImageSource="{Binding foto_anak}" Stretch="UniformToFill"/>
-                                                                </Ellipse.Fill>
-                                                            </Ellipse>
-                                                            <StackPanel Grid.Column="1" VerticalAlignment="Center">
-                                                                <TextBlock Text="{Binding nama_anak_asuh}" TextWrapping="Wrap" Foreground="Black" FontSize="18" FontFamily="Segoe WP Semibold" Width="400" HorizontalAlignment="Left"/>
-                                                                <TextBlock Text="{Binding status_anak}" FontFamily="Segoe WP SemiLight" FontSize="14" Foreground="Black" Margin="0,2,0,0"/>
-                                                                <TextBlock Text="{Binding jenjang_pendidikan}" FontFamily="Segoe WP SemiLight" FontSize="14" Foreground="Black"/>
-                                                            </StackPanel>
-                                                        </Grid>
-                                                        <Border Background="Black" Height="1" Width="480" Opacity="0.5"/>
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid Width="480" Height="103"  HorizontalAlignment="Left" Tap="Children_onTap">
+                                            <StackPanel Width="480">
+                                                <Grid Height="100" Margin="-50,0,0,0">
+                                                    <Grid.Background>
+                                                        <SolidColorBrush Color="White" Opacity="1"/>
+                                                    </Grid.Background>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="180"/>
+                                                        <ColumnDefinition Width="*"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Ellipse Width="70" Height="70" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,30,0">
+                                                        <Ellipse.Fill>
+                                                            <ImageBrush ImageSource="{Binding photo}" Stretch="UniformToFill"/>
+                                                        </Ellipse.Fill>
+                                                    </Ellipse>
+                                                    <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                                                        <TextBlock Text="{Binding name}" TextWrapping="Wrap" Foreground="Black" FontSize="18" FontFamily="Segoe WP Semibold" Width="400" HorizontalAlignment="Left"/>
+                                                        <TextBlock Text="{Binding children_status}" FontFamily="Segoe WP SemiLight" FontSize="14" Foreground="Black" Margin="0,2,0,0"/>
+                                                        <TextBlock Text="{Binding study_level}" FontFamily="Segoe WP SemiLight" FontSize="14" Foreground="Black"/>
                                                     </StackPanel>
                                                 </Grid>
+                                                <Border Background="Black" Height="1" Width="480" Opacity="0.5"/>
+                                            </StackPanel>
+                                        </Grid>
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>
 
@@ -287,24 +266,23 @@
                                     <i:EventTrigger EventName="SelectionChanged">
                                         <i:InvokeCommandAction Command="{Binding SetDonasi}" 
                                                            CommandParameter="{Binding Path=SelectedItem, ElementName=ListDonasi}"/>
-                                
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
                             </ListBox>
                         </StackPanel>
-                     </Grid>
+                    </Grid>
                 </phone:PivotItem>
-        </phone:Pivot>
+            </phone:Pivot>
+        </Grid>
     </Grid>
-        
-    </Grid>
-   
+
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar  x:Name="GlobalApplicationBar" BackgroundColor="#EDEDED" ForegroundColor="#292929">
             <shell:ApplicationBarIconButton x:Name="FitlerBtn" Click="FitlerBtn_Click" IconUri="/Assets/Icons/ic_32_filter.png" IsEnabled="True" Text="filter" />
             <shell:ApplicationBarIconButton x:Name="MapBtn" Click="MapBtn_Click" IconUri="/Assets/Icons/ic_48_nearby.png" IsEnabled="True" Text="nearby" />
 
             <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem x:Name="RecommendationBtn" Text="Recommendation foster children" Click="RecommendationBtn_Click" />
                 <shell:ApplicationBarMenuItem x:Name="AboutBtn" Text="about" Click="AboutBtn_Click" />
                 <shell:ApplicationBarMenuItem x:Name="LogoutBtn" Text="logout" Click="LogoutBtn_Click" />
             </shell:ApplicationBar.MenuItems>

@@ -127,8 +127,8 @@ namespace BantuAnakAsuh.Views
         }
 
 
-        string id;
-        string count="";
+        string id, token;
+        string count = "";
 
         private void cekLogin()
         {
@@ -155,12 +155,21 @@ namespace BantuAnakAsuh.Views
             {
                 try
                 {
-                    using (IsolatedStorageFileStream rawStream = isf.OpenFile("id_donatur", System.IO.FileMode.Open))
+                    using (IsolatedStorageFileStream rawStream = isf.OpenFile("id_donors", System.IO.FileMode.Open))
                     {
                         StreamReader reader = new StreamReader(rawStream);
 
                         id = reader.ReadToEnd();
-                        Navigation.navIdLogin = id;
+                        Navigation.navIdDonors = id;
+                        reader.Close();
+                    }
+
+                    using (IsolatedStorageFileStream rawStream = isf.OpenFile("token", System.IO.FileMode.Open))
+                    {
+                        StreamReader reader = new StreamReader(rawStream);
+
+                        token = reader.ReadToEnd();
+                        Navigation.token = token;
                         reader.Close();
                     }
 

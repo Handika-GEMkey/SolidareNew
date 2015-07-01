@@ -6,6 +6,7 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:maps="clr-namespace:Microsoft.Phone.Maps.Controls;assembly=Microsoft.Phone.Maps"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -242,293 +243,254 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="61"/>
             <RowDefinition Height="50"/>
+            <RowDefinition Height="3"/>
+            <RowDefinition Height="1"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <!--<ProgressBar Grid.Row="2" IsIndeterminate="True" Height="700" Width="480" Foreground="#FF032754"/>-->
 
-        <Grid Grid.Row="0" Background="#FF032754">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="403*"/>
-                <ColumnDefinition Width="77*"/>
-            </Grid.ColumnDefinitions>
-            <TextBlock Text="RECOMMENDATION" Foreground="White" VerticalAlignment="Center" Margin="31,0,0,0"/>
-            <Grid Grid.Column="1" Background="#00365A"/>
-            <Image x:Name="buttonMenu" Grid.Column="1" Source="/Assets/Icons/ic_48_menu.png" Stretch="UniformToFill" Width="40" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Height="40" Tap="buttonMenu_Tap"/>
-        </Grid>
-        <StackPanel  Grid.Row="1" Height="50" Orientation="Vertical" HorizontalAlignment="Center">
-            <StackPanel Height="42" Orientation="Horizontal" HorizontalAlignment="Center">
-                <Ellipse x:Name="elip1" HorizontalAlignment="Center" Height="15" VerticalAlignment="Center" Width="15" Fill="#FF032754"/>
-                <Ellipse x:Name="elip1_Copy" HorizontalAlignment="Center" Height="10" VerticalAlignment="Center" Width="10" Fill="White" Margin="8,0,0,0" />
-                <Ellipse x:Name="elip2" HorizontalAlignment="Center" Height="15" VerticalAlignment="Center" Width="15" Margin="8,0,0,0" Fill="#FF032754"/>
-                <Ellipse x:Name="elip2_Copy" HorizontalAlignment="Center" Height="10" VerticalAlignment="Center" Width="10" Fill="White" Margin="8,0,0,0"/>
-                <Ellipse x:Name="elip3" HorizontalAlignment="Center" Height="15" VerticalAlignment="Center" Width="15" Margin="8,0,0,0" Fill="#FF032754"/>
-                <Ellipse x:Name="elip3_Copy" HorizontalAlignment="Center" Height="10" VerticalAlignment="Center" Width="10" Fill="White" Margin="8,0,0,0" />
-
-            </StackPanel>
-            <Border Background="#FFD6D6D6" Height="4" Width="480"/>
-            <Border Background="#FF999999" Height="1" Width="480"/>
-
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" Height="60" Width="480" Background="#0071BC" VerticalAlignment="Top">
+            <Grid x:Name="home" Grid.Column="0" Width="70" Height="60">
+                <Image x:Name="buttonMenu" Source="/Assets/Icons/ic_48_back_button.png" Stretch="UniformToFill" Width="50" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Height="50" Tap="buttonMenu_Tap"/>
+            </Grid>
+            <Grid Grid.Column="0">
+                <TextBlock Text="FOSTER CHILDREN RECOMMENDATION" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+            </Grid>
         </StackPanel>
 
-        <phone:Pivot Grid.Row="2" SelectionChanged="Pivot_SelectionChanged" x:Name="Pivot_Control"  VerticalAlignment="Top" HorizontalAlignment="Center" Width="480" Height="735" Foreground="Black">
+        <Grid Grid.Row="1" >
+            <Grid Height="60" VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" x:Name="NewsTap">
+                    <TextBlock Text="Foster Children" Foreground="#BDBDBD" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </Grid>
+                <Border Background="#BDBDBD" Grid.Column="1" Height="60" Width="1"/>
+                <Grid  x:Name="DonateTap"  Grid.Column="4">
+                    <TextBlock Text="Environment" Foreground="#BDBDBD" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </Grid>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Border x:Name="NewsBorder" Visibility="Collapsed" Background="#0071BC" Grid.Column="0" Height="7" Width="auto"/>
+            <Border Background="#BDBDBD" Grid.Column="1" Height="5" Width="1"/>
+            <Border x:Name="DonateBorder" Background="#0071BC" Visibility="Collapsed" Grid.Column="2" Height="7" Width="auto"/>
+        </Grid>
+
+        <Grid Grid.Row="3" Background="#BDBDBD"></Grid>
+
+        <phone:Pivot Grid.Row="4" SelectionChanged="Pivot_SelectionChanged" x:Name="Pivot_Control"  VerticalAlignment="Top" HorizontalAlignment="Center" Width="480" Height="735" Foreground="Black">
             <phone:Pivot.Background>
                 <ImageBrush Stretch="Fill" ImageSource="/Assets/wallrecomend.png"/>
             </phone:Pivot.Background>
 
             <!-- Pivot Timeline -->
-            <phone:PivotItem x:Name="pivot1"  Visibility="Visible"  Tag="satu" Width="480" Height="736" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,-10,0,0">
-
+            <phone:PivotItem x:Name="pivot1"  Visibility="Visible"  Tag="satu" Width="480" Height="1024" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,-10,0,0">
                 <ScrollViewer Background="White" >
-                    <Grid Height="1800">
+                    <Grid Height="1700">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="80"/>
-                            <RowDefinition Height="250"/>
-                            <RowDefinition Height="110"/>
-                            <RowDefinition Height="110"/>
-                            <RowDefinition Height="110"/>
-                            <RowDefinition Height="120"/>
+                            <!--<RowDefinition Height="80"/>-->
+                            <RowDefinition Height="190"/>
                             <RowDefinition Height="110"/>
                             <RowDefinition Height="100"/>
+                            <RowDefinition Height="100"/>
                             <RowDefinition Height="110"/>
-                            <RowDefinition Height="80"/>
-                            <RowDefinition Height="120"/>
-                            <RowDefinition Height="110"/>
-                            <RowDefinition Height="110"/>
-                            <RowDefinition Height="110"/>
-                            <RowDefinition Height="110"/>
+                            <RowDefinition Height="250"/>
+                            <RowDefinition Height="100"/>
+                            <RowDefinition Height="100"/>
+                            <RowDefinition Height="100"/>
+                            <RowDefinition Height="100"/>
+                            <RowDefinition Height="100"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <StackPanel Grid.Row="0" VerticalAlignment="Center" >
-                            <TextBlock TextWrapping="Wrap" Text="Foster Children's Profile" Foreground="#FF032754" HorizontalAlignment="Center" FontSize="20"/>
-
-                            <TextBlock TextWrapping="Wrap" Text="Please recommend foster children in your nearby location with filling the field below." Foreground="#FF032754" Margin="31,10,30,0" FontSize="18"/>
-
-                        </StackPanel>
-                        <StackPanel Grid.Row="1" VerticalAlignment="Bottom" >
-                            <TextBlock TextWrapping="Wrap" Text="Foster children photo" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
-                            
-                            <Grid Width="416" Height="200" Background="#FFF4F4F4" Margin="0,5,0,0" >
+                        <!-- Photo -->
+                        <StackPanel Grid.Row="0" VerticalAlignment="Bottom" >
+                            <TextBlock TextWrapping="Wrap" Text="Photo" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
+                            <Grid Width="416" Height="150" Margin="30,5,30,0" >
                                 <Grid Visibility="Collapsed" x:Name="addimage2">
                                     <StackPanel>
-                                        <Button Command="{Binding GetImageCommand}"  Width="250" Height="80" Margin="0,10,0,0" Background="#FF032754" BorderBrush="{x:Null}" Content="Take Photo" FontSize="14.667" Tap="imageonTap"/>
-                                        <TextBlock Text="or" HorizontalAlignment="Center"/>
-                                        <Button Command="{Binding GetImageCommand1}"  Width="250" Height="80"  Background="#FF032754"  BorderBrush="{x:Null}" Content="Choose Photo" FontSize="14.667" Tap="imageonTap"/>
-
+                                        <Button Command="{Binding GetImageCommand}"  Width="180" Height="80" Margin="200,-5,0,0" Background="#0071BC" BorderBrush="{x:Null}" Content="Take Photo" FontSize="14.667" />
+                                        <!--<TextBlock Text="or" HorizontalAlignment="Center"/>-->
+                                        <Button Command="{Binding GetImageCommand1}"  Width="180" Height="80" Margin="200,0,0,0" Background="#0071BC"  BorderBrush="{x:Null}" Content="Choose Photo" FontSize="14.667" />
                                     </StackPanel>
-
+                                </Grid>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="200"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Ellipse Grid.Column="0" Margin="-30,0,0,0" Height="140" Width="140"  VerticalAlignment="Center">
+                                        <Ellipse.Fill>
+                                            <ImageBrush x:Name="foto_anakasuh" Stretch="UniformToFill" ImageSource="{Binding FotoKejahatan}"/>
+                                        </Ellipse.Fill>
+                                    </Ellipse>
                                 </Grid>
                                 <Grid x:Name="addimage1" Visibility="Visible">
-                                <Image x:Name="foto_anakasuh" Source="{Binding FotoKejahatan}" />
-                                <Image Source="/Assets/Icons/ic_256_camera.png" Opacity="0.25"/>
-                                
-                                
-                                <Button Width="250" Height="60" Margin="0,140,0,0" Background="#2ECC71" BorderBrush="{x:Null}" Content="Add Image" FontSize="14.667" Tap="TapClick"/>
+                                    <!--<Image x:Name="foto_anakasuh" Source="{Binding FotoKejahatan}" />-->
+
+                                    <Button Width="180" Height="80" Margin="200,0,0,0" Background="#FF032754" BorderBrush="{x:Null}" Content="Add Image" FontSize="14.667" Tap="Button_Tap_2"/>
+                                </Grid>
+                                <Grid x:Name="image_tmp" Visibility="Visible">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="200"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Ellipse Grid.Column="0" Margin="-20,0,0,0" Height="140" Width="140"  VerticalAlignment="Center">
+                                        <Ellipse.Fill>
+                                            <ImageBrush ImageSource="/Assets/Icons/ic_256_camera.png" Opacity="0.25"/>
+                                        </Ellipse.Fill>
+                                    </Ellipse>
                                 </Grid>
                             </Grid>
                         </StackPanel>
-                        
-                        <StackPanel Grid.Row="2" Visibility="Visible" VerticalAlignment="Bottom" >
-                            
+
+                        <!-- Name -->
+                        <StackPanel Grid.Row="1" Visibility="Visible" VerticalAlignment="Bottom" >
                             <TextBlock TextWrapping="Wrap" Text="Name" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
-
-                            <!--<Grid Height="30" Margin="35,10,0,0">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="30"/>
-                                <ColumnDefinition Width="70"/>
-                                <ColumnDefinition Width="70"/>
-                                <ColumnDefinition Width="30"/>
-                                <ColumnDefinition Width="90"/>
-                            </Grid.ColumnDefinitions>
-                            <CheckBox Grid.Column="0" x:Name="ck_laki" />
-                            <TextBlock Grid.Column="1" Text="Laki-laki" Foreground="#FF032754" FontSize="18"/>
-                            <CheckBox Grid.Column="3" x:Name="ck_perempuan" />
-                            <TextBlock Grid.Column="4" Text="Perempuan" Foreground="#FF032754" FontSize="18"/>
-                        </Grid>-->
-
-                            <TextBox x:Name="nama_anakasuh" FontSize="20" Text="{Binding Nama_anak_asuh, Mode=TwoWay}" Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754"/>
+                            <TextBox x:Name="nama_anakasuh" FontSize="16" Text="{Binding Nama_anak_asuh, Mode=TwoWay}" Background="#FFF4F4F4" Height="80" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754"/>
                         </StackPanel>
 
-                        <StackPanel Grid.Row="3" VerticalAlignment="Bottom" >
-                            <TextBlock TextWrapping="Wrap" Text="Address" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
-                            <TextBox x:Name="alamat_anakasuh" FontSize="20" Text="{Binding Alamat, Mode=TwoWay}" Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754" />
-                        </StackPanel>
-                        <StackPanel Grid.Row="4" VerticalAlignment="Bottom" >
-                            <TextBlock TextWrapping="Wrap" Text="Birthplace" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
-                            <TextBox x:Name="tempat_lahir" FontSize="20" Text="{Binding Tempat_lahir, Mode=TwoWay}"  Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754"  />
-                        </StackPanel>
-                        <StackPanel Grid.Row="5" VerticalAlignment="Bottom" >
-                            <TextBlock TextWrapping="Wrap" Text="Foster Children Status" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
-                            <toolkit:ListPicker BorderThickness="10"  x:Name="listStatus" ItemsSource="{Binding ListStatusCollection, Mode=TwoWay}" SelectedIndex="{Binding ListStatusSelected, Mode=TwoWay}" FullModeHeader="Choose Foster Children Status" Margin="30,0" ExpansionMode="FullScreenOnly" Background="#FFF4F4F4" VerticalAlignment="Top" Foreground="#FF00365A" FontSize="20" Template="{StaticResource listpickKu}" BorderBrush="#FFF4F4F4">
-                                <toolkit:ListPicker.FullModeItemTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Margin="0,10" Style="{StaticResource PhoneTextTitle3Style}" Text="{Binding}"/>
-                                    </DataTemplate>
-                                </toolkit:ListPicker.FullModeItemTemplate>
-                            </toolkit:ListPicker>
-                            <!--<TextBox FontSize="20" Text="{Binding Jk_anak_asuh, Mode=TwoWay}"  Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754"  />-->
-                        </StackPanel>
-                        <StackPanel Grid.Row="6" VerticalAlignment="Bottom" >
-                            <TextBlock TextWrapping="Wrap" Text="Birthdate" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
-                            <!--<TextBox  Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="#FF032754" />-->
-                            <toolkit:DatePicker x:Name="TglLahirPick"  FontSize="20" Value="{Binding Tanggal_lahir, Mode=TwoWay, StringFormat=d}" Template="{StaticResource DatePickerKu}" Foreground="#FF032754"/>
-                        </StackPanel>
-                        <StackPanel Grid.Row="7" VerticalAlignment="Bottom" >
+                        <!-- Gender -->
+                        <StackPanel Grid.Row="2" VerticalAlignment="Bottom" >
                             <TextBlock TextWrapping="Wrap" Text="Gender" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
-                            <toolkit:ListPicker BorderThickness="10"  x:Name="listGender" ItemsSource="{Binding JenisKelaminCollection, Mode=TwoWay}" SelectedIndex="{Binding JenisKelaminSelected, Mode=TwoWay}" FullModeHeader="Choose Your Gender" Margin="30,0" ExpansionMode="FullScreenOnly" Background="#FFF4F4F4" VerticalAlignment="Top" Foreground="#FF00365A" FontSize="20" Template="{StaticResource listpickKu}" BorderBrush="#FFF4F4F4">
+                            <toolkit:ListPicker Height="60" BorderThickness="10"  x:Name="listGender" ItemsSource="{Binding JenisKelaminCollection, Mode=TwoWay}" SelectedIndex="{Binding JenisKelaminSelected, Mode=TwoWay}" FullModeHeader="Choose Your Gender" Margin="30,0" ExpansionMode="FullScreenOnly" Background="#FFF4F4F4" VerticalAlignment="Center" Foreground="#FF00365A" FontSize="16" Template="{StaticResource listpickKu}" BorderBrush="#FFF4F4F4">
                                 <toolkit:ListPicker.FullModeItemTemplate>
                                     <DataTemplate>
-                                        <TextBlock Margin="0,10" Style="{StaticResource PhoneTextTitle3Style}" Text="{Binding}"/>
+                                        <TextBlock Margin="0,0,0,30" Style="{StaticResource PhoneTextTitle3Style}" Text="{Binding}"/>
                                     </DataTemplate>
                                 </toolkit:ListPicker.FullModeItemTemplate>
                             </toolkit:ListPicker>
-                            <!--<TextBox FontSize="20" Text="{Binding Jk_anak_asuh, Mode=TwoWay}"  Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754"  />-->
                         </StackPanel>
-                        <StackPanel Grid.Row="8" VerticalAlignment="Bottom" >
-                            <TextBlock TextWrapping="Wrap" Text="Children order" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
-                            <TextBox x:Name="anak_ke" InputScope="Number" FontSize="20" Text="{Binding Anak_ke, Mode=TwoWay}" Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754"  />
+
+                        <!-- Status -->
+                        <StackPanel Grid.Row="3" VerticalAlignment="Bottom" >
+                            <TextBlock TextWrapping="Wrap" Text="Status" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
+                            <toolkit:ListPicker Height="60" BorderThickness="10"  x:Name="listStatus" ItemsSource="{Binding ListStatusCollection, Mode=TwoWay}" SelectedIndex="{Binding ListStatusSelected, Mode=TwoWay}" FullModeHeader="Choose Foster Children Status" Margin="30,0" ExpansionMode="FullScreenOnly" Background="#FFF4F4F4" VerticalAlignment="Center" Foreground="#FF00365A" FontSize="16" Template="{StaticResource listpickKu}" BorderBrush="#FFF4F4F4">
+                                <toolkit:ListPicker.FullModeItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Margin="0,0,0,30" Style="{StaticResource PhoneTextTitle3Style}" Text="{Binding}"/>
+                                    </DataTemplate>
+                                </toolkit:ListPicker.FullModeItemTemplate>
+                            </toolkit:ListPicker>
                         </StackPanel>
-                        <StackPanel Background="#FF032754" Grid.Row="9" VerticalAlignment="Bottom"  Width="440" >
+
+                        <!-- Address -->
+                        <StackPanel Grid.Row="4" VerticalAlignment="Bottom" >
+                            <TextBlock TextWrapping="Wrap" Text="Address" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
+                            <TextBox x:Name="alamat_anakasuh" FontSize="16" Text="{Binding Alamat, Mode=TwoWay}" Background="#FFF4F4F4" Height="80" Margin="15,-8,150,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754" />
+
+                        </StackPanel>
+
+                        <!-- Btn_Address -->
+                        <StackPanel Grid.Row="4">
+                            <Button x:Name="btn_address" Margin="310,30,15,0" Height="80" Background="#0071BC" BorderBrush="{x:Null}" Content="Add" FontSize="14.667" Click="btn_address_Click"/>
+                        </StackPanel>
+
+                        <!-- Bing_Address -->
+                        <StackPanel Grid.Row="5" VerticalAlignment="Bottom" Margin="30,0,30,0">
+                            <!--<Controls:Map x:Name="mapLocation" Height="250" Width="480"/>-->
+                            <maps:Map
+                                Width="400" Height="250" Name="map1" Center="60.22,24.81" ZoomLevel="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" LandmarksEnabled="True">
+                            </maps:Map>
+                        </StackPanel>
+
+                        <!-- Parent Bar -->
+                        <StackPanel Background="#FF032754" Grid.Row="6" VerticalAlignment="Bottom"  Width="440" >
                             <TextBlock TextWrapping="Wrap" Text="FOSTER CHILDREN PARENT IDENTITY" Foreground="White" Margin="31,20,30,0" FontSize="18" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                         </StackPanel>
-                        <!--Biodata orang tua-->
-                        <StackPanel Grid.Row="10" VerticalAlignment="Bottom" >
+
+                        <!--Parent name-->
+                        <StackPanel Grid.Row="7" VerticalAlignment="Bottom" >
                             <TextBlock TextWrapping="Wrap" Text="Name of parent" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
-                            <TextBox x:Name="nama_orangtua" FontSize="20" Text="{Binding Nama_orangtua_asli, Mode=TwoWay}" Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754" />
+                            <TextBox x:Name="nama_orangtua" FontSize="16" Text="{Binding Nama_orangtua_asli, Mode=TwoWay}" Background="#FFF4F4F4" Height="80" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754" />
                         </StackPanel>
-                        <StackPanel Grid.Row="11" VerticalAlignment="Bottom" >
-                            <TextBlock TextWrapping="Wrap" Text="Address of parent" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
-                            <TextBox x:Name="alamat_orangtua" FontSize="20" Text="{Binding Alamat_orangtua_asli, Mode=TwoWay}" Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754"  />
-                        </StackPanel>
-                        <StackPanel Grid.Row="12" VerticalAlignment="Bottom" >
+
+                        <!-- Parent job -->
+                        <StackPanel Grid.Row="8" VerticalAlignment="Bottom" >
                             <TextBlock TextWrapping="Wrap" Text="Job" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
-                            <TextBox x:Name="job_orangtua" FontSize="20" Text="{Binding Pekerjaan, Mode=TwoWay}" Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754"/>
+                            <TextBox x:Name="job_orangtua" FontSize="16" Text="{Binding Pekerjaan, Mode=TwoWay}" Background="#FFF4F4F4" Height="80" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754"/>
                         </StackPanel>
-                        <StackPanel Grid.Row="13" VerticalAlignment="Bottom" >
+
+                        <!-- Parent salary -->
+                        <StackPanel Grid.Row="9" VerticalAlignment="Bottom" >
                             <TextBlock TextWrapping="Wrap" Text="Salary" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
-                            <TextBox x:Name="penghasilan" FontSize="20" Text="{Binding Penghasilan, Mode=TwoWay}" Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754" InputScope="Number"/>
+                            <TextBox x:Name="penghasilan" FontSize="16" Text="{Binding Penghasilan, Mode=TwoWay}" Background="#FFF4F4F4" Height="80" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754" InputScope="Number"/>
                         </StackPanel>
-                        <Button x:Name="buttoncoba" Grid.Row="14" Height="88" Width="400"  Content="Submit" Command="{Binding PublishCommand1}" Background="#FF032754" Click="Button_Click"></Button>
 
-
-
+                        <Button x:Name="buttoncoba" Grid.Row="10" Height="88" Width="400"  Content="Submit" Command="{Binding PublishCommand1}" Background="#FF032754" Click="Button_Click"></Button>
                     </Grid>
                 </ScrollViewer>
             </phone:PivotItem>
             <phone:PivotItem  x:Name="pivot2" Visibility="Collapsed" Tag="dua" Width="480" Height="736" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,-11,0,0" Background="White" >
                 <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Disabled">
                     <Grid Height="700">
-                       
+
                         <Grid.RowDefinitions>
                             <RowDefinition Height="110"/>
-                            <RowDefinition Height="250"/>
-                            <RowDefinition Height="200"/>
-                            <RowDefinition Height="250"/>
+                            <RowDefinition Height="240"/>
+                            <RowDefinition Height="240"/>
+                            <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <StackPanel Grid.Row="0" VerticalAlignment="Center" Grid.ColumnSpan="3" Margin="0,16" >
                             <TextBlock TextWrapping="Wrap" Text="Environment's Profile" Foreground="#FF032754" HorizontalAlignment="Center" FontSize="20"/>
-
                             <TextBlock TextWrapping="Wrap" Text="Please recommend foster children environment in your nearby location with filling the field below." Foreground="#FF032754" Margin="31,10,30,0" FontSize="18"/>
-
                         </StackPanel>
                         <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Grid.ColumnSpan="3" >
                             <TextBlock TextWrapping="Wrap" Text="Frontyard of house" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
                             <Grid Width="416" Height="200" Background="#FFF4F4F4" Margin="0,5,0,0" >
                                 <Grid Visibility="Collapsed" x:Name="addimage4">
                                     <StackPanel>
-                                        <Button Command="{Binding GetImageCommandA}" Width="250" Height="80" Margin="0,10,0,0" Background="#FF032754" BorderBrush="{x:Null}" Content="Take Photo" FontSize="14.667" Tap="imageonTap"/> 
+                                        <Button Command="{Binding GetImageCommandA}" Width="150" Height="80" Margin="0,10,0,0" Background="#FF032754" BorderBrush="{x:Null}" Content="Take Photo" FontSize="14.667" Tap="imageonTap"/>
                                         <TextBlock Text="or" HorizontalAlignment="Center"/>
-                                        <Button Command="{Binding GetImageCommandA1}" Width="250" Height="80" Margin="0,0,0,0" Background="#FF032754" BorderBrush="{x:Null}" Content="Choose Photo" FontSize="14.667" Tap="imageonTap"/>
-
+                                        <Button Command="{Binding GetImageCommandA1}" Width="150" Height="80" Margin="0,0,0,0" Background="#FF032754" BorderBrush="{x:Null}" Content="Choose Photo" FontSize="14.667" Tap="imageonTap"/>
                                     </StackPanel>
-
                                 </Grid>
+
                                 <Grid x:Name="addimage3" Visibility="Visible">
                                     <Image Source="{Binding FotoDepanRumah}" />
-                                    <Image Source="/Assets/Icons/ic_256_camera.png" Opacity="0.25"/>
-
-                                    <Button Width="250" Height="60" Margin="0,140,0,0" Background="#2ECC71" BorderBrush="{x:Null}" Content="Add Image" FontSize="14.667" Tap="TapClick"/>
                                 </Grid>
-                            </Grid>
-
-
-                           
-                        </StackPanel>
-                        <StackPanel Grid.Row="2" VerticalAlignment="Top" Grid.ColumnSpan="3" Grid.RowSpan="2">
-                            <TextBlock TextWrapping="Wrap" Margin="31,20,5,0" Text="Description" Foreground="#FF032754" FontSize="18"/>
-                            <Grid>
-                                <TextBox FontSize="20" Margin="5,-10,5,0" Height="170" x:Name="deskripsi_fotodepan" Text="{Binding Deskrip1, Mode=TwoWay}" TextWrapping="Wrap" Foreground="#FF032754" Background="#FFF4F4F4" SelectionBackground="#FF032754"/>
+                                <Grid x:Name="background_frontyrd">
+                                    <Image Source="/Assets/Icons/ic_256_camera.png" Opacity="0.25"/>
+                                </Grid>
+                                <Button x:Name="btn_frontyard" Width="250" Height="60" Margin="0,140,0,0" Background="#2ECC71" BorderBrush="{x:Null}" Content="Add Image" FontSize="14.667" Tap="TapClick"/>
                             </Grid>
                         </StackPanel>
-
-
-                        <Button Grid.Row="3" Height="88" Width="400"  Content="Submit" Command="{Binding PublishCommand2}" Background="#FF032754" VerticalAlignment="Top" HorizontalAlignment="Center" Click="Button_Click_1"></Button>
-
-
-
-                    </Grid>
-                </ScrollViewer>
-            </phone:PivotItem>
-
-            <phone:PivotItem  x:Name="pivot3" Visibility="Collapsed" Tag="tiga" Width="480" Height="736" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,-11,0,0" Background="White" >
-                <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Disabled" >
-                    <Grid Height="1200">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="57*"/>
-                            <ColumnDefinition Width="10*"/>
-                            <ColumnDefinition Width="47*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="90"/>
-                            <RowDefinition Height="250"/>
-                            <RowDefinition Height="150"/>
-                            <RowDefinition Height="250"/>
-                            <RowDefinition Height="150"/>
-                            <RowDefinition Height="250"/>
-                            <RowDefinition Height="150"/>
-                        </Grid.RowDefinitions>
-                        <StackPanel Grid.Row="0" VerticalAlignment="Center" Grid.ColumnSpan="3" Margin="0,3,0,2" >
-                            <TextBlock TextWrapping="Wrap" Text="Environment's Profile" Foreground="#FF032754" HorizontalAlignment="Center" FontSize="20"/>
-
-                            <TextBlock TextWrapping="Wrap" Text="Please recommend foster children environment in your nearby location with filling the field below." Foreground="#FF032754" Margin="31,10,30,0" FontSize="18"/>
-
-                        </StackPanel>
-
-                        <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Grid.ColumnSpan="3" >
+                        <StackPanel Grid.Row="2" VerticalAlignment="Bottom" Grid.ColumnSpan="3" >
                             <TextBlock TextWrapping="Wrap" Text="Inside of house" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
                             <Grid Width="416" Height="200" Background="#FFF4F4F4" Margin="0,5,0,0" >
+
                                 <Grid Visibility="Collapsed" x:Name="addimage6">
                                     <StackPanel>
-                                        <Button Command="{Binding GetImageCommandB}" Width="250" Height="80" Margin="0,10,0,0" Background="#FF032754" BorderBrush="{x:Null}" Content="Take Photo" FontSize="14.667" Tap="imageonTap"/>
+                                        <Button Command="{Binding GetImageCommandB}" Width="150" Height="80" Margin="0,10,0,0" Background="#FF032754" BorderBrush="{x:Null}" Content="Take Photo" FontSize="14.667" Tap="Button_Tap"/>
                                         <TextBlock Text="or" HorizontalAlignment="Center"/>
-                                        <Button Command="{Binding GetImageCommandB1}" Width="250" Height="80" Margin="0,0,0,0" Background="#FF032754" BorderBrush="{x:Null}" Content="Choose Photo" FontSize="14.667" Tap="imageonTap"/>
-
+                                        <Button Command="{Binding GetImageCommandB1}" Width="150" Height="80" Margin="0,0,0,0" Background="#FF032754" BorderBrush="{x:Null}" Content="Choose Photo" FontSize="14.667" Tap="Button_Tap"/>
                                     </StackPanel>
-
                                 </Grid>
+
                                 <Grid x:Name="addimage5" Visibility="Visible">
                                     <Image Source="{Binding FotoDalamRumah}" />
-                                    <Image Source="/Assets/Icons/ic_256_camera.png" Opacity="0.25"/>
-
-                                    <Button Width="250" Height="60" Margin="0,140,0,0" Background="#2ECC71" BorderBrush="{x:Null}" Content="Add Image" FontSize="14.667" Tap="TapClick"/>
                                 </Grid>
+                                <Grid x:Name="background_inside">
+                                    <Image Source="/Assets/Icons/ic_256_camera.png" Opacity="0.25"/>
+                                </Grid>
+                                <Button x:Name="btn_inside" Width="250" Height="60" Margin="0,140,0,0" Background="#2ECC71" BorderBrush="{x:Null}" Content="Add Image" FontSize="14.667" Tap="Button_Tap_1"/>
                             </Grid>
                         </StackPanel>
-                        <StackPanel Grid.Row="2" VerticalAlignment="Top" Grid.ColumnSpan="3" Grid.RowSpan="2">
-                            <TextBlock TextWrapping="Wrap" Margin="31,20,5,0" Text="Description" Foreground="#FF032754" FontSize="18"/>
-                            <Grid>
-                                <TextBox FontSize="20" Margin="5,-10,5,0" Height="170" x:Name="deskripsi_fotodalam" Text="{Binding Deskrip2, Mode=TwoWay}" TextWrapping="Wrap" Foreground="#FF032754" Background="#FFF4F4F4" SelectionBackground="#FF032754"/>
-                            </Grid>
-                        </StackPanel>
 
-                        <Button Grid.Row="3" Height="88" Width="400"  Content="Submit" Command="{Binding PublishCommand3}" Background="#FF032754" Grid.ColumnSpan="3" Margin="28,81"></Button>
-
-
-
+                        <Button Grid.Row="3" Height="88" Width="400"  Content="Submit" Command="{Binding PublishCommand2}" Background="#FF032754" VerticalAlignment="Top" HorizontalAlignment="Center" Click="Button_Click_1"></Button>
                     </Grid>
                 </ScrollViewer>
             </phone:PivotItem>
         </phone:Pivot>
     </Grid>
+    
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar IsVisible="False" IsMenuEnabled="False" BackgroundColor="White" Opacity="0.925" ForegroundColor="#FF062D5A" Mode="Default">
             <shell:ApplicationBarIconButton x:Name="apbarKonfirmasi" IconUri="/Assets/icons/ic_48_checklist.png" Text="Confirm"/>

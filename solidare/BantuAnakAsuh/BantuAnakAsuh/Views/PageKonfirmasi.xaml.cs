@@ -22,6 +22,10 @@ namespace BantuAnakAsuh.Views
         {
             InitializeComponent();
             this.DataContext = new ViewModelKonfirmasi();
+            ViewModelKonfirmasi vm = new ViewModelKonfirmasi();
+            //txt_id.Text = vm.Id_Order;
+            //txt_from_bank.Text = vm.Dari_Bank;
+
         }
 
         private void buttonMenu_Tap(object sender, System.Windows.Input.GestureEventArgs e)
@@ -52,70 +56,70 @@ namespace BantuAnakAsuh.Views
 
         }
 
-        private void LoadUrl()
-        {
-            //LoadID();
-            WebClient clientlistdonasi = new WebClient();
-            clientlistdonasi.DownloadStringCompleted += new DownloadStringCompletedEventHandler(DownloadDonasiList);
-            clientlistdonasi.DownloadStringAsync(new Uri(URL.BASE3 + "api/konfirmasi/getorder.php?id_order=" + listStatus.SelectedItem.ToString()));
-        }
-
-
-        #region load id donatur
-        //public void LoadID()
+        //private void LoadUrl()
         //{
-        //    using (IsolatedStorageFile isf = IsolatedStorageFile.GetUserStoreForApplication())
-        //    {
-        //        try
-        //        {
-        //            using (IsolatedStorageFileStream rawStream = isf.OpenFile("id_order", System.IO.FileMode.Open))
-        //            {
-        //                StreamReader reader = new StreamReader(rawStream);
+        //    //LoadID();
+        //    WebClient clientlistdonasi = new WebClient();
+        //    clientlistdonasi.DownloadStringCompleted += new DownloadStringCompletedEventHandler(DownloadDonasiList);
+        //    clientlistdonasi.DownloadStringAsync(new Uri(URL.BASE3 + "api/konfirmasi/getorder.php?id_order=" + listStatus.SelectedItem.ToString()));
+        //}
 
-        //                listStatus.SelectedItem = reader.ReadToEnd();
-        //                Navigation.navIdOrder = listStatus.SelectedItem.ToString();
-        //                reader.Close();
-        //            }
-        //        }
-        //        catch
+
+        //#region load id donatur
+        ////public void LoadID()
+        ////{
+        ////    using (IsolatedStorageFile isf = IsolatedStorageFile.GetUserStoreForApplication())
+        ////    {
+        ////        try
+        ////        {
+        ////            using (IsolatedStorageFileStream rawStream = isf.OpenFile("id_order", System.IO.FileMode.Open))
+        ////            {
+        ////                StreamReader reader = new StreamReader(rawStream);
+
+        ////                listStatus.SelectedItem = reader.ReadToEnd();
+        ////                Navigation.navIdOrder = listStatus.SelectedItem.ToString();
+        ////                reader.Close();
+        ////            }
+        ////        }
+        ////        catch
+        ////        {
+        ////            //data tidak ditemukan
+        ////        }
+        ////    }
+        ////}
+        //#endregion
+
+        //public static bool konek = true;
+
+        //private void DownloadDonasiList(object sender, DownloadStringCompletedEventArgs e)
+        //{
+        //    try
+        //    {
+        //        JObject jresult = JObject.Parse(e.Result);
+        //        JArray JItem = JArray.Parse(jresult.SelectToken("item").ToString());
+        //        foreach (JObject item in JItem)
         //        {
-        //            //data tidak ditemukan
+
+        //            TextBoxJmlPmbyrn.Text = item.SelectToken("biaya_donasi").ToString();
+        //            BankTujuan.Text = item.SelectToken("bank").ToString();
+        //            BankAccountNumber.Text = item.SelectToken("no_rek").ToString();
         //        }
         //    }
+        //    catch
+        //    {
+        //        konek = false;
+        //    }
         //}
-        #endregion
 
-        public static bool konek = true;
-
-        private void DownloadDonasiList(object sender, DownloadStringCompletedEventArgs e)
-        {
-            try
-            {
-                JObject jresult = JObject.Parse(e.Result);
-                JArray JItem = JArray.Parse(jresult.SelectToken("item").ToString());
-                foreach (JObject item in JItem)
-                {
-
-                    TextBoxJmlPmbyrn.Text = item.SelectToken("biaya_donasi").ToString();
-                    BankTujuan.Text = item.SelectToken("bank").ToString();
-                    BankAccountNumber.Text = item.SelectToken("no_rek").ToString();
-                }
-            }
-            catch
-            {
-                konek = false;
-            }
-        }
-
-        private void listStatus_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+        //private void listStatus_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
             
-            if (listStatus.SelectedItem!=null)
-            {
-                LoadUrl();    
-            }
+        //    if (listStatus.SelectedItem!=null)
+        //    {
+        //        LoadUrl();    
+        //    }
             
-            //this.DataContext = new ViewModelKonfirmasi();
-        }
+        //    //this.DataContext = new ViewModelKonfirmasi();
+        //}
     }
 }

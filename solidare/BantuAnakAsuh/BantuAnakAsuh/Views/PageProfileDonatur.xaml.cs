@@ -22,7 +22,7 @@ namespace BantuAnakAsuh.Views
 
         private void buttonMenu_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/Views/PageMenu.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/Views/NewHomepage.xaml", UriKind.Relative));
         }
 
         private void apbarHome_Click(object sender, EventArgs e)
@@ -33,6 +33,26 @@ namespace BantuAnakAsuh.Views
         private void apbarSetting_Click(object sender, EventArgs e)
         {
             NavigationService.Navigate(new Uri("/Views/PageSetting.xaml", UriKind.Relative));
+        }
+
+        protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Views/NewHomepage.xaml", UriKind.Relative));
+        }
+
+        private void StackPanel_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Views/PageDetailAnak.xaml", UriKind.Relative));
+        }
+
+        private void getReport_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Views/PageRapotAnak.xaml", UriKind.Relative));
+        }
+
+        private void detailProfile_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Views/PageDetailDonatur.xaml", UriKind.Relative));
         }
     }
 }

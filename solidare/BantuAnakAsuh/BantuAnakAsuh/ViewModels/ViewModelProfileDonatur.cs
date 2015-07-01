@@ -2,6 +2,7 @@
 using BantuAnakAsuh.Helper;
 using BantuAnakAsuh.Models;
 using Newtonsoft.Json.Linq;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -9,12 +10,20 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace BantuAnakAsuh.ViewModels
 {
     class ViewModelProfileDonatur : ViewModelBase
     {
+        ModelLogin modelLogin = new ModelLogin();
+
+        Encrypt ec = new Encrypt();
+
+        private String Result;
+        public bool konek = true;
+
         private String no_anak;
 
         public String No_anak
@@ -58,19 +67,6 @@ namespace BantuAnakAsuh.ViewModels
             set { email_donatur = value; RaisePropertyChanged(""); }
         }
 
-        private ObservableCollection<ModelProfileDonatur> collectionAnakAsuh = new ObservableCollection<ModelProfileDonatur>();
-        public ObservableCollection<ModelProfileDonatur> CollectionAnakAsuh
-        {
-            get { return collectionAnakAsuh; }
-            set
-            {
-                if (this.collectionAnakAsuh != value)
-                {
-                    collectionAnakAsuh = value;
-                    RaisePropertyChanged("");
-                }
-            }
-        }
         private ObservableCollection<ModelLogin> collectionDonatur = new ObservableCollection<ModelLogin>();
         public ObservableCollection<ModelLogin> CollectionDonatur
         {
@@ -85,81 +81,171 @@ namespace BantuAnakAsuh.ViewModels
             }
         }
 
+        private ObservableCollection<ModelProfileDonatur> collectionAnakAsuh = new ObservableCollection<ModelProfileDonatur>();
+        public ObservableCollection<ModelProfileDonatur> CollectionAnakAsuh
+        {
+            get { return collectionAnakAsuh; }
+            set
+            {
+                if (this.collectionAnakAsuh != value)
+                {
+                    collectionAnakAsuh = value;
+                    RaisePropertyChanged("");
+                }
+            }
+        }
+
+        private ObservableCollection<ModelNews> collectionNews = new ObservableCollection<ModelNews>();
+        public ObservableCollection<ModelNews> CollectionNews
+        {
+            get { return collectionNews; }
+            set
+            {
+                if (this.collectionNews != value)
+                {
+                    collectionNews = value;
+                    RaisePropertyChanged("");
+                }
+            }
+
+        }
+        
         public ViewModelProfileDonatur()
         {
-            this.LoadUrl();
+            this.LoadUrlDonorProfile();
+            this.LoadUrlFosterChildren();
             this.LoadUrlNews();
-            this.LoadUrlAnakAsuh();
         }
 
-        private void LoadUrl()
-        {
-            WebClient clientprofiledonatur = new WebClient();
-            clientprofiledonatur.DownloadStringCompleted += new DownloadStringCompletedEventHandler(DownloadProfileDonatur);
-            clientprofiledonatur.DownloadStringAsync(new Uri(URL.BASE3 + "api/donatur/donatur.php?id_donatur=" + Navigation.navIdLogin + "?nocache=" + Guid.NewGuid()));
-
-        }
-
-        private void LoadUrlAnakAsuh()
-        {
-
-            WebClient clientanakasuhdonatur = new WebClient();
-            clientanakasuhdonatur.DownloadStringCompleted += new DownloadStringCompletedEventHandler(DownloadListAnak);
-            clientanakasuhdonatur.DownloadStringAsync(new Uri(URL.BASE3 + "api/profile/profile.php?id_donatur=" + Navigation.navIdLogin + "?nocache=" + Guid.NewGuid()));
-
-        }
-
-        public bool konek = true;
-
-        private void DownloadProfileDonatur(object sender, DownloadStringCompletedEventArgs e)
+        private void LoadUrlDonorProfile()
         {
             try
             {
-                JObject jresult = JObject.Parse(e.Result);
-                ModelLogin modelLogin = new ModelLogin();
-                modelLogin.Id_donatur = jresult.SelectToken("id_donatur").ToString();
-                modelLogin.Nama_donatur = jresult.SelectToken("nama_donatur").ToString();
-                modelLogin.Foto_donatur = URL.BASE3 + "modul/mod_OrangTuaAsuh/photo/" + jresult.SelectToken("foto_donatur").ToString();
-                modelLogin.No_tlp = jresult.SelectToken("no_tlp").ToString();
-                modelLogin.Email_donatur = jresult.SelectToken("email_donatur").ToString();
-                CollectionDonatur.Add(modelLogin);
-                
-            }
-            catch
-            {
-                konek = false;
-            }
-        }
+                RestRequest request = new RestRequest(URL.BASE3 + "APIv2/donors/profile.php", Method.POST);
+                request.AddHeader("content-type", "multipart/form-data");
+                request.AddParameter("id_donors", Navigation.navIdDonors);
+                request.AddParameter("token", Navigation.token);
 
-        private void DownloadListAnak(object sender, DownloadStringCompletedEventArgs e)
-        {
-            try
-            {
-                JObject jresult = JObject.Parse(e.Result);
-                String result = jresult.SelectToken("result").ToString();
-                if (result.Equals("sukses"))
+                //calling server with restClient
+                RestClient restClient = new RestClient();
+                restClient.ExecuteAsync(request, (response) =>
                 {
-                    JArray JItem = JArray.Parse(jresult.SelectToken("item").ToString());
+
+                    JObject jRoot = JObject.Parse(response.Content);
+                    String result = jRoot.SelectToken("result").ToString();
+                    JArray JItem = JArray.Parse(jRoot.SelectToken("item").ToString());
                     foreach (JObject item in JItem)
                     {
-                        ModelProfileDonatur modelProfileDonatur = new ModelProfileDonatur();
-                        modelProfileDonatur.id_anak_asuh = item.SelectToken("id_anak_asuh").ToString();
-                        modelProfileDonatur.nama_anak_asuh = item.SelectToken("nama_anak_asuh").ToString();
-                        modelProfileDonatur.foto_anak = URL.BASE3 + "modul/mod_AnakAsuh/photo/" + item.SelectToken("foto_anak").ToString();
-                        modelProfileDonatur.jenjang_pendidikan = item.SelectToken("jenjang_pendidikan").ToString();
-                        collectionAnakAsuh.Add(modelProfileDonatur);
+                        modelLogin.Username = item["username"].ToString();
+                        modelLogin.Nama_donatur = item.SelectToken("name").ToString();
+                        modelLogin.Alamat_donatur = item["address"].ToString();
+                        modelLogin.Email_donatur = item["email"].ToString();
+                        modelLogin.No_tlp = item["phone"].ToString();
+                        modelLogin.Photo = URL.BASE3 + "modul/mod_OrangTuaAsuh/photo/" + item["photo"].ToString();
+                        modelLogin.Gender = item["gender"].ToString();
+
+                        CollectionDonatur.Add(modelLogin);
                     }
-                }
-                else
-                {
-                    String hasil = jresult.SelectToken("message").ToString();
-                    No_anak = "You don't have foster children.";
-                }
+                });
             }
-            catch
+            catch (Exception ec)
             {
-                konek = false;
+                MessageBox.Show("Failed to display, the Internet connection is unstable.");
             }
+
+        }
+
+        private void LoadUrlNews()
+        {
+            try
+            {
+                RestRequest request = new RestRequest(URL.BASE3 + "APIv2/news/news.php", Method.POST);
+                request.AddHeader("content-type", "multipart/form-data");
+                request.AddParameter("id_donors", Navigation.navIdDonors);
+                request.AddParameter("token", Navigation.token);
+
+                //calling server with restClient
+                RestClient restClient = new RestClient();
+                restClient.ExecuteAsync(request, (response) =>
+                {
+
+                    JObject jRoot = JObject.Parse(response.Content);
+                    String result = jRoot.SelectToken("result").ToString();
+                    JArray JItem = JArray.Parse(jRoot.SelectToken("item").ToString());
+                    foreach (JObject item in JItem)
+                    {
+                        ModelNews modelNews = new ModelNews();
+                        modelNews.id_news = item["id_news"].ToString();
+                        modelNews.title = item["title"].ToString();
+                        modelNews.photo = URL.BASE3 + "modul/mod_News/gambar/" + item["photo"].ToString();
+                        modelNews.post_date = item["post_date"].ToString();
+                        modelNews.description = item["description"].ToString();
+                        modelNews.post_by = item["post_by"].ToString();
+
+                        collectionNews.Add(modelNews);
+                    }
+
+                });
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show("Failed to display, the Internet connection is unstable.");
+            }
+
+        }
+
+        private void LoadUrlFosterChildren()
+        {
+            try
+            {
+                RestRequest request = new RestRequest(URL.BASE3 + "APIv2/fosterchildren/fosterchildren.php", Method.POST);
+                request.AddHeader("content-type", "multipart/form-data");
+                request.AddParameter("id_donors", Navigation.navIdDonors);
+                request.AddParameter("token", Navigation.token);
+
+                //calling server with restClient
+                RestClient restClient = new RestClient();
+                restClient.ExecuteAsync(request, (response) =>
+                {
+
+                    JObject jRoot = JObject.Parse(response.Content);
+                    String result = jRoot.SelectToken("result").ToString();
+                    JArray JItem = JArray.Parse(jRoot.SelectToken("item").ToString());
+                    foreach (JObject item in JItem)
+                    {
+                        ModelProfileDonatur modelAnakAsuh = new ModelProfileDonatur();
+                        modelAnakAsuh.id_fosterchildren = item["id_fosterchildren"].ToString();
+                        modelAnakAsuh.name = item["name"].ToString();
+                        modelAnakAsuh.pob = item["pob"].ToString();
+                        modelAnakAsuh.dob = item["dob"].ToString();
+                        modelAnakAsuh.gender = item["gender"].ToString();
+                        modelAnakAsuh.address = item["address"].ToString();
+                        modelAnakAsuh.photo = URL.BASE3 + "modul/mod_AnakAsuh/photo/" + item["photo"].ToString();
+                        modelAnakAsuh.cost = item["cost"].ToString();
+                        modelAnakAsuh.children_status = item["children_status"].ToString();
+                        modelAnakAsuh.latitude = item["latitude"].ToString();
+                        modelAnakAsuh.longitude = item["longitude"].ToString();
+                        modelAnakAsuh.study_level = item["study_level"].ToString();
+                        modelAnakAsuh.school = item["school"].ToString();
+                        modelAnakAsuh.grade = item["grade"].ToString();
+                        modelAnakAsuh.parent_name = item["parent_name"].ToString();
+                        modelAnakAsuh.parent_address = item["parent_address"].ToString();
+                        modelAnakAsuh.jobs = item["jobs"].ToString();
+                        modelAnakAsuh.salary = item["salary"].ToString();
+                        modelAnakAsuh.id_cha_org = item["id_cha_org"].ToString();
+                        modelAnakAsuh.cha_org_name = item["cha_org_name"].ToString();
+                        modelAnakAsuh.id_program = item["id_program"].ToString();
+                        modelAnakAsuh.program_name = item["program_name"].ToString();
+                        Navigation.idProgram = modelAnakAsuh.id_cha_org.ToString();
+                        collectionAnakAsuh.Add(modelAnakAsuh);
+                    }
+                });
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show("Failed to display, the Internet connection is unstable.");
+            }
+
         }
 
         private int listIndex = -1;
@@ -192,62 +278,10 @@ namespace BantuAnakAsuh.ViewModels
             ModelProfileDonatur SelectedItem = obj as ModelProfileDonatur;
 
             if (SelectedItem != null)
-                Navigation.navIdAnak = SelectedItem.id_anak_asuh;
+                Navigation.navIdAnak = SelectedItem.id_fosterchildren;
 
             listIndex = -1;
         }
-
-    
-
-     private ObservableCollection<ModelNews> collectionNews = new ObservableCollection<ModelNews>();
-        public ObservableCollection<ModelNews> CollectionNews
-        {
-            get { return collectionNews; }
-            set
-            {
-                if (this.collectionNews != value)
-                {
-                    collectionNews = value;
-                    RaisePropertyChanged("");
-                }
-            }
-
-        }
-
- 
-
-        private void LoadUrlNews()
-        {
-            WebClient clientlistnews = new WebClient();
-            clientlistnews.DownloadStringCompleted += new DownloadStringCompletedEventHandler(DownloadNewsList);
-            clientlistnews.DownloadStringAsync(new Uri(URL.BASE3 + "api/news/news.php"));
-        }
-
-        public static bool konek1 = true;
-
-        private void DownloadNewsList(object sender, DownloadStringCompletedEventArgs e)
-        {
-            try
-            {
-                JObject jresult = JObject.Parse(e.Result);
-                JArray JItem = JArray.Parse(jresult.SelectToken("item").ToString());
-                foreach (JObject item in JItem)
-                {
-                    ModelNews modelNews = new ModelNews();
-                    modelNews.id_news = item.SelectToken("id_news").ToString();
-                    modelNews.judul_news = item.SelectToken("judul_news").ToString();
-                    modelNews.gbr_news = URL.BASE3 + "modul/mod_News/gambar/" + item.SelectToken("gbr_news").ToString();
-                    modelNews.tanggal_post = item.SelectToken("tanggal_post").ToString();
-                    modelNews.jam_post = item.SelectToken("jam_post").ToString();
-                    collectionNews.Add(modelNews);
-                }
-            }
-            catch
-            {
-                konek1 = false;
-            }
-        }
-
 
         private int listIndex1 = -1;
         public int ListIndex1
@@ -283,6 +317,6 @@ namespace BantuAnakAsuh.ViewModels
 
             listIndex1 = -1;
         }
-     
+
     }
 }

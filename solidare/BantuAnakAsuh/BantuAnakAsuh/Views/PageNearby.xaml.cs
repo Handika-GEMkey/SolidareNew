@@ -23,6 +23,7 @@ using System.IO;
 using System.Runtime.Serialization;
 using System.Windows.Input;
 using BantuAnakAsuh.Common;
+using RestSharp;
 
 namespace BantuAnakAsuh.Views
 {
@@ -49,14 +50,9 @@ namespace BantuAnakAsuh.Views
         private void apbarMylocat_Click(object sender, EventArgs e)
         {
 
-            
-            
         }
         
-
         GeoCoordinateWatcher watcher;
-
-
 
         //- code map
 
@@ -64,46 +60,73 @@ namespace BantuAnakAsuh.Views
         private LocationList LocationListobj = new LocationList();
         public List<GeoCoordinate> MyCoordinates = new List<GeoCoordinate>();
 
-
-
-
         private void MapView_Loaded(object sender, RoutedEventArgs e)
         {
-            LoadURLDetailAnakAsuh();
+            LoadKejahatan();
             ShowMyLocationOnTheMap();
         }
 
+        //public async void LoadURLDetailAnakAsuh()
+        //{
+        //    HttpClient client = new HttpClient();
+        //    try
+        //    {
+        //        string responResult = await client.GetStringAsync(new Uri("http://alix.azurewebsites.net/admin/api/anakasuh/anakasuh.php?nocache=" + Guid.NewGuid()));
+        //        LoadKejahatan(responResult);
+        //        client.Dispose();
+        //    }
+        //    catch { }
+        //}
 
-        public async void LoadURLDetailAnakAsuh()
-        {
-            HttpClient client = new HttpClient();
-            try
-            {
-                string responResult = await client.GetStringAsync(new Uri("http://alix.azurewebsites.net/admin/api/anakasuh/anakasuh.php?nocache=" + Guid.NewGuid()));
-                LoadKejahatan(responResult);
-                client.Dispose();
-            }
-            catch { }
-        }
-
-        private void LoadKejahatan(String responResult)
+        public void LoadKejahatan()
         {
             try
             {
                 /************Binding dari Database**************/
-                JObject jRoot = JObject.Parse(responResult);
-                JArray jItem = JArray.Parse(jRoot.SelectToken("item").ToString());
-                foreach (JObject item in jItem)
+                RestRequest request = new RestRequest(URL.BASE3 + "APIv2/fosterchildren/fosterchildren.php", Method.POST);
+                request.AddHeader("content-type", "multipart/form-data");
+                request.AddParameter("id_donors", Navigation.navIdDonors);
+                request.AddParameter("token", Navigation.token);
+
+                //calling server with restClient
+                RestClient restClient = new RestClient();
+                
+                restClient.ExecuteAsync(request, (response) =>
                 {
-                    LocationDetail lokasidetail = new LocationDetail();
-                    lokasidetail.id_anak_asuh = item.SelectToken("id_anak_asuh").ToString();
-                    lokasidetail.nama_anak_asuh = item.SelectToken("nama_anak_asuh").ToString();
-                    lokasidetail.foto_anak = URL.BASE3 + "modul/mod_AnakAsuh/photo/" + item.SelectToken("foto_anak").ToString();
-                    lokasidetail.latitude = item.SelectToken("latitude").ToString();
-                    lokasidetail.longitude = item.SelectToken("longitude").ToString();
-                    lokasidetail.alamat = item.SelectToken("alamat").ToString();
-                    LocationListobj.Add(lokasidetail);
-                }
+
+                    JObject jRoot = JObject.Parse(response.Content);
+                    String result = jRoot.SelectToken("result").ToString();
+                    JArray JItem = JArray.Parse(jRoot.SelectToken("item").ToString());
+                    foreach (JObject item in JItem)
+                    {
+                        LocationDetail lokasiDetail = new LocationDetail();
+                        lokasiDetail.id_fosterchildren = item["id_fosterchildren"].ToString();
+                        lokasiDetail.name = item["name"].ToString();
+                        lokasiDetail.pob = item["pob"].ToString();
+                        lokasiDetail.dob = item["dob"].ToString();
+                        lokasiDetail.gender = item["gender"].ToString();
+                        lokasiDetail.address = item["address"].ToString();
+                        lokasiDetail.photo = URL.BASE3 + "modul/mod_AnakAsuh/photo/" + item["photo"].ToString();
+                        lokasiDetail.cost = item["cost"].ToString();
+                        lokasiDetail.children_status = item["children_status"].ToString();
+                        lokasiDetail.latitude = item["latitude"].ToString();
+                        lokasiDetail.longitude = item["longitude"].ToString();
+                        lokasiDetail.study_level = item["study_level"].ToString();
+                        lokasiDetail.school = item["school"].ToString();
+                        lokasiDetail.grade = item["grade"].ToString();
+                        lokasiDetail.parent_name = item["parent_name"].ToString();
+                        lokasiDetail.parent_address = item["parent_address"].ToString();
+                        lokasiDetail.jobs = item["jobs"].ToString();
+                        lokasiDetail.salary = item["salary"].ToString();
+                        lokasiDetail.id_cha_org = item["id_cha_org"].ToString();
+                        lokasiDetail.cha_org_name = item["cha_org_name"].ToString();
+                        lokasiDetail.id_program = item["id_program"].ToString();
+                        lokasiDetail.program_name = item["program_name"].ToString();
+                        
+                        LocationListobj.Add(lokasiDetail);
+                    }
+                });
+
                 /************Add diff locations to list**************/
 
                 MapVieMode.Layers.Clear();
@@ -138,7 +161,7 @@ namespace BantuAnakAsuh.Views
             for (int i = 0; i < MyCoordinates.Count; i++)
             {
                 UCCustomToolTip _tooltip = new UCCustomToolTip();
-                _tooltip.Description = LocationListobj[i].nama_anak_asuh.ToString() + "\n" + LocationListobj[i].alamat;
+                _tooltip.Description = LocationListobj[i].name.ToString() + "\n" + LocationListobj[i].address + "\n"+ LocationListobj[i].cha_org_name;
                 _tooltip.DataContext = LocationListobj[i];
                 _tooltip.Menuitem.Click += Menuitem_Click;
                 _tooltip.imgmarker.Tap += _tooltip_Tapimg;
@@ -150,6 +173,7 @@ namespace BantuAnakAsuh.Views
             }
             MapVieMode.Layers.Add(mapLayer);
         }
+
         //public ICommand SetDonasi
         //{
         //    get
@@ -180,26 +204,9 @@ namespace BantuAnakAsuh.Views
             {
                 MenuItem item = (MenuItem)sender;
                 string selecteditem = item.Tag.ToString();
-                //Navigation.menuItem = selecteditem;
+                Navigation.menuItem = selecteditem;
+                NavigationService.Navigate(new Uri("/Views/DetailAnakAsuhNearby.xaml?anak=" + selecteditem, UriKind.Relative));
                 
-                var selectedparkdata = LocationListobj.Where(s => s.id_anak_asuh == selecteditem).ToList();
-                if (selectedparkdata.Count > 0)
-                {
-                    foreach (var items in selectedparkdata)
-                    {
-                        if (Settings.FileExists("LocationDetailItem"))
-                        {
-                            Settings.DeleteFile("LocationDetailItem");
-                        }
-                        using (IsolatedStorageFileStream fileStream = Settings.OpenFile("LocationDetailItem", FileMode.Create))
-                        {
-                            DataContractSerializer serializer = new DataContractSerializer(typeof(LocationDetail));
-                            serializer.WriteObject(fileStream, items);
-                        }
-                        
-                        break;
-                    }
-                }
             }
             catch
             {
@@ -213,7 +220,7 @@ namespace BantuAnakAsuh.Views
             {
                 Image item = (Image)sender;
                 string selecteditem = item.Tag.ToString();
-                var selectedparkdata = LocationListobj.Where(s => s.id_anak_asuh == selecteditem).ToList();
+                var selectedparkdata = LocationListobj.Where(s => s.id_fosterchildren == selecteditem).ToList();
 
                 if (selectedparkdata.Count > 0)
                 {
@@ -237,14 +244,31 @@ namespace BantuAnakAsuh.Views
 
         public class LocationDetail
         {
-            public string id_anak_asuh { get; set; }
-            public string nama_anak_asuh { get; set; }
-            public string foto_anak { get; set; }
+            public string id_fosterchildren { get; set; } //for list anak asuh donatur
+            public string name { get; set; }
+            public string pob { get; set; } //for list donatur
+            public string dob { get; set; } //for list anak asuh donatur
+            public string gender { get; set; }
+            public string address { get; set; }
+            public string photo { get; set; }
+            public string cost { get; set; }
+            public string children_status { get; set; }
             public string latitude { get; set; }
             public string longitude { get; set; }
-            public string alamat { get; set; }
-            
+            public string study_level { get; set; } //for list anak asuh donatur
+            public string school { get; set; }
+            public string grade { get; set; }
+            public string parent_name { get; set; } //for list anak asuh donatur
+            public string parent_address { get; set; }
+            public string jobs { get; set; }
+            public string salary { get; set; }
+            public string id_cha_org { get; set; }
+            public string cha_org_name { get; set; }
+            public string id_program { get; set; }
+            public string program_name { get; set; }
+
         }
+
         public class LocationList : List<LocationDetail>
         {
         }

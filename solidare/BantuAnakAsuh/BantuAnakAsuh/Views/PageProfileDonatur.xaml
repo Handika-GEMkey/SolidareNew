@@ -41,99 +41,114 @@
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="White">
-        
+
         <Grid.RowDefinitions>
-            <RowDefinition Height="61"/>
-            <RowDefinition Height="250"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="280"/>
             <RowDefinition Height="40"/>
-            <RowDefinition Height="3*"/>
+            <RowDefinition Height="405"/>
+            <!--<RowDefinition Height="72"/>-->
         </Grid.RowDefinitions>
-        <Grid Grid.Row="1" >
-            <ListBox x:Name="ListUserProfile" Height="200" Width="200" VerticalAlignment="Center" HorizontalAlignment="Center"  ItemsSource="{Binding CollectionDonatur}" ScrollViewer.VerticalScrollBarVisibility="Disabled">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <Ellipse VerticalAlignment="Center" HorizontalAlignment="Center" Height="200" Width="200">
-                            <Ellipse.Fill>
-                                <ImageBrush Stretch="UniformToFill" ImageSource="{Binding Foto_donatur}"/>
-                            </Ellipse.Fill>
-                        </Ellipse>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-        </Grid>
-        <Grid Grid.Row="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="100"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0" Margin="25,0,10,0">
-                <Ellipse Height="50" Width="50" VerticalAlignment="Center" HorizontalAlignment="Center" StrokeThickness="4" Fill="#FF062D5A"/>
-                <Image Source="/Assets/icons/ic_48_user.png" Stretch="None"/>
-            </Grid>
-            <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center" Margin="10,10,5,10">
-                <ListBox x:Name="ListUserProfile2" Width="480" ItemsSource="{Binding CollectionDonatur}" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+        <Grid Grid.Row="0" Background="#1565C0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="72"/>
+                <RowDefinition Height="140"/>
+                <RowDefinition Height="70"/>
+            </Grid.RowDefinitions>
+
+            <!--Grid 0-->
+            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" Height="72" Width="480" Background="#0071BC" VerticalAlignment="Top">
+                <Grid x:Name="home" Grid.Column="0" Width="70" Height="70">
+                    <Image x:Name="buttonMenu" Source="/Assets/Icons/ic_48_back_button.png" Stretch="Fill" Width="50" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Height="50" Tap="buttonMenu_Tap"/>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <TextBlock Text="DONOR PROFILE" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+                </Grid>
+            </StackPanel>
+
+            <!--Grid 1-->
+            <Grid x:Name="detailProfile" Grid.Row="1" Tap="detailProfile_Tap">
+                <ListBox x:Name="ListUserProfile" Height="120" Width="120" VerticalAlignment="Center" HorizontalAlignment="Center"  ItemsSource="{Binding CollectionDonatur}" ScrollViewer.VerticalScrollBarVisibility="Disabled">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel>
-                                <TextBlock HorizontalAlignment="Left" Margin="0,0,0,3" TextWrapping="Wrap" Text="{Binding Nama_donatur}" VerticalAlignment="Top" Foreground="#FF062D5A" FontWeight="Bold" />
-                                <TextBlock HorizontalAlignment="Left" Margin="0" TextWrapping="Wrap" Text="{Binding Email_donatur}" VerticalAlignment="Top" Foreground="#FF062D5A" FontSize="14" />
-                                <TextBlock HorizontalAlignment="Left" Margin="0" TextWrapping="Wrap" Text="{Binding No_tlp}" VerticalAlignment="Top" Foreground="#FF062D5A" FontSize="14" />
+                            <Ellipse Grid.Row="0" Height="120" Width="120" Stroke="White">
+                                <Ellipse.Fill>
+                                    <ImageBrush Stretch="UniformToFill" ImageSource="{Binding photo}"/>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Grid>
+
+            <!--Grid 2-->
+            <Grid Grid.Row="2" Tap="detailProfile_Tap">
+                <ListBox x:Name="ListUserProfile2" Height="70" Width="480" ItemsSource="{Binding CollectionDonatur}" ScrollViewer.VerticalScrollBarVisibility="Disabled" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="30"/>
+                                        <RowDefinition Height="30"/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Grid.Row="0" TextWrapping="Wrap" Text="{Binding Nama_donatur}" Foreground="White" TextAlignment="Center" Margin="160,0,0,0"/>
+                                    <TextBlock Grid.Row="1" TextWrapping="Wrap" Text="Tap for detail" Foreground="White" TextAlignment="Center" Margin="160,0,0,0" FontSize="14"/>
+                                </Grid>
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
-            </StackPanel>
-            
+            </Grid>
         </Grid>
-        <Grid Grid.Row="3">
-            <TextBlock TextWrapping="Wrap" Text="YOUR FOSTER CHILDREN" FontSize="18" Foreground="#FF062D5A" FontWeight="Bold" Margin="35,0,0,0"/>
-        </Grid>
-        <Grid Grid.Row="4">
-            <TextBlock TextWrapping="Wrap" Text="{Binding No_anak}" Foreground="#FF062D5A" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,100" Opacity="0.6"/>
-        </Grid>
-        <ListBox Grid.Row="5" x:Name="ListAnakAsuh" ItemsSource="{Binding CollectionAnakAsuh}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Grid Width="420" Margin="20,0,10,0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="auto"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Ellipse Grid.Column="0" Height="80" Width="80" VerticalAlignment="Center" HorizontalAlignment="Center" StrokeThickness="4" Margin="10">
-                            <Ellipse.Fill>
-                                <ImageBrush ImageSource="{Binding foto_anak}" Stretch="UniformToFill"/>
-                            </Ellipse.Fill>
-                        </Ellipse>
-                        <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center" Margin="5,10">
-                            <TextBlock HorizontalAlignment="Left" Margin="0,0,0,3" TextWrapping="Wrap" Text="{Binding nama_anak_asuh}" VerticalAlignment="Top" Foreground="#FF062D5A" FontSize="18" FontWeight="Bold" />
-                            <TextBlock HorizontalAlignment="Left" Margin="0" TextWrapping="Wrap" Text="{Binding jenjang_pendidikan}" VerticalAlignment="Top" Foreground="#FF062D5A" FontSize="14" />
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <Grid Width="480" >
+                <TextBlock Grid.Row="0" TextWrapping="Wrap" Text="YOUR FOSTER CHILDREN"  FontSize="20" Foreground="#1565C0" FontWeight="Bold" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Center"/>
+            </Grid>
+        </StackPanel>
+
+        <Grid Grid.Row="2" Height="auto">
+            <ListBox x:Name="ListAnakAsuh" Height="auto" ItemsSource="{Binding CollectionAnakAsuh}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <Border Background="#FFBDBDBD" Height="2" Opacity="0.5" Width="480"/>
+                            <Grid Width="420" Margin="10,0,0,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.Column="0">
+                                    <Ellipse Height="80" Width="80" VerticalAlignment="Center" HorizontalAlignment="Center" StrokeThickness="4" Margin="10">
+                                        <Ellipse.Fill>
+                                            <ImageBrush ImageSource="{Binding photo}" Stretch="UniformToFill"/>
+                                        </Ellipse.Fill>
+                                    </Ellipse>
+                                </StackPanel>
+                                <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center" Margin="5,10">
+                                    <TextBlock HorizontalAlignment="Left" Margin="0,0,0,3" TextWrapping="Wrap" Text="{Binding name}" VerticalAlignment="Top" Foreground="#FF062D5A" FontSize="18" FontWeight="Bold" />
+                                    <TextBlock HorizontalAlignment="Left" Margin="0" TextWrapping="Wrap" Text="{Binding study_level}" VerticalAlignment="Top" Foreground="#FF062D5A" FontSize="14" />
+                                </StackPanel>
+                            </Grid>
+                            <Border Background="#FFBDBDBD" Height="2" Opacity="0.5" Width="480"/>
                         </StackPanel>
-                    </Grid>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-            <!--<i:Interaction.Triggers>
-                <i:EventTrigger EventName="SelectionChanged">
-                    <i:InvokeCommandAction Command="{Binding SetAnakAsuh}" 
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Tap">
+                        <i:InvokeCommandAction Command="{Binding SetAnakAsuh}" 
                                                    CommandParameter="{Binding Path=SelectedItem, ElementName=ListAnakAsuh}"/>
-                    <ec:NavigateToPageAction TargetPage="/Views/PageDetailAnak.xaml" />
-                </i:EventTrigger>
-            </i:Interaction.Triggers>-->
-        </ListBox>
-        <TextBlock Margin="30,0,0,15" Text="DONOR'S PROFILE" VerticalAlignment="Bottom" Foreground="#FF062D5A" FontWeight="Bold"/>
-        <Grid Grid.Row="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="403*"/>
-                <ColumnDefinition Width="77*"/>
-            </Grid.ColumnDefinitions>
-            <Grid Grid.Column="1" Background="#00365A"/>
-            <Image x:Name="buttonMenu" Grid.Column="1" Source="/Assets/Icons/ic_48_menu.png" Stretch="UniformToFill" Width="40" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Height="40" Tap="buttonMenu_Tap"/>
+                        <ec:NavigateToPageAction TargetPage="/Views/PageDetailAnak.xaml" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </ListBox>
         </Grid>
 
     </Grid>
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar IsVisible="True" IsMenuEnabled="False" BackgroundColor="White" Opacity="0.925" ForegroundColor="#FF062D5A" Mode="Default">
-            <shell:ApplicationBarIconButton x:Name="apbarHome" IconUri="/Assets/icons/ic_48_home.png" Text="Home" Click="apbarHome_Click"/>
+            <!--<shell:ApplicationBarIconButton x:Name="apbarHome" IconUri="/Assets/icons/ic_48_home.png" Text="Home" Click="apbarHome_Click"/>-->
             <shell:ApplicationBarIconButton x:Name="apbarSetting" IconUri="/Assets/icons/ic_48_setting.png" Text="setting" Click="apbarSetting_Click"/>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>

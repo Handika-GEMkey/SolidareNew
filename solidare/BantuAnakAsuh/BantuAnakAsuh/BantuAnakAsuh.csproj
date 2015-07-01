@@ -93,6 +93,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Helper\Encrypt.cs" />
     <Compile Include="Helper\NavBarDrawer.cs" />
     <Compile Include="Helper\NavDrawMargin.cs" />
     <Compile Include="Models\ModelBank.cs" />

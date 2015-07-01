@@ -237,30 +237,29 @@
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="White" >
         <Grid.RowDefinitions>
-            <RowDefinition Height="61"/>
+            <RowDefinition Height="72"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0" Background="#FF032754">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="403*"/>
-                <ColumnDefinition Width="77*"/>
-            </Grid.ColumnDefinitions>
-            <TextBlock Text="CONFIRMATION" Foreground="White" VerticalAlignment="Center" Margin="31,0,0,0"/>
-            <Grid Grid.Column="1" Background="#00365A"/>
-            <Image x:Name="buttonMenu" Grid.Column="1" Source="/Assets/Icons/ic_48_menu.png" Stretch="UniformToFill" Width="40" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Height="40" Tap="buttonMenu_Tap"/>
-        </Grid>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" Height="72" Width="480" Background="#0071BC" VerticalAlignment="Top">
+            <Grid x:Name="home" Grid.Column="0" Width="70" Height="70">
+                <Image x:Name="buttonMenu" Source="/Assets/Icons/ic_48_back_button.png" Stretch="Fill" Width="50" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Height="50" Tap="buttonMenu_Tap"/>
+            </Grid>
+            <Grid Grid.Column="1">
+                <TextBlock Text="CONFIRMATION" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+            </Grid>
+        </StackPanel>
         <ScrollViewer Grid.Row="1">
             
             <Grid Height="1200">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="0"/>
-                    <RowDefinition Height="150"/>
-                    <RowDefinition Height="120"/>
-                    <RowDefinition Height="120"/>
-                    <RowDefinition Height="120"/>
-                    <RowDefinition Height="120"/>
-                    <RowDefinition Height="120"/>
                     <RowDefinition Height="250"/>
+                    <!--<RowDefinition Height="120"/>-->
+                    <RowDefinition Height="120"/>
+                    <RowDefinition Height="120"/>
+                    <RowDefinition Height="120"/>
+                    <RowDefinition Height="120"/>
+                    <!--<RowDefinition Height="250"/>-->
                     <RowDefinition Height="120"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
@@ -268,50 +267,41 @@
                     <TextBlock TextWrapping="Wrap" Text="Id Order" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
                     <TextBox FontSize="20" Text="{Binding Id_Order, Mode=TwoWay}" Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754" InputScope="Default"/>
                 </StackPanel>-->
-                <StackPanel Grid.Row="1" VerticalAlignment="Bottom" >
-                    <TextBlock TextWrapping="Wrap" Text="Id Order" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
-                    <toolkit:ListPicker BorderThickness="10"  x:Name="listStatus" ItemsSource="{Binding CollectionListOrder, Mode=TwoWay}" SelectedIndex="{Binding ListStatusSelected, Mode=TwoWay}" FullModeHeader="Your Id Order" Margin="30,0" ExpansionMode="FullScreenOnly" Background="#FFF4F4F4" VerticalAlignment="Top" Foreground="#FF00365A" FontSize="20" Template="{StaticResource listpickKu}" BorderBrush="#FFF4F4F4" SelectionChanged="listStatus_SelectionChanged">
-                        <toolkit:ListPicker.FullModeItemTemplate>
-                            <DataTemplate>
-                                <TextBlock x:Name="txtidorder" Margin="0,10" Style="{StaticResource PhoneTextTitle3Style}" Text="{Binding}"/>
-                            </DataTemplate>
-                        </toolkit:ListPicker.FullModeItemTemplate>
-                    </toolkit:ListPicker>
+                <StackPanel Grid.Row="2" VerticalAlignment="Bottom" >
+                    <TextBlock TextWrapping="Wrap" Text="Invoice Number" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
+                    <TextBox x:Name="txt_id" Text="{Binding Id_donation, Mode=TwoWay}" FontSize="20"  Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754" TextChanged="TextBox_TextChanged" />
                     <!--<TextBox FontSize="20" Text="{Binding Jk_anak_asuh, Mode=TwoWay}"  Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754"  />-->
                 </StackPanel>
-
-
-
-                <StackPanel Grid.Row="2" VerticalAlignment="Bottom" >
+                <!--<StackPanel Grid.Row="2" VerticalAlignment="Bottom" >
                     <TextBlock TextWrapping="Wrap" Text="Amount of payment" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
                     <TextBox x:Name="TextBoxJmlPmbyrn" Text="{Binding Jumlah_Pembayaran, Mode=TwoWay}" FontSize="20"  Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754" InputScope="Number" TextChanged="TextBox_TextChanged" />
-                </StackPanel>
+                </StackPanel>-->
                 <StackPanel Grid.Row="3" VerticalAlignment="Bottom" >
                     <TextBlock TextWrapping="Wrap" Text="From Bank" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
-                    <TextBox Text="{Binding Dari_Bank, Mode=TwoWay}" FontSize="20"  Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754" InputScope="Default" />
+                    <TextBox x:Name="txt_from_bank" Text="{Binding Bank, Mode=TwoWay}" FontSize="20"  Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754" InputScope="Default" />
                 </StackPanel>
                 <StackPanel Grid.Row="4" VerticalAlignment="Bottom" >
-                    <TextBlock TextWrapping="Wrap" Text="Bank account" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
-                    <TextBox Text="{Binding Pemilik_Rekening, Mode=TwoWay}" FontSize="20"  Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754" InputScope="Default" />
+                    <TextBlock TextWrapping="Wrap" Text="To Bank" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
+                    <TextBox x:Name="txt_to_bank" Text="{Binding To_bank, Mode=TwoWay}" FontSize="20"  Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754" InputScope="Default" />
                 </StackPanel>
                 <StackPanel Grid.Row="5" VerticalAlignment="Bottom" >
                     <TextBlock TextWrapping="Wrap" Text="Bank account number" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
-                    <TextBox x:Name="BankAccountNumber" Text="{Binding Nomor_Rekening, Mode=TwoWay}" FontSize="20"  Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754" InputScope="Number" />
+                    <TextBox x:Name="BankAccountNumber" Text="{Binding Account_number, Mode=TwoWay}" FontSize="20"  Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754" InputScope="Number" />
                 </StackPanel>
                 <StackPanel Grid.Row="6" VerticalAlignment="Bottom" >
-                    <TextBlock TextWrapping="Wrap" Text="To Bank" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
-                    <TextBox x:Name="BankTujuan" Text="{Binding Bank_Tujuan, Mode=TwoWay}" FontSize="20"  Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754" InputScope="Default"/>
+                    <TextBlock TextWrapping="Wrap" Text="Account Name" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
+                    <TextBox x:Name="BankTujuan" Text="{Binding Account_name, Mode=TwoWay}" FontSize="20"  Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754" InputScope="Default"/>
                 </StackPanel>
-                <StackPanel Grid.Row="7" VerticalAlignment="Bottom" >
+                <StackPanel Grid.Row="1" VerticalAlignment="Bottom" >
                     <TextBlock TextWrapping="Wrap" Text="Proof of payment" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
                     <Grid Width="416" Height="200" Background="#FFF4F4F4" Margin="0,5,0,0" >
-                        <Image Source="{Binding FotoKejahatan}" />
+                        <Image Source="{Binding Photo}" />
                         <Image Source="/Assets/Icons/ic_256_camera.png" Opacity="0.25"/>
                         <Button Command="{Binding GetImageCommand1}"  Width="250" Height="60" Margin="0,140,0,0" Background="#2ECC71" BorderBrush="{x:Null}" Content="Add Image" FontSize="14.667"/>
                         <Button Command="{Binding GetImageCommand}"  Width="250" Height="60" Margin="0,50,0,0" BorderBrush="{x:Null}" Content="" FontSize="14.667"/>
                     </Grid>
                 </StackPanel>
-                <StackPanel Grid.Row="8" VerticalAlignment="Bottom" >
+                <StackPanel Grid.Row="7" VerticalAlignment="Bottom" >
 
                     <Button VerticalAlignment="Center" HorizontalAlignment="Center" Width="400" Height="88" IsEnabled="{Binding EnabledPostButton}" Content="Submit" Command="{Binding PublishCommand}" Background="#FF032754"></Button>
                 </StackPanel>

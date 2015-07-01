@@ -14,6 +14,8 @@ using System.Windows.Media;
 using BantuAnakAsuh.Views;
 using BantuAnakAsuh.Helper;
 using System.Windows.Media.Imaging;
+using System.IO.IsolatedStorage;
+using System.IO;
 namespace BantuAnakAsuh.Views
 {
     public partial class NewHomepage : PhoneApplicationPage
@@ -72,20 +74,8 @@ namespace BantuAnakAsuh.Views
         }
         private void Children_onTap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            
-           
             NavigationService.Navigate(new Uri("/Views/PageProfileAnak.xaml", UriKind.Relative));
         }
-
-
-
-
-
-
-
-
-
-
 
         // for searching foster children
         
@@ -122,7 +112,30 @@ namespace BantuAnakAsuh.Views
 
         private void LogoutBtn_Click(object sender, EventArgs e)
         {
+            using (IsolatedStorageFile isf = IsolatedStorageFile.GetUserStoreForApplication())
+            {
+                using (IsolatedStorageFileStream rawStream = isf.CreateFile("id_donors"))
+                {
+                    StreamWriter writer = new StreamWriter(rawStream);
+                    writer.Write(string.Empty);
+                    writer.Close();
+                }
 
+                using (IsolatedStorageFileStream rawStream = isf.CreateFile("fullname"))
+                {
+                    StreamWriter writer = new StreamWriter(rawStream);
+                    writer.Write(string.Empty);
+                    writer.Close();
+                }
+
+                using (IsolatedStorageFileStream rawStream = isf.CreateFile("token"))
+                {
+                    StreamWriter writer = new StreamWriter(rawStream);
+                    writer.Write(string.Empty);
+                    writer.Close();
+                }
+            }
+            NavigationService.Navigate(new Uri("/Views/PageStart.xaml", UriKind.Relative));
         }
 
         private void timeLogo_Tap(object sender, System.Windows.Input.GestureEventArgs e)
@@ -174,14 +187,15 @@ namespace BantuAnakAsuh.Views
             //}
         }
 
-
         public void cancel_btn()
         {
            
         }
 
-
-          
+        private void RecommendationBtn_Click(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Views/PageRekomendasi.xaml", UriKind.Relative));
+        }
 
     }
 }

@@ -23,12 +23,16 @@ using BantuAnakAsuh.Models;
 
 using System.Windows.Controls;
 using System.Globalization;
+using Microsoft.Phone.Controls;
 
 
 namespace BantuAnakAsuh.ViewModels
 {
     class ViewModelRekomendasi : ViewModelBase
     {
+        //PageRekomendasi pr = new PageRekomendasi();
+        ModelRekomendasi mr = new ModelRekomendasi();
+
         private Stream bitmapUserProfile;
         private Random rand = new Random();
         private int jenisKelaminSelected = -1;
@@ -37,42 +41,21 @@ namespace BantuAnakAsuh.ViewModels
         private Stream bitmapFotoDepanRumah;
         private Stream bitmapFotoDalamRumah;
 
-
-
-        
-
-
-
-
-        public ICommand GetImageCommand
-        {
-            get
-            {
-                return new DelegateCommand(GetCaptureImage);
-            }
-        }
+        public ICommand GetImageCommand { get { return new DelegateCommand(GetCaptureImage); } }
 
         public ICommand GetImageCommandA { get { return new DelegateCommand(GetCaptureImageA); } }
 
         public ICommand GetImageCommandB { get { return new DelegateCommand(GetCaptureImageB); } }
 
-        public ICommand GetImageCommand1
-        {
-            get
-            {
-                return new DelegateCommand(GetCaptureImage1);
-            }
-        }
+        public ICommand GetImageCommand1 { get { return new DelegateCommand(GetCaptureImage1); } }
 
         public ICommand GetImageCommandA1 { get { return new DelegateCommand(GetCaptureImageA1); } }
 
         public ICommand GetImageCommandB1 { get { return new DelegateCommand(GetCaptureImageB1); } }
 
-
-
         private void GetCaptureImageB(object obj)
         {
-            if (MessageBox.Show("Are you sure?", "Confirm",MessageBoxButton.OKCancel) == MessageBoxResult.Yes)
+            if (MessageBox.Show("Are you sure?", "Confirm", MessageBoxButton.OKCancel) == MessageBoxResult.Yes)
             {
                 // If yes
                 CameraCaptureTask camera = new CameraCaptureTask();
@@ -84,9 +67,6 @@ namespace BantuAnakAsuh.ViewModels
             {
                 // If no
             }
-            
-
-
         }
 
         private void GetCaptureImageA(object obj)
@@ -127,7 +107,7 @@ namespace BantuAnakAsuh.ViewModels
             {
                 try
                 {
-                    using (IsolatedStorageFileStream rawStream = isf.OpenFile("id_donatur", System.IO.FileMode.Open))
+                    using (IsolatedStorageFileStream rawStream = isf.OpenFile("id_donors", System.IO.FileMode.Open))
                     {
                         StreamReader reader = new StreamReader(rawStream);
 
@@ -135,19 +115,14 @@ namespace BantuAnakAsuh.ViewModels
                         Navigation.navIdLogin = id;
                         reader.Close();
                     }
-
-
                 }
                 catch
                 {
                     //data tidak ditemukan
+                    MessageBox.Show("An error occured while retrieving data.");
                 }
             }
         }
-
-
-
-
 
         //--- constructor
         public ViewModelRekomendasi()
@@ -161,109 +136,25 @@ namespace BantuAnakAsuh.ViewModels
             listStatusCollection.Add("Orphans");
             listStatusCollection.Add("Poor children");
         }
-        //----
+        
         void camera_a(object sender, PhotoResult e)
         {
             BitmapImage imageDpnRumah = new BitmapImage();
 
-            //if (e.TaskResult == TaskResult.OK)
-            //{
-            //    //here I save the image to Isolated Storage.  Also I am changing the size of it to not waste space!
-            //    WriteableBitmap writeableBitmap = new WriteableBitmap(300, 300);
-            //    writeableBitmap.LoadJpeg(e.ChosenPhoto);
-
-            //    string imageFolder = "Images";
-            //    string imageFileName = "TestImage3.jpg";
-            //    using (var isoFile = IsolatedStorageFile.GetUserStoreForApplication())
-            //    {
-
-            //        if (!isoFile.DirectoryExists(imageFolder))
-            //        {
-            //            isoFile.CreateDirectory(imageFolder);
-            //        }
-
-            //        string filePath = Path.Combine(imageFolder, imageFileName);
-            //        using (var stream = isoFile.CreateFile(filePath))
-            //        {
-            //            writeableBitmap.SaveJpeg(stream, writeableBitmap.PixelWidth, writeableBitmap.PixelHeight, 0, 100);
-            //        }
-            //    }
-
-            //    //now read the image back from storage to show it worked...
-            //    BitmapImage imageFromStorage = new BitmapImage();
-
-            //    using (var isoFile = IsolatedStorageFile.GetUserStoreForApplication())
-            //    {
-            //        string filePath = Path.Combine(imageFolder, imageFileName);
-            //        using (var imageStream = isoFile.OpenFile(
-            //            filePath, FileMode.Open, FileAccess.Read))
-            //        {
-            //            imageDpnRumah.SetSource(imageStream);
-            //            bitmapFotoDepanRumah = e.ChosenPhoto;
-            //        }
-            //    }
             bitmapFotoDepanRumah = e.ChosenPhoto;
             imageDpnRumah.SetSource(e.ChosenPhoto);
             FotoDepanRumah = (imageDpnRumah);
-
-
-
-
-
-
-
         }
 
         void camera_b(object sender, PhotoResult e)
         {
             BitmapImage imageDlmRumah = new BitmapImage();
 
-            //if (e.TaskResult == TaskResult.OK)
-            //{
-            //    //here I save the image to Isolated Storage.  Also I am changing the size of it to not waste space!
-            //    WriteableBitmap writeableBitmap = new WriteableBitmap(300, 300);
-            //    writeableBitmap.LoadJpeg(e.ChosenPhoto);
-
-            //    string imageFolder = "Images";
-            //    string imageFileName = "TestImage2.jpg";
-            //    using (var isoFile = IsolatedStorageFile.GetUserStoreForApplication())
-            //    {
-
-            //        if (!isoFile.DirectoryExists(imageFolder))
-            //        {
-            //            isoFile.CreateDirectory(imageFolder);
-            //        }
-
-            //        string filePath = Path.Combine(imageFolder, imageFileName);
-            //        using (var stream = isoFile.CreateFile(filePath))
-            //        {
-            //            writeableBitmap.SaveJpeg(stream, writeableBitmap.PixelWidth, writeableBitmap.PixelHeight, 0, 100);
-            //        }
-            //    }
-
-            //    //now read the image back from storage to show it worked...
-            //    BitmapImage imageFromStorage = new BitmapImage();
-
-            //    using (var isoFile = IsolatedStorageFile.GetUserStoreForApplication())
-            //    {
-            //        string filePath = Path.Combine(imageFolder, imageFileName);
-            //        using (var imageStream = isoFile.OpenFile(
-            //            filePath, FileMode.Open, FileAccess.Read))
-            //        {
-            //            bitmapFotoDalamRumah = e.ChosenPhoto;
-            //            imageDlmRumah.SetSource(imageStream);
-            //        }
-            //    }
-            //    FotoDalamRumah = (imageDlmRumah);
-            //}
             bitmapFotoDalamRumah = e.ChosenPhoto;
             imageDlmRumah.SetSource(e.ChosenPhoto);
             FotoDalamRumah = (imageDlmRumah);
-
         }
 
-
-        //}
         private void GetCaptureImage1(object obj)
         {
             PhotoChooserTask _photoChooserTask = new PhotoChooserTask();
@@ -273,6 +164,7 @@ namespace BantuAnakAsuh.ViewModels
             _photoChooserTask.Completed += new EventHandler<PhotoResult>(camera_Completed);
             _photoChooserTask.Show();
         }
+
         private void GetCaptureImage(object obj)
         {
             CameraCaptureTask camera = new CameraCaptureTask();
@@ -282,144 +174,82 @@ namespace BantuAnakAsuh.ViewModels
 
         }
 
-
         void camera_Completed(object sender, PhotoResult e)
         {
             BitmapImage image = new BitmapImage();
 
-
-
-            //if (e.TaskResult == TaskResult.OK)
-            //{
-            //    //here I save the image to Isolated Storage.  Also I am changing the size of it to not waste space!
-            //    WriteableBitmap writeableBitmap = new WriteableBitmap(300, 300);
-            //    writeableBitmap.LoadJpeg(e.ChosenPhoto);
-
-            //    string imageFolder = "Images";
-            //    string imageFileName = "TestImage.jpg";
-            //    using (var isoFile = IsolatedStorageFile.GetUserStoreForApplication())
-            //    {
-
-            //        if (!isoFile.DirectoryExists(imageFolder))
-            //        {
-            //            isoFile.CreateDirectory(imageFolder);
-            //        }
-
-            //        string filePath = Path.Combine(imageFolder, imageFileName);
-            //        using (var stream = isoFile.CreateFile(filePath))
-            //        {
-            //            writeableBitmap.SaveJpeg(stream, writeableBitmap.PixelWidth, writeableBitmap.PixelHeight, 0, 100);
-            //        }
-            //    }
-
-            //    //now read the image back from storage to show it worked...
-            //    BitmapImage imageFromStorage = new BitmapImage();
-
-            //    using (var isoFile = IsolatedStorageFile.GetUserStoreForApplication())
-            //    {
-            //        string filePath = Path.Combine(imageFolder, imageFileName);
-            //        using (var imageStream = isoFile.OpenFile(
-            //            filePath, FileMode.Open, FileAccess.Read))
-            //        {
-            //            imageFromStorage.SetSource(imageStream);
-            //            bitmapUserProfile = imageStream;
-            //        }
-            //    }
             bitmapUserProfile = e.ChosenPhoto;
             image.SetSource(e.ChosenPhoto);
             FotoKejahatan = (image);
 
         }
 
-        public ICommand PublishCommand1
-        {
-            get
-            {
-                return new DelegateCommand(PushToServer1);
-            }
-        }
+        public ICommand PublishCommand1{ get { return new DelegateCommand(PushToServer1); } }
 
-        public ICommand PublishCommand2
-        {
-            get
-            {
-                return new DelegateCommand(PushToServer2);
-            }
-        }
-        public ICommand PublishCommand3
-        {
-            get
-            {
-                return new DelegateCommand(PushToServer3);
-            }
-        }
+        public ICommand PublishCommand2 { get { return new DelegateCommand(PushToServer2); } }
+        
+        //public ICommand PublishCommand3 { get { return new DelegateCommand(PushToServer3); } }
+
+        //private void PushToServer3(object obj)
+        //{
+        //    try
+        //    {
+
+        //        this.LoadID();
 
 
+        //        RestRequest request = new RestRequest(URL.BASE3 + "api/environment/environment2.php?id_donatur=" + id, Method.POST);
+        //        request.AddHeader("content-type", "multipart/form-data");
 
 
-
-        private void PushToServer3(object obj)
-        {
-            try
-            {
-
-                this.LoadID();
+        //        //-- validasi deskripsi
+        //        if (Deskrip2 == null)
+        //        {
+        //            Deskrip2 = "  ";
 
 
-                RestRequest request = new RestRequest(URL.BASE3 + "api/environment/environment2.php?id_donatur=" + id, Method.POST);
-                request.AddHeader("content-type", "multipart/form-data");
+        //        }
+        //        request.AddFile("url_img_post2", ReadToEnd(bitmapFotoDalamRumah), "photo" + rand.Next(0, 99999999).ToString() + ".jpg");
+        //        request.AddParameter("deskrip2", Deskrip2);
 
 
-                //-- validasi deskripsi
-                if (Deskrip2 == null)
-                {
-                    Deskrip2 = "  ";
+        //        //calling server with restClient
+        //        RestClient restClient = new RestClient();
+        //        restClient.ExecuteAsync(request, (response) =>
+        //        {
 
+        //            JObject jRoot = JObject.Parse(response.Content);
+        //            String jresult = jRoot.SelectToken("result").ToString();
+        //            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+        //            {
+        //                if (jresult.Equals("sukses"))
+        //                {
+        //                    MessageBox.Show("Environment photo successfully uploaded.");
 
-                }
-                request.AddFile("url_img_post2", ReadToEnd(bitmapFotoDalamRumah), "photo" + rand.Next(0, 99999999).ToString() + ".jpg");
-                request.AddParameter("deskrip2", Deskrip2);
+        //                }
+        //                else
+        //                {
 
+        //                    MessageBox.Show("Failed");
+        //                }
 
-                //calling server with restClient
-                RestClient restClient = new RestClient();
-                restClient.ExecuteAsync(request, (response) =>
-                {
-
-                    JObject jRoot = JObject.Parse(response.Content);
-                    String jresult = jRoot.SelectToken("result").ToString();
-                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
-                    {
-                        if (jresult.Equals("sukses"))
-                        {
-                            MessageBox.Show("Environment photo successfully uploaded.");
-
-                        }
-                        else
-                        {
-
-                            MessageBox.Show("Failed");
-                        }
-
-                    }
-                    else
-                    {
-                        //error ocured during upload
-                        MessageBox.Show("Your posting failed. Please check the Internet connection.");
-                    }
-                });
-            }
-            catch (Exception ec)
-            {
-                MessageBox.Show("Failed to display, the Internet connection is unstable.");
-            }
-            finally
-            {
-                //ProgressVisibiliy = Visibility.Visible;
-            }
-        }
-
-
+        //            }
+        //            else
+        //            {
+        //                //error ocured during upload
+        //                MessageBox.Show("Your posting failed. Please check the Internet connection.");
+        //            }
+        //        });
+        //    }
+        //    catch (Exception ec)
+        //    {
+        //        MessageBox.Show("Failed to display, the Internet connection is unstable.");
+        //    }
+        //    finally
+        //    {
+        //        //ProgressVisibiliy = Visibility.Visible;
+        //    }
+        //}
 
         private void PushToServer2(object obj)
         {
@@ -428,22 +258,15 @@ namespace BantuAnakAsuh.ViewModels
 
                 this.LoadID();
 
-                RestRequest request = new RestRequest(URL.BASE3 + "api/environment/environment1.php?id_donatur=" + id, Method.POST);
+                RestRequest request = new RestRequest(URL.BASE3 + "APIv2/recommendation/environment.php", Method.POST);
 
                 request.AddHeader("content-type", "multipart/form-data");
-
-
-                //-- validasi deskripsi
-                if (Deskrip1 == null)
-                {
-                    Deskrip1 = "";
-
-
-                }
-                request.AddFile("url_img_post1", ReadToEnd(bitmapFotoDepanRumah), "photo" + rand.Next(0, 99999999).ToString() + ".jpg");
-                request.AddParameter("deskrip1", Deskrip1);
-
-
+                request.AddParameter("id_donors", Navigation.navIdLogin);
+                request.AddParameter("token", Navigation.token);
+                request.AddParameter("id_recommendation", Navigation.id_recommendation);
+                request.AddFile("environment_in", ReadToEnd(bitmapFotoDepanRumah), "photo" + rand.Next(0, 99999999).ToString() + ".jpg");
+                request.AddFile("environment_out", ReadToEnd(bitmapFotoDepanRumah), "photo" + rand.Next(0, 99999999).ToString() + ".jpg");
+                
                 //calling server with restClient
                 RestClient restClient = new RestClient();
                 restClient.ExecuteAsync(request, (response) =>
@@ -451,17 +274,19 @@ namespace BantuAnakAsuh.ViewModels
 
                     JObject jRoot = JObject.Parse(response.Content);
                     String jresult = jRoot.SelectToken("result").ToString();
+                    String jmessage = jRoot.SelectToken("message").ToString();
+
                     if (response.StatusCode == System.Net.HttpStatusCode.OK)
                     {
-                        if (jresult.Equals("sukses"))
+                        if (jresult.Equals("success"))
                         {
-                            MessageBox.Show("Environment photo successfully uploaded.");
-
+                            MessageBox.Show(jmessage);
+                            var frame = App.Current.RootVisual as PhoneApplicationFrame;
+                            frame.Navigate(new Uri("/Views/NewHomepage.xaml", UriKind.Relative));
                         }
                         else
                         {
-
-                            MessageBox.Show("Failed");
+                            MessageBox.Show(jmessage);
                         }
 
                     }
@@ -481,107 +306,87 @@ namespace BantuAnakAsuh.ViewModels
                 //ProgressVisibiliy = Visibility.Visible;
             }
         }
-
-
-
-
-
-
-
 
         int cobaValidasi;
 
         private void PushToServer1(object obj)
         {
-            
+
             try
             {
-                
                 this.LoadID();
-                RestRequest request = new RestRequest(URL.BASE3 + "api/rekomendasi/rekomendasi.php", Method.POST);
+                RestRequest request = new RestRequest(URL.BASE3 + "APIv2/recommendation/recommendation.php", Method.POST);
 
                 request.AddHeader("content-type", "multipart/form-data");
-                request.AddParameter("nama_orangtua_asli", Nama_orangtua_asli);
-                request.AddParameter("alamat_orangtua", Alamat_orangtua_asli);
-                request.AddParameter("pekerjaan_orangtua", Pekerjaan);
-                request.AddParameter("penghasilan_orangtua", Penghasilan);
-                request.AddParameter("nama_anakasuh", Nama_anak_asuh);
-                request.AddParameter("status_anakasuh", Status_anak);
-                request.AddParameter("tempat_lahir", Tempat_lahir);
-                request.AddParameter("latitude", 0);
-                request.AddParameter("longitude", 0);
+                request.AddParameter("id_donors", Navigation.navIdLogin);
+                request.AddParameter("token", Navigation.token);
+                request.AddParameter("parent_name", Nama_orangtua_asli);
+                request.AddParameter("address", Alamat);
+                request.AddParameter("jobs", Pekerjaan);
+                request.AddParameter("salary", Penghasilan);
+                request.AddParameter("children_name", Nama_anak_asuh);
+                request.AddParameter("gender", Jk_anak_asuh);
+                request.AddFile("photo", ReadToEnd(bitmapUserProfile), "photo" + rand.Next(0, 99999999).ToString() + ".jpg");
+                request.AddParameter("children_status", Status_anak);
+                request.AddParameter("latitude", Navigation.Latitude);
+                request.AddParameter("longitude", Navigation.Longitude);
 
-                //DateTime _tanggal_lahir = new DateTime();
-                
-                //_tanggal_lahir = Convert.ToDateTime(tanggal_lahir);
-                //tanggal_lahir = String.Format("{0:yyyy/MM/dd}", _tanggal_lahir);
 
-                //string a = tanggal_lahir;
-                //DateTime dt = DateTime.ParseExact(a, "yyyy-MM-dd", CultureInfo.InvariantCulture);
-                //Tanggal_lahir = dt.ToString();
-
-                //string date = tanggal_lahir;
-
-                //string tgl = DateTime.ParseExact(tanggal_lahir, "MM/dd/yyyy HH:mm:ss tt",
-                //                CultureInfo.InvariantCulture).ToString("yyyy-MM-dd");
-
-                //Tanggal = tgl;
-
-                request.AddParameter("tanggal_lahir", Tanggal_lahir); 
-                request.AddParameter("jenis_kelamin", Jk_anak_asuh);
-                request.AddParameter("anak_ke", Anak_ke);
-                request.AddParameter("alamat_anakasuh", Alamat);
-                request.AddFile("url_img_post", ReadToEnd(bitmapUserProfile), "photo" + rand.Next(0, 99999999).ToString() + ".jpg");
-                request.AddParameter("id_donatur", id);
+                #region Convert DatePicker
+                //string format = "yyyy-MM-dd";
+                //DateTime datevalue;
+                //if(DateTime.TryParseExact(Tanggal_lahir,"M/dd/yyyy h:m:s",CultureInfo.InvariantCulture,DateTimeStyles.None,  out datevalue))
+                //{
+                //    Tanggal_lahir = datevalue.ToString(format);
+                //}
+                //else
+                //{
+                //    MessageBox.Show("An error occured, please try again!");
+                //}
+                #endregion
 
                 //calling server with restClient
                 RestClient restClient = new RestClient();
                 restClient.ExecuteAsync(request, (response) =>
                 {
-                    if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
-                    {
-                        MessageBox.Show("Failed");
-                    }
-
                     JObject jRoot = JObject.Parse(response.Content);
+                    String jresult = jRoot.SelectToken("result").ToString();
+                    String jmessage = jRoot.SelectToken("message").ToString();
+                    Navigation.id_recommendation = jRoot.SelectToken("id_recommendation").ToString();
+
                     if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
                     {
                         MessageBox.Show("Failed");
                     }
-                    String jresult = jRoot.SelectToken("result").ToString();
-
-                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                    else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
                     {
-                        if (jresult.Equals("sukses"))
+                        MessageBox.Show("Failed");
+                    }
+                    else if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                    {
+                        if (jresult.Equals("success"))
                         {
-
-                            if (MessageBoxResult.OK == MessageBox.Show("Foster Children's profile has been uploaded"))
+                            if (MessageBoxResult.OK == MessageBox.Show("Your " + jmessage))
                             {
-
-
+                                //MessageBox.Show("Success");
                             }
-
-
                         }
                         else
                         {
-
-
                             if (MessageBoxResult.OK == MessageBox.Show("Foster Children's profile upload failed"))
                             {
-
+                                MessageBox.Show("Upload failed, try again!");
                             }
                         }
 
                     }
                     else
                     {
-
-
                         //error ocured during upload
                         MessageBox.Show("Your posting failed. Please check the Internet connection.");
                     }
                 });
+
             }
             catch (Exception ec)
             {
@@ -592,10 +397,6 @@ namespace BantuAnakAsuh.ViewModels
                 //ProgressVisibiliy = Visibility.Visible;
             }
         }
-
-
-
-
 
         private ObservableCollection<string> jenisKelaminCollection = new ObservableCollection<string>();
 
@@ -876,39 +677,5 @@ namespace BantuAnakAsuh.ViewModels
             set { fotoDalamRumah = value; RaisePropertyChanged(""); }
         }
 
-
-
-        private String deskrip1;
-
-        public String Deskrip1
-        {
-            get
-            {
-                return deskrip1;
-            }
-            set
-            {
-
-                deskrip1 = value;
-
-                RaisePropertyChanged("");
-            }
-        }
-        private String deskrip2;
-
-        public String Deskrip2
-        {
-            get { return deskrip2; }
-            set
-            {
-                deskrip2 = value;
-
-                RaisePropertyChanged("");
-
-
-            }
-        }
-
-       
     }
 }

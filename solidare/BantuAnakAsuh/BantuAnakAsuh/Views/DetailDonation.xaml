@@ -63,35 +63,29 @@
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="White">
         <Grid.RowDefinitions>
-            <RowDefinition Height="60"/>
+            <RowDefinition Height="72"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid Grid.RowSpan="2" Height="800">
-            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" Height="60" Width="480" Background="#0071BC" VerticalAlignment="Top">
-                <Grid x:Name="home" Width="70" Height="60">
+            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" Height="72" Width="480" Background="#0071BC" VerticalAlignment="Top">
+                <Grid x:Name="home" Width="70" Height="72">
                     <Image x:Name="buttonMenu" Source="/Assets/Icons/ic_48_back_button.png" Stretch="UniformToFill" Width="50" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Height="50" Tap="buttonMenu_Tap"/>
                 </Grid>
-                <Grid Grid.Column="0">
-
-
+                <Grid Grid.Column="0" Height="72">
                     <TextBlock Text="DONATION DETAIL" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold"/>
                 </Grid>
             </StackPanel>
-            <Grid Margin="0,25,0,0"  Height="710">
+            <Grid Margin="0,70,0,30"  Height="auto">
                 <Grid Width="480" Height="710" Margin="0,0,0,0" VerticalAlignment="Top"  HorizontalAlignment="Left" >
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="650"/>
+                        <RowDefinition Height="630"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <StackPanel Grid.Row="0" Width="480" Height="720">
-
-
-                        <phone:Pivot x:Name="pivotControl" SelectionChanged="Pivot_SelectionChanged" Grid.Row="3"  VerticalAlignment="Top" HorizontalAlignment="Center" Width="480" Height="620" Background="White">
-                            <phone:PivotItem Tag="satu" Width="480" Height="620" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,-10,0,0" >
-                               
+                    <StackPanel Grid.Row="0" Width="480" Height="700">
+                        <phone:Pivot x:Name="pivotControl" SelectionChanged="Pivot_SelectionChanged" Grid.Row="3"  VerticalAlignment="Top" HorizontalAlignment="Center" Width="480" Height="600" Background="White">
+                            <phone:PivotItem Tag="satu" Width="480" Height="600" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,-10,0,0" >
                                 <StackPanel>
-                                    <Image Source="{Binding Photo}" Height="280" Width="480" Stretch="UniformToFill"/>
-
+                                    <Image Source="{Binding Photo}" Height="270" Width="480" Stretch="UniformToFill"/>
                                     <Grid Margin="10" VerticalAlignment="Top">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="auto"/>
@@ -111,62 +105,52 @@
                                             </StackPanel>
                                         </StackPanel>
                                     </Grid>
-                                    
+
                                     <Grid Width="480">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="111*"/>
                                             <ColumnDefinition Width="2*"/>
                                             <ColumnDefinition Width="127*"/>
                                         </Grid.ColumnDefinitions>
-
-                                        <StackPanel Margin="40,0,0,0" Height="330" Grid.ColumnSpan="3">
+                                        <StackPanel Margin="20,0,0,0" Height="330" Grid.ColumnSpan="3">
                                             <TextBlock Text="Cost" Foreground="Black" Margin="0,20,0,0" FontWeight="Bold" FontSize="21" />
                                             <TextBlock Text="{Binding Cost}" Foreground="Black"  Margin="0,20,0,0" FontSize="26" />
                                             <TextBlock Text="Predonation Time"  Margin="0,20,0,0" Foreground="Black" FontWeight="Bold" FontSize="21" />
                                             <TextBlock Text="{Binding Pre_donation_time}" Foreground="Black"  Margin="0,20,0,0" FontSize="20" />
                                         </StackPanel>
-                                        
-                                        
                                     </Grid>
                                 </StackPanel>
                             </phone:PivotItem>
 
                             <phone:PivotItem Tag="dua" Width="480" Height="620" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,-10,0,0"  >
-                                <StackPanel Height="620">                                
-                                   
-                                <Grid>
-                                    <Grid Width="480">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="111*"/>
-                                            <ColumnDefinition Width="2*"/>
-                                            <ColumnDefinition Width="127*"/>
-                                        </Grid.ColumnDefinitions>
-                                        <ScrollViewer Grid.ColumnSpan="3" Height="350">
-                                            <StackPanel Margin="40,0,0,0">
-                                            
-                                            <TextBlock Text="Charity Organization" Foreground="Black" Margin="0,10,0,0" FontWeight="Bold" FontSize="18" />
-                                            <TextBlock Text="{Binding Name}" Foreground="Black"  Margin="0,10,0,0" FontSize="18" />
-                                            <TextBlock Text="Address"  Margin="0,10,0,0" Foreground="Black" FontWeight="Bold" FontSize="18" />
-                                            <TextBlock Text="{Binding Address}" Foreground="Black"  Margin="0,10,0,0" FontSize="18" />
-                                            <TextBlock Text="Phone" Foreground="Black" Margin="0,10,0,0" FontWeight="Bold" FontSize="18" />
-                                            <TextBlock Text="{Binding Phone}" Foreground="Black"  Margin="0,10,0,0" FontSize="18" />
-                                            <TextBlock Text= "Email"  Margin="0,10,0,0" Foreground="Black" FontWeight="Bold" FontSize="18" />
-                                            <TextBlock Text="{Binding Email}" Foreground="Black"  Margin="0,10,0,0" FontSize="18" />
-                                            <TextBlock Text= "Website" Foreground="Black" Margin="0,10,0,0" FontWeight="Bold" FontSize="18" />
-                                            <TextBlock Text="{Binding Website}" Foreground="Black"  Margin="0,10,0,0" FontSize="18" />
-                                           
-                                        </StackPanel>
-                                        </ScrollViewer>
-                                        
+                                <StackPanel Height="620">
+
+                                    <Grid>
+                                        <Grid Width="480">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="111*"/>
+                                                <ColumnDefinition Width="2*"/>
+                                                <ColumnDefinition Width="127*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <ScrollViewer Grid.ColumnSpan="3" Height="350">
+                                                <StackPanel Margin="40,0,0,0">
+                                                    <TextBlock Text="Charity Organization" Foreground="Black" Margin="0,10,0,0" FontWeight="Bold" FontSize="18" />
+                                                    <TextBlock Text="{Binding Name}" Foreground="Black"  Margin="0,10,0,0" FontSize="18" />
+                                                    <TextBlock Text="Address"  Margin="0,10,0,0" Foreground="Black" FontWeight="Bold" FontSize="18" />
+                                                    <TextBlock Text="{Binding Address}" Foreground="Black"  Margin="0,10,0,0" FontSize="18" />
+                                                    <TextBlock Text="Phone" Foreground="Black" Margin="0,10,0,0" FontWeight="Bold" FontSize="18" />
+                                                    <TextBlock Text="{Binding Phone}" Foreground="Black"  Margin="0,10,0,0" FontSize="18" />
+                                                    <TextBlock Text= "Email"  Margin="0,10,0,0" Foreground="Black" FontWeight="Bold" FontSize="18" />
+                                                    <TextBlock Text="{Binding Email}" Foreground="Black"  Margin="0,10,0,0" FontSize="18" />
+                                                    <TextBlock Text= "Website" Foreground="Black" Margin="0,10,0,0" FontWeight="Bold" FontSize="18" />
+                                                    <TextBlock Text="{Binding Website}" Foreground="Black"  Margin="0,10,0,0" FontSize="18" />
+                                                </StackPanel>
+                                            </ScrollViewer>
+                                        </Grid>
                                     </Grid>
-                                    
-                                   s
-                                </Grid>
                                     <ScrollViewer Grid.ColumnSpan="3" Height="270">
                                         <StackPanel Margin="0,0,0,0">
-
                                             <TextBlock Text="Charity Organization Bank Account" Foreground="Black" Margin="40,10,0,0" FontWeight="Bold" FontSize="18" />
-
                                             <ListBox Grid.Row="1" x:Name="ListDonasi" Width="480" Height="230"  Margin="0,10,0,0"  ItemsSource="{Binding CollectionBank}">
                                                 <ListBox.ItemTemplate>
                                                     <DataTemplate>
@@ -202,9 +186,16 @@
                                             <ColumnDefinition Width="2*"/>
                                             <ColumnDefinition Width="127*"/>
                                         </Grid.ColumnDefinitions>
-                                        
+                                        <ScrollViewer Grid.ColumnSpan="3" Height="350">
+                                            <StackPanel Margin="40,0,0,0">
+                                                <TextBlock Text="Program" Foreground="Black" Margin="0,10,0,0" FontWeight="Bold" FontSize="18" />
+                                                <TextBlock Text="{Binding Program}" Foreground="Black"  Margin="0,10,0,0" FontSize="18" />
+                                                <TextBlock Text="Description"  Margin="0,10,0,0" Foreground="Black" FontWeight="Bold" FontSize="18" />
+                                                <TextBlock Text="{Binding Description}" Foreground="Black" Height="auto" TextWrapping="Wrap" Margin="0,10,0,0" FontSize="18" />
+                                                
+                                            </StackPanel>
+                                        </ScrollViewer>
                                     </Grid>
-
                                 </Grid>
                             </phone:PivotItem>
                         </phone:Pivot>
@@ -229,10 +220,19 @@
                                     <SolidColorBrush Color="#FF0071BC" Opacity="0.10000000149011612"/>
                                 </Ellipse.Fill>
                             </Ellipse>
+                            <Ellipse x:Name="elip3" HorizontalAlignment="Center" Height="10" VerticalAlignment="Center" Width="10" Margin="8,0,0,0">
+                                <Ellipse.Fill>
+                                    <SolidColorBrush Color="#FF0071BC" Opacity="0.3"/>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                            <Ellipse x:Name="elip3_Copy" HorizontalAlignment="Center" Height="10" VerticalAlignment="Center" Width="10" Margin="8,0,0,0">
+                                <Ellipse.Fill>
+                                    <SolidColorBrush Color="#FF0071BC" Opacity="0.10000000149011612"/>
+                                </Ellipse.Fill>
+                            </Ellipse>
                         </StackPanel>
-
                     </StackPanel>
-                    <Button Grid.Row="1" Content="Get Confirmation" HorizontalAlignment="Left" Width="480" VerticalAlignment="Top" Background="#FF0071BC" Style="{StaticResource ButtonStyle2}" Height="60"/>
+                    <Button x:Name="btn_confirm" Grid.Row="1" Content="Get Confirmation" HorizontalAlignment="Left" Width="480" VerticalAlignment="Top" Background="#FF0071BC" Style="{StaticResource ButtonStyle2}" Height="72" Click="btn_confirm_Click"/>
 
                 </Grid>
             </Grid>

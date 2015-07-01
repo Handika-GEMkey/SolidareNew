@@ -60,5 +60,28 @@ namespace BantuAnakAsuh.Models
             get { return account_name; }
             set { account_name = value; RaisePropertyChanged(""); }
         }
+
+        private String program;
+
+        public String Program
+        {
+            get { return program; }
+            set { program = value; RaisePropertyChanged(""); }
+        }
+        private String description;
+
+        public String Description
+        {
+            get { return description; }
+            set { description = value; RaisePropertyChanged(""); }
+        }
+
+        private String to_bank;
+
+        public String To_bank
+        {
+            get { return to_bank; }
+            set { to_bank = value; RaisePropertyChanged(""); }
+        }
     }
 }
