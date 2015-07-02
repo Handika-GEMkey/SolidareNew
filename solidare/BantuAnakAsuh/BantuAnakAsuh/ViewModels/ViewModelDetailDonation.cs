@@ -19,9 +19,10 @@ namespace BantuAnakAsuh.ViewModels
 
 
 
-        public ViewModelDetailDonation() 
+        public ViewModelDetailDonation()
         {
             this.LoadUrl();
+            
         }
       
 

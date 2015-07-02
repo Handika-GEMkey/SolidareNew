@@ -71,6 +71,8 @@ namespace BantuAnakAsuh.ViewModels
                         modelGetKeranjang.photo = URL.BASE3 + "modul/mod_AnakAsuh/photo/" + item.SelectToken("photo").ToString();
                         modelGetKeranjang.pre_donation_time = item.SelectToken("pre_donation_time").ToString();
                         modelGetKeranjang.cha_org_name = item.SelectToken("cha_org_name").ToString();
+                        modelGetKeranjang.payment_status = item.SelectToken("payment_status.").ToString();
+                        modelGetKeranjang.confirmation_status = item.SelectToken("confirmation_status").ToString();
                         collectionGetKeranjang.Add(modelGetKeranjang);
 
                     }
@@ -78,8 +80,8 @@ namespace BantuAnakAsuh.ViewModels
                     {
                         if (result.Equals("success"))
                         {
-                            PageKeranjangDonasi keranjangdonasi = new PageKeranjangDonasi();
-                            keranjangdonasi.LoadingBar.Visibility = Visibility.Collapsed;
+                        //    PageKeranjangDonasi keranjangdonasi = new PageKeranjangDonasi();
+                        //    keranjangdonasi.LoadingBar.Visibility = Visibility.Collapsed;
                            
                         }
                         else
@@ -136,7 +138,10 @@ namespace BantuAnakAsuh.ViewModels
             ModelGetKeranjang SelectedItem = obj as ModelGetKeranjang;
 
             if (SelectedItem != null)
+            { 
                 Navigation.idDonation = SelectedItem.id_donation;
+                Navigation.navConfirmationStatus = SelectedItem.confirmation_status;
+            }
 
             listIndex = -1;
         }

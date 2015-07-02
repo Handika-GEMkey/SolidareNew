@@ -25,8 +25,8 @@ namespace BantuAnakAsuh.Views
         public NewHomepage()
         {
             InitializeComponent();
-            ViewModelProfileDonatur vmn = new ViewModelProfileDonatur();
-            this.DataContext = vmn;
+            //ViewModelProfileDonatur vmn = new ViewModelProfileDonatur();
+            //this.DataContext = vmn;
         }
 
         private void Pivot_SelectionChanged(object sender, SelectionChangedEventArgs e)

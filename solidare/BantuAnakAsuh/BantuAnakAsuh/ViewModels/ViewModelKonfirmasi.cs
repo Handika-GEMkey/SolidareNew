@@ -18,22 +18,22 @@ using BantuAnakAsuh.Models;
 using System.Collections.ObjectModel;
 using System.IO.IsolatedStorage;
 using Microsoft.Phone.Controls;
+using System.Windows.Controls;
 
 
 namespace BantuAnakAsuh.ViewModels
 {
     class ViewModelKonfirmasi :ViewModelBase
     {
-        ModelBank mBank = new ModelBank();
         public ViewModelKonfirmasi()
         {
-            Id_Order = Navigation.navIdDonors;
-            Dari_Bank = mBank.Bank;
-            //this.LoadUrlKonfirmasi();
+          
+            this.LoadUrlKonfirmasi();
         }
 
         private void PushToServer(object obj)
         {
+
             
             try
             {
@@ -43,11 +43,12 @@ namespace BantuAnakAsuh.ViewModels
                 request.AddParameter("id_donors", Navigation.navIdDonors);
                 request.AddParameter("token", Navigation.token);
                 request.AddParameter("id_donation", Navigation.idDonation);
-                request.AddParameter("photo", mBank.Photo);
-                request.AddParameter("from_bank", mBank.Bank);
-                request.AddParameter("to_bank", mBank.To_bank);
-                request.AddParameter("accont_number", mBank.Account_number);
-                request.AddParameter("account_name", mBank.Account_name);
+                request.AddParameter("from_bank", From_bank);
+                request.AddParameter("id_account", Navigation.navIdAccount);
+                request.AddParameter("account_number", Account_number);
+                request.AddParameter("account_name", Account_name);
+
+                request.AddFile("photo", ReadToEnd(bitmapUserProfile), "photo" + rand.Next(0, 99999999).ToString() + ".jpg");
 
                 //request.AddParameter("id_cha_org", Navigation.navId_cha_org);
 
@@ -60,7 +61,6 @@ namespace BantuAnakAsuh.ViewModels
                     JObject jRoot = JObject.Parse(response.Content);
                     String result = jRoot.SelectToken("result").ToString();
                     String jmessage = jRoot.SelectToken("message").ToString();
-                    JArray JItem = JArray.Parse(jRoot.SelectToken("item").ToString());
 
                     if (response.StatusCode == System.Net.HttpStatusCode.OK)
                     {
@@ -138,8 +138,7 @@ namespace BantuAnakAsuh.ViewModels
             BitmapImage image = new BitmapImage();
             bitmapUserProfile = e.ChosenPhoto;
             image.SetSource(e.ChosenPhoto);
-
-            FotoKejahatan = (image);
+            Photo = (image);
             
         }
 
@@ -151,15 +150,9 @@ namespace BantuAnakAsuh.ViewModels
                 return new DelegateCommand(PushToServer);
             }
         }
+       
 
-        private void LoadUrlKonfirmasi()
-        {
 
-            WebClient clientkonfirmasi = new WebClient();
-            clientkonfirmasi.DownloadStringCompleted += new DownloadStringCompletedEventHandler(DownloadListOrder);
-            clientkonfirmasi.DownloadStringAsync(new Uri(URL.BASE3 + "api/konfirmasi/getorder.php?id_donatur=" + Navigation.navIdLogin));
-
-        }
 
         private int listStatusSelected = -1;
         public int ListStatusSelected
@@ -172,26 +165,40 @@ namespace BantuAnakAsuh.ViewModels
             {
                 listStatusSelected = value;
                 int index = 0;
-                foreach (var id in collectionListOrder)
+                foreach (var id in collectionListIdBank)
                 {
                     if (index == listStatusSelected)
                     {
-                        Id_Order = id;   
+                        Navigation.navIdAccount = id;   
                     }
                     index++;
                 }
             }
         }
 
-        private ObservableCollection<string> collectionListOrder = new ObservableCollection<string>();
-        public ObservableCollection<string> CollectionListOrder
+         private ObservableCollection<String> collectionListBank = new ObservableCollection<String>();
+        public ObservableCollection<String> CollectionListBank
         {
-            get { return collectionListOrder; }
+            get { return collectionListBank; }
             set
             {
-                if (this.collectionListOrder != value)
+                if (this.collectionListBank != value)
                 {
-                    collectionListOrder = value;
+                    collectionListBank = value;
+                    RaisePropertyChanged("");
+                }
+            }
+        }
+
+        private ObservableCollection<String> collectionListIdBank = new ObservableCollection<String>();
+        public ObservableCollection<String> CollectionListIdBank
+        {
+            get { return collectionListIdBank; }
+            set
+            {
+                if (this.collectionListIdBank != value)
+                {
+                    collectionListIdBank = value;
                     RaisePropertyChanged("");
                 }
             }
@@ -199,98 +206,50 @@ namespace BantuAnakAsuh.ViewModels
 
         public bool konek = true;
 
-        private void DownloadListOrder(object sender, DownloadStringCompletedEventArgs e)
+        public void LoadUrlKonfirmasi()
         {
             try
             {
-                JObject jresult = JObject.Parse(e.Result);
-                String result = jresult.SelectToken("result").ToString();
-                if (result.Equals("sukses"))
+                RestRequest request = new RestRequest(URL.BASE3 + "APIv2/charityorganization/charity_account.php", Method.POST);
+
+                request.AddHeader("content-type", "multipart/form-data");
+                request.AddParameter("id_donors", "871");
+                request.AddParameter("token", ")GYaS6^cO!NL$eQDuzFZB952f");
+                request.AddParameter("id_cha_org", Navigation.navId_cha_org);
+
+
+                RestClient restClient = new RestClient();
+                restClient.ExecuteAsync(request, (response) =>
                 {
-                    JArray JItem = JArray.Parse(jresult.SelectToken("item").ToString());
+                    JObject jRoot = JObject.Parse(response.Content);
+                    String result = jRoot.SelectToken("result").ToString();
+                    JArray JItem = JArray.Parse(jRoot.SelectToken("item").ToString());
+             
                     foreach (JObject item in JItem)
                     {
-                        
-                        string idorder = item.SelectToken("id_order").ToString();
-                        //string biaya = item.SelectToken("biaya_donasi").ToString();
-                        //string bank = item.SelectToken("bank").ToString();
-                        //string nomor_rekening = item.SelectToken("no_rek").ToString();
 
-                        collectionListOrder.Add(idorder);
+                        Id_account = item.SelectToken("id_account").ToString();
+                        To_bank = item.SelectToken("bank").ToString();
+                        CollectionListBank.Add(To_bank);
+                        CollectionListIdBank.Add(Id_account);
                     }
-                    
-                }
-                else
-                {
-                    String hasil = jresult.SelectToken("message").ToString();
-                    
-                }
+                     if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                    {
+                        if (result.Equals("success"))
+                        {
+                           
+
+                        }
+
+                    }
+                });
+            
             }
             catch
             {
                 konek = false;
             }
         }
-
-        //private void PushToServer(object obj)
-        //{
-        //    try
-        //    {
-
-        //        RestRequest request = new RestRequest(URL.BASE3 + "api/konfirmasi/konfirmasi.php", Method.POST);
-
-        //        request.AddHeader("content-type", "multipart/form-data");
-        //        request.AddParameter("id_order", Id_Order);
-        //        request.AddParameter("jumlah_pembayaran", Jumlah_Pembayaran);
-        //        request.AddParameter("dari_bank", Dari_Bank);
-        //        request.AddParameter("nomor_rekening", Nomor_Rekening);
-        //        request.AddParameter("bank_tujuan", Bank_Tujuan);
-        //        request.AddParameter("pemilik_rekening", Pemilik_Rekening);
-
-        //        request.AddFile("url_img_post", ReadToEnd(bitmapUserProfile), "photo" + rand.Next(0, 99999999).ToString() + ".jpg");
-
-        //        //calling server with restClient
-        //        RestClient restClient = new RestClient();
-        //        restClient.ExecuteAsync(request, (response) =>
-        //        {
-        //            ShellToast toast = new ShellToast();
-        //            toast.Title = "Status Upload";
-        //            JObject jRoot = JObject.Parse(response.Content);
-        //            String result = jRoot.SelectToken("result").ToString();
-                       
-        //           if (response.StatusCode == System.Net.HttpStatusCode.OK)
-        //                {
-        //                    if (result.Equals("sukses"))
-        //                    {
-        //                        MessageBox.Show("Confirmation Success");
-        //                    }
-        //                    else
-        //                    {
-                                
-        //                        MessageBox.Show("Failed");
-        //                    }
-        //            }
-        //            else
-        //            {
-        //                //error ocured during upload
-
-        //                toast.Content = "Your posting failed. Please check the Internet connection.";
-        //                toast.Show();
-        //                //progressBar1.Visibility = System.Windows.Visibility.Visible;
-
-        //            }
-        //        });
-        //    }
-        //    catch (Exception ec)
-        //    {
-        //        MessageBox.Show("Failed to display, the Internet connection is unstable.");
-        //    }
-        //    finally
-        //    {
-        //        //ProgressVisibiliy = Visibility.Visible;
-        //    }
-        //}
-
 
 
 
@@ -365,13 +324,7 @@ namespace BantuAnakAsuh.ViewModels
         // inilisialisasi
         
 
-        private String id_order;
-
-        public String Id_Order
-        {
-            get { return id_order; }
-            set { id_order = value; RaisePropertyChanged(""); }
-        }
+      
         private int jumlah_pembayaran;
 
         public int Jumlah_Pembayaran
@@ -379,41 +332,50 @@ namespace BantuAnakAsuh.ViewModels
             get { return jumlah_pembayaran; }
             set { jumlah_pembayaran = value; RaisePropertyChanged(""); }
         }
-        private String dari_bank;
+        private String from_bank;
 
-        public String Dari_Bank
+        public String From_bank
         {
-            get { return dari_bank; }
-            set { dari_bank = value; RaisePropertyChanged(""); }
+            get { return from_bank; }
+            set { from_bank = value; RaisePropertyChanged(""); }
         }
-        private String nomor_rekening;
+        private String account_number;
 
-        public String Nomor_Rekening
+        public String Account_number
         {
-            get { return nomor_rekening; }
-            set { nomor_rekening = value; RaisePropertyChanged(""); }
+            get { return account_number; }
+            set { account_number = value; RaisePropertyChanged(""); }
         }
-        private String bank_tujuan;
+        private String to_bank;
 
-        public String Bank_Tujuan
+        public String To_bank
         {
-            get { return bank_tujuan; }
-            set { bank_tujuan = value; RaisePropertyChanged(""); }
+            get { return to_bank; }
+            set { to_bank = value; RaisePropertyChanged(""); }
         }
-        private String pemilik_rekening;
 
-        public String Pemilik_Rekening
+        private String id_account;
+
+        public String Id_account
         {
-            get { return pemilik_rekening; }
-            set { pemilik_rekening = value; RaisePropertyChanged(""); }
+            get { return id_account; }
+            set { id_account = value; RaisePropertyChanged(""); }
         }
-        private BitmapImage fotoKejahatan;
-        public BitmapImage FotoKejahatan
+
+        private String account_name;
+
+        public String Account_name
         {
-            get { return fotoKejahatan; }
+            get { return account_name; }
+            set { account_name = value; RaisePropertyChanged(""); }
+        }
+        private BitmapImage photo;
+        public BitmapImage Photo
+        {
+            get { return photo; }
             set
             {
-                fotoKejahatan = value;
+                photo = value;
                 RaisePropertyChanged("");
             }
         }

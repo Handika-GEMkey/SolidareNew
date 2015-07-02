@@ -20,5 +20,7 @@ namespace BantuAnakAsuh.Models
         public String id_cha_org { get; set; }
         public String cha_org_name { get; set; }
         public String photo { get; set; }
+        public String payment_status { get; set; }
+        public String confirmation_status { get; set; }
     }
 }

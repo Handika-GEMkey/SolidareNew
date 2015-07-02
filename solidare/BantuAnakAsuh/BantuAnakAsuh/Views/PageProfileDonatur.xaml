@@ -122,7 +122,7 @@
                                 <StackPanel Grid.Column="0">
                                     <Ellipse Height="80" Width="80" VerticalAlignment="Center" HorizontalAlignment="Center" StrokeThickness="4" Margin="10">
                                         <Ellipse.Fill>
-                                            <ImageBrush ImageSource="{Binding photo}" Stretch="UniformToFill"/>
+                                            <ImageBrush ImageSource="{Binding Photo}" Stretch="UniformToFill"/>
                                         </Ellipse.Fill>
                                     </Ellipse>
                                 </StackPanel>

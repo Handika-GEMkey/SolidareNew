@@ -51,9 +51,9 @@ namespace BantuAnakAsuh.ViewModels
 
         public ViewModelDonasi()
         {
-            this.LoadUrl();
+            //this.LoadUrl();
             this.LoadUrlDonorProfile();
-            //this.LoadUrlFosterChildren();
+            this.LoadUrlFosterChildren();
         }
 
         private void LoadUrlFosterChildren()
