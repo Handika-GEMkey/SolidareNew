@@ -1,5 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 ﻿#pragma checksum "C:\Users\Lenovo\Documents\GitHub\SolidareNew\solidare\BantuAnakAsuh\BantuAnakAsuh\Views\PagePassword.xaml" "{406ea660-64cf-4c82-b6f0-42d48172a799}" "FEBA83B65F4DCD273A9AE8A48AF81F9E"
+=======
+﻿#pragma checksum "C:\Users\handika\Documents\GitHub\SolidareNew\solidare\BantuAnakAsuh\BantuAnakAsuh\Views\PagePassword.xaml" "{406ea660-64cf-4c82-b6f0-42d48172a799}" "C0A26786E270215DFC8EF7A053F5991D"
+>>>>>>> origin/Dika
 =======
 ﻿#pragma checksum "C:\Users\handika\Documents\GitHub\SolidareNew\solidare\BantuAnakAsuh\BantuAnakAsuh\Views\PagePassword.xaml" "{406ea660-64cf-4c82-b6f0-42d48172a799}" "C0A26786E270215DFC8EF7A053F5991D"
 >>>>>>> origin/Dika

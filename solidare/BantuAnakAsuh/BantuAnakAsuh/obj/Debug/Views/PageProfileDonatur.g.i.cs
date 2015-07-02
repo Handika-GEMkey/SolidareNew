@@ -1,5 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 ﻿#pragma checksum "C:\Users\Lenovo\Documents\GitHub\SolidareNew\solidare\BantuAnakAsuh\BantuAnakAsuh\Views\PageProfileDonatur.xaml" "{406ea660-64cf-4c82-b6f0-42d48172a799}" "2C4E58F465014DA531F4AD06C67C9A28"
+=======
+﻿#pragma checksum "C:\Users\handika\Documents\GitHub\SolidareNew\solidare\BantuAnakAsuh\BantuAnakAsuh\Views\PageProfileDonatur.xaml" "{406ea660-64cf-4c82-b6f0-42d48172a799}" "F83046156520B803970212665FF1835B"
+>>>>>>> origin/Dika
 =======
 ﻿#pragma checksum "C:\Users\handika\Documents\GitHub\SolidareNew\solidare\BantuAnakAsuh\BantuAnakAsuh\Views\PageProfileDonatur.xaml" "{406ea660-64cf-4c82-b6f0-42d48172a799}" "F83046156520B803970212665FF1835B"
 >>>>>>> origin/Dika

@@ -2486,8 +2486,11 @@ C:\Users\Lenovo\Documents\GitHub\SolidareNew\solidare\BantuAnakAsuh\BantuAnakAsu
 C:\Users\Lenovo\Documents\GitHub\SolidareNew\solidare\BantuAnakAsuh\BantuAnakAsuh\obj\Debug\BantuAnakAsuh.pdb
 C:\Users\Lenovo\Documents\GitHub\SolidareNew\solidare\BantuAnakAsuh\BantuAnakAsuh\obj\Debug\XapCacheFile.xml
 <<<<<<< HEAD
+<<<<<<< HEAD
 C:\Users\Lenovo\Documents\GitHub\SolidareNew\solidare\BantuAnakAsuh\BantuAnakAsuh\obj\Debug\Views\PageDetailDonatur.g.cs
 =======
+=======
+>>>>>>> origin/Dika
 C:\Users\handika\Documents\GitHub\SolidareNew\solidare\BantuAnakAsuh\BantuAnakAsuh\Bin\Debug\Assets\ApplicationIcon.png
 C:\Users\handika\Documents\GitHub\SolidareNew\solidare\BantuAnakAsuh\BantuAnakAsuh\Bin\Debug\Assets\Tiles\FlipCycleTileLarge.png
 C:\Users\handika\Documents\GitHub\SolidareNew\solidare\BantuAnakAsuh\BantuAnakAsuh\Bin\Debug\Assets\Tiles\FlipCycleTileMedium.png
@@ -2618,4 +2621,7 @@ C:\Users\handika\Documents\GitHub\SolidareNew\solidare\BantuAnakAsuh\BantuAnakAs
 C:\Users\handika\Documents\GitHub\SolidareNew\solidare\BantuAnakAsuh\BantuAnakAsuh\obj\Debug\BantuAnakAsuh.pdb
 C:\Users\handika\Documents\GitHub\SolidareNew\solidare\BantuAnakAsuh\BantuAnakAsuh\obj\Debug\XapCacheFile.xml
 C:\Users\handika\Documents\GitHub\SolidareNew\solidare\BantuAnakAsuh\BantuAnakAsuh\obj\Debug\BantuAnakAsuh.csprojResolveAssemblyReference.cache
+<<<<<<< HEAD
+>>>>>>> origin/Dika
+=======
 >>>>>>> origin/Dika
