@@ -44,7 +44,7 @@ namespace BantuAnakAsuh.ViewModels
                 request.AddParameter("token", Navigation.token);
                 request.AddParameter("id_donation", Navigation.idDonation);
                 request.AddParameter("from_bank", From_bank);
-                request.AddParameter("to_bank", Navigation.navBank);
+                request.AddParameter("id_account", Navigation.navIdAccount);
                 request.AddParameter("account_number", Account_number);
                 request.AddParameter("account_name", Account_name);
 
@@ -165,11 +165,11 @@ namespace BantuAnakAsuh.ViewModels
             {
                 listStatusSelected = value;
                 int index = 0;
-                foreach (var id in collectionListBank)
+                foreach (var id in collectionListIdBank)
                 {
                     if (index == listStatusSelected)
                     {
-                        Navigation.navBank = id;   
+                        Navigation.navIdAccount = id;   
                     }
                     index++;
                 }
@@ -185,6 +185,20 @@ namespace BantuAnakAsuh.ViewModels
                 if (this.collectionListBank != value)
                 {
                     collectionListBank = value;
+                    RaisePropertyChanged("");
+                }
+            }
+        }
+
+        private ObservableCollection<String> collectionListIdBank = new ObservableCollection<String>();
+        public ObservableCollection<String> CollectionListIdBank
+        {
+            get { return collectionListIdBank; }
+            set
+            {
+                if (this.collectionListIdBank != value)
+                {
+                    collectionListIdBank = value;
                     RaisePropertyChanged("");
                 }
             }
@@ -214,9 +228,10 @@ namespace BantuAnakAsuh.ViewModels
                     foreach (JObject item in JItem)
                     {
 
-
+                        Id_account = item.SelectToken("id_account").ToString();
                         To_bank = item.SelectToken("bank").ToString();
                         CollectionListBank.Add(To_bank);
+                        CollectionListIdBank.Add(Id_account);
                     }
                      if (response.StatusCode == System.Net.HttpStatusCode.OK)
                     {
@@ -338,6 +353,15 @@ namespace BantuAnakAsuh.ViewModels
             get { return to_bank; }
             set { to_bank = value; RaisePropertyChanged(""); }
         }
+
+        private String id_account;
+
+        public String Id_account
+        {
+            get { return id_account; }
+            set { id_account = value; RaisePropertyChanged(""); }
+        }
+
         private String account_name;
 
         public String Account_name

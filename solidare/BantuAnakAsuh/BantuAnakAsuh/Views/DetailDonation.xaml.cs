@@ -8,6 +8,7 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using BantuAnakAsuh.ViewModels;
+using BantuAnakAsuh.Helper;
 
 namespace BantuAnakAsuh.Views
 {
@@ -16,6 +17,11 @@ namespace BantuAnakAsuh.Views
         public DetailDonation()
         {
             InitializeComponent();
+            if (Navigation.navConfirmationStatus != "Not yet confirmed")
+            {
+                btn_confirm.IsEnabled = false;
+                btn_confirm.Visibility = Visibility.Collapsed;
+            }
 
         }
 

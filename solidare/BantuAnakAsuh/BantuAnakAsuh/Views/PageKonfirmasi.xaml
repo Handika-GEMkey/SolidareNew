@@ -15,6 +15,53 @@
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     shell:SystemTray.IsVisible="False">
     <phone:PhoneApplicationPage.Resources>
+        <Style x:Key="ButtonStyle2" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="{StaticResource PhoneForegroundBrush}"/>
+            <Setter Property="Foreground" Value="{StaticResource PhoneForegroundBrush}"/>
+            <Setter Property="BorderThickness" Value="{StaticResource PhoneBorderThickness}"/>
+            <Setter Property="FontFamily" Value="{StaticResource PhoneFontFamilySemiBold}"/>
+            <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeMedium}"/>
+            <Setter Property="Padding" Value="10,5,10,6"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="MouseOver"/>
+                                    <VisualState x:Name="Pressed">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="ContentContainer">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource PhoneButtonBasePressedForegroundBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" Storyboard.TargetName="ButtonBackground">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource PhoneAccentBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Disabled">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="ContentContainer">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource PhoneDisabledBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" Storyboard.TargetName="ButtonBackground">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="Transparent"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Border x:Name="ButtonBackground" Background="{TemplateBinding Background}" CornerRadius="0" Height="72" Width="480" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <ContentControl x:Name="ContentContainer" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" Foreground="{TemplateBinding Foreground}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Padding="{TemplateBinding Padding}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" Width="480" HorizontalAlignment="Center" VerticalAlignment="Center" Height="72"/>
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
         <ControlTemplate x:Key="DatePickerKu" TargetType="toolkit:DatePicker">
             <StackPanel>
                 <ContentControl
@@ -248,39 +295,23 @@
                 <TextBlock Text="CONFIRMATION" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold"/>
             </Grid>
         </StackPanel>
-        <ScrollViewer Grid.Row="1">
-            
-            <Grid Height="1200">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="0"/>
-                    <RowDefinition Height="250"/>
-                    <!--<RowDefinition Height="120"/>-->
-                    <RowDefinition Height="120"/>
-                    <RowDefinition Height="120"/>
-                    <RowDefinition Height="120"/>
-                    <RowDefinition Height="120"/>
-                    <!--<RowDefinition Height="250"/>-->
-                    <RowDefinition Height="120"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <!--<StackPanel Grid.Row="1" VerticalAlignment="Bottom" >
-                    <TextBlock TextWrapping="Wrap" Text="Id Order" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
-                    <TextBox FontSize="20" Text="{Binding Id_Order, Mode=TwoWay}" Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754" InputScope="Default"/>
-                </StackPanel>-->
-                <!--<StackPanel Grid.Row="2" VerticalAlignment="Bottom" >
-                    <TextBlock TextWrapping="Wrap" Text="Invoice Number" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
-                    <TextBox x:Name="txt_id" Text="{Binding Id_donation, Mode=TwoWay}" FontSize="20"  Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754" TextChanged="TextBox_TextChanged" />
-                    --><!--<TextBox FontSize="20" Text="{Binding Jk_anak_asuh, Mode=TwoWay}"  Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754"  />--><!--
-                </StackPanel>-->
-                <!--<StackPanel Grid.Row="2" VerticalAlignment="Bottom" >
-                    <TextBlock TextWrapping="Wrap" Text="Amount of payment" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
-                    <TextBox x:Name="TextBoxJmlPmbyrn" Text="{Binding Jumlah_Pembayaran, Mode=TwoWay}" FontSize="20"  Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754" InputScope="Number" TextChanged="TextBox_TextChanged" />
-                </StackPanel>-->
-                <StackPanel Grid.Row="3" VerticalAlignment="Bottom" >
+        <StackPanel Grid.Row="1" >
+            <ScrollViewer Height="660">
+                <StackPanel>
+                    <StackPanel Margin="0,20,0,0" Grid.Row="1" VerticalAlignment="Bottom" >
+                        <TextBlock TextWrapping="Wrap" Text="Proof of payment" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
+                        <Grid Width="416" Height="200" Background="#FFF4F4F4" Margin="0,5,0,0" >
+                            <Image Source="{Binding Photo}" />
+                            <Image Source="/Assets/Icons/ic_256_camera.png" Opacity="0.25"/>
+                            <Button Command="{Binding GetImageCommand1}"  Width="250" Height="60" Margin="0,140,0,0" Background="#2ECC71" BorderBrush="{x:Null}" Content="Take Image" FontSize="14.667"/>
+                            <Button Command="{Binding GetImageCommand}"  Width="250" Height="60" Margin="0,50,0,0" BorderBrush="{x:Null}" Background="#2ECC71" Content="Add Image" FontSize="14.667"/>
+                        </Grid>
+                    </StackPanel>
+                    <StackPanel Grid.Row="2" Margin="0,20,0,0" VerticalAlignment="Bottom" >
                     <TextBlock TextWrapping="Wrap" Text="From Bank" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
                     <TextBox x:Name="txt_from_bank" Text="{Binding From_bank, Mode=TwoWay}" FontSize="20"  Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754" InputScope="Default" />
                 </StackPanel>
-                <StackPanel Grid.Row="4" VerticalAlignment="Bottom" >
+                    <StackPanel Grid.Row="3" Margin="0,20,0,0" VerticalAlignment="Bottom" >
                     <TextBlock TextWrapping="Wrap" Text="To Bank" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
                     <toolkit:ListPicker BorderThickness="10"  x:Name="listStatus" ItemsSource="{Binding CollectionListBank, Mode=TwoWay}" SelectedIndex="{Binding ListStatusSelected, Mode=TwoWay}" FullModeHeader="Your Id Order" Margin="30,0" ExpansionMode="FullScreenOnly" Background="#FFF4F4F4" VerticalAlignment="Top" Foreground="#FF00365A" FontSize="20" Template="{StaticResource listpickKu}" BorderBrush="#FFF4F4F4" >
                         <toolkit:ListPicker.FullModeItemTemplate>
@@ -289,33 +320,22 @@
                             </DataTemplate>
                         </toolkit:ListPicker.FullModeItemTemplate>
                     </toolkit:ListPicker>
-                    <!--<TextBox FontSize="20" Text="{Binding Jk_anak_asuh, Mode=TwoWay}"  Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754"  />-->
-                </StackPanel>
-                <StackPanel Grid.Row="5" VerticalAlignment="Bottom" >
+                  </StackPanel>
+                    <StackPanel Grid.Row="4" Margin="0,20,0,0" VerticalAlignment="Bottom" >
                     <TextBlock TextWrapping="Wrap" Text="Bank account number" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
                     <TextBox x:Name="BankAccountNumber" Text="{Binding Account_number, Mode=TwoWay}" FontSize="20"  Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754" InputScope="Number" />
                 </StackPanel>
-                <StackPanel Grid.Row="6" VerticalAlignment="Bottom" >
+                    <StackPanel Grid.Row="5" Margin="0,20,0,0" VerticalAlignment="Bottom" >
                     <TextBlock TextWrapping="Wrap" Text="Account Name" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
                     <TextBox x:Name="BankTujuan" Text="{Binding Account_name, Mode=TwoWay}" FontSize="20"  Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754" InputScope="Default"/>
                 </StackPanel>
-                <StackPanel Grid.Row="1" VerticalAlignment="Bottom" >
-                    <TextBlock TextWrapping="Wrap" Text="Proof of payment" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
-                    <Grid Width="416" Height="200" Background="#FFF4F4F4" Margin="0,5,0,0" >
-                        <Image Source="{Binding Photo}" />
-                        <Image Source="/Assets/Icons/ic_256_camera.png" Opacity="0.25"/>
-                        <Button Command="{Binding GetImageCommand1}"  Width="250" Height="60" Margin="0,140,0,0" Background="#2ECC71" BorderBrush="{x:Null}" Content="Add Image" FontSize="14.667"/>
-                        <Button Command="{Binding GetImageCommand}"  Width="250" Height="60" Margin="0,50,0,0" BorderBrush="{x:Null}" Content="" FontSize="14.667"/>
-                    </Grid>
+                
                 </StackPanel>
-                <StackPanel Grid.Row="7" VerticalAlignment="Bottom" >
-
-                    <Button VerticalAlignment="Center" HorizontalAlignment="Center" Width="400" Height="88" IsEnabled="{Binding EnabledPostButton}" Content="Submit" Command="{Binding PublishCommand}" Background="#FF032754"></Button>
-                </StackPanel>
+            </ScrollViewer>
+            <Button VerticalAlignment="Center" Height="72" HorizontalAlignment="Center" Width="480" Style="{StaticResource ButtonStyle2}" IsEnabled="{Binding EnabledPostButton}" Content="Send Confirmation" Command="{Binding PublishCommand}" Background="#FF0071BC"></Button>
 
 
-            </Grid>
-        </ScrollViewer>
+        </StackPanel>
     </Grid>
     <!--<phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar IsVisible="True" IsMenuEnabled="False" BackgroundColor="White" Opacity="0.925" ForegroundColor="#FF062D5A" Mode="Default">

@@ -44,15 +44,16 @@
                 <ListBox Grid.Row="1"  x:Name="ListDonasix" ItemsSource="{Binding CollectionGetKeranjang}" Height="740" Width="480">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <Grid Width="480" Height="103"  HorizontalAlignment="Left" Tap="Grid_Tap" >
-                            <StackPanel Width="480">
-                                <Grid Height="100" Margin="-50,0,0,0">
+                        <Grid Width="480" Height="120"  HorizontalAlignment="Left" Tap="Grid_Tap" >
+                            <StackPanel Width="480" >
+                                <Grid Height="119" Margin="0,0,0,0">
                                     <Grid.Background>
                                         <SolidColorBrush Color="White" Opacity="1"/>
                                     </Grid.Background>
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="180"/>
-                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="120"/>
+                                            <ColumnDefinition Width="230"/>
+                                            <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
                                     <Ellipse Width="70" Height="70" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,30,0">
                                         <Ellipse.Fill>
@@ -63,7 +64,16 @@
                                         <TextBlock Text="{Binding children_name}" TextWrapping="Wrap" Foreground="Black" FontSize="18" FontFamily="Segoe WP Semibold" Width="400" HorizontalAlignment="Left"/>
                                         <TextBlock Text="{Binding cha_org_name}" FontFamily="Segoe WP SemiLight" FontSize="14" Foreground="Black" Margin="0,2,0,0"/>
                                         <TextBlock Text="{Binding pre_donation_time}" FontFamily="Segoe WP SemiLight" FontSize="14" Foreground="Black"/>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="Status : " FontWeight="Bold" FontFamily="Segoe WP SemiLight" FontSize="14" Foreground="Black"/>
+                                                <TextBlock Text="{Binding confirmation_status}" FontFamily="Segoe WP SemiLight" FontSize="14" Foreground="Black"/>
+                                            </StackPanel>
                                     </StackPanel>
+                                <Grid Grid.Column="2" VerticalAlignment="Center" Height="100">
+                                    <Grid Height="70" Width="100" Background="#FF0071BC"  VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <TextBlock Text="{Binding payment_status}" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                    </Grid>
+                                </Grid>
                                 </Grid>
                                 <Border Background="Black" Height="1" Width="480" Opacity="0.5"/>
                             </StackPanel>
