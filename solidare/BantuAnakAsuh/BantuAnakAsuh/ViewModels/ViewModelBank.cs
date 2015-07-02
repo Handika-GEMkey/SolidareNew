@@ -31,7 +31,7 @@ namespace BantuAnakAsuh.ViewModels
 
         public ViewModelBank() 
         {
-            this.LoadUrl2();
+            //this.LoadUrl2();
         }
 
 
@@ -95,62 +95,62 @@ namespace BantuAnakAsuh.ViewModels
         //    catch { }
         //}
 
-        private void LoadUrl2()
-        {
-            Photo = Navigation.navPhotoChild;
-            Children_name = Navigation.navNameChild;
-            Id_donation = Navigation.idDonation;
-            try
-            {
-                RestRequest request = new RestRequest(URL.BASE3 + "APIv2/charityorganization/charity_program.php", Method.POST);
+        //private void LoadUrl2()
+        //{
+        //    Photo = Navigation.navPhotoChild;
+        //    Children_name = Navigation.navNameChild;
+        //    Id_donation = Navigation.idDonation;
+        //    try
+        //    {
+        //        RestRequest request = new RestRequest(URL.BASE3 + "APIv2/charityorganization/charity_program.php", Method.POST);
 
-                request.AddHeader("content-type", "multipart/form-data");
-                request.AddParameter("id_donors", Navigation.navIdDonors);
-                request.AddParameter("token", Navigation.token);
-                request.AddParameter("id_program", Navigation.idProgram);
+        //        request.AddHeader("content-type", "multipart/form-data");
+        //        request.AddParameter("id_donors", Navigation.navIdDonors);
+        //        request.AddParameter("token", Navigation.token);
+        //        request.AddParameter("id_program", Navigation.idProgram);
 
-                //calling server with restClient
-                RestClient restClient = new RestClient();
-                restClient.ExecuteAsync(request, (response) =>
-                {
-                    ShellToast toast = new ShellToast();
-                    toast.Title = "Status Upload";
-                    JObject jRoot = JObject.Parse(response.Content);
-                    String result = jRoot.SelectToken("result").ToString();
-                    JArray JItem = JArray.Parse(jRoot.SelectToken("item").ToString());
+        //        //calling server with restClient
+        //        RestClient restClient = new RestClient();
+        //        restClient.ExecuteAsync(request, (response) =>
+        //        {
+        //            ShellToast toast = new ShellToast();
+        //            toast.Title = "Status Upload";
+        //            JObject jRoot = JObject.Parse(response.Content);
+        //            String result = jRoot.SelectToken("result").ToString();
+        //            JArray JItem = JArray.Parse(jRoot.SelectToken("item").ToString());
 
-                    foreach (JObject item in JItem)
-                    {
-                        Program = item.SelectToken("program_name").ToString();
-                        Description = item.SelectToken("description").ToString();
+        //            foreach (JObject item in JItem)
+        //            {
+        //                Program = item.SelectToken("program_name").ToString();
+        //                Description = item.SelectToken("description").ToString();
                         
-                    }
-                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
-                    {
-                        if (result.Equals("success"))
-                        {
+        //            }
+        //            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+        //            {
+        //                if (result.Equals("success"))
+        //                {
 
 
-                        }
-                        else
-                        {
+        //                }
+        //                else
+        //                {
 
-                        }
+        //                }
 
-                    }
-                    else
-                    {
-                        //error ocured during upload
+        //            }
+        //            else
+        //            {
+        //                //error ocured during upload
 
-                        toast.Content = "Your posting failed. Please check the Internet connection.";
-                        toast.Show();
-                        //progressBar1.Visibility = System.Windows.Visibility.Visible;
+        //                toast.Content = "Your posting failed. Please check the Internet connection.";
+        //                toast.Show();
+        //                //progressBar1.Visibility = System.Windows.Visibility.Visible;
 
-                    }
-                });
-            }
-            catch { }
-        }
+        //            }
+        //        });
+        //    }
+        //    catch { }
+        //}
 
     }
 }

@@ -65,6 +65,8 @@ namespace BantuAnakAsuh.ViewModels
                         Cha_org_name = item["cha_org_name"].ToString();
                         Id_program = item["id_program"].ToString();
                         Program_name = item["program_name"].ToString();
+                        Navigation.idProgram = Id_program;
+                        Navigation.navIdAnak = Id_fosterchildren;
                     }
                 });
             }

@@ -113,7 +113,6 @@ namespace BantuAnakAsuh.ViewModels
         public ViewModelProfileDonatur()
         {
             this.LoadUrlDonorProfile();
-            this.LoadUrlFosterChildren();
             this.LoadUrlNews();
         }
 

@@ -32,5 +32,6 @@ namespace BantuAnakAsuh.Helper
         public static String Tag = "";
         public static String Latitude = "";
         public static String Longitude = "";
+        public static String navBank;
     }
 }

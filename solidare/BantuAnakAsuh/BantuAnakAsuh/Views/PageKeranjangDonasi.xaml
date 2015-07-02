@@ -39,7 +39,7 @@
                 </Grid>
             </StackPanel>
             <Grid>
-                <ProgressBar x:Name="LoadingBar" Visibility="Visible" IsEnabled="False" IsIndeterminate="true" Height="4" HorizontalAlignment="Stretch" Foreground="#FF1565C0"/>
+                <!--<ProgressBar x:Name="LoadingBar" Visibility="Visible" IsEnabled="False" IsIndeterminate="true" Height="4" HorizontalAlignment="Stretch" Foreground="#FF1565C0"/>-->
 
                 <ListBox Grid.Row="1"  x:Name="ListDonasix" ItemsSource="{Binding CollectionGetKeranjang}" Height="740" Width="480">
                 <ListBox.ItemTemplate>

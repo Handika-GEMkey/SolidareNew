@@ -78,8 +78,8 @@ namespace BantuAnakAsuh.ViewModels
                     {
                         if (result.Equals("success"))
                         {
-                            PageKeranjangDonasi keranjangdonasi = new PageKeranjangDonasi();
-                            keranjangdonasi.LoadingBar.Visibility = Visibility.Collapsed;
+                        //    PageKeranjangDonasi keranjangdonasi = new PageKeranjangDonasi();
+                        //    keranjangdonasi.LoadingBar.Visibility = Visibility.Collapsed;
                            
                         }
                         else

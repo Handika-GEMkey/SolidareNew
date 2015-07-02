@@ -27,11 +27,11 @@ namespace BantuAnakAsuh.Views
             {
                 elip1.Visibility = Visibility.Visible;
                 elip2.Visibility = Visibility.Collapsed;
-                elip3.Visibility = Visibility.Collapsed;
+               
                
                 elip1_Copy.Visibility = Visibility.Collapsed;
                 elip2_Copy.Visibility = Visibility.Visible;
-                elip3_Copy.Visibility = Visibility.Visible;
+                
                 ViewModelDetailDonation detaildonation = new ViewModelDetailDonation();
                 this.DataContext = detaildonation;
             }
@@ -39,25 +39,13 @@ namespace BantuAnakAsuh.Views
             {
                 elip1.Visibility = Visibility.Collapsed;
                 elip2.Visibility = Visibility.Visible;
-                elip3.Visibility = Visibility.Visible;
+               
 
                 elip1_Copy.Visibility = Visibility.Visible;
                 elip2_Copy.Visibility = Visibility.Collapsed;
-                elip3_Copy.Visibility = Visibility.Collapsed;
+               
                 ViewModelOrganization org = new ViewModelOrganization();
                 this.DataContext = org;
-            }
-            else if (pivotTag.Equals("tiga"))
-            {
-                elip1.Visibility = Visibility.Collapsed;
-                elip2.Visibility = Visibility.Visible;
-                elip3.Visibility = Visibility.Visible;
-
-                elip1_Copy.Visibility = Visibility.Visible;
-                elip2_Copy.Visibility = Visibility.Collapsed;
-                elip3_Copy.Visibility = Visibility.Collapsed;
-                ViewModelBank bank = new ViewModelBank();
-                this.DataContext = bank;
             }
         }
 
@@ -68,8 +56,8 @@ namespace BantuAnakAsuh.Views
 
         private void btn_confirm_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Confirmation Menu is coming soon.");
-            //NavigationService.Navigate(new Uri("/Views/PageKonfirmasi.xaml", UriKind.Relative));
+
+            NavigationService.Navigate(new Uri("/Views/PageKonfirmasi.xaml", UriKind.Relative));
             
             //ViewModelKonfirmasi konfirmasi = new ViewModelKonfirmasi();
             //this.DataContext = konfirmasi;
