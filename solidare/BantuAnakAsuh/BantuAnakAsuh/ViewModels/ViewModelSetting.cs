@@ -1,5 +1,7 @@
 ﻿using BantuAnakAsuh.Common;
 using BantuAnakAsuh.Helper;
+using BantuAnakAsuh.Models;
+using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using Microsoft.Phone.Tasks;
 using Newtonsoft.Json.Linq;
@@ -37,7 +39,7 @@ namespace BantuAnakAsuh.ViewModels
             BitmapImage image = new BitmapImage();
             image.SetSource(e.ChosenPhoto);
             bitmapFotoDonatur = e.ChosenPhoto;
-            FotoDonatur = (image);
+            Photo = (image);
         }
 
         public ICommand GetImage
@@ -56,90 +58,69 @@ namespace BantuAnakAsuh.ViewModels
             }
         }
 
-        private bool status;
         private void PushToServer(object obj)
         {
             try
             {
-                status = true;
-                RestRequest request = new RestRequest(URL.BASE3 + "api/setting/setting.php?id_donatur=" + Navigation.navIdLogin, Method.POST);
+                RestRequest request = new RestRequest(URL.BASE3 + "APIv2/donors/setting_profile.php", Method.POST);
 
-                if (Username == null || Email == null || No_tlp == null || Alamat_donatur == null)
+                request.AddHeader("content-type", "multipart/form-data");
+                request.AddParameter("id_donors", Navigation.navIdDonors);
+                request.AddParameter("token", Navigation.token);
+                request.AddParameter("name", Name);
+                request.AddParameter("address", Address);
+                request.AddParameter("email", Email);
+                request.AddParameter("phone", Phone);
+                request.AddParameter("gender", Gender);
+                request.AddFile("photo", ReadToEnd(bitmapFotoDonatur), "photo" + rand.Next(0, 99999999).ToString() + ".jpg");
+
+                //calling server with restClient
+                RestClient restClient = new RestClient();
+                restClient.ExecuteAsync(request, (response) =>
                 {
-                    MessageBox.Show("All Textbox Must Be Filled");
-                    status = false;
-                }
-                else
-                {
-                    request.AddHeader("content-type", "multipart/form-data");
-                    request.AddParameter("username", Username);
-                    //if (NewPassword == ConPassword)
-                    //{
-                    //    request.AddParameter("password", NewPassword);
-                    //}
-                    //else
-                    //{
-                    //    MessageBox.Show("Confirm new password that you entered is not same with your new password, please try again!");
-                    //    status = false;
-                    //}
-                    request.AddParameter("alamat_donatur", Alamat_donatur);
-                    request.AddParameter("email_donatur", Email);
-                    request.AddParameter("no_tlp", No_tlp);
-                    
-                    if (bitmapFotoDonatur != null)
+                    JObject jRoot = JObject.Parse(response.Content);
+                    String jresult = jRoot.SelectToken("result").ToString();
+                    String jmessage = jRoot.SelectToken("message").ToString();
+
+                    if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
                     {
-                        request.AddFile("foto_donatur", ReadToEnd(bitmapFotoDonatur), "photo" + rand.Next(0, 99999999).ToString() + ".jpg");
+                        MessageBox.Show("Failed");
                     }
-
-                    //calling server with restClient
-                    RestClient restClient = new RestClient();
-                    if (status == true)
+                    else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
                     {
-                        restClient.ExecuteAsync(request, (response) =>
+                        MessageBox.Show("Failed");
+                    }
+                    else if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                    {
+                        if (jresult.Equals("success"))
                         {
-                            ShellToast toast = new ShellToast();
-                            toast.Title = "Status Upload";
+                            if (MessageBoxResult.OK == MessageBox.Show("Your " + jmessage))
+                            {
+                                //MessageBox.Show("Success");
+                                var frame = App.Current.RootVisual as PhoneApplicationFrame;
+                                frame.Navigate(new Uri("/Views/NewHomepage.xaml", UriKind.Relative));
+                            }
+                        }
+                        else
+                        {
+                            if (MessageBoxResult.OK == MessageBox.Show("Foster Children's profile upload failed"))
+                            {
+                                MessageBox.Show("Upload failed, try again!");
+                            }
+                        }
 
-                            //Try Catch because cannot Ggt json eesponse if upload photo
-                            try
-                            {
-                                JObject jRoot = JObject.Parse(response.Content);
-                                String result = jRoot.SelectToken("result").ToString();
-                                if (response.StatusCode == System.Net.HttpStatusCode.OK)
-                                {
-                                    if (result.Equals("sukses"))
-                                    {
-                                        MessageBox.Show("Your profile has been updated");
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show("Something Wrong");
-                                    }
-                                }
-                                else
-                                {
-                                    //error ocured during upload
-                                    MessageBox.Show("Failed to post, Please check your Internet connection.");
-                                }
-                            }
-                            catch
-                            {
-                                if (bitmapFotoDonatur != null)
-                                {
-                                    MessageBox.Show("Profile Updated");
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Something Wrong");
-                                }
-                            }
-                        });
                     }
-                }
+                    else
+                    {
+                        //error ocured during upload
+                        MessageBox.Show("Your posting failed. Please check the Internet connection.");
+                    }
+                });
+
             }
             catch (Exception ec)
             {
-                MessageBox.Show("Failed to display, the Internet connection is unstable." + ec.Message);
+                MessageBox.Show("Failed to display, the Internet connection is unstable.");
             }
             finally
             {
@@ -191,44 +172,107 @@ namespace BantuAnakAsuh.ViewModels
             }
         }
 
-        public String Id_donatur
+        public ViewModelSetting()
         {
-            get { return id_donatur; }
-            set { id_donatur = value; RaisePropertyChanged(""); }
+            //this.LoadUrl();
+            this.LoadProfile();
         }
 
-        private String username;
-
-        public String Username
+        private void LoadProfile()
         {
-            get { return username; }
-            set { username = value; RaisePropertyChanged(""); }
+            try
+            {
+                RestRequest request = new RestRequest(URL.BASE3 + "APIv2/donors/profile.php", Method.POST);
+                request.AddHeader("content-type", "multipart/form-data");
+                request.AddParameter("id_donors", Navigation.navIdDonors);
+                request.AddParameter("token", Navigation.token);
+
+                //calling server with restClient
+                RestClient restClient = new RestClient();
+                restClient.ExecuteAsync(request, (response) =>
+                {
+                    JObject jRoot = JObject.Parse(response.Content);
+                    String result = jRoot.SelectToken("result").ToString();
+                    JArray JItem = JArray.Parse(jRoot.SelectToken("item").ToString());
+                    foreach (JObject item in JItem)
+                    {
+                        
+                        Name = item.SelectToken("name").ToString();
+                        Address = item["address"].ToString();
+                        Email = item["email"].ToString();
+                        Phone = item["phone"].ToString();
+                        Photo = new BitmapImage(new Uri(URL.BASE3 + "modul/mod_OrangTuaAsuh/photo/" + item["photo"].ToString()));
+                        Gender = item["gender"].ToString();
+
+                    }
+                });
+
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show("Failed to display, the Internet connection is unstable.");
+            }
+            finally
+            {
+                //ProgressVisibiliy = Visibility.Visible;
+            }
         }
 
-        private String password;
-
-        public String Password
-        {
-            get { return password; }
-            set { password = value; RaisePropertyChanged(""); }
-        }
-
-        //private String newpassword;
-
-        //public String NewPassword
+        //private void LoadUrl()
         //{
-        //    get { return newpassword; }
-        //    set { newpassword = value; RaisePropertyChanged(""); }
+        //    WebClient clientdetailanak = new WebClient();
+        //    clientdetailanak.DownloadStringCompleted += new DownloadStringCompletedEventHandler(DownloadDetailAnak);
+        //    clientdetailanak.DownloadStringAsync(new Uri(URL.BASE3 + "api/donatur/donatur.php?id_donatur=" + Navigation.navIdLogin+"?nocache="+Guid.NewGuid()));
         //}
 
-        //private String conpassword;
-
-        //public String ConPassword
+        //public bool konek = true;
+        //private void DownloadDetailAnak(object sender, DownloadStringCompletedEventArgs e)
         //{
-        //    get { return conpassword; }
-        //    set { conpassword = value; RaisePropertyChanged(""); }
+        //    try
+        //    {
+        //        JObject jresult = JObject.Parse(e.Result);
+        //        FotoDonatur = new BitmapImage(new Uri(URL.BASE3 + "modul/mod_OrangTuaAsuh/photo/" + jresult.SelectToken("foto_donatur").ToString()));
+        //        Id_donatur = jresult.SelectToken("id_donatur").ToString();
+        //        Username = jresult.SelectToken("username").ToString();
+        //        Password = jresult.SelectToken("password").ToString();
+        //        Email = jresult.SelectToken("email_donatur").ToString();
+        //        No_tlp = jresult.SelectToken("no_tlp").ToString();
+        //        Alamat_donatur = jresult.SelectToken("alamat_donatur").ToString();
+        //    }
+        //    catch
+        //    {
+        //        konek = false;
+        //    }
         //}
 
+        private String id_donors;
+
+        public String Id_donors
+        {
+            get { return id_donors; }
+            set { id_donors = value; RaisePropertyChanged(""); }
+        }
+        private String token;
+
+        public String Token
+        {
+            get { return token; }
+            set { token = value; RaisePropertyChanged(""); }
+        }
+        private String name;
+
+        public String Name
+        {
+            get { return name; }
+            set { name = value; RaisePropertyChanged(""); }
+        }
+        private String address;
+
+        public String Address
+        {
+            get { return address; }
+            set { address = value; RaisePropertyChanged(""); }
+        }
         private String email;
 
         public String Email
@@ -236,76 +280,35 @@ namespace BantuAnakAsuh.ViewModels
             get { return email; }
             set { email = value; RaisePropertyChanged(""); }
         }
+        private String phone;
 
-        private String no_tlp;
-
-        public String No_tlp
+        public String Phone
         {
-            get { return no_tlp; }
-            set { no_tlp = value; RaisePropertyChanged(""); }
+            get { return phone; }
+            set { phone = value; RaisePropertyChanged(""); }
+        }
+        private String gender;
+
+        public String Gender
+        {
+            get { return gender; }
+            set { gender = value; RaisePropertyChanged(""); }
+        }
+        private BitmapImage photo;
+
+        public BitmapImage Photo
+        {
+            get { return photo; }
+            set { photo = value; RaisePropertyChanged(""); }
         }
 
-        private String alamat_donatur;
+        private String Foto;
 
-        public String Alamat_donatur
+        public String Foto1
         {
-            get { return alamat_donatur; }
-            set { alamat_donatur = value; RaisePropertyChanged(""); }
+            get { return Foto; }
+            set { Foto = value; RaisePropertyChanged(""); }
         }
-
-        private String foto_donatur;
-
-        public String Foto_donatur
-        {
-            get { return foto_donatur; }
-            set { foto_donatur = value; RaisePropertyChanged(""); }
-        }
-
-        private BitmapImage fotoDonatur;
-        public BitmapImage FotoDonatur
-        {
-            get { return fotoDonatur; }
-            set
-            {
-                fotoDonatur = value;
-                RaisePropertyChanged("");
-            }
-        }
-
-
-        public ViewModelSetting()
-        {
-            this.LoadUrl();
-        }
-
-        private void LoadUrl()
-        {
-            WebClient clientdetailanak = new WebClient();
-            clientdetailanak.DownloadStringCompleted += new DownloadStringCompletedEventHandler(DownloadDetailAnak);
-            clientdetailanak.DownloadStringAsync(new Uri(URL.BASE3 + "api/donatur/donatur.php?id_donatur=" + Navigation.navIdLogin+"?nocache="+Guid.NewGuid()));
-        }
-
-        public bool konek = true;
-        private void DownloadDetailAnak(object sender, DownloadStringCompletedEventArgs e)
-        {
-            try
-            {
-                JObject jresult = JObject.Parse(e.Result);
-                FotoDonatur = new BitmapImage(new Uri(URL.BASE3 + "modul/mod_OrangTuaAsuh/photo/" + jresult.SelectToken("foto_donatur").ToString()));
-                Id_donatur = jresult.SelectToken("id_donatur").ToString();
-                Username = jresult.SelectToken("username").ToString();
-                Password = jresult.SelectToken("password").ToString();
-                Email = jresult.SelectToken("email_donatur").ToString();
-                No_tlp = jresult.SelectToken("no_tlp").ToString();
-                Alamat_donatur = jresult.SelectToken("alamat_donatur").ToString();
-            }
-            catch
-            {
-                konek = false;
-            }
-        }
-
-
 
     }
 }

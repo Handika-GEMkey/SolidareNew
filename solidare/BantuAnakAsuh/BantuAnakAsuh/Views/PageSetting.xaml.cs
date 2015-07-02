@@ -52,6 +52,12 @@ namespace BantuAnakAsuh.Views
             NavigationService.Navigate(new Uri("/Views/PageProfileDonatur.xaml", UriKind.Relative));
         }
 
+        private void saveChanges_Click(object sender, EventArgs e)
+        {
+            var vm = (ViewModelSetting)DataContext;
+            vm.PublishCommand.Execute(null);
+        }
+
         /*private void apbarDoneSetting_Click(object sender, EventArgs e)
         {
             if ((!(textUsername.Text).Equals("")) && (!(textEmail.Text).Equals("")) && (!(textPhone.Text).Equals("")) && (!(textAlamat.Text).Equals("")))
