@@ -159,6 +159,9 @@
     <Compile Include="Views\NewHomepage.xaml.cs">
       <DependentUpon>NewHomepage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\PageDetailDonatur.xaml.cs">
+      <DependentUpon>PageDetailDonatur.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PageDetailNews.xaml.cs">
       <DependentUpon>PageDetailNews.xaml</DependentUpon>
     </Compile>
@@ -278,6 +281,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\NewHomepage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PageDetailDonatur.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

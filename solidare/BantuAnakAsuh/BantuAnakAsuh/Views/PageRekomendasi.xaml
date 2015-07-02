@@ -241,14 +241,14 @@
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="White" >
         <Grid.RowDefinitions>
-            <RowDefinition Height="61"/>
+            <RowDefinition Height="72"/>
             <RowDefinition Height="50"/>
             <RowDefinition Height="3"/>
             <RowDefinition Height="1"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" Height="60" Width="480" Background="#0071BC" VerticalAlignment="Top">
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" Height="72" Width="480" Background="#0071BC" VerticalAlignment="Top">
             <Grid x:Name="home" Grid.Column="0" Width="70" Height="60">
                 <Image x:Name="buttonMenu" Source="/Assets/Icons/ic_48_back_button.png" Stretch="UniformToFill" Width="50" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Height="50" Tap="buttonMenu_Tap"/>
             </Grid>
@@ -292,21 +292,21 @@
             </phone:Pivot.Background>
 
             <!-- Pivot Timeline -->
-            <phone:PivotItem x:Name="pivot1"  Visibility="Visible"  Tag="satu" Width="480" Height="1024" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,-10,0,0">
+            <phone:PivotItem x:Name="pivot1"  Visibility="Collapsed"  Tag="satu" Width="480" Height="1024" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,-10,0,0">
                 <ScrollViewer Background="White" >
-                    <Grid Height="1700">
+                    <Grid Height="1750">
                         <Grid.RowDefinitions>
                             <!--<RowDefinition Height="80"/>-->
                             <RowDefinition Height="190"/>
                             <RowDefinition Height="110"/>
                             <RowDefinition Height="100"/>
-                            <RowDefinition Height="100"/>
-                            <RowDefinition Height="110"/>
+                            <RowDefinition Height="115"/>
+                            <RowDefinition Height="120"/>
                             <RowDefinition Height="250"/>
-                            <RowDefinition Height="100"/>
-                            <RowDefinition Height="100"/>
-                            <RowDefinition Height="100"/>
-                            <RowDefinition Height="100"/>
+                            <RowDefinition Height="120"/>
+                            <RowDefinition Height="120"/>
+                            <RowDefinition Height="115"/>
+                            <RowDefinition Height="115"/>
                             <RowDefinition Height="100"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
@@ -354,13 +354,13 @@
                         <!-- Name -->
                         <StackPanel Grid.Row="1" Visibility="Visible" VerticalAlignment="Bottom" >
                             <TextBlock TextWrapping="Wrap" Text="Name" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
-                            <TextBox x:Name="nama_anakasuh" FontSize="16" Text="{Binding Nama_anak_asuh, Mode=TwoWay}" Background="#FFF4F4F4" Height="80" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754"/>
+                            <TextBox x:Name="nama_anakasuh" FontSize="16" Text="{Binding Nama_anak_asuh, Mode=TwoWay}" Background="#FFF4F4F4" Height="90" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754"/>
                         </StackPanel>
 
                         <!-- Gender -->
                         <StackPanel Grid.Row="2" VerticalAlignment="Bottom" >
                             <TextBlock TextWrapping="Wrap" Text="Gender" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
-                            <toolkit:ListPicker Height="60" BorderThickness="10"  x:Name="listGender" ItemsSource="{Binding JenisKelaminCollection, Mode=TwoWay}" SelectedIndex="{Binding JenisKelaminSelected, Mode=TwoWay}" FullModeHeader="Choose Your Gender" Margin="30,0" ExpansionMode="FullScreenOnly" Background="#FFF4F4F4" VerticalAlignment="Center" Foreground="#FF00365A" FontSize="16" Template="{StaticResource listpickKu}" BorderBrush="#FFF4F4F4">
+                            <toolkit:ListPicker Height="70" BorderThickness="10"  x:Name="listGender" ItemsSource="{Binding JenisKelaminCollection, Mode=TwoWay}" SelectedIndex="{Binding JenisKelaminSelected, Mode=TwoWay}" FullModeHeader="Choose Your Gender" Margin="30,0" ExpansionMode="FullScreenOnly" Background="#FFF4F4F4" VerticalAlignment="Center" Foreground="#FF00365A" FontSize="16" Template="{StaticResource listpickKu}" BorderBrush="#FFF4F4F4">
                                 <toolkit:ListPicker.FullModeItemTemplate>
                                     <DataTemplate>
                                         <TextBlock Margin="0,0,0,30" Style="{StaticResource PhoneTextTitle3Style}" Text="{Binding}"/>
@@ -372,7 +372,7 @@
                         <!-- Status -->
                         <StackPanel Grid.Row="3" VerticalAlignment="Bottom" >
                             <TextBlock TextWrapping="Wrap" Text="Status" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
-                            <toolkit:ListPicker Height="60" BorderThickness="10"  x:Name="listStatus" ItemsSource="{Binding ListStatusCollection, Mode=TwoWay}" SelectedIndex="{Binding ListStatusSelected, Mode=TwoWay}" FullModeHeader="Choose Foster Children Status" Margin="30,0" ExpansionMode="FullScreenOnly" Background="#FFF4F4F4" VerticalAlignment="Center" Foreground="#FF00365A" FontSize="16" Template="{StaticResource listpickKu}" BorderBrush="#FFF4F4F4">
+                            <toolkit:ListPicker Height="70" BorderThickness="10"  x:Name="listStatus" ItemsSource="{Binding ListStatusCollection, Mode=TwoWay}" SelectedIndex="{Binding ListStatusSelected, Mode=TwoWay}" FullModeHeader="Choose Foster Children Status" Margin="30,0" ExpansionMode="FullScreenOnly" Background="#FFF4F4F4" VerticalAlignment="Center" Foreground="#FF00365A" FontSize="16" Template="{StaticResource listpickKu}" BorderBrush="#FFF4F4F4">
                                 <toolkit:ListPicker.FullModeItemTemplate>
                                     <DataTemplate>
                                         <TextBlock Margin="0,0,0,30" Style="{StaticResource PhoneTextTitle3Style}" Text="{Binding}"/>
@@ -384,13 +384,13 @@
                         <!-- Address -->
                         <StackPanel Grid.Row="4" VerticalAlignment="Bottom" >
                             <TextBlock TextWrapping="Wrap" Text="Address" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
-                            <TextBox x:Name="alamat_anakasuh" FontSize="16" Text="{Binding Alamat, Mode=TwoWay}" Background="#FFF4F4F4" Height="80" Margin="15,-8,150,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754" />
+                            <TextBox x:Name="alamat_anakasuh" FontSize="16" Text="{Binding Alamat, Mode=TwoWay}" Background="#FFF4F4F4" Height="90" Margin="15,-8,150,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754" />
 
                         </StackPanel>
 
                         <!-- Btn_Address -->
                         <StackPanel Grid.Row="4">
-                            <Button x:Name="btn_address" Margin="310,30,15,0" Height="80" Background="#0071BC" BorderBrush="{x:Null}" Content="Add" FontSize="14.667" Click="btn_address_Click"/>
+                            <Button x:Name="btn_address" Margin="310,30,15,0" Height="90" Background="#FF032754" BorderBrush="{x:Null}" Content="Add" FontSize="14.667" Click="btn_address_Click"/>
                         </StackPanel>
 
                         <!-- Bing_Address -->
@@ -402,33 +402,33 @@
                         </StackPanel>
 
                         <!-- Parent Bar -->
-                        <StackPanel Background="#FF032754" Grid.Row="6" VerticalAlignment="Bottom"  Width="440" >
+                        <StackPanel Background="#0071BC" Grid.Row="6" VerticalAlignment="Bottom"  Width="480" >
                             <TextBlock TextWrapping="Wrap" Text="FOSTER CHILDREN PARENT IDENTITY" Foreground="White" Margin="31,20,30,0" FontSize="18" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                         </StackPanel>
 
                         <!--Parent name-->
                         <StackPanel Grid.Row="7" VerticalAlignment="Bottom" >
                             <TextBlock TextWrapping="Wrap" Text="Name of parent" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
-                            <TextBox x:Name="nama_orangtua" FontSize="16" Text="{Binding Nama_orangtua_asli, Mode=TwoWay}" Background="#FFF4F4F4" Height="80" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754" />
+                            <TextBox x:Name="nama_orangtua" FontSize="16" Text="{Binding Nama_orangtua_asli, Mode=TwoWay}" Background="#FFF4F4F4" Height="90" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754" />
                         </StackPanel>
 
                         <!-- Parent job -->
                         <StackPanel Grid.Row="8" VerticalAlignment="Bottom" >
                             <TextBlock TextWrapping="Wrap" Text="Job" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
-                            <TextBox x:Name="job_orangtua" FontSize="16" Text="{Binding Pekerjaan, Mode=TwoWay}" Background="#FFF4F4F4" Height="80" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754"/>
+                            <TextBox x:Name="job_orangtua" FontSize="16" Text="{Binding Pekerjaan, Mode=TwoWay}" Background="#FFF4F4F4" Height="90" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754"/>
                         </StackPanel>
 
                         <!-- Parent salary -->
                         <StackPanel Grid.Row="9" VerticalAlignment="Bottom" >
                             <TextBlock TextWrapping="Wrap" Text="Salary" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
-                            <TextBox x:Name="penghasilan" FontSize="16" Text="{Binding Penghasilan, Mode=TwoWay}" Background="#FFF4F4F4" Height="80" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754" InputScope="Number"/>
+                            <TextBox x:Name="penghasilan" FontSize="16" Text="{Binding Penghasilan, Mode=TwoWay}" Background="#FFF4F4F4" Height="90" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754" InputScope="Number"/>
                         </StackPanel>
 
-                        <Button x:Name="buttoncoba" Grid.Row="10" Height="88" Width="400"  Content="Submit" Command="{Binding PublishCommand1}" Background="#FF032754" Click="Button_Click"></Button>
+                        <!--<Button x:Name="buttoncoba" Grid.Row="10" Height="88" Width="400"  Content="Submit" Command="{Binding PublishCommand1}" Background="#FF032754" Click="Button_Click"></Button>-->
                     </Grid>
                 </ScrollViewer>
             </phone:PivotItem>
-            <phone:PivotItem  x:Name="pivot2" Visibility="Collapsed" Tag="dua" Width="480" Height="736" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,-11,0,0" Background="White" >
+            <phone:PivotItem  x:Name="pivot2" Visibility="Visible" Tag="dua" Width="480" Height="736" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,-11,0,0" Background="White" >
                 <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Disabled">
                     <Grid Height="700">
 
@@ -484,7 +484,7 @@
                             </Grid>
                         </StackPanel>
 
-                        <Button Grid.Row="3" Height="88" Width="400"  Content="Submit" Command="{Binding PublishCommand2}" Background="#FF032754" VerticalAlignment="Top" HorizontalAlignment="Center" Click="Button_Click_1"></Button>
+                        <!--<Button Grid.Row="3" Height="88" Width="400"  Content="Submit" Command="{Binding PublishCommand2}" Background="#FF032754" VerticalAlignment="Top" HorizontalAlignment="Center" Click="Button_Click_1"></Button>-->
                     </Grid>
                 </ScrollViewer>
             </phone:PivotItem>
@@ -492,9 +492,11 @@
     </Grid>
     
     <phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar IsVisible="False" IsMenuEnabled="False" BackgroundColor="White" Opacity="0.925" ForegroundColor="#FF062D5A" Mode="Default">
-            <shell:ApplicationBarIconButton x:Name="apbarKonfirmasi" IconUri="/Assets/icons/ic_48_checklist.png" Text="Confirm"/>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="False" BackgroundColor="WhiteSmoke" Opacity="0.925" ForegroundColor="#FF062D5A" Mode="Default">
+            <shell:ApplicationBarIconButton x:Name="apbarRekomendasi" IconUri="/Assets/icons/ic_48_checklist.png" Text="upload" Click="apbarRekomendasi_Click"/>
+            <shell:ApplicationBarIconButton x:Name="apbarEnvironment" IconUri="/Assets/icons/ic_48_checklist.png" Text="Send"/>
         </shell:ApplicationBar>
+        
     </phone:PhoneApplicationPage.ApplicationBar>
 
 </phone:PhoneApplicationPage>

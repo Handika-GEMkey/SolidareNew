@@ -72,7 +72,14 @@ namespace BantuAnakAsuh.ViewModels
                 request.AddParameter("email", Email);
                 request.AddParameter("phone", Phone);
                 request.AddParameter("gender", Gender);
-                request.AddFile("photo", ReadToEnd(bitmapFotoDonatur), "photo" + rand.Next(0, 99999999).ToString() + ".jpg");
+                if (Photo != null)
+                {
+                    request.AddParameter("photo", Photo);
+                }
+                else { 
+                    request.AddFile("photo", ReadToEnd(bitmapFotoDonatur), "photo" + rand.Next(0, 99999999).ToString() + ".jpg"); 
+                }
+                
 
                 //calling server with restClient
                 RestClient restClient = new RestClient();

@@ -145,6 +145,8 @@ namespace BantuAnakAsuh.ViewModels
                         modelLogin.Gender = item["gender"].ToString();
 
                         CollectionDonatur.Add(modelLogin);
+                        Title_name_profile = modelLogin.Nama_donatur.ToUpper().ToString()+" PROFILE";
+                        Photo_donors = modelLogin.Photo.ToString();
                     }
                 });
             }
@@ -153,6 +155,22 @@ namespace BantuAnakAsuh.ViewModels
                 MessageBox.Show("Failed to display, the Internet connection is unstable.");
             }
 
+        }
+
+        private String title_name_profile;
+
+        public String Title_name_profile
+        {
+            get { return title_name_profile; }
+            set { title_name_profile = value; RaisePropertyChanged(""); }
+        }
+
+        private String photo_donors;
+
+        public String Photo_donors
+        {
+            get { return photo_donors; }
+            set { photo_donors = value; RaisePropertyChanged(""); }
         }
 
         private void LoadUrlNews()

@@ -37,7 +37,7 @@ namespace BantuAnakAsuh.Views
             InitializeComponent();
             this.DataContext = new ViewModelRekomendasi();
             //this.listStatus.ItemsSource = listStatusArray;
-
+            ApplicationBar.Buttons.RemoveAt(1);
             pivot2.Visibility = Visibility.Collapsed;
             pivot1.Visibility = Visibility.Visible;
             
@@ -134,7 +134,6 @@ namespace BantuAnakAsuh.Views
 
         private void imageonTap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            
         }
 
         private void Button_Tap(object sender, System.Windows.Input.GestureEventArgs e)
@@ -340,6 +339,23 @@ namespace BantuAnakAsuh.Views
         {
             addimage1.Visibility = Visibility.Collapsed;
             addimage2.Visibility = Visibility.Visible;
+        }
+
+        private void apbarRekomendasi_Click(object sender, EventArgs e)
+        {
+            var vm = (ViewModelRekomendasi)DataContext;
+            vm.PublishCommand1.Execute(null);           
+
+            if (Navigation.menuItem == "pivot_environment")
+            {
+                ApplicationBar.Buttons.RemoveAt(0);
+                
+             
+                pivot2.Visibility = Visibility.Visible;
+                pivot1.Visibility = Visibility.Collapsed;
+                Pivot_Control.SelectedIndex = 1;
+            }
+
         }
 
     }

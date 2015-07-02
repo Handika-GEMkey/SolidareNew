@@ -146,11 +146,11 @@
         </Grid>
 
     </Grid>
-    <phone:PhoneApplicationPage.ApplicationBar>
+    <!--<phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar IsVisible="True" IsMenuEnabled="False" BackgroundColor="White" Opacity="0.925" ForegroundColor="#FF062D5A" Mode="Default">
-            <!--<shell:ApplicationBarIconButton x:Name="apbarHome" IconUri="/Assets/icons/ic_48_home.png" Text="Home" Click="apbarHome_Click"/>-->
+            --><!--<shell:ApplicationBarIconButton x:Name="apbarHome" IconUri="/Assets/icons/ic_48_home.png" Text="Home" Click="apbarHome_Click"/>--><!--
             <shell:ApplicationBarIconButton x:Name="apbarSetting" IconUri="/Assets/icons/ic_48_setting.png" Text="setting" Click="apbarSetting_Click"/>
         </shell:ApplicationBar>
-    </phone:PhoneApplicationPage.ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>-->
     
 </phone:PhoneApplicationPage>

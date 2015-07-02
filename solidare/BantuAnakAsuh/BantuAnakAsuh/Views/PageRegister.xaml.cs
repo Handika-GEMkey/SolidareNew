@@ -97,17 +97,18 @@ namespace BantuAnakAsuh.Views
         {
             try
             {
-                string Result;
+                string Result,message;
                 JObject jresult = JObject.Parse(e.Result);
                 Result = jresult["result"].ToString();
+                message = jresult["message"].ToString();
 
-                if (Result.Equals("sukses"))
+                if (Result.Equals("success"))
                 {
-                    MessageBox.Show("Registration success!");
-                    SmsComposeTask SMSCompose = new SmsComposeTask();
-                    SMSCompose.To = textBoxPhone.Text;
-                    SMSCompose.Body = "Donors account registration. And this is your Donors Account Password: " + pwd.ToString();
-                    SMSCompose.Show();
+                    MessageBox.Show(message);
+                    //SmsComposeTask SMSCompose = new SmsComposeTask();
+                    //SMSCompose.To = textBoxPhone.Text;
+                    //SMSCompose.Body = "Donors account registration. And this is your Donors Account Password: " + pwd.ToString();
+                    //SMSCompose.Show();
                     NavigationService.Navigate(new Uri("/Views/PageLogin.xaml", UriKind.Relative));
                 }
                 else

@@ -26,7 +26,7 @@ namespace BantuAnakAsuh.Views
             InitializeComponent();
             ViewModelSetting vmSetting = new ViewModelSetting();
             this.DataContext = vmSetting;
-
+            Navigation.From_Page = "PageSetting";
             /*photoChooserTask = new PhotoChooserTask();
             photoChooserTask.Completed += new EventHandler<PhotoResult>(photoChooserTask_Completed);
 
@@ -38,7 +38,7 @@ namespace BantuAnakAsuh.Views
 
         private void buttonMenu_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/Views/PageMenu.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/Views/PageDetailDonatur.xaml", UriKind.Relative));
 
         }
 
@@ -49,7 +49,7 @@ namespace BantuAnakAsuh.Views
 
         protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/Views/PageProfileDonatur.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/Views/PageDetailDonatur.xaml", UriKind.Relative));
         }
 
         private void saveChanges_Click(object sender, EventArgs e)
