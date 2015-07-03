@@ -128,6 +128,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\ViewModelAnakAsuh.cs" />
     <Compile Include="ViewModels\ViewModelBank.cs" />
     <Compile Include="ViewModels\ViewModelDetailAnakAsuh.cs" />
     <Compile Include="ViewModels\ViewModelDetailDonation.cs" />
@@ -158,6 +159,9 @@
     </Compile>
     <Compile Include="Views\NewHomepage.xaml.cs">
       <DependentUpon>NewHomepage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageDetailAnak.xaml.cs">
+      <DependentUpon>PageDetailAnak.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PageDetailDonatur.xaml.cs">
       <DependentUpon>PageDetailDonatur.xaml</DependentUpon>
@@ -281,6 +285,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\NewHomepage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PageDetailAnak.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -446,6 +454,8 @@
     </Content>
     <Content Include="Assets\Icons\baa.png" />
     <Content Include="Assets\Icons\ic_125_markorang.png" />
+    <Content Include="Assets\Icons\ic_128_downloadReport.png" />
+    <Content Include="Assets\Icons\ic_128_report.png" />
     <Content Include="Assets\Icons\ic_256_camera.png" />
     <Content Include="Assets\Icons\ic_256_marker.png" />
     <Content Include="Assets\Icons\ic_25_mylocat.png" />
@@ -475,12 +485,14 @@
     <Content Include="Assets\Icons\ic_48_filter.png" />
     <Content Include="Assets\Icons\ic_48_getdirection.png" />
     <Content Include="Assets\Icons\ic_48_home.png" />
+    <Content Include="Assets\Icons\ic_48_letter.png" />
     <Content Include="Assets\Icons\ic_48_mail.png" />
     <Content Include="Assets\Icons\ic_48_menu.png" />
     <Content Include="Assets\Icons\ic_48_mylocat.png" />
     <Content Include="Assets\Icons\ic_48_nearby.png" />
     <Content Include="Assets\Icons\ic_48_news.png" />
     <Content Include="Assets\Icons\ic_48_phone.png" />
+    <Content Include="Assets\Icons\ic_48_report.png" />
     <Content Include="Assets\Icons\ic_48_search.png" />
     <Content Include="Assets\Icons\ic_48_setting.png" />
     <Content Include="Assets\Icons\ic_48_user.png" />

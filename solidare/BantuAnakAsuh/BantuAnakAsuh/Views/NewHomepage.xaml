@@ -124,7 +124,7 @@
                     <Grid x:Name="mapLogo" Grid.Column="2"   Height="60"   >
                         <Image Source="/Assets/AppBar/message30.png" Height="35" Width="35"/>
                     </Grid>
-                    <Grid x:Name="reportLogo" Grid.Column="3" Height="60"  >
+                    <Grid x:Name="recommendationLogo" Grid.Column="3" Height="60" Tap="recommendationLogo_Tap" >
                         <Image Source="/Assets/AppBar/heart316.png" Height="35" Width="35"/>
                     </Grid>
 
@@ -282,7 +282,7 @@
             <shell:ApplicationBarIconButton x:Name="MapBtn" Click="MapBtn_Click" IconUri="/Assets/Icons/ic_48_nearby.png" IsEnabled="True" Text="nearby" />
 
             <shell:ApplicationBar.MenuItems>
-                <shell:ApplicationBarMenuItem x:Name="RecommendationBtn" Text="Recommendation foster children" Click="RecommendationBtn_Click" />
+                <!--<shell:ApplicationBarMenuItem x:Name="RecommendationBtn" Text="Recommendation foster children" Click="RecommendationBtn_Click" />-->
                 <shell:ApplicationBarMenuItem x:Name="AboutBtn" Text="about" Click="AboutBtn_Click" />
                 <shell:ApplicationBarMenuItem x:Name="LogoutBtn" Text="logout" Click="LogoutBtn_Click" />
             </shell:ApplicationBar.MenuItems>

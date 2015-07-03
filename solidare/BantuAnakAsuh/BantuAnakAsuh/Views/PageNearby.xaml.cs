@@ -63,6 +63,20 @@ namespace BantuAnakAsuh.Views
         private void MapView_Loaded(object sender, RoutedEventArgs e)
         {
             LoadKejahatan();
+            MapVieMode.Layers.Clear();
+            MapLayer mapLayer = new MapLayer();
+            MyCoordinates.Clear();
+            for (int i = 0; i < LocationListobj.Count; i++)
+            {
+                MyCoordinates.Add(new GeoCoordinate { Latitude = Double.Parse(LocationListobj[i].latitude), Longitude = Double.Parse(LocationListobj[i].longitude) });
+            }
+            DrawMapMarkers();
+            MapVieMode.Center = MyCoordinates[MyCoordinates.Count - 1];
+            Dispatcher.BeginInvoke(() =>
+            {
+                MapVieMode.SetView(LocationRectangle.CreateBoundingRectangle(MyCoordinates));
+            });
+            MapVieMode.SetView(MyCoordinates[MyCoordinates.Count - 1], 10, MapAnimationKind.Linear);
             ShowMyLocationOnTheMap();
         }
 
@@ -90,10 +104,8 @@ namespace BantuAnakAsuh.Views
 
                 //calling server with restClient
                 RestClient restClient = new RestClient();
-                
                 restClient.ExecuteAsync(request, (response) =>
                 {
-
                     JObject jRoot = JObject.Parse(response.Content);
                     String result = jRoot.SelectToken("result").ToString();
                     JArray JItem = JArray.Parse(jRoot.SelectToken("item").ToString());
@@ -129,20 +141,7 @@ namespace BantuAnakAsuh.Views
 
                 /************Add diff locations to list**************/
 
-                MapVieMode.Layers.Clear();
-                MapLayer mapLayer = new MapLayer();
-                MyCoordinates.Clear();
-                for (int i = 0; i < LocationListobj.Count; i++)
-                {
-                    MyCoordinates.Add(new GeoCoordinate { Latitude = Double.Parse(LocationListobj[i].latitude), Longitude = Double.Parse(LocationListobj[i].longitude) });
-                }
-                DrawMapMarkers();
-                MapVieMode.Center = MyCoordinates[MyCoordinates.Count - 1];
-                Dispatcher.BeginInvoke(() =>
-                {
-                    MapVieMode.SetView(LocationRectangle.CreateBoundingRectangle(MyCoordinates));
-                });
-                MapVieMode.SetView(MyCoordinates[MyCoordinates.Count - 1], 10, MapAnimationKind.Linear);
+                
             }
             catch
             {

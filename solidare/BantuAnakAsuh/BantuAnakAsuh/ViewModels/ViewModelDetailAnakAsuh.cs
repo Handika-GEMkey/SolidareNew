@@ -27,11 +27,11 @@ namespace BantuAnakAsuh.ViewModels
         {
             try
             {
-                RestRequest request = new RestRequest(URL.BASE3 + "APIv2/fosterchildren/fosterchildren.php", Method.POST);
+                RestRequest request = new RestRequest(URL.BASE3 + "APIv2/fosterchildren/detail_fosterchildren.php", Method.POST);
                 request.AddHeader("content-type", "multipart/form-data");
                 request.AddParameter("id_donors", Navigation.navIdDonors);
                 request.AddParameter("token", Navigation.token);
-                request.AddParameter("id_fosterchildren", Navigation.navIdAnak);
+                request.AddParameter("id_fosterchildren", Navigation.id_fosterchildren);
 
                 //calling server with restClient
                 RestClient restClient = new RestClient();

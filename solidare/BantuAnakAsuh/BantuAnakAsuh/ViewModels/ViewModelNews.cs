@@ -68,7 +68,6 @@ namespace BantuAnakAsuh.ViewModels
                         Description = item["description"].ToString();
                         Post_by = item["post_by"].ToString();
 
-
                     }
 
                 });

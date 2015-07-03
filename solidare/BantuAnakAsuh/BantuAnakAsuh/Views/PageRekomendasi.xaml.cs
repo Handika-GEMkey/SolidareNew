@@ -37,7 +37,7 @@ namespace BantuAnakAsuh.Views
             InitializeComponent();
             this.DataContext = new ViewModelRekomendasi();
             //this.listStatus.ItemsSource = listStatusArray;
-            ApplicationBar.Buttons.RemoveAt(1);
+
             pivot2.Visibility = Visibility.Collapsed;
             pivot1.Visibility = Visibility.Visible;
             
@@ -344,19 +344,43 @@ namespace BantuAnakAsuh.Views
         private void apbarRekomendasi_Click(object sender, EventArgs e)
         {
             var vm = (ViewModelRekomendasi)DataContext;
-            vm.PublishCommand1.Execute(null);           
+            vm.PublishCommand1.Execute(null);
 
-            if (Navigation.menuItem == "pivot_environment")
+            if (MessageBoxResult.OK == MessageBox.Show("Waiting for uploaded"))
             {
-                ApplicationBar.Buttons.RemoveAt(0);
-                
-             
-                pivot2.Visibility = Visibility.Visible;
-                pivot1.Visibility = Visibility.Collapsed;
-                Pivot_Control.SelectedIndex = 1;
-            }
+                if (Navigation.menuItem == "pivot_environment")
+                {
+                    ApplicationBar.Buttons.RemoveAt(0);
 
+                    pivot2.Visibility = Visibility.Visible;
+                    pivot1.Visibility = Visibility.Collapsed;
+                    Pivot_Control.SelectedIndex = 1;
+
+                    ApplicationBar = new ApplicationBar();
+                    ApplicationBar.BackgroundColor = Color.FromArgb(100, 245, 245, 245);
+                    ApplicationBar.ForegroundColor = Colors.Black;
+                    ApplicationBar.Mode = ApplicationBarMode.Default;
+                    ApplicationBar.Opacity = 1.0;
+                    ApplicationBar.IsVisible = true;
+                    ApplicationBar.IsMenuEnabled = true;
+
+                    ApplicationBarIconButton btnSendEnvironment = new ApplicationBarIconButton();
+                    btnSendEnvironment.IconUri = new Uri("/Assets/icons/ic_48_checklist.png", UriKind.Relative);
+                    btnSendEnvironment.Text = "send";
+
+                    ApplicationBar.Buttons.Add(btnSendEnvironment);
+                    btnSendEnvironment.Click += new EventHandler(btnSendEnvironment_Click);
+                }
+            }
         }
 
+        private void btnSendEnvironment_Click(object sender, EventArgs e)
+        {
+            if (MessageBoxResult.OK == MessageBox.Show("Waiting for uploaded"))
+            {
+                var vm = (ViewModelRekomendasi)DataContext;
+                vm.PublishCommand2.Execute(null);  
+            }
+        }
     }
 }

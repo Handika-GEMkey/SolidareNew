@@ -17,8 +17,9 @@ namespace BantuAnakAsuh.Views
         public PageProfileDonatur()
         {
             InitializeComponent();
-            ViewModelProfileDonatur vmpd = new ViewModelProfileDonatur();
+            ViewModelAnakAsuh vmpd = new ViewModelAnakAsuh();
             this.DataContext = vmpd;
+
         }
 
         private void buttonMenu_Tap(object sender, System.Windows.Input.GestureEventArgs e)

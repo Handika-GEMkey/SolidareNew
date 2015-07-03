@@ -433,12 +433,12 @@
                     <Grid Height="700">
 
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="110"/>
+                            <RowDefinition Height="115"/>
                             <RowDefinition Height="240"/>
                             <RowDefinition Height="240"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <StackPanel Grid.Row="0" VerticalAlignment="Center" Grid.ColumnSpan="3" Margin="0,16" >
+                        <StackPanel Grid.Row="0" VerticalAlignment="Top" Grid.ColumnSpan="3" Margin="0,16" >
                             <TextBlock TextWrapping="Wrap" Text="Environment's Profile" Foreground="#FF032754" HorizontalAlignment="Center" FontSize="20"/>
                             <TextBlock TextWrapping="Wrap" Text="Please recommend foster children environment in your nearby location with filling the field below." Foreground="#FF032754" Margin="31,10,30,0" FontSize="18"/>
                         </StackPanel>
@@ -492,9 +492,9 @@
     </Grid>
     
     <phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="False" BackgroundColor="WhiteSmoke" Opacity="0.925" ForegroundColor="#FF062D5A" Mode="Default">
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="False" BackgroundColor="WhiteSmoke" Opacity="0.925" ForegroundColor="Black" Mode="Default">
             <shell:ApplicationBarIconButton x:Name="apbarRekomendasi" IconUri="/Assets/icons/ic_48_checklist.png" Text="upload" Click="apbarRekomendasi_Click"/>
-            <shell:ApplicationBarIconButton x:Name="apbarEnvironment" IconUri="/Assets/icons/ic_48_checklist.png" Text="Send"/>
+            <!--<shell:ApplicationBarIconButton x:Name="apbarEnvironment" IconUri="/Assets/icons/ic_48_checklist.png" Text="Send"/>-->
         </shell:ApplicationBar>
         
     </phone:PhoneApplicationPage.ApplicationBar>
