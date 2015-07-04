@@ -67,29 +67,25 @@
 
             <!--Grid 1-->
             <Grid x:Name="detailProfile" Grid.Row="1" Tap="detailProfile_Tap">
-                
-                            <Ellipse Grid.Row="0" Height="120" Width="120" Stroke="White">
-                                <Ellipse.Fill>
-                                    <ImageBrush Stretch="UniformToFill" ImageSource="{Binding Photo_donors}"/>
-                                </Ellipse.Fill>
-                            </Ellipse>
-                        
+                <Ellipse Grid.Row="0" Height="120" Width="120" Stroke="White">
+                    <Ellipse.Fill>
+                        <ImageBrush Stretch="UniformToFill" ImageSource="{Binding Photo_donors}"/>
+                    </Ellipse.Fill>
+                </Ellipse>
             </Grid>
 
             <!--Grid 2-->
             <Grid Grid.Row="2" Tap="detailProfile_Tap">
-                
-                            <StackPanel Orientation="Horizontal">
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="30"/>
-                                        <RowDefinition Height="30"/>
-                                    </Grid.RowDefinitions>
-                                    <TextBlock Grid.Row="0" TextWrapping="Wrap" Text="{Binding Name}" Foreground="White" TextAlignment="Center" Margin="200,0,0,0"/>
-                                    <TextBlock Grid.Row="1" TextWrapping="Wrap" Text="Tap for detail" Foreground="White" TextAlignment="Center" Margin="200,0,0,0" FontSize="14"/>
-                                </Grid>
-                            </StackPanel>
-                        
+                <StackPanel Orientation="Horizontal">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" TextWrapping="Wrap" Text="{Binding Name}" Foreground="White" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Width="480"/>
+                        <TextBlock Grid.Row="1" TextWrapping="Wrap" Text="Tap for detail" Foreground="White" TextAlignment="Center" FontSize="14"/>
+                    </Grid>
+                </StackPanel>
             </Grid>
         </Grid>
 
@@ -142,6 +138,9 @@
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </ListBox>
+        </Grid>
+        <Grid Grid.Row="2">
+            <TextBlock TextWrapping="Wrap" Text="{Binding No_anak}" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,100" Opacity="0.6"/>
         </Grid>
 
     </Grid>

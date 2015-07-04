@@ -285,13 +285,13 @@
             <RowDefinition Height="61"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-
         <ScrollViewer Grid.RowSpan="2">
-            <Grid Height="1120">
+            <Grid Height="1300">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="61"/>
 
                     <RowDefinition Height="120"/>
+                    <RowDefinition Height="110"/>
                     <RowDefinition Height="110"/>
                     <RowDefinition Height="110"/>
                     <RowDefinition Height="100"/>
@@ -309,11 +309,24 @@
                 </Grid>
 
                 <StackPanel Grid.Row="1" VerticalAlignment="Bottom" >
+                    <TextBlock x:Name="txt_notif_username" TextWrapping="Wrap" Visibility="Collapsed" Text="Password" Foreground="Red" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,30,-31" Width="auto" FontSize="14" />
                     <TextBlock TextWrapping="Wrap" Text="Username" Foreground="Black" Margin="31,0,30,0" FontSize="18"/>
-                    <TextBox x:Name="textBoxUsername" FontSize="20"  Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="Black" Style="{StaticResource TextBoxSaya}" Foreground="Black" />
+                    <TextBox x:Name="textBoxUsername" FontSize="20"  Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="Black" Style="{StaticResource TextBoxSaya}" Foreground="Black" MouseLeave="textBoxUsername_MouseLeave" />
+                </StackPanel>
+
+                <StackPanel Grid.Row="2" VerticalAlignment="Bottom" >
+                    <TextBlock x:Name="txt_notif_pwd" TextWrapping="Wrap" Visibility="Collapsed" Text="Password" Foreground="Red" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,30,-31" Width="auto" FontSize="14" />
+                    <TextBlock TextWrapping="Wrap" Text="Password" Foreground="Black" Margin="31,0,30,0" FontSize="18"/>
+                    <PasswordBox x:Name="tb_password" Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="#FF032754" Foreground="#FF00365A" FontSize="22" Style="{StaticResource PasswordKu}" MouseLeave="tb_password_MouseLeave" />
                 </StackPanel>
 
                 <StackPanel Grid.Row="3" VerticalAlignment="Bottom" >
+                    <TextBlock x:Name="txt_notif_confirm_pwd" TextWrapping="Wrap" Visibility="Collapsed" Text="Password" Foreground="Red" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,30,-31" Width="auto" FontSize="14"/>
+                    <TextBlock TextWrapping="Wrap" Text="Confirm Password" Foreground="Black" Margin="31,0,30,0" FontSize="18"/>
+                    <PasswordBox x:Name="tb_confirm_pwd" Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="#FF032754" Foreground="#FF00365A" FontSize="22" Style="{StaticResource PasswordKu}" MouseLeave="tb_confirm_pwd_MouseLeave" />
+                </StackPanel>
+
+                <StackPanel Grid.Row="4" VerticalAlignment="Bottom" >
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="30"/>
@@ -329,11 +342,8 @@
                         <TextBox Grid.Column="1" Grid.Row="1" x:Name="textBoxLastName" FontSize="20"  Background="#FFF4F4F4" Height="88" Margin="0,-8,15,0" SelectionBackground="Black" Style="{StaticResource TextBoxSaya}" Foreground="Black" InputScope="PersonalNameSuffix" />
                     </Grid>
                 </StackPanel>
-                <StackPanel Grid.Row="2" VerticalAlignment="Bottom" >
-                    <TextBlock TextWrapping="Wrap" Text="Password" Foreground="Black" Margin="31,0,30,0" FontSize="18"/>
-                    <PasswordBox x:Name="passBox_password" Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="#FF032754" Foreground="#FF00365A" FontSize="22" Style="{StaticResource PasswordKu}" />
-                </StackPanel>
-                <StackPanel Grid.Row="4" VerticalAlignment="Bottom" >
+                
+                <StackPanel Grid.Row="5" VerticalAlignment="Bottom" >
                     <TextBlock TextWrapping="Wrap" Text="Gender" Foreground="Black" Margin="31,0,30,0" FontSize="18"/>
                     <toolkit:ListPicker BorderThickness="10"  x:Name="listJenisKelamin" FullModeHeader="Choose Your Gender" Margin="30,0" ExpansionMode="FullScreenOnly" Background="#FFF4F4F4" VerticalAlignment="Top" Foreground="#FF00365A" FontSize="20" Template="{StaticResource listpickKu}" BorderBrush="#FFF4F4F4">
                         <toolkit:ListPicker.FullModeItemTemplate>
@@ -343,20 +353,21 @@
                         </toolkit:ListPicker.FullModeItemTemplate>
                     </toolkit:ListPicker>
                 </StackPanel>
-                <StackPanel Grid.Row="5" VerticalAlignment="Bottom" >
+                <StackPanel Grid.Row="6" VerticalAlignment="Bottom" >
                     <TextBlock TextWrapping="Wrap" Text="Address" Foreground="Black" Margin="31,0,30,0" FontSize="18"/>
                     <TextBox x:Name="textBoxAddress" FontSize="20"  Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="Black" Style="{StaticResource TextBoxSaya}" Foreground="Black" />
                 </StackPanel>
-                <StackPanel Grid.Row="6" VerticalAlignment="Bottom" >
-                    <TextBlock TextWrapping="Wrap" Text="Email" Foreground="Black" Margin="31,0,30,0" FontSize="18"/>
-                    <TextBox x:Name="textBoxEmail" FontSize="20"  Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="Black" Style="{StaticResource TextBoxSaya}" Foreground="Black" InputScope="EmailUserName" />
-                </StackPanel>
                 <StackPanel Grid.Row="7" VerticalAlignment="Bottom" >
+                    <TextBlock x:Name="txt_notif_email" TextWrapping="Wrap" Visibility="Collapsed" Text="Email" Foreground="Red" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,30,-31" Width="auto" FontSize="14" />
+                    <TextBlock TextWrapping="Wrap" Text="Email" Foreground="Black" Margin="31,0,30,0" FontSize="18"/>
+                    <TextBox x:Name="textBoxEmail" FontSize="20"  Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="Black" Style="{StaticResource TextBoxSaya}" Foreground="Black" InputScope="EmailUserName" MouseLeave="textBoxEmail_MouseLeave" />
+                </StackPanel>
+                <StackPanel Grid.Row="8" VerticalAlignment="Bottom" >
                     <TextBlock TextWrapping="Wrap" Text="Phone Number" Foreground="Black" Margin="31,0,30,0" FontSize="18"/>
                     <TextBox x:Name="textBoxPhone" FontSize="20"  Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="Black" Style="{StaticResource TextBoxSaya}" Foreground="Black" InputScope="TelephoneNumber" />
                 </StackPanel>
 
-                <StackPanel Grid.Row="8" VerticalAlignment="Bottom" >
+                <StackPanel Grid.Row="9" VerticalAlignment="Bottom" >
                     <TextBlock TextWrapping="Wrap" Text="ID Card" Foreground="Black" Margin="31,0,30,0" FontSize="18"/>
                     <toolkit:ListPicker BorderThickness="10"  x:Name="listCardId" FullModeHeader="Choose Your Id Card" Margin="30,0" ExpansionMode="FullScreenOnly" Background="#FFF4F4F4" VerticalAlignment="Top" Foreground="#FF00365A" FontSize="20" Template="{StaticResource listpickKu}" BorderBrush="#FFF4F4F4">
                         <toolkit:ListPicker.FullModeItemTemplate>
@@ -366,12 +377,13 @@
                         </toolkit:ListPicker.FullModeItemTemplate>
                     </toolkit:ListPicker>
                 </StackPanel>
-                <StackPanel Grid.Row="9" VerticalAlignment="Bottom" >
+                <StackPanel Grid.Row="10" VerticalAlignment="Bottom" >
                     <TextBlock TextWrapping="Wrap" Text="Id Number" Foreground="Black" Margin="31,0,30,0" FontSize="18"/>
                     <TextBox x:Name="textBoxIdNumber" FontSize="20"  Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="Black" Style="{StaticResource TextBoxSaya}" Foreground="Black" InputScope="TelephoneNumber" />
                 </StackPanel>
             </Grid>
         </ScrollViewer>
+        <ProgressBar x:Name="LoadingBar" Visibility="Collapsed" IsEnabled="False" IsIndeterminate="true" Height="4" HorizontalAlignment="Stretch" VerticalAlignment="Center" Foreground="#FF1565C0"/>
         
     </Grid>
     <phone:PhoneApplicationPage.ApplicationBar>

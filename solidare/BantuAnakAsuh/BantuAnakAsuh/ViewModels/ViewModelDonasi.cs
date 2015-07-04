@@ -51,9 +51,9 @@ namespace BantuAnakAsuh.ViewModels
 
         public ViewModelDonasi()
         {
-            //this.LoadUrl();
+            this.LoadUrl();
             this.LoadUrlDonorProfile();
-            this.LoadUrlFosterChildren();
+            //this.LoadUrlFosterChildren();
         }
 
         private void LoadUrlFosterChildren()
@@ -103,9 +103,17 @@ namespace BantuAnakAsuh.ViewModels
                     }
                 });
             }
+            catch (NullReferenceException e)
+            {
+                MessageBox.Show("An error occured!");
+            }
             catch (Exception ec)
             {
                 MessageBox.Show("Failed to display, the Internet connection is unstable.");
+            }
+            catch
+            {
+                konek = false;
             }
 
         }
@@ -120,7 +128,7 @@ namespace BantuAnakAsuh.ViewModels
                 request.AddHeader("content-type", "multipart/form-data");
                 request.AddParameter("id_donors", Navigation.navIdDonors);
                 request.AddParameter("token", Navigation.token);
-                request.AddParameter("id_fosterchildren", Navigation.navIdAnak);
+                //request.AddParameter("id_fosterchildren", Navigation.navIdAnak);
 
                 //calling server with restClient
                 RestClient restClient = new RestClient();
@@ -141,8 +149,7 @@ namespace BantuAnakAsuh.ViewModels
                         modelDonasi.photo = URL.BASE3 + "modul/mod_AnakAsuh/photo/" + item.SelectToken("photo").ToString();
                         modelDonasi.study_level = item.SelectToken("study_level").ToString();
                         modelDonasi.children_status = item.SelectToken("children_status").ToString();
-                        //Navigation.idDonation = id_donasi;
-                        //Navigation.navPhotoChild = photo_child;
+                        Navigation.navIdAnak = modelDonasi.id_fosterchildren.ToString();
                         collectionDonasi.Add(modelDonasi);
                     }
                     if (response.StatusCode == System.Net.HttpStatusCode.OK)
@@ -212,7 +219,7 @@ namespace BantuAnakAsuh.ViewModels
             ModelDonasi SelectedItem = obj as ModelDonasi;
 
             if (SelectedItem != null)
-                Navigation.navIdAnak = SelectedItem.id_fosterchildren;
+                Navigation.id_fosterchildren = SelectedItem.id_fosterchildren;
 
             listIndex = -1;
         }

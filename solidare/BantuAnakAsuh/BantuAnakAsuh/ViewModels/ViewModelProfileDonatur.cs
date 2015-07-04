@@ -135,6 +135,10 @@ namespace BantuAnakAsuh.ViewModels
                     }
                 });
             }
+            catch (NullReferenceException n)
+            {
+                MessageBox.Show("An error occured");
+            }
             catch (Exception ec)
             {
                 MessageBox.Show("Failed to display, the Internet connection is unstable.");
@@ -189,6 +193,10 @@ namespace BantuAnakAsuh.ViewModels
                     }
 
                 });
+            }
+            catch (NullReferenceException n)
+            {
+                MessageBox.Show("An error occured");
             }
             catch (Exception ec)
             {

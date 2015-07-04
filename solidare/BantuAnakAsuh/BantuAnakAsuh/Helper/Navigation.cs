@@ -36,5 +36,9 @@ namespace BantuAnakAsuh.Helper
         public static String navIdAccount;
         public static String navConfirmationStatus;
         public static String id_fosterchildren;
+        public static String email;
+        public static String phone;
+        public static String username;
+        public static String password;
     }
 }

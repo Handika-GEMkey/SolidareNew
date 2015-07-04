@@ -114,6 +114,7 @@
     <Compile Include="Models\ModelLogin.cs" />
     <Compile Include="Models\ModelNews.cs" />
     <Compile Include="Models\ModelOrganization.cs" />
+    <Compile Include="Models\ModelPassword.cs" />
     <Compile Include="Models\ModelProfileDonatur.cs" />
     <Compile Include="Models\ModelProgram.cs" />
     <Compile Include="Models\ModelRapot.cs" />
@@ -135,10 +136,12 @@
     <Compile Include="ViewModels\ViewModelDetailNews.cs" />
     <Compile Include="ViewModels\ViewModelDonasi.cs" />
     <Compile Include="ViewModels\ViewModelEnvironment.cs" />
+    <Compile Include="ViewModels\ViewModelForgotPassword.cs" />
     <Compile Include="ViewModels\ViewModelGetKeranjang.cs" />
     <Compile Include="ViewModels\ViewModelHasilFilter.cs" />
     <Compile Include="ViewModels\ViewModelKeranjang.cs" />
     <Compile Include="ViewModels\ViewModelKonfirmasi.cs" />
+    <Compile Include="ViewModels\ViewModelLogin.cs" />
     <Compile Include="ViewModels\ViewModelNews.cs" />
     <Compile Include="ViewModels\ViewModelOrganization.cs" />
     <Compile Include="ViewModels\ViewModelPassword.cs" />

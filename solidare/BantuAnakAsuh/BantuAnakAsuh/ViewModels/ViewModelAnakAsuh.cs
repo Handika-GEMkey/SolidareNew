@@ -17,6 +17,8 @@ namespace BantuAnakAsuh.ViewModels
 {
     class ViewModelAnakAsuh : ViewModelBase
     {
+        public bool konek = true;
+
         private int listIndex = -1;
 
         public ViewModelAnakAsuh()
@@ -56,23 +58,40 @@ namespace BantuAnakAsuh.ViewModels
 
                     JObject jRoot = JObject.Parse(response.Content);
                     String result = jRoot.SelectToken("result").ToString();
-                    JArray JItem = JArray.Parse(jRoot.SelectToken("item").ToString());
-                    foreach (JObject item in JItem)
+                    
+                    if (result == "success")
                     {
-                        ModelProfileDonatur modelAnakAsuh = new ModelProfileDonatur();
-                        modelAnakAsuh.id_fosterchildren = item["id_fosterchildren"].ToString();
-                        modelAnakAsuh.name = item["name"].ToString();
-                        modelAnakAsuh.study_level = item["study_level"].ToString();
-                        modelAnakAsuh.children_status = item["children_status"].ToString();
-                        modelAnakAsuh.cha_org_name = item["cha_org_name"].ToString();
-                        Navigation.id_fosterchildren = modelAnakAsuh.id_fosterchildren.ToString();
-                        collectionAnakAsuh.Add(modelAnakAsuh);
+                        JArray JItem = JArray.Parse(jRoot.SelectToken("item").ToString());
+                        foreach (JObject item in JItem)
+                        {
+                            ModelProfileDonatur modelAnakAsuh = new ModelProfileDonatur();
+                            modelAnakAsuh.id_fosterchildren = item["id_fosterchildren"].ToString();
+                            modelAnakAsuh.name = item["name"].ToString();
+                            modelAnakAsuh.study_level = item["study_level"].ToString();
+                            modelAnakAsuh.children_status = item["children_status"].ToString();
+                            modelAnakAsuh.cha_org_name = item["cha_org_name"].ToString();
+                            Navigation.id_fosterchildren = modelAnakAsuh.id_fosterchildren.ToString();
+                            collectionAnakAsuh.Add(modelAnakAsuh);
+                        }
+                    }
+                    else
+                    {
+                        
+                        No_anak = "You don't have foster children.";
                     }
                 });
+            }
+            catch (NullReferenceException e)
+            {
+                MessageBox.Show("An error occured!");
             }
             catch (Exception ec)
             {
                 MessageBox.Show("Failed to display, the Internet connection is unstable.");
+            }
+            catch
+            {
+                konek = false;
             }
 
         }
@@ -94,20 +113,45 @@ namespace BantuAnakAsuh.ViewModels
                     JObject jRoot = JObject.Parse(response.Content);
                     String result = jRoot.SelectToken("result").ToString();
                     JArray JItem = JArray.Parse(jRoot.SelectToken("item").ToString());
-                    foreach (JObject item in JItem)
+                    if (result == "success")
                     {
-                        Name = item.SelectToken("name").ToString();
-                        Photo_donors = URL.BASE3 + "modul/mod_OrangTuaAsuh/photo/" + item["photo"].ToString();
-                        
+                        foreach (JObject item in JItem)
+                        {
+                            Name = item.SelectToken("name").ToString();
+                            Photo_donors = URL.BASE3 + "modul/mod_OrangTuaAsuh/photo/" + item["photo"].ToString();
+
+                        }
+                    }
+                    else
+                    {
+                        String hasil = JItem.SelectToken("message").ToString();
+                        No_anak = "You don't have foster children.";
                     }
                 });
+            }
+            catch (NullReferenceException e)
+            {
+                MessageBox.Show("An error occured!");
             }
             catch (Exception ec)
             {
                 MessageBox.Show("Failed to display, the Internet connection is unstable.");
             }
+            catch
+            {
+                konek = false;
+            }
 
         }
+
+        private String no_anak;
+
+        public String No_anak
+        {
+            get { return no_anak; }
+            set { no_anak = value; RaisePropertyChanged(""); }
+        }
+
         private String name;
 
         public String Name

@@ -74,10 +74,11 @@ namespace BantuAnakAsuh.ViewModels
                 request.AddParameter("gender", Gender);
                 if (Photo != null)
                 {
-                    request.AddParameter("photo", Photo);
+                    request.AddFile("photo", ReadToEnd(bitmapFotoDonatur), "photo" + rand.Next(0, 99999999).ToString() + ".jpg");
                 }
-                else { 
-                    request.AddFile("photo", ReadToEnd(bitmapFotoDonatur), "photo" + rand.Next(0, 99999999).ToString() + ".jpg"); 
+                else
+                {
+                    request.AddParameter("photo", Photo);
                 }
                 
 
