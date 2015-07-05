@@ -62,6 +62,8 @@ namespace BantuAnakAsuh.Views
             parameter.AppendFormat("{0}={1}&", "card_type", HttpUtility.UrlEncode(listCardId.SelectedItem.ToString()));
             parameter.AppendFormat("{0}={1}&", "id_number", HttpUtility.UrlEncode(textBoxIdNumber.Text));
 
+            
+
             if (textBoxUsername.Text.Equals("") || textBoxPhone.Text.Equals("") ||
                 nama_donatur.Equals("") || listJenisKelamin.SelectedItem.ToString().Equals("") ||
                 textBoxEmail.Text.Equals("") || textBoxAddress.Equals("") ||
@@ -72,6 +74,10 @@ namespace BantuAnakAsuh.Views
             }
             else
             {
+                LayoutRoot.Opacity = 4.5;
+                LoadingRing.Visibility = Visibility.Visible;
+                LoadingRing.IsActive = true;
+
                 try
                 {
                     WebClient clientLogin = new WebClient();
@@ -80,6 +86,7 @@ namespace BantuAnakAsuh.Views
 
                     clientLogin.UploadStringCompleted += new UploadStringCompletedEventHandler(uploadRegisterComplete);
                     clientLogin.UploadStringAsync(new Uri(URL.BASE3 + "APIv2/landing/register.php"), "POST", parameter.ToString());
+
                 }
                 catch
                 {
@@ -90,8 +97,11 @@ namespace BantuAnakAsuh.Views
 
         private void uploadRegisterComplete(object sender, UploadStringCompletedEventArgs e)
         {
+            
             try
             {
+                
+
                 string Result, message;
                 JObject jresult = JObject.Parse(e.Result);
                 Result = jresult["result"].ToString();
@@ -104,13 +114,18 @@ namespace BantuAnakAsuh.Views
                     //SMSCompose.To = textBoxPhone.Text;
                     //SMSCompose.Body = "Donors account registration. And this is your Donors Account Password: " + pwd.ToString();
                     //SMSCompose.Show();
-                    LoadingBar.Visibility = Visibility.Visible;
+                    //LoadingBar.Visibility = Visibility.Visible;
+                    
                     NavigationService.Navigate(new Uri("/Views/PageLogin.xaml", UriKind.Relative));
+                    LoadingRing.Visibility = Visibility.Collapsed;
+                    LoadingRing.IsActive = false;
                 }
                 else
                 {
                     MessageBox.Show("An error occurred when registration. Please Repeat!");
                     Reload();
+                    LoadingRing.Visibility = Visibility.Collapsed;
+                    LoadingRing.IsActive = false;
                 }
             }
             catch (TimeoutException)

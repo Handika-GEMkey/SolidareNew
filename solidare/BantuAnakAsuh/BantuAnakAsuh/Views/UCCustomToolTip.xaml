@@ -18,18 +18,22 @@
                         <StackPanel>
                             <Ellipse Height="100" Width="100">
                                 <Ellipse.Fill>
-                                    <ImageBrush Stretch="UniformToFill" ImageSource="{Binding foto_anak}"/>
+                                    <ImageBrush Stretch="UniformToFill" ImageSource="{Binding photo}"/>
                                 </Ellipse.Fill>
                             </Ellipse>
-                            <TextBlock Margin="10,0" Text="{Binding nama_anak_asuh}"
+                            <TextBlock Margin="10,0" Text="{Binding name}"
                                        TextTrimming="WordEllipsis"
                                        FontSize="20"
                                        FontWeight="Bold"
-                                       Foreground="#FF032754"/>
-                            <TextBlock  Foreground="#FF032754" Text="{Binding alamat}"
+                                       Foreground="#FF032754" HorizontalAlignment="Center"/>
+                            <TextBlock  Foreground="#FF032754" Text="{Binding address}"
                                        TextTrimming="WordEllipsis"
                                        Margin="10,0"
-                                       FontSize="14" />
+                                       FontSize="14" HorizontalAlignment="Center" />
+                            <TextBlock  Foreground="#FF032754" Text="{Binding cha_org_name}"
+                                       TextTrimming="WordEllipsis"
+                                       Margin="10,0"
+                                       FontSize="14" HorizontalAlignment="Center" />
                         </StackPanel>
                     </ControlTemplate>
                 </Setter.Value>
@@ -51,10 +55,10 @@
 
     <StackPanel  HorizontalAlignment="Center" VerticalAlignment="Center">
 
-        <Image Tag="{Binding id_anak_asuh}" Source="/Assets/Icons/ic_125_markorang.png" Width="50" Height="50" Stretch="UniformToFill"  x:Name="imgmarker" HorizontalAlignment="Left">
+        <Image Tag="{Binding id_fosterchildren}" Source="/Assets/Icons/ic_125_markorang.png" Width="50" Height="50" Stretch="UniformToFill"  x:Name="imgmarker" HorizontalAlignment="Center">
             <Toolkit:ContextMenuService.ContextMenu>
                 <Toolkit:ContextMenu  IsZoomEnabled="True" >
-                    <Toolkit:MenuItem Tag="{Binding id_anak_asuh}" Name="Menuitem" Style="{StaticResource MenuItemStyle}" />
+                    <Toolkit:MenuItem Tag="{Binding id_fosterchildren}" Name="Menuitem" Style="{StaticResource MenuItemStyle}" />
                 </Toolkit:ContextMenu>
             </Toolkit:ContextMenuService.ContextMenu>
         </Image>

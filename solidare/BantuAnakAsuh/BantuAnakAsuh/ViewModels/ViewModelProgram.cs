@@ -60,6 +60,7 @@ namespace BantuAnakAsuh.ViewModels
                         Id_program = item.SelectToken("id_program").ToString();
                         Program_name = item.SelectToken("program_name").ToString();
                         Description = item.SelectToken("description").ToString();
+                        Navigation.navIdAnak = Navigation.id_fosterchildren;
                     }
                 });
             }

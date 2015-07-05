@@ -1,6 +1,7 @@
 ﻿using BantuAnakAsuh.Common;
 using BantuAnakAsuh.Helper;
 using BantuAnakAsuh.Models;
+using BantuAnakAsuh.Views;
 using Microsoft.Phone.Controls;
 using Newtonsoft.Json.Linq;
 using RestSharp;
@@ -19,11 +20,13 @@ namespace BantuAnakAsuh.ViewModels
     {
         Encrypt et = new Encrypt();
         ModelLogin modelLogin = new ModelLogin();
+        
         private String Result;
         
         public ViewModelLogin()
         {
             this.LoadUrlDonorProfile();
+            
         }
 
         private void LoadUrlDonorProfile()
@@ -62,8 +65,6 @@ namespace BantuAnakAsuh.ViewModels
                             {
                                 StreamWriter writer = new StreamWriter(rawStream);
                                 writer.Write(modelLogin.Id_donatur);
-                                MessageBox.Show(writer.ToString());
-                                MessageBox.Show(modelLogin.ToString());
                                 writer.Close();
                             }
 
@@ -83,10 +84,12 @@ namespace BantuAnakAsuh.ViewModels
                         }
                         var frame = App.Current.RootVisual as PhoneApplicationFrame;
                         frame.Navigate(new Uri("/Views/NewHomepage.xaml", UriKind.Relative));
+
                     }
                     else
                     {
                         MessageBox.Show("Email and password does not match, try again!");
+                        
                     }
                 });
             }

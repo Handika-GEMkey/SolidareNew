@@ -130,3 +130,4 @@ C:\Users\Lenovo\Documents\GitHub\SolidareNew\solidare\BantuAnakAsuh\BantuAnakAsu
 C:\Users\Lenovo\Documents\GitHub\SolidareNew\solidare\BantuAnakAsuh\BantuAnakAsuh\obj\Debug\BantuAnakAsuh.pdb
 C:\Users\Lenovo\Documents\GitHub\SolidareNew\solidare\BantuAnakAsuh\BantuAnakAsuh\obj\Debug\XapCacheFile.xml
 C:\Users\Lenovo\Documents\GitHub\SolidareNew\solidare\BantuAnakAsuh\BantuAnakAsuh\obj\Debug\BantuAnakAsuh.csprojResolveAssemblyReference.cache
+C:\Users\Lenovo\Documents\GitHub\SolidareNew\solidare\BantuAnakAsuh\BantuAnakAsuh\obj\Debug\Views\DetailAnakAsuhNearby.g.cs

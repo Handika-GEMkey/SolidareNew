@@ -34,7 +34,11 @@ namespace BantuAnakAsuh.Views
             Navigation.username = textBox_email.Text;
             //String username = ec.EncryptIt(messageUser);
             Navigation.password = passBox_password.Password;
-            DataContext = new ViewModelLogin();
+            LayoutRoot.Opacity = 4.5;
+            LoadingRing.Visibility = Visibility.Visible;
+            LoadingRing.IsActive = true;
+            this.DataContext = new ViewModelLogin();
+            
             //String password = ec.EncryptIt(messagePwd);
 
             //this.LoadUrl(username, password);
