@@ -91,7 +91,7 @@
 
         <StackPanel Grid.Row="1" Orientation="Horizontal">
             <Grid Width="480" >
-                <TextBlock Grid.Row="0" TextWrapping="Wrap" Text="YOUR FOSTER CHILDREN"  FontSize="20" Foreground="#1565C0" FontWeight="Bold" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="0" TextWrapping="Wrap" Text="YOUR OUT OF SCHOOL CHILDREN"  FontSize="20" Foreground="#1565C0" FontWeight="Bold" HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Center"/>
             </Grid>
         </StackPanel>
 

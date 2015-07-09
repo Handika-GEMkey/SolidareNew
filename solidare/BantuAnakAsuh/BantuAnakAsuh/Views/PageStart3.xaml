@@ -31,7 +31,7 @@
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1">
             <StackPanel VerticalAlignment="Bottom">
-                <TextBlock TextWrapping="Wrap" Text="GET THE REPORT OF THEIR PROGRESS" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,15" FontWeight="Bold" FontSize="18"/>
+                <TextBlock TextWrapping="Wrap" Text="GET THE REPORT CARD" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,15" FontWeight="Bold" FontSize="18"/>
                 <TextBlock TextAlignment="Center" TextWrapping="Wrap" Text="Report their education and moral progress. The reports will be given to you in each semester." FontSize="13" Margin="20,0,20,20"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,15">
                     <TextBlock Text="Swipe Next" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,15,0" FontSize="18"/>

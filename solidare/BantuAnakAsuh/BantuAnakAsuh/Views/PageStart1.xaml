@@ -31,8 +31,8 @@
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1">
             <StackPanel VerticalAlignment="Bottom">
-                <TextBlock TextWrapping="Wrap" Text="FIND YOUR FOSTER CHILDREN" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,15" FontWeight="Bold" FontSize="18"/>
-                <TextBlock TextAlignment="Center" TextWrapping="Wrap" Text=" You able to find your foster children according to your choice with 3 ways to get the list, filtering and nearby locations." FontSize="13" Margin="20,0,20,20"/>
+                <TextBlock TextWrapping="Wrap" Text="FIND OUT OF SCHOOL CHILDREN" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,15" FontWeight="Bold" FontSize="18"/>
+                <TextBlock TextAlignment="Center" TextWrapping="Wrap" Text=" You able to find out of school children according to your choice with 3 ways to get the list, filtering and nearby locations." FontSize="13" Margin="20,0,20,20"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,15">
                     <TextBlock Text="Swipe Next" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,15,0" FontSize="18"/>
                     <Image Source="/Assets/Icons/ic_slide_next.png"/>

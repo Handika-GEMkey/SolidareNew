@@ -69,32 +69,39 @@ namespace BantuAnakAsuh.ViewModels
                     toast.Title = "Status Upload";
                     JObject jRoot = JObject.Parse(response.Content);
                     String result = jRoot.SelectToken("result").ToString();
-                    ModelKeranjang modelKeranjang = new ModelKeranjang();
-                    modelKeranjang.id_donation = jRoot.SelectToken("id_donation").ToString();
-                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                    if (result == "failed")
                     {
-                        if (result.Equals("success"))
+                        MessageBox.Show("Failed to display!");
+                    }
+                    else
+                    {
+                        ModelKeranjang modelKeranjang = new ModelKeranjang();
+                        modelKeranjang.id_donation = jRoot.SelectToken("id_donation").ToString();
+                        if (response.StatusCode == System.Net.HttpStatusCode.OK)
                         {
-
-                            if (MessageBox.Show("Request has done, check your Donation List") == MessageBoxResult.OK)
+                            if (result.Equals("success"))
                             {
-                                var frame = App.Current.RootVisual as PhoneApplicationFrame;
-                                frame.Navigate(new Uri("/Views/PageKeranjangDonasi.xaml", UriKind.Relative));
+
+                                if (MessageBox.Show("Request has done, check your Donation List") == MessageBoxResult.OK)
+                                {
+                                    var frame = App.Current.RootVisual as PhoneApplicationFrame;
+                                    frame.Navigate(new Uri("/Views/PageKeranjangDonasi.xaml", UriKind.Relative));
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Request has done, check your Donation List");
                             }
                         }
                         else
                         {
-                            MessageBox.Show("Request has done, check your Donation List");
+                            //error ocured during upload
+                            toast.Content = "Your posting failed. Please check the Internet connection.";
+                            toast.Show();
+
+                            //progressBar1.Visibility = System.Windows.Visibility.Visible;
+
                         }
-                    }
-                    else
-                    {
-                        //error ocured during upload
-                        toast.Content = "Your posting failed. Please check the Internet connection.";
-                        toast.Show();
-
-                        //progressBar1.Visibility = System.Windows.Visibility.Visible;
-
                     }
                 });
             }

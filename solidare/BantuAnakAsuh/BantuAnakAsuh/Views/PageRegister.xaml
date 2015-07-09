@@ -601,14 +601,14 @@
                             <RowDefinition Height="30"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
+                        <!--<Grid.ColumnDefinitions>
                             <ColumnDefinition Width="240"/>
                             <ColumnDefinition Width="240"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" Grid.Row="0" TextWrapping="Wrap" Text="First Name" Foreground="Black" Margin="31,0,30,0" FontSize="18" VerticalAlignment="Top"/>
-                        <TextBox Grid.Column="0" Grid.Row="1" x:Name="textBoxFirstName" FontSize="20"  Background="#FFF4F4F4" Height="88" Margin="15,-8,0,0" SelectionBackground="Black" Style="{StaticResource TextBoxSaya}" Foreground="Black" InputScope="PersonalNamePrefix" />
-                        <TextBlock Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" Text="Last Name" Foreground="Black" Margin="31,0,30,0" FontSize="18"/>
-                        <TextBox Grid.Column="1" Grid.Row="1" x:Name="textBoxLastName" FontSize="20"  Background="#FFF4F4F4" Height="88" Margin="0,-8,15,0" SelectionBackground="Black" Style="{StaticResource TextBoxSaya}" Foreground="Black" InputScope="PersonalNameSuffix" />
+                        </Grid.ColumnDefinitions>-->
+                        <TextBlock TextWrapping="Wrap" Text="Full Name" Foreground="Black" Margin="31,0,30,0" FontSize="18" VerticalAlignment="Top"/>
+                        <TextBox Grid.Column="0" Grid.Row="1" x:Name="textBoxFirstName" FontSize="20"  Background="#FFF4F4F4" Height="88" Margin="15,-8,15,0" SelectionBackground="Black" Style="{StaticResource TextBoxSaya}" Foreground="Black" InputScope="PersonalNamePrefix" />
+                        <!--<TextBlock Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" Text="Last Name" Foreground="Black" Margin="31,0,30,0" FontSize="18"/>
+                        <TextBox Grid.Column="1" Grid.Row="1" x:Name="textBoxLastName" FontSize="20"  Background="#FFF4F4F4" Height="88" Margin="0,-8,15,0" SelectionBackground="Black" Style="{StaticResource TextBoxSaya}" Foreground="Black" InputScope="PersonalNameSuffix" />-->
                     </Grid>
                 </StackPanel>
                 

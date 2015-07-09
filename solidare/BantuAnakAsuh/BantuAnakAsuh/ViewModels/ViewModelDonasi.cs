@@ -72,34 +72,41 @@ namespace BantuAnakAsuh.ViewModels
 
                     JObject jRoot = JObject.Parse(response.Content);
                     String result = jRoot.SelectToken("result").ToString();
-                    JArray JItem = JArray.Parse(jRoot.SelectToken("item").ToString());
-                    foreach (JObject item in JItem)
+                    if (result == "failed")
                     {
-                        ModelProfileDonatur modelAnakAsuh = new ModelProfileDonatur();
-                        modelAnakAsuh.id_fosterchildren = item["id_fosterchildren"].ToString();
-                        modelAnakAsuh.name = item["name"].ToString();
-                        modelAnakAsuh.pob = item["pob"].ToString();
-                        modelAnakAsuh.dob = item["dob"].ToString();
-                        modelAnakAsuh.gender = item["gender"].ToString();
-                        modelAnakAsuh.address = item["address"].ToString();
-                        modelAnakAsuh.photo = URL.BASE3 + "modul/mod_AnakAsuh/photo/" + item["photo"].ToString();
-                        modelAnakAsuh.cost = item["cost"].ToString();
-                        modelAnakAsuh.children_status = item["children_status"].ToString();
-                        modelAnakAsuh.latitude = item["latitude"].ToString();
-                        modelAnakAsuh.longitude = item["longitude"].ToString();
-                        modelAnakAsuh.study_level = item["study_level"].ToString();
-                        modelAnakAsuh.school = item["school"].ToString();
-                        modelAnakAsuh.grade = item["grade"].ToString();
-                        modelAnakAsuh.parent_name = item["parent_name"].ToString();
-                        modelAnakAsuh.parent_address = item["parent_address"].ToString();
-                        modelAnakAsuh.jobs = item["jobs"].ToString();
-                        modelAnakAsuh.salary = item["salary"].ToString();
-                        modelAnakAsuh.id_cha_org = item["id_cha_org"].ToString();
-                        modelAnakAsuh.cha_org_name = item["cha_org_name"].ToString();
-                        modelAnakAsuh.id_program = item["id_program"].ToString();
-                        modelAnakAsuh.program_name = item["program_name"].ToString();
+                        MessageBox.Show("Failed to display!");
+                    }
+                    else
+                    {
+                        JArray JItem = JArray.Parse(jRoot.SelectToken("item").ToString());
+                        foreach (JObject item in JItem)
+                        {
+                            ModelProfileDonatur modelAnakAsuh = new ModelProfileDonatur();
+                            modelAnakAsuh.id_fosterchildren = item["id_fosterchildren"].ToString();
+                            modelAnakAsuh.name = item["name"].ToString();
+                            modelAnakAsuh.pob = item["pob"].ToString();
+                            modelAnakAsuh.dob = item["dob"].ToString();
+                            modelAnakAsuh.gender = item["gender"].ToString();
+                            modelAnakAsuh.address = item["address"].ToString();
+                            modelAnakAsuh.photo = URL.BASE3 + "modul/mod_AnakAsuh/photo/" + item["photo"].ToString();
+                            modelAnakAsuh.cost = item["cost"].ToString();
+                            modelAnakAsuh.children_status = item["children_status"].ToString();
+                            modelAnakAsuh.latitude = item["latitude"].ToString();
+                            modelAnakAsuh.longitude = item["longitude"].ToString();
+                            modelAnakAsuh.study_level = item["study_level"].ToString();
+                            modelAnakAsuh.school = item["school"].ToString();
+                            modelAnakAsuh.grade = item["grade"].ToString();
+                            modelAnakAsuh.parent_name = item["parent_name"].ToString();
+                            modelAnakAsuh.parent_address = item["parent_address"].ToString();
+                            modelAnakAsuh.jobs = item["jobs"].ToString();
+                            modelAnakAsuh.salary = item["salary"].ToString();
+                            modelAnakAsuh.id_cha_org = item["id_cha_org"].ToString();
+                            modelAnakAsuh.cha_org_name = item["cha_org_name"].ToString();
+                            modelAnakAsuh.id_program = item["id_program"].ToString();
+                            modelAnakAsuh.program_name = item["program_name"].ToString();
 
-                        collectionAnakAsuh.Add(modelAnakAsuh);
+                            collectionAnakAsuh.Add(modelAnakAsuh);
+                        }
                     }
                 });
             }

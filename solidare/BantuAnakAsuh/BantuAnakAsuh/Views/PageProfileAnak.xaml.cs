@@ -32,9 +32,11 @@ namespace BantuAnakAsuh.Views
 
         protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
         {
-
+            
             NavigationService.Navigate(new Uri("/Views/NewHomePage.xaml", UriKind.Relative));
-           
+
+            //if (Navigation.From_Page.Equals("Fillter"))
+            //    NavigationService.Navigate(new Uri("/Views/PageHasilFilter.xaml", UriKind.Relative));
            
 
         }

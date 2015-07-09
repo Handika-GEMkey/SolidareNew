@@ -23,12 +23,6 @@ namespace BantuAnakAsuh.ViewModels
 {
     class ViewModelEnvironment : ViewModelBase
     {
-       
-
-       
-       
-
-       
         public ICommand PublishCommand
         {
             get

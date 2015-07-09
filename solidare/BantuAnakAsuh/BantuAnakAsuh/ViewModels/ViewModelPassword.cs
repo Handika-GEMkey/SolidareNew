@@ -70,22 +70,29 @@ namespace BantuAnakAsuh.ViewModels
                             {
                                 JObject jRoot = JObject.Parse(response.Content);
                                 String result = jRoot.SelectToken("result").ToString();
-                                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                                if (result == "failed")
                                 {
-                                    if (result.Equals("sukses"))
-                                    {
-                                        MessageBox.Show("Your password has been updated");
-                                        
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show("Something Wrong");
-                                    }
+                                    MessageBox.Show("Failed to display!");
                                 }
                                 else
                                 {
-                                    //error ocured during upload
-                                    MessageBox.Show("Failed to post, Please check your Internet connection.");
+                                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                                    {
+                                        if (result.Equals("sukses"))
+                                        {
+                                            MessageBox.Show("Your password has been updated");
+
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Something Wrong");
+                                        }
+                                    }
+                                    else
+                                    {
+                                        //error ocured during upload
+                                        MessageBox.Show("Failed to post, Please check your Internet connection.");
+                                    }
                                 }
                             }
                             catch

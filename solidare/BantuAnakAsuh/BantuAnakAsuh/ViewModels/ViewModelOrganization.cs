@@ -10,6 +10,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace BantuAnakAsuh.ViewModels
@@ -45,41 +46,48 @@ namespace BantuAnakAsuh.ViewModels
                     toast.Title = "Status Upload";
                     JObject jRoot = JObject.Parse(response.Content);
                     String result = jRoot.SelectToken("result").ToString();
-                    JArray JItem = JArray.Parse(jRoot.SelectToken("item").ToString());
-
-                    foreach (JObject item in JItem)
+                    if (result == "failed")
                     {
-
-                        Name = item.SelectToken("name").ToString();
-                        Phone = item.SelectToken("phone").ToString();
-                        Email = item.SelectToken("email").ToString();
-                        Address = item.SelectToken("address").ToString();
-                        Website = item.SelectToken("website").ToString();
-                        Photo = Navigation.navPhotoChild;
-                        Children_name = Navigation.navNameChild;
-                        Id_donation = Navigation.idDonation;
+                        MessageBox.Show("Failed to display!");
                     }
-                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                    else
                     {
-                        if (result.Equals("success"))
+                        JArray JItem = JArray.Parse(jRoot.SelectToken("item").ToString());
+
+                        foreach (JObject item in JItem)
                         {
 
+                            Name = item.SelectToken("name").ToString();
+                            Phone = item.SelectToken("phone").ToString();
+                            Email = item.SelectToken("email").ToString();
+                            Address = item.SelectToken("address").ToString();
+                            Website = item.SelectToken("website").ToString();
+                            Photo = Navigation.navPhotoChild;
+                            Children_name = Navigation.navNameChild;
+                            Id_donation = Navigation.idDonation;
+                        }
+                        if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                        {
+                            if (result.Equals("success"))
+                            {
+
+
+                            }
+                            else
+                            {
+
+                            }
 
                         }
                         else
                         {
+                            //error ocured during upload
+
+                            toast.Content = "Your posting failed. Please check the Internet connection.";
+                            toast.Show();
+                            //progressBar1.Visibility = System.Windows.Visibility.Visible;
 
                         }
-
-                    }
-                    else
-                    {
-                        //error ocured during upload
-
-                        toast.Content = "Your posting failed. Please check the Internet connection.";
-                        toast.Show();
-                        //progressBar1.Visibility = System.Windows.Visibility.Visible;
-
                     }
                 });
             }

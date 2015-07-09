@@ -10,6 +10,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace BantuAnakAsuh.ViewModels
 {
@@ -52,15 +53,22 @@ namespace BantuAnakAsuh.ViewModels
                     toast.Title = "Status Upload";
                     JObject jRoot = JObject.Parse(response.Content);
                     String result = jRoot.SelectToken("result").ToString();
-                    JArray JItem = JArray.Parse(jRoot.SelectToken("item").ToString());
-
-                    foreach (JObject item in JItem)
+                    if (result == "failed")
                     {
-                       
-                        Id_program = item.SelectToken("id_program").ToString();
-                        Program_name = item.SelectToken("program_name").ToString();
-                        Description = item.SelectToken("description").ToString();
-                        Navigation.navIdAnak = Navigation.id_fosterchildren;
+                        MessageBox.Show("Failed to display!");
+                    }
+                    else
+                    {
+                        JArray JItem = JArray.Parse(jRoot.SelectToken("item").ToString());
+
+                        foreach (JObject item in JItem)
+                        {
+
+                            Id_program = item.SelectToken("id_program").ToString();
+                            Program_name = item.SelectToken("program_name").ToString();
+                            Description = item.SelectToken("description").ToString();
+                            Navigation.navIdAnak = Navigation.id_fosterchildren;
+                        }
                     }
                 });
             }

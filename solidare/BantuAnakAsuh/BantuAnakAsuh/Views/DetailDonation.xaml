@@ -11,7 +11,7 @@
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
-    shell:SystemTray.IsVisible="True">
+    shell:SystemTray.IsVisible="False">
     <phone:PhoneApplicationPage.Resources>
         <Style x:Key="ButtonStyle2" TargetType="Button">
             <Setter Property="Background" Value="Transparent"/>
@@ -75,29 +75,29 @@
                     <TextBlock Text="DONATION DETAIL" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold"/>
                 </Grid>
             </StackPanel>
-            <Grid Margin="0,70,0,30"  Height="auto">
-                <Grid Width="480" Height="710" Margin="0,0,0,0" VerticalAlignment="Top"  HorizontalAlignment="Left" >
+            <Grid Margin="0,70,0,0" Height="auto">
+                <Grid Width="480" Height="auto" VerticalAlignment="Top"  HorizontalAlignment="Left" >
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="630"/>
+                        <RowDefinition Height="660"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <StackPanel Grid.Row="0" Width="480" Height="700">
-                        <phone:Pivot x:Name="pivotControl" SelectionChanged="Pivot_SelectionChanged" Grid.Row="3"  VerticalAlignment="Top" HorizontalAlignment="Center" Width="480" Height="600" Background="White">
-                            <phone:PivotItem Tag="satu" Width="480" Height="600" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,-10,0,0" >
+                    <StackPanel Grid.Row="0" Width="480" Height="auto">
+                        <phone:Pivot x:Name="pivotControl" SelectionChanged="Pivot_SelectionChanged" Grid.Row="3"  VerticalAlignment="Top" HorizontalAlignment="Center" Width="480" Height="630" Background="White">
+                            <phone:PivotItem Tag="satu" Width="480" Height="627" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,-10,0,-27" >
                                 <StackPanel>
-                                    <Image Source="{Binding Photo}" Height="270" Width="480" Stretch="UniformToFill"/>
+                                    <Image Source="{Binding Photo}" Height="350" Width="480" Stretch="UniformToFill"/>
                                     <Grid Margin="10" VerticalAlignment="Top">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="auto"/>
                                             <ColumnDefinition Width="*"/>
                                         </Grid.ColumnDefinitions>
-                                        <Ellipse Grid.Column="0" Height="80" Width="80" VerticalAlignment="Center" HorizontalAlignment="Center" StrokeThickness="4" Margin="10">
+                                        <Ellipse Grid.Column="0" Height="80" Width="80" VerticalAlignment="Top" HorizontalAlignment="Center" StrokeThickness="4" Margin="10">
                                             <Ellipse.Fill>
                                                 <ImageBrush ImageSource="/Assets/icons/ic_48_anak.png" Stretch="None"/>
                                             </Ellipse.Fill>
                                         </Ellipse>
-                                        <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center" Margin="5,10">
-                                            <TextBlock HorizontalAlignment="Left" Margin="0,0,0,3" TextWrapping="Wrap" Text="{Binding Children_name}" VerticalAlignment="Top" Foreground="Black" FontSize="24" FontWeight="Bold" />
+                                        <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center">
+                                            <TextBlock HorizontalAlignment="Left" Margin="0,0,0,3" TextWrapping="Wrap" Text="{Binding Children_name}" VerticalAlignment="Top" Foreground="Black" FontSize="22" FontWeight="Bold" />
                                             <StackPanel Orientation="Horizontal">
                                                 <TextBlock HorizontalAlignment="Left" Margin="0,0,10,3" TextWrapping="Wrap" Text="Invoice Code : " VerticalAlignment="Top" Foreground="Black" FontSize="18" FontWeight="Bold" />
                                                 <TextBlock HorizontalAlignment="Left" Margin="0,0,0,3" TextWrapping="Wrap" Text="{Binding Id_donation}" VerticalAlignment="Top" Foreground="Black" FontSize="18" FontWeight="Bold" />
@@ -113,17 +113,17 @@
                                             <ColumnDefinition Width="127*"/>
                                         </Grid.ColumnDefinitions>
                                         <StackPanel Margin="20,0,0,0" Height="330" Grid.ColumnSpan="3">
-                                            <TextBlock Text="Cost" Foreground="Black" Margin="0,20,0,0" FontWeight="Bold" FontSize="21" />
-                                            <TextBlock Text="{Binding Cost}" Foreground="Black"  Margin="0,20,0,0" FontSize="26" />
-                                            <TextBlock Text="Predonation Time"  Margin="0,20,0,0" Foreground="Black" FontWeight="Bold" FontSize="21" />
-                                            <TextBlock Text="{Binding Pre_donation_time}" Foreground="Black"  Margin="0,20,0,0" FontSize="20" />
+                                            <TextBlock Text="Cost" Foreground="Black" Margin="0,0,0,0" FontWeight="Bold" FontSize="21" />
+                                            <TextBlock Text="{Binding Cost}" Foreground="Black"  Margin="0,10,0,0" FontSize="26" />
+                                            <TextBlock Text="Predonation Time"  Margin="0,10,0,0" Foreground="Black" FontWeight="Bold" FontSize="21" />
+                                            <TextBlock Text="{Binding Pre_donation_time}" Foreground="Black"  Margin="0,10,0,0" FontSize="20" />
                                         </StackPanel>
                                     </Grid>
                                 </StackPanel>
                             </phone:PivotItem>
 
-                            <phone:PivotItem Tag="dua" Width="480" Height="620" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,-10,0,0"  >
-                                <StackPanel Height="620">
+                            <phone:PivotItem Tag="dua" Width="480" Height="auto" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,-10,0,0"  >
+                                <StackPanel Height="auto">
 
                                     <Grid>
                                         <Grid Width="480">
@@ -148,10 +148,10 @@
                                             </ScrollViewer>
                                         </Grid>
                                     </Grid>
-                                    <ScrollViewer Grid.ColumnSpan="3" Height="270">
-                                        <StackPanel Margin="0,0,0,0">
+                                    <ScrollViewer Grid.ColumnSpan="3" Height="auto">
+                                        <StackPanel>
                                             <TextBlock Text="Charity Organization Bank Account" Foreground="Black" Margin="40,10,0,0" FontWeight="Bold" FontSize="18" />
-                                            <ListBox Grid.Row="1" x:Name="ListDonasi" Width="480" Height="230"  Margin="0,10,0,0"  ItemsSource="{Binding CollectionBank}">
+                                            <ListBox Grid.Row="1" x:Name="ListDonasi" Width="480" Height="250"  Margin="0,10,0,0"  ItemsSource="{Binding CollectionBank}">
                                                 <ListBox.ItemTemplate>
                                                     <DataTemplate>
                                                         <Grid Width="480" Height="103"  HorizontalAlignment="Left">
@@ -178,9 +178,9 @@
                                 </StackPanel>
 
                             </phone:PivotItem>
-                           
+
                         </phone:Pivot>
-                        <StackPanel Margin="0,0,0,0" Height="30" Orientation="Horizontal" HorizontalAlignment="Center">
+                        <StackPanel Height="30" Orientation="Horizontal" HorizontalAlignment="Center">
                             <Ellipse x:Name="elip1" HorizontalAlignment="Center" Height="10" VerticalAlignment="Center" Width="10">
                                 <Ellipse.Fill>
                                     <SolidColorBrush Color="#FF0071BC" Opacity="0.3"/>
@@ -203,7 +203,7 @@
                             </Ellipse>
                         </StackPanel>
                     </StackPanel>
-                    <Button x:Name="btn_confirm" Grid.Row="1" Content="Get Confirmation" HorizontalAlignment="Left" Width="480" VerticalAlignment="Top" Background="#FF0071BC" Style="{StaticResource ButtonStyle2}" Height="72" Click="btn_confirm_Click"/>
+                    <Button x:Name="btn_confirm" Grid.Row="1" Content="Get Confirmation" HorizontalAlignment="Left" Width="480" VerticalAlignment="Top" Background="#FF0071BC" Style="{StaticResource ButtonStyle2}" Height="72" Click="btn_confirm_Click" />
 
                 </Grid>
             </Grid>

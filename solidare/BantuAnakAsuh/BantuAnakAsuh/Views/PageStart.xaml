@@ -55,15 +55,15 @@
                     </Grid.RowDefinitions>
 
                     <!--TitlePanel contains the name of the application and page title-->
-                    <StackPanel Grid.Row="0" Margin="12,20,12,0">
+                    <!--<StackPanel Grid.Row="0" Margin="12,20,12,0">
                         <Image Source="/Assets/Icons/ic_child_slider.png" Width="175" Margin="0,5,0,0"></Image>
-                    </StackPanel>
+                    </StackPanel>-->
 
                     <!--ContentPanel - place additional content here-->
                     <Grid Grid.Row="1">
                         <StackPanel VerticalAlignment="Bottom">
-                            <TextBlock TextWrapping="Wrap" Text="FIND YOUR FOSTER CHILDREN" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,15" FontWeight="Bold" FontSize="18"/>
-                            <TextBlock TextAlignment="Center" TextWrapping="Wrap" Text=" You able to find your foster children according to your choice with 3 ways to get the list, filtering and nearby locations." FontSize="13" Margin="20,0,20,20"/>
+                            <TextBlock TextWrapping="Wrap" Text="FIND OUT OF SCHOOL CHILDREN" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,15" FontWeight="Bold" FontSize="18"/>
+                            <TextBlock TextAlignment="Center" TextWrapping="Wrap" Text=" You able to find out of school children according to your choice with 3 ways to get the list, filtering and nearby locations." FontSize="13" Margin="20,0,20,20"/>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,15">
                                 <TextBlock Text="SWIPE NEXT" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,15,0" FontSize="16" FontWeight="Bold"/>
                                 <Image Source="/Assets/Icons/ic_slide_next.png"/>
@@ -83,9 +83,9 @@
                     </Grid.RowDefinitions>
 
                     <!--TitlePanel contains the name of the application and page title-->
-                    <StackPanel Grid.Row="0" Margin="12,20,12,0">
+                    <!--<StackPanel Grid.Row="0" Margin="12,20,12,0">
                         <Image Source="/Assets/Icons/ic_give_slider.png" Width="175" Margin="0,5,0,0"></Image>
-                    </StackPanel>
+                    </StackPanel>-->
 
                     <!--ContentPanel - place additional content here-->
                     <Grid Grid.Row="1">
@@ -112,14 +112,14 @@
                     </Grid.RowDefinitions>
 
                     <!--TitlePanel contains the name of the application and page title-->
-                    <StackPanel Grid.Row="0" Margin="12,20,12,0">
+                    <!--<StackPanel Grid.Row="0" Margin="12,20,12,0">
                         <Image Source="/Assets/Icons/ic_report_slider.png" Width="125" Margin="0,5,0,0" Height="175"></Image>
-                    </StackPanel>
+                    </StackPanel>-->
 
                     <!--ContentPanel - place additional content here-->
                     <Grid Grid.Row="1">
                         <StackPanel VerticalAlignment="Bottom">
-                            <TextBlock TextWrapping="Wrap" Text="GET THE REPORT OF THEIR PROGRESS" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,15" FontWeight="Bold" FontSize="18"/>
+                            <TextBlock TextWrapping="Wrap" Text="GET THE REPORT CARD" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,15" FontWeight="Bold" FontSize="18"/>
                             <TextBlock TextAlignment="Center" TextWrapping="Wrap" Text="Report their education and moral progress. The reports will be given to you in each semester." FontSize="13" Margin="20,0,20,20"/>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,15">
                                 <TextBlock Text="SWIPE NEXT" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,15,0" FontSize="16" FontWeight="Bold"/>
@@ -148,7 +148,7 @@
                         </Grid.Background>
                     </Grid>
 
-                    <TextBlock Grid.Row="2" Text="LET'S JOIN US" FontWeight="Bold" FontSize="22" Margin="20,0,0,0"/>
+                    <TextBlock Grid.Row="2" Text="LET JOIN US" FontWeight="Bold" FontSize="22" Margin="20,0,0,0"/>
                     <TextBlock Grid.Row="3" Text="Solidare Apps is a windows based phone application that makes us donate to orphans or poor children who threatened dropouts easily, so with this application they can get a decent education." TextWrapping="Wrap" FontSize="14" Margin="20,0"/>
                     <Grid Grid.Row="4">
                         <Grid.ColumnDefinitions>

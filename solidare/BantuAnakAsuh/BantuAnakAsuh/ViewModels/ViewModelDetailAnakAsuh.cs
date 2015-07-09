@@ -41,32 +41,39 @@ namespace BantuAnakAsuh.ViewModels
                     JObject jresult = JObject.Parse(response.Content);
                     String result = jresult.SelectToken("result").ToString();
                     JArray JItem = JArray.Parse(jresult.SelectToken("item").ToString());
-                    foreach (JObject item in JItem)
+                    if (result == "failed")
                     {
-                        Id_fosterchildren = item["id_fosterchildren"].ToString();
-                        Name = item["name"].ToString();
-                        Pob = item["pob"].ToString();
-                        Dob = item["dob"].ToString();
-                        Gender = item["gender"].ToString();
-                        Address = item["address"].ToString();
-                        Photo = URL.BASE3 + "modul/mod_AnakAsuh/photo/" + item["photo"].ToString();
-                        Cost = item["cost"].ToString();
-                        Children_status = item["children_status"].ToString();
-                        Latitude = item["latitude"].ToString();
-                        Longitude = item["longitude"].ToString();
-                        Study_level = item["study_level"].ToString();
-                        School = item["school"].ToString();
-                        Grade = item["grade"].ToString();
-                        Parent_name = item["parent_name"].ToString();
-                        Parent_address = item["parent_address"].ToString();
-                        Jobs = item["jobs"].ToString();
-                        Salary = item["salary"].ToString();
-                        Id_cha_org = item["id_cha_org"].ToString();
-                        Cha_org_name = item["cha_org_name"].ToString();
-                        Id_program = item["id_program"].ToString();
-                        Program_name = item["program_name"].ToString();
-                        Navigation.idProgram = Id_program;
-                        Navigation.navIdAnak = Id_fosterchildren;
+                        MessageBox.Show("Failed to display!");
+                    }
+                    else
+                    {
+                        foreach (JObject item in JItem)
+                        {
+                            Id_fosterchildren = item["id_fosterchildren"].ToString();
+                            Name = item["name"].ToString();
+                            Pob = item["pob"].ToString();
+                            Dob = item["dob"].ToString();
+                            Gender = item["gender"].ToString();
+                            Address = item["address"].ToString();
+                            Photo = URL.BASE3 + "modul/mod_AnakAsuh/photo/" + item["photo"].ToString();
+                            Cost = item["cost"].ToString();
+                            Children_status = item["children_status"].ToString();
+                            Latitude = item["latitude"].ToString();
+                            Longitude = item["longitude"].ToString();
+                            Study_level = item["study_level"].ToString();
+                            School = item["school"].ToString();
+                            Grade = item["grade"].ToString();
+                            Parent_name = item["parent_name"].ToString();
+                            Parent_address = item["parent_address"].ToString();
+                            Jobs = item["jobs"].ToString();
+                            Salary = item["salary"].ToString();
+                            Id_cha_org = item["id_cha_org"].ToString();
+                            Cha_org_name = item["cha_org_name"].ToString();
+                            Id_program = item["id_program"].ToString();
+                            Program_name = item["program_name"].ToString();
+                            Navigation.idProgram = Id_program;
+                            Navigation.navIdAnak = Id_fosterchildren;
+                        }
                     }
                 });
             }

@@ -134,7 +134,7 @@
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="White">
         <Grid.RowDefinitions>
-            <RowDefinition Height="61"/>
+            <RowDefinition Height="72"/>
             <RowDefinition Height="43"/>
             <RowDefinition Height="130"/>
             <RowDefinition Height="130"/>
@@ -142,22 +142,17 @@
 
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Height="61" Background="#0071BC" Orientation="Horizontal" >
-            <Grid Grid.Row="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="77"/>
-                    <ColumnDefinition Width="1*"/>
-                </Grid.ColumnDefinitions>
-                <Grid Grid.Column="0" Background="#1565C0"/>
-                <Image x:Name="buttonMenu" Grid.Column="0" Source="/Assets/AppBar/Previous.png" Stretch="UniformToFill" Width="30" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Height="40" Tap="buttonMenu_Tap"/>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" Height="72" Width="480" Background="#0071BC" VerticalAlignment="Top">
+            <Grid x:Name="home" Width="70" Height="60">
+                <Image x:Name="buttonMenu" Source="/Assets/Icons/ic_48_back_button.png" Stretch="UniformToFill" Width="50" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Height="50" Tap="buttonMenu_Tap"/>
             </Grid>
-            <TextBlock Text="FILTER" Foreground="White" FontSize="25" VerticalAlignment="Center" Margin="31,0,0,0"/>
-
-
+            <Grid Grid.Column="0">
+                <TextBlock Text="FILTER CHILDREN" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+            </Grid>
         </StackPanel>
         <StackPanel Grid.Row="2">
-            <TextBlock TextWrapping="Wrap" Text="Foster Children's Status" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
-            <toolkit:ListPicker BorderThickness="10" x:Name="listStatus" FullModeHeader="Status Anak Asuh" Margin="30,0" ExpansionMode="FullScreenOnly" Background="#FFF4F4F4" VerticalAlignment="Top" Foreground="#FF00365A" FontSize="20" Template="{StaticResource listpickKu}" BorderBrush="#FFF4F4F4">
+            <TextBlock TextWrapping="Wrap" Text="Children Status" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
+            <toolkit:ListPicker BorderThickness="10" x:Name="listStatus" FullModeHeader="Choose Status" Margin="30,0" ExpansionMode="FullScreenOnly" Background="#FFF4F4F4" VerticalAlignment="Top" Foreground="#FF00365A" FontSize="20" Template="{StaticResource listpickKu}" BorderBrush="#FFF4F4F4">
                 <toolkit:ListPicker.FullModeItemTemplate>
                     <DataTemplate>
                         <TextBlock Margin="0,10" Style="{StaticResource PhoneTextTitle3Style}" Text="{Binding}"/>
@@ -167,7 +162,7 @@
         </StackPanel>
         <StackPanel Grid.Row="3">
             <TextBlock TextWrapping="Wrap" Text="Gender" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
-            <toolkit:ListPicker BorderThickness="10"  x:Name="listJenisKelamin" FullModeHeader="Gender" Margin="30,0" ExpansionMode="FullScreenOnly" Background="#FFF4F4F4" VerticalAlignment="Top" Foreground="#FF00365A" FontSize="20" Template="{StaticResource listpickKu}" BorderBrush="#FFF4F4F4">
+            <toolkit:ListPicker BorderThickness="10"  x:Name="listJenisKelamin" FullModeHeader="Choose Gender" Margin="30,0" ExpansionMode="FullScreenOnly" Background="#FFF4F4F4" VerticalAlignment="Top" Foreground="#FF00365A" FontSize="20" Template="{StaticResource listpickKu}" BorderBrush="#FFF4F4F4">
                 <toolkit:ListPicker.FullModeItemTemplate>
                     <DataTemplate>
                         <TextBlock Margin="0,10" Style="{StaticResource PhoneTextTitle3Style}" Text="{Binding}"/>
@@ -176,8 +171,8 @@
             </toolkit:ListPicker>
         </StackPanel>
         <StackPanel Grid.Row="4">
-            <TextBlock TextWrapping="Wrap" Text="Major" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
-            <toolkit:ListPicker BorderThickness="10"  x:Name="listPendidikan" FullModeHeader="Jenjang Pendidikan" Margin="30,0" ExpansionMode="FullScreenOnly" Background="#FFF4F4F4" VerticalAlignment="Top" Foreground="#FF00365A" FontSize="20" Template="{StaticResource listpickKu}" BorderBrush="#FFF4F4F4">
+            <TextBlock TextWrapping="Wrap" Text="Study Level" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
+            <toolkit:ListPicker BorderThickness="10"  x:Name="listPendidikan" FullModeHeader="Choose Study Level" Margin="30,0" ExpansionMode="FullScreenOnly" Background="#FFF4F4F4" VerticalAlignment="Top" Foreground="#FF00365A" FontSize="20" Template="{StaticResource listpickKu}" BorderBrush="#FFF4F4F4">
                 <toolkit:ListPicker.FullModeItemTemplate>
                     <DataTemplate>
                         <TextBlock Margin="0,10" Style="{StaticResource PhoneTextTitle3Style}" Text="{Binding}"/>

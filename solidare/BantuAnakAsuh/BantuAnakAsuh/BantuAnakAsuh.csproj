@@ -454,6 +454,7 @@
     <Content Include="Assets\AppBar\Documents.png" />
     <Content Include="Assets\AppBar\flower116.png" />
     <Content Include="Assets\AppBar\heart316.png" />
+    <Content Include="Assets\AppBar\ic_list_128.png" />
     <Content Include="Assets\AppBar\message30.png" />
     <Content Include="Assets\AppBar\Previous.png" />
     <Content Include="Assets\AppBar\Refresh.png" />

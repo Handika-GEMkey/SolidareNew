@@ -1,7 +1,9 @@
 ﻿using BantuAnakAsuh.Common;
 using BantuAnakAsuh.Helper;
 using BantuAnakAsuh.Models;
+using Microsoft.Phone.Controls;
 using Newtonsoft.Json.Linq;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -9,14 +11,16 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace BantuAnakAsuh.ViewModels
 {
     class ViewModelHasilFilter : ViewModelBase
     {
-        private ObservableCollection<ModelDonasi> collectionFillter = new ObservableCollection<ModelDonasi>();
-        public ObservableCollection<ModelDonasi> CollectionFillter
+        
+        private ObservableCollection<ModelDetailAnakAsuh> collectionFillter = new ObservableCollection<ModelDetailAnakAsuh>();
+        public ObservableCollection<ModelDetailAnakAsuh> CollectionFillter
         {
             get { return collectionFillter; }
             set
@@ -36,64 +40,73 @@ namespace BantuAnakAsuh.ViewModels
 
         private void LoadUrl()
         {
-            int parameter = 0;
-            var nav = new List<string>();
-            string setfill="";
-            if (!Navigation.Fill_Status.Equals("Pilih Status Anak"))
-            {
-                parameter = parameter + 1;
-                nav.Add("status_anak=" + Navigation.Fill_Status);
-            }
-
-            if (!Navigation.Fill_Jk.Equals("Pilih Jenis Kelamin"))
-            {
-                parameter = parameter + 1;
-                nav.Add("jk_anak_asuh=" + Navigation.Fill_Jk);
-            }
-
-            if (!Navigation.Fill_Jenjang.Equals("Pilih Jenjang Pendidikan"))
-            {
-                parameter = parameter + 1;
-                nav.Add("jenjang_pendidikan=" + Navigation.Fill_Jenjang);
-            }
-
-            int i = 0;
-            foreach (var item in nav)
-            {
-                i++;
-                if (i == 1)
-                    setfill = "?" + item;
-                else
-                    setfill = setfill + "&" + item;
-            }
-
-            WebClient clientlistdonasi = new WebClient();
-            clientlistdonasi.DownloadStringCompleted += new DownloadStringCompletedEventHandler(DownloadDonasiList);
-            clientlistdonasi.DownloadStringAsync(new Uri(URL.BASE3 + "api/filtering/filtering.php"+setfill));
-        }
-
-        private void DownloadDonasiList(object sender, DownloadStringCompletedEventArgs e)
-        {
             try
             {
-                JObject jresult = JObject.Parse(e.Result);
-                JArray JItem = JArray.Parse(jresult.SelectToken("item").ToString());
-                foreach (JObject item in JItem)
+                RestRequest request = new RestRequest(URL.BASE3 + "APIv2/fosterchildren/fosterchildren.php", Method.POST);
+                request.AddHeader("content-type", "multipart/form-data");
+                request.AddParameter("id_donors", Navigation.navIdDonors);
+                request.AddParameter("token", Navigation.token);
+                
+                if (!Navigation.Fill_Status.Equals("Choose Status"))
                 {
-                    ModelDonasi modelDonasi = new ModelDonasi();
-                    modelDonasi.id_anak_asuh = item.SelectToken("id_anak_asuh").ToString();
-                    modelDonasi.nama_anak_asuh = item.SelectToken("nama_anak_asuh").ToString();
-                    modelDonasi.foto_anak = URL.BASE3 + "modul/mod_AnakAsuh/photo/" + item.SelectToken("foto_anak").ToString();
-                    modelDonasi.jenjang_pendidikan = "Jenjang "+ item.SelectToken("jenjang_pendidikan").ToString();
-                    modelDonasi.status_anak = "Status " + item.SelectToken("status_anak").ToString();
-                    collectionFillter.Add(modelDonasi);
+                    request.AddParameter("children_status", Navigation.Fill_Status);
                 }
-            }
-            catch
-            {
-            }
-        }
+                if (!Navigation.Fill_Jk.Equals("Choose Gender"))
+                {
+                    request.AddParameter("gender", Navigation.Fill_Jk);
+                }
+                if (!Navigation.Fill_Jenjang.Equals("Choose Study Level"))
+                {
+                    request.AddParameter("study_level", Navigation.Fill_Jenjang);
+                }
+                //calling server with restClient
+                RestClient restClient = new RestClient();
+                restClient.ExecuteAsync(request, (response) =>
+                {
 
+                    JObject jresult = JObject.Parse(response.Content);
+                    String result = jresult.SelectToken("result").ToString();
+                    if (result == "failed")
+                    {
+                        MessageBox.Show("Failed to display!");
+                        var frame = App.Current.RootVisual as PhoneApplicationFrame;
+                        frame.Navigate(new Uri("/Views/PageFilter.xaml", UriKind.Relative));
+                    }
+                    else
+                    {
+                        JArray JItem = JArray.Parse(jresult.SelectToken("item").ToString());
+                        foreach (JObject item in JItem)
+                        {
+                            ModelDetailAnakAsuh mAnakAsuh = new ModelDetailAnakAsuh();
+                            mAnakAsuh.Id_fosterchildren = item["id_fosterchildren"].ToString();
+                            mAnakAsuh.Name = item["name"].ToString();
+                            mAnakAsuh.Photo = URL.BASE3 + "modul/mod_AnakAsuh/photo/" + item["photo"].ToString();
+                            mAnakAsuh.Gender = item["gender"].ToString();
+                            mAnakAsuh.Children_status = item["children_status"].ToString();
+                            mAnakAsuh.Study_level = item["study_level"].ToString();
+                            mAnakAsuh.Id_program = item["id_program"].ToString();
+                            Navigation.idProgram = mAnakAsuh.Id_program;
+                            Navigation.id_fosterchildren = mAnakAsuh.Id_fosterchildren;
+                            collectionFillter.Add(mAnakAsuh);
+                        }
+                    }
+                });
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("Failed to display!");
+            }
+            catch (ArgumentNullException)
+            {
+                MessageBox.Show("Failed to display!");
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show("Failed to display, the Internet connection is unstable.");
+            }
+
+        }
+        
         private int listIndex = -1;
         public int ListIndex
         {
@@ -121,10 +134,10 @@ namespace BantuAnakAsuh.ViewModels
 
         private void SetIdAnak(object obj)
         {
-            ModelDonasi SelectedItem = obj as ModelDonasi;
+            ModelDetailAnakAsuh SelectedItem = obj as ModelDetailAnakAsuh;
 
             if (SelectedItem != null)
-                Navigation.navIdAnak = SelectedItem.id_anak_asuh;
+                Navigation.id_fosterchildren = SelectedItem.Id_fosterchildren;
 
             listIndex = -1;
         }

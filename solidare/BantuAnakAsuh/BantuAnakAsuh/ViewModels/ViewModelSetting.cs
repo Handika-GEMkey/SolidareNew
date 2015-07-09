@@ -89,7 +89,11 @@ namespace BantuAnakAsuh.ViewModels
                     String jresult = jRoot.SelectToken("result").ToString();
                     String jmessage = jRoot.SelectToken("message").ToString();
 
-                    if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+                    if (jresult == "failed")
+                    {
+                        MessageBox.Show("An error occured.");
+                    }
+                    else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
                     {
                         MessageBox.Show("Failed");
                     }

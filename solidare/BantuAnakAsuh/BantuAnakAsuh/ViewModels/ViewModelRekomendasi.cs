@@ -131,7 +131,7 @@ namespace BantuAnakAsuh.ViewModels
             jenisKelaminCollection.Add("Male");
             jenisKelaminCollection.Add("Female");
 
-            listStatusCollection.Add("Choose foster children status");
+            listStatusCollection.Add("Choose status");
             listStatusCollection.Add("Orphan");
             listStatusCollection.Add("Orphans");
             listStatusCollection.Add("Poor children");
@@ -275,26 +275,33 @@ namespace BantuAnakAsuh.ViewModels
 
                     JObject jRoot = JObject.Parse(response.Content);
                     String jresult = jRoot.SelectToken("result").ToString();
-                    String jmessage = jRoot.SelectToken("message").ToString();
-
-                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                    if (jresult == "failed")
                     {
-                        if (jresult.Equals("success"))
-                        {
-                            MessageBox.Show(jmessage);
-                            var frame = App.Current.RootVisual as PhoneApplicationFrame;
-                            frame.Navigate(new Uri("/Views/NewHomepage.xaml", UriKind.Relative));
-                        }
-                        else
-                        {
-                            MessageBox.Show(jmessage);
-                        }
-
+                        MessageBox.Show("Failed!");
                     }
                     else
                     {
-                        //error ocured during upload
-                        MessageBox.Show("Your posting failed. Please check the Internet connection.");
+                        String jmessage = jRoot.SelectToken("message").ToString();
+
+                        if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                        {
+                            if (jresult.Equals("success"))
+                            {
+                                MessageBox.Show(jmessage);
+                                var frame = App.Current.RootVisual as PhoneApplicationFrame;
+                                frame.Navigate(new Uri("/Views/NewHomepage.xaml", UriKind.Relative));
+                            }
+                            else
+                            {
+                                MessageBox.Show(jmessage);
+                            }
+
+                        }
+                        else
+                        {
+                            //error ocured during upload
+                            MessageBox.Show("Your posting failed. Please check the Internet connection.");
+                        }
                     }
                 });
             }

@@ -60,44 +60,50 @@ namespace BantuAnakAsuh.ViewModels
                     toast.Title = "Status Upload";
                     JObject jRoot = JObject.Parse(response.Content);
                     String result = jRoot.SelectToken("result").ToString();
-                    JArray JItem = JArray.Parse(jRoot.SelectToken("item").ToString());
-
-                    foreach (JObject item in JItem)
+                    if (result == "failed")
                     {
-                        ModelGetKeranjang modelGetKeranjang = new ModelGetKeranjang();
-                        modelGetKeranjang.id_donation = item.SelectToken("id_donation").ToString();
-                        modelGetKeranjang.id_fosterchildren = item.SelectToken("id_fosterchildren").ToString();
-                        modelGetKeranjang.children_name = item.SelectToken("children_name").ToString();
-                        modelGetKeranjang.photo = URL.BASE3 + "modul/mod_AnakAsuh/photo/" + item.SelectToken("photo").ToString();
-                        modelGetKeranjang.pre_donation_time = item.SelectToken("pre_donation_time").ToString();
-                        modelGetKeranjang.cha_org_name = item.SelectToken("cha_org_name").ToString();
-                        modelGetKeranjang.payment_status = item.SelectToken("payment_status.").ToString();
-                        modelGetKeranjang.confirmation_status = item.SelectToken("confirmation_status").ToString();
-                        collectionGetKeranjang.Add(modelGetKeranjang);
-
-                    }
-                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
-                    {
-                        if (result.Equals("success"))
-                        {
-                        //    PageKeranjangDonasi keranjangdonasi = new PageKeranjangDonasi();
-                        //    keranjangdonasi.LoadingBar.Visibility = Visibility.Collapsed;
-                           
-                        }
-                        else
-                        {
-                           
-                        }
-                    
+                        MessageBox.Show("Failed to display!");
                     }
                     else
                     {
-                        //error ocured during upload
+                        JArray JItem = JArray.Parse(jRoot.SelectToken("item").ToString());
 
-                        toast.Content = "Your posting failed. Please check the Internet connection.";
-                        toast.Show();
-                        //progressBar1.Visibility = System.Windows.Visibility.Visible;
+                        foreach (JObject item in JItem)
+                        {
+                            ModelGetKeranjang modelGetKeranjang = new ModelGetKeranjang();
+                            modelGetKeranjang.id_donation = item.SelectToken("id_donation").ToString();
+                            modelGetKeranjang.id_fosterchildren = item.SelectToken("id_fosterchildren").ToString();
+                            modelGetKeranjang.children_name = item.SelectToken("children_name").ToString();
+                            modelGetKeranjang.photo = URL.BASE3 + "modul/mod_AnakAsuh/photo/" + item.SelectToken("photo").ToString();
+                            modelGetKeranjang.pre_donation_time = item.SelectToken("pre_donation_time").ToString();
+                            modelGetKeranjang.cha_org_name = item.SelectToken("cha_org_name").ToString();
+                            modelGetKeranjang.payment_status = item.SelectToken("payment_status.").ToString();
+                            modelGetKeranjang.confirmation_status = item.SelectToken("confirmation_status").ToString();
+                            collectionGetKeranjang.Add(modelGetKeranjang);
 
+                        }
+                        if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                        {
+                            if (result.Equals("success"))
+                            {
+                                //    PageKeranjangDonasi keranjangdonasi = new PageKeranjangDonasi();
+                                //    keranjangdonasi.LoadingBar.Visibility = Visibility.Collapsed;
+
+                            }
+                            else
+                            {
+
+                            }
+                        }
+                        else
+                        {
+                            //error ocured during upload
+
+                            toast.Content = "Your posting failed. Please check the Internet connection.";
+                            toast.Show();
+                            //progressBar1.Visibility = System.Windows.Visibility.Visible;
+
+                        }
                     }
                 });
             }

@@ -117,13 +117,13 @@
 
                 <Grid Height="180" Width="90" HorizontalAlignment="Right" Background="#1565C0" VerticalAlignment="Top"/>
 
-                <StackPanel HorizontalAlignment="Right"  Margin="0,0,0,0" Height="180" VerticalAlignment="Top" Width="90">
+                <StackPanel HorizontalAlignment="Right"  Margin="0,60,0,0" Height="180" VerticalAlignment="Top" Width="90">
                     <Grid x:Name="timeLogo" Grid.Column="1"  Height="60"  Tap="timeLogo_Tap">
-                        <Image Source="/Assets/AppBar/shopping111.png" Height="35" Width="35"/>
+                        <Image Source="/Assets/AppBar/ic_list_128.png" Height="40" Width="40"/>
                     </Grid>
-                    <Grid x:Name="mapLogo" Grid.Column="2"   Height="60"   >
+                    <!--<Grid x:Name="mapLogo" Grid.Column="2"   Height="60"   >
                         <Image Source="/Assets/AppBar/message30.png" Height="35" Width="35"/>
-                    </Grid>
+                    </Grid>-->
                     <Grid x:Name="recommendationLogo" Grid.Column="3" Height="60" Tap="recommendationLogo_Tap" >
                         <Image Source="/Assets/AppBar/heart316.png" Height="35" Width="35"/>
                     </Grid>
@@ -281,12 +281,12 @@
 
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar  x:Name="GlobalApplicationBar" BackgroundColor="#EDEDED" ForegroundColor="#292929">
-            <shell:ApplicationBarIconButton x:Name="FitlerBtn" Click="FitlerBtn_Click" IconUri="/Assets/Icons/ic_32_filter.png" IsEnabled="True" Text="filter" />
+            <shell:ApplicationBarIconButton x:Name="FitlerBtn" Click="FitlerBtn_Click" IconUri="/Assets/Icons/ic_48_filter.png" IsEnabled="True" Text="filter" />
             <shell:ApplicationBarIconButton x:Name="MapBtn" Click="MapBtn_Click" IconUri="/Assets/Icons/ic_48_nearby.png" IsEnabled="True" Text="nearby" />
 
             <shell:ApplicationBar.MenuItems>
                 <!--<shell:ApplicationBarMenuItem x:Name="RecommendationBtn" Text="Recommendation foster children" Click="RecommendationBtn_Click" />-->
-                <shell:ApplicationBarMenuItem x:Name="AboutBtn" Text="about" Click="AboutBtn_Click" />
+                <!--<shell:ApplicationBarMenuItem x:Name="AboutBtn" Text="about" Click="AboutBtn_Click" />-->
                 <shell:ApplicationBarMenuItem x:Name="LogoutBtn" Text="logout" Click="LogoutBtn_Click" />
             </shell:ApplicationBar.MenuItems>
 

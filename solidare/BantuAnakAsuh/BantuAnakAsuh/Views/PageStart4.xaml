@@ -58,7 +58,7 @@
             </Grid.Background>
         </Grid>
 
-        <TextBlock Grid.Row="2" Text="LET'S JOIN US" FontWeight="Bold" FontSize="22" Margin="20,0,0,0"/>
+        <TextBlock Grid.Row="2" Text="LET JOIN US" FontWeight="Bold" FontSize="22" Margin="20,0,0,0"/>
         <TextBlock Grid.Row="3" Text="Solidare Apps is a windows based phone application that makes us donate to orphans or poor children who threatened dropouts easily, so with this application they can get a decent education." TextWrapping="Wrap" FontSize="14" Margin="20,0"/>
         <Grid Grid.Row="4">
             <Grid.ColumnDefinitions>

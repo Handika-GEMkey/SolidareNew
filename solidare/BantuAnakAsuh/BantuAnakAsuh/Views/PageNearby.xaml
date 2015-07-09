@@ -54,7 +54,7 @@
                 <Image x:Name="buttonMenu" Source="/Assets/Icons/ic_48_back_button.png" Stretch="UniformToFill" Width="50" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Height="50" Tap="buttonMenu_Tap"/>
             </Grid>
             <Grid Grid.Column="0">
-                <TextBlock Text="FOSTER CHILDREN NEARBY YOU" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+                <TextBlock Text="THE NEAREST CHILDEN" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold"/>
             </Grid>
         </StackPanel>
         <Grid Grid.Row="1"  HorizontalAlignment="Left" Height="660" VerticalAlignment="Top" Width="480">

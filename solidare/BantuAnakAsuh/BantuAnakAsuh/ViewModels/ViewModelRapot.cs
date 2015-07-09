@@ -72,30 +72,37 @@ namespace BantuAnakAsuh.ViewModels
 
                     JObject jRoot = JObject.Parse(response.Content);
                     String result = jRoot.SelectToken("result").ToString();
-                    JArray JItem = JArray.Parse(jRoot.SelectToken("item").ToString());
-                    foreach (JObject item in JItem)
+                    if (result == "failed")
                     {
-                        modelRapot.report_date = item["report_date"].ToString();
-                        modelRapot.report_file = URL.BASE3 + "modul/mod_Laporan/laporan/" + item["report_file"].ToString();
-
-                        if ((modelRapot.semester = item["semester"].ToString()) == "1")
-                        {
-                            modelRapot.semester = item["semester"].ToString() + "st Semester";
-                        }
-                        else if ((modelRapot.semester = item["semester"].ToString()) == "2")
-                        {
-                            modelRapot.semester = item["semester"].ToString() + "nd Semester";
-                        }
-                        else if ((modelRapot.semester = item["semester"].ToString()) == "3")
-                        {
-                            modelRapot.semester = item["semester"].ToString() + "rd Semester";
-                        }
-                        else
-                        {
-                            modelRapot.semester = item["semester"].ToString() + "th Semester";
-                        }
+                        MessageBox.Show("Failed to display!");
                     }
-                    collectionRapot.Add(modelRapot);
+                    else
+                    {
+                        JArray JItem = JArray.Parse(jRoot.SelectToken("item").ToString());
+                        foreach (JObject item in JItem)
+                        {
+                            modelRapot.report_date = item["report_date"].ToString();
+                            modelRapot.report_file = URL.BASE3 + "modul/mod_Laporan/laporan/" + item["report_file"].ToString();
+
+                            if ((modelRapot.semester = item["semester"].ToString()) == "1")
+                            {
+                                modelRapot.semester = item["semester"].ToString() + "st Semester";
+                            }
+                            else if ((modelRapot.semester = item["semester"].ToString()) == "2")
+                            {
+                                modelRapot.semester = item["semester"].ToString() + "nd Semester";
+                            }
+                            else if ((modelRapot.semester = item["semester"].ToString()) == "3")
+                            {
+                                modelRapot.semester = item["semester"].ToString() + "rd Semester";
+                            }
+                            else
+                            {
+                                modelRapot.semester = item["semester"].ToString() + "th Semester";
+                            }
+                        }
+                        collectionRapot.Add(modelRapot);
+                    }
                 });
             }
             catch (Exception ec)

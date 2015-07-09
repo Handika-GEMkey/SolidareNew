@@ -39,7 +39,7 @@ namespace BantuAnakAsuh.ViewModels
                 request.AddHeader("content-type", "multipart/form-data");
                 request.AddParameter("username", usr);
                 request.AddParameter("password", pwd);
-                request.AddParameter("tag", usr);
+                request.AddParameter("channel", usr);
 
                 //calling server with restClient
                 RestClient restClient = new RestClient();

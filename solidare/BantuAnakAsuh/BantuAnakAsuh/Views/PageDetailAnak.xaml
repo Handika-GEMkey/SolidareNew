@@ -26,7 +26,7 @@
                     <Image x:Name="buttonMenu" Source="/Assets/Icons/ic_48_back_button.png" Stretch="UniformToFill" Width="50" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Height="50" Tap="buttonMenu_Tap"/>
                 </Grid>
                 <Grid Grid.Column="1">
-                    <TextBlock Text="FOSTER CHILDREN IDENTITY" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+                    <TextBlock Text="CHILDREN IDENTITY" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold"/>
                 </Grid>
             </StackPanel>
             <ScrollViewer Grid.Row="1" VerticalAlignment="Top" Height="auto">
@@ -61,7 +61,7 @@
                     <Border Grid.Row="2" Background="Black" Width="480" Height="1" Opacity="0.5"/>
                     <Grid Grid.Row="3" Width="420" Margin="10,10,10,0">
                         <StackPanel Orientation="Vertical">
-                            <TextBlock TextWrapping="Wrap" Text="FOSTER CHILDREN IDENTITY" FontSize="18" Foreground="#FF062D5A" FontWeight="Bold" Margin="0,0,0,20"/>
+                            <TextBlock TextWrapping="Wrap" Text="CHILDREN IDENTITY" FontSize="18" Foreground="#FF062D5A" FontWeight="Bold" Margin="0,0,0,20"/>
                             <TextBlock TextWrapping="Wrap" Text="Full name" FontSize="16" Foreground="#FF062D5A" FontWeight="Bold"/>
                             <TextBlock Visibility="Collapsed" x:Name="id_anak_asuh" TextWrapping="Wrap" Text="{Binding Id_fosterchildren}" FontSize="16" Foreground="#FF062D5A" Margin="0,0,0,10"/>
                             <TextBlock x:Name="tbNama" TextWrapping="Wrap" Text="{Binding Name}" FontSize="16" Foreground="#FF062D5A" Margin="0,0,0,10"/>
@@ -87,11 +87,10 @@
                             <TextBlock TextWrapping="Wrap" Text="DONATE" FontSize="18" Foreground="#FF062D5A" FontWeight="Bold" Margin="0,0,0,20"/>
                             <TextBlock TextWrapping="Wrap" Text="Amount of donate" FontSize="16" Foreground="#FF062D5A" FontWeight="Bold"/>
                             <TextBlock x:Name="tbBiayaDonasi" TextWrapping="Wrap" Text="{Binding Cost}" FontSize="16" Foreground="#FF062D5A" Margin="0,0,0,10"/>
-                            <!--<TextBlock TextWrapping="Wrap" Text="Status" FontSize="16" Foreground="#FF062D5A" FontWeight="Bold"/>-->
                             <!--<TextBlock TextWrapping="Wrap" Text="{Binding Status_donasi}" FontSize="16" Foreground="#FF062D5A" Margin="0,0,0,10"/>-->
                             <Border Background="Black" Width="480" Margin="-70,0,-70,0" Height="1" Opacity="0.5"/>
                             <Grid Margin="10"/>
-                            <TextBlock TextWrapping="Wrap" Text="FOSTER CHILDREN PARENT IDENTITY" FontSize="18" Foreground="#FF062D5A" FontWeight="Bold" Margin="0,0,0,20"/>
+                            <TextBlock TextWrapping="Wrap" Text="PARENT IDENTITY" FontSize="18" Foreground="#FF062D5A" FontWeight="Bold" Margin="0,0,0,20"/>
                             <TextBlock TextWrapping="Wrap" Text="Name of parent" FontSize="16" Foreground="#FF062D5A" FontWeight="Bold"/>
                             <TextBlock TextWrapping="Wrap" Text="{Binding Parent_name}" FontSize="16" Foreground="#FF062D5A" Margin="0,0,0,10"/>
                             <TextBlock TextWrapping="Wrap" Text="Address" FontSize="16" Foreground="#FF062D5A" FontWeight="Bold"/>
@@ -118,7 +117,7 @@
     </Grid>
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar IsVisible="True" IsMenuEnabled="False" BackgroundColor="WhiteSmoke" Opacity="0.925" ForegroundColor="Black" Mode="Default">
-            <shell:ApplicationBarIconButton x:Name="appBarLetter" IconUri="/Assets/icons/ic_48_letter.png" Text="get Letter" Click="appBarLetter_Click"/>
+            <!--<shell:ApplicationBarIconButton x:Name="appBarLetter" IconUri="/Assets/icons/ic_48_letter.png" Text="get Letter" Click="appBarLetter_Click"/>-->
             <shell:ApplicationBarIconButton x:Name="appBarReport" IconUri="/Assets/icons/ic_48_report.png" Text="get report" Click="appBarReport_Click"/>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>

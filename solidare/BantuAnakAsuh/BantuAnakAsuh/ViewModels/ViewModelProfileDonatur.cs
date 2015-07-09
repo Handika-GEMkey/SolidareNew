@@ -118,20 +118,27 @@ namespace BantuAnakAsuh.ViewModels
 
                     JObject jRoot = JObject.Parse(response.Content);
                     String result = jRoot.SelectToken("result").ToString();
-                    JArray JItem = JArray.Parse(jRoot.SelectToken("item").ToString());
-                    foreach (JObject item in JItem)
+                    if (result == "failed")
                     {
-                        modelLogin.Username = item["username"].ToString();
-                        modelLogin.Nama_donatur = item.SelectToken("name").ToString();
-                        modelLogin.Alamat_donatur = item["address"].ToString();
-                        modelLogin.Email_donatur = item["email"].ToString();
-                        modelLogin.No_tlp = item["phone"].ToString();
-                        modelLogin.Photo = URL.BASE3 + "modul/mod_OrangTuaAsuh/photo/" + item["photo"].ToString();
-                        modelLogin.Gender = item["gender"].ToString();
+                        MessageBox.Show("Failed to display!");
+                    }
+                    else
+                    {
+                        JArray JItem = JArray.Parse(jRoot.SelectToken("item").ToString());
+                        foreach (JObject item in JItem)
+                        {
+                            modelLogin.Username = item["username"].ToString();
+                            modelLogin.Nama_donatur = item.SelectToken("name").ToString();
+                            modelLogin.Alamat_donatur = item["address"].ToString();
+                            modelLogin.Email_donatur = item["email"].ToString();
+                            modelLogin.No_tlp = item["phone"].ToString();
+                            modelLogin.Photo = URL.BASE3 + "modul/mod_OrangTuaAsuh/photo/" + item["photo"].ToString();
+                            modelLogin.Gender = item["gender"].ToString();
 
-                        CollectionDonatur.Add(modelLogin);
-                        Title_name_profile = modelLogin.Nama_donatur.ToUpper().ToString()+" PROFILE";
-                        Photo_donors = modelLogin.Photo.ToString();
+                            CollectionDonatur.Add(modelLogin);
+                            Title_name_profile = modelLogin.Nama_donatur.ToUpper().ToString() + " PROFILE";
+                            Photo_donors = modelLogin.Photo.ToString();
+                        }
                     }
                 });
             }
@@ -178,20 +185,26 @@ namespace BantuAnakAsuh.ViewModels
 
                     JObject jRoot = JObject.Parse(response.Content);
                     String result = jRoot.SelectToken("result").ToString();
-                    JArray JItem = JArray.Parse(jRoot.SelectToken("item").ToString());
-                    foreach (JObject item in JItem)
+                    if (result == "failed")
                     {
-                        ModelNews modelNews = new ModelNews();
-                        modelNews.id_news = item["id_news"].ToString();
-                        modelNews.title = item["title"].ToString();
-                        modelNews.photo = URL.BASE3 + "modul/mod_News/gambar/" + item["photo"].ToString();
-                        modelNews.post_date = item["post_date"].ToString();
-                        modelNews.description = item["description"].ToString();
-                        modelNews.post_by = item["post_by"].ToString();
-
-                        collectionNews.Add(modelNews);
+                        MessageBox.Show("Failed to display!");
                     }
+                    else
+                    {
+                        JArray JItem = JArray.Parse(jRoot.SelectToken("item").ToString());
+                        foreach (JObject item in JItem)
+                        {
+                            ModelNews modelNews = new ModelNews();
+                            modelNews.id_news = item["id_news"].ToString();
+                            modelNews.title = item["title"].ToString();
+                            modelNews.photo = URL.BASE3 + "modul/mod_News/gambar/" + item["photo"].ToString();
+                            modelNews.post_date = item["post_date"].ToString();
+                            modelNews.description = item["description"].ToString();
+                            modelNews.post_by = item["post_by"].ToString();
 
+                            collectionNews.Add(modelNews);
+                        }
+                    }
                 });
             }
             catch (NullReferenceException n)

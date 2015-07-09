@@ -14,15 +14,15 @@ namespace BantuAnakAsuh.Views
     public partial class PageFilter : PhoneApplicationPage
     {
         String[] listStatusArray = { "Choose Status", "Orphan", "Orphans", "Poor children" };
-        String[] listJKArray = { "Choose Your Gender", "Male", "Female" };
-        String[] listPendidikanArray = { "Choose Education Major", "SD", "SMP", "SMA", "SMK" };
+        String[] listJKArray = { "Choose Gender", "Male", "Female" };
+        String[] listPendidikanArray = { "Choose Study Level", "Elementary School", "Junior High School", "Senior High School" };
 
         public PageFilter()
         {
             InitializeComponent();
             this.listStatus.ItemsSource = listStatusArray;
-            this.listPendidikan.ItemsSource = listPendidikanArray;
             this.listJenisKelamin.ItemsSource = listJKArray;
+            this.listPendidikan.ItemsSource = listPendidikanArray;
         }
 
         private void buttonMenu_Tap(object sender, System.Windows.Input.GestureEventArgs e)
@@ -33,7 +33,7 @@ namespace BantuAnakAsuh.Views
         private void apbarFilter_Click(object sender, EventArgs e)
         {
             
-            if (listStatus.SelectedItem.ToString().Equals("Pilih Status Anak") && listJenisKelamin.SelectedItem.ToString().Equals("Pilih Jenis Kelamin") & listPendidikan.SelectedItem.ToString().Equals("Pilih Jenjang Pendidikan"))
+            if (listStatus.SelectedItem.ToString().Equals("Choose Status") && listJenisKelamin.SelectedItem.ToString().Equals("Choose Gender") & listPendidikan.SelectedItem.ToString().Equals("Choose Study Level"))
             {
                 MessageBox.Show("Filter criteria is not appropriate.");
             }
@@ -45,6 +45,10 @@ namespace BantuAnakAsuh.Views
                 NavigationService.Navigate(new Uri("/Views/PageHasilFilter.xaml", UriKind.Relative));
             }
             
+        }
+        protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Views/NewHomepage.xaml", UriKind.Relative));
         }
     }
 }

@@ -41,14 +41,14 @@ namespace BantuAnakAsuh.Views
         private void apBarRegister_Click(object sender, EventArgs e)
         {
             string nama_donatur = textBoxFirstName.Text;
-            if (textBoxLastName.Text.Equals(""))
-            {
-                nama_donatur = textBoxFirstName.Text + " " + textBoxLastName.Text;
-            }
-            else
-            {
-                nama_donatur = textBoxFirstName.Text + " " + textBoxLastName.Text;
-            }
+            //if (textBoxLastName.Text.Equals(""))
+            //{
+            //    nama_donatur = textBoxFirstName.Text + " " + textBoxLastName.Text;
+            //}
+            //else
+            //{
+            //    nama_donatur = textBoxFirstName.Text + " " + textBoxLastName.Text;
+            //}
 
             StringBuilder parameter = new StringBuilder();
             parameter.AppendFormat("{0}={1}&", "username", HttpUtility.UrlEncode(valid_username));

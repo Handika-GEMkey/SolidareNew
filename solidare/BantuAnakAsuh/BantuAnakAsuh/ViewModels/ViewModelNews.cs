@@ -58,18 +58,24 @@ namespace BantuAnakAsuh.ViewModels
 
                     JObject jRoot = JObject.Parse(response.Content);
                     String result = jRoot.SelectToken("result").ToString();
-                    JArray JItem = JArray.Parse(jRoot.SelectToken("item").ToString());
-                    foreach (JObject item in JItem)
+                    if (result == "failed")
                     {
-                        Id_news = item["id_news"].ToString();
-                        Title = item["title"].ToString();
-                        Photo = URL.BASE3 + "modul/mod_News/gambar/" + item["photo"].ToString();
-                        Post_date = item["post_date"].ToString();
-                        Description = item["description"].ToString();
-                        Post_by = item["post_by"].ToString();
-
+                        MessageBox.Show("Failed to display!");
                     }
+                    else
+                    {
+                        JArray JItem = JArray.Parse(jRoot.SelectToken("item").ToString());
+                        foreach (JObject item in JItem)
+                        {
+                            Id_news = item["id_news"].ToString();
+                            Title = item["title"].ToString();
+                            Photo = URL.BASE3 + "modul/mod_News/gambar/" + item["photo"].ToString();
+                            Post_date = item["post_date"].ToString();
+                            Description = item["description"].ToString();
+                            Post_by = item["post_by"].ToString();
 
+                        }
+                    }
                 });
             }
             catch (Exception ec)

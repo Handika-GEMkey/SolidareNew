@@ -33,7 +33,11 @@ namespace BantuAnakAsuh.ViewModels
                     JObject jRoot = JObject.Parse(response.Content);
                     String result = jRoot.SelectToken("result").ToString();
                     String message = jRoot.SelectToken("message").ToString();
-                    if (result.Equals("success"))
+                    if (result == "failed")
+                    {
+                        MessageBox.Show("Failed to display!");
+                    }
+                    else if (result.Equals("success"))
                     {
                         MessageBox.Show(message);
                         var frame = App.Current.RootVisual as PhoneApplicationFrame;
