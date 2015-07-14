@@ -43,10 +43,10 @@
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="White">
         <Grid.RowDefinitions>
-            <RowDefinition Height="61"/>
+            <RowDefinition Height="72"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0" Background="#FF032754" >
+        <!--<Grid Grid.Row="0" Background="#FF032754" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="403*"/>
                 <ColumnDefinition Width="77*"/>
@@ -54,25 +54,44 @@
             <TextBlock Text="FOSTER CHILDREN'S REPORT" Foreground="White" VerticalAlignment="Center" Margin="25,0,0,0"/>
             <Grid Grid.Column="1" Background="#00365A"/>
             <Image x:Name="buttonMenu" Grid.Column="1" Source="/Assets/Icons/ic_48_menu.png" Stretch="UniformToFill" Width="40" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Height="40" Tap="buttonMenu_Tap"/>
+        </Grid>-->
+        <Grid Grid.Row="0" Background="#0071BC" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="70"/>
+                <ColumnDefinition Width="77*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="1" Text="REPORT CARD" Foreground="White" VerticalAlignment="Center" FontWeight="Bold" />
+            <Grid x:Name="home" Grid.Column="0"  Height="70">
+                <Image x:Name="buttonMenu" Source="/Assets/Icons/ic_48_back_button.png" Stretch="Fill" Width="50" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Height="50" Tap="buttonMenu_Tap"/>
+            </Grid>
         </Grid>
-        <ListBox x:Name="ListRapot" Grid.Row="1" Margin="0,20,0,0" ItemsSource="{Binding CollectionRapot}">
+        <ListBox x:Name="ListRapot" Grid.Row="1" ItemsSource="{Binding CollectionRapot}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Grid Height="60">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="80"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-
-                        <Image Grid.Column="0" Width="48" Height="48" Source="/Assets/Icons/ic_32_laporan.png" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                        <HyperlinkButton Style="{StaticResource StandardHyperlinkButton}" Grid.Column="1" Content="{Binding semester_pr}" NavigateUri="{Binding file_laporan}" TargetName="_blank" Foreground="#FF062D5A" FontSize="25"/>
-                    </Grid>
+                    <StackPanel>
+                        <Grid Height="auto">
+                            <!--<Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>-->
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="70"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="/Assets/Icons/ic_128_report.png" Width="80" Height="80" VerticalAlignment="Center" Margin="20,0,0,0"/>
+                            <HyperlinkButton Margin="16,0,0,0" Grid.Column="1" Style="{StaticResource StandardHyperlinkButton}" Content="{Binding semester}" NavigateUri="{Binding report_file}" TargetName="_blank" Foreground="Black" FontSize="25" HorizontalAlignment="Left"/>
+                            <TextBlock Margin="28,-20,0,0" Grid.Column="1" VerticalAlignment="Top" Text="{Binding report_date}" FontSize="14" Foreground="Black" />
+                            <Image x:Name="img_download_report" Grid.Column="2" Width="80" Height="80" Source="/Assets/Icons/ic_128_downloadReport.png" VerticalAlignment="Top" Margin="-40,10,20,10" Tap="img_download_report_Tap" />
+                            <TextBlock Grid.Column="2" VerticalAlignment="Bottom" Text="Download" FontSize="18" Foreground="Black" Margin="-40,20,30,0"  />
+                        </Grid>
+                        <Border Background="#FFBDBDBD" Height="1" Margin="0,10,0,0" Opacity="0.5" Width="480"/>
+                    </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
     </Grid>
     <phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="False" BackgroundColor="White" Opacity="0.925" ForegroundColor="#FF062D5A" Mode="Default">
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="False" BackgroundColor="WhiteSmoke" Opacity="0.925" ForegroundColor="#FF062D5A" Mode="Default">
             <shell:ApplicationBarIconButton x:Name="apbarHome" IconUri="/Assets/Icons/ic_48_home.png" Text="home" Click="apbarHome_Click"/>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>

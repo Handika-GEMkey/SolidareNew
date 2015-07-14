@@ -102,5 +102,10 @@ namespace BantuAnakAsuh.Views
         {
             NavigationService.Navigate(new Uri("/Views/DetailDonation.xaml", UriKind.Relative));
         }
+
+        private void Image_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Views/coba.xaml", UriKind.Relative));
+        }
     }
 }

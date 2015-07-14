@@ -37,6 +37,9 @@
 
                     <TextBlock Text="DONATION LIST" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold"/>
                 </Grid>
+                <Grid x:Name="timeLogo" Grid.Column="1"  Height="60"  >
+                    <Image Margin="170,0,0,0" Source="/Assets/Alarm_bell_512.png" Height="35" Width="35" Tap="Image_Tap"/>
+                </Grid>
             </StackPanel>
             <Grid>
                 <!--<ProgressBar x:Name="LoadingBar" Visibility="Visible" IsEnabled="False" IsIndeterminate="true" Height="4" HorizontalAlignment="Stretch" Foreground="#FF1565C0"/>-->

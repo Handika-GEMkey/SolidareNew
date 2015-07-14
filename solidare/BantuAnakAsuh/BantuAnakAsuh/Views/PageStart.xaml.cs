@@ -139,10 +139,12 @@ namespace BantuAnakAsuh.Views
             {
                 Deployment.Current.Dispatcher.BeginInvoke(delegate
                 {
+                    LoadingBar.Visibility = Visibility.Visible;
                     if(count.Equals(""))
                     {
                         Navigation.countKeranjang = "0";
                     }
+                    LoadingBar.Visibility = Visibility.Visible;
                     NavigationService.Navigate(new Uri("/Views/NewHomepage.xaml", UriKind.Relative));
                     //this.Loaded += StartedPage_Loaded;
                 });

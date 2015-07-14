@@ -174,6 +174,7 @@ namespace BantuAnakAsuh.ViewModels
 
         }
 
+
         void camera_Completed(object sender, PhotoResult e)
         {
             BitmapImage image = new BitmapImage();
@@ -308,10 +309,10 @@ namespace BantuAnakAsuh.ViewModels
         }
 
         int cobaValidasi;
-
+        
         private void PushToServer1(object obj)
         {
-
+            Navigation.menuItem = "pivot_environment";
             try
             {
                 this.LoadID();
@@ -330,8 +331,7 @@ namespace BantuAnakAsuh.ViewModels
                 request.AddParameter("children_status", Status_anak);
                 request.AddParameter("latitude", Navigation.Latitude);
                 request.AddParameter("longitude", Navigation.Longitude);
-
-
+                Navigation.menuItem = "pivot_environment";
                 #region Convert DatePicker
                 //string format = "yyyy-MM-dd";
                 //DateTime datevalue;
@@ -368,14 +368,16 @@ namespace BantuAnakAsuh.ViewModels
                         {
                             if (MessageBoxResult.OK == MessageBox.Show("Your " + jmessage))
                             {
-                                //MessageBox.Show("Success");
+                                
                             }
                         }
                         else
                         {
                             if (MessageBoxResult.OK == MessageBox.Show("Foster Children's profile upload failed"))
                             {
+                                
                                 MessageBox.Show("Upload failed, try again!");
+                            
                             }
                         }
 

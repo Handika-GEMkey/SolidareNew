@@ -67,37 +67,25 @@
 
             <!--Grid 1-->
             <Grid x:Name="detailProfile" Grid.Row="1" Tap="detailProfile_Tap">
-                <ListBox x:Name="ListUserProfile" Height="120" Width="120" VerticalAlignment="Center" HorizontalAlignment="Center"  ItemsSource="{Binding CollectionDonatur}" ScrollViewer.VerticalScrollBarVisibility="Disabled">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <Ellipse Grid.Row="0" Height="120" Width="120" Stroke="White">
-                                <Ellipse.Fill>
-                                    <ImageBrush Stretch="UniformToFill" ImageSource="{Binding Photo}"/>
-                                </Ellipse.Fill>
-                            </Ellipse>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
+                <Ellipse Grid.Row="0" Height="120" Width="120" Stroke="White">
+                    <Ellipse.Fill>
+                        <ImageBrush Stretch="UniformToFill" ImageSource="{Binding Photo_donors}"/>
+                    </Ellipse.Fill>
+                </Ellipse>
             </Grid>
 
             <!--Grid 2-->
             <Grid Grid.Row="2" Tap="detailProfile_Tap">
-                <ListBox x:Name="ListUserProfile2" Height="70" Width="480" ItemsSource="{Binding CollectionDonatur}" ScrollViewer.VerticalScrollBarVisibility="Disabled" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="30"/>
-                                        <RowDefinition Height="30"/>
-                                    </Grid.RowDefinitions>
-                                    <TextBlock Grid.Row="0" TextWrapping="Wrap" Text="{Binding Nama_donatur}" Foreground="White" TextAlignment="Center" Margin="200,0,0,0"/>
-                                    <TextBlock Grid.Row="1" TextWrapping="Wrap" Text="Tap for detail" Foreground="White" TextAlignment="Center" Margin="200,0,0,0" FontSize="14"/>
-                                </Grid>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
+                <StackPanel Orientation="Horizontal">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" TextWrapping="Wrap" Text="{Binding Name}" Foreground="White" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Width="480"/>
+                        <TextBlock Grid.Row="1" TextWrapping="Wrap" Text="Tap for detail" Foreground="White" TextAlignment="Center" FontSize="14"/>
+                    </Grid>
+                </StackPanel>
             </Grid>
         </Grid>
 
@@ -119,16 +107,23 @@
                                     <ColumnDefinition Width="auto"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <StackPanel Grid.Column="0">
-                                    <Ellipse Height="80" Width="80" VerticalAlignment="Center" HorizontalAlignment="Center" StrokeThickness="4" Margin="10">
-                                        <Ellipse.Fill>
-                                            <ImageBrush ImageSource="{Binding Photo}" Stretch="UniformToFill"/>
-                                        </Ellipse.Fill>
-                                    </Ellipse>
+                                <StackPanel Grid.Column="0" Orientation="Vertical" VerticalAlignment="Center" Margin="0,5">
+                                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Name" VerticalAlignment="Center" Foreground="#FF062D5A" FontSize="18" FontWeight="Bold" />
+                                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Status" VerticalAlignment="Center" Foreground="#FF062D5A" FontSize="18" FontWeight="Bold" />
+                                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Study Level" VerticalAlignment="Center" Foreground="#FF062D5A" FontSize="18" FontWeight="Bold" />
+                                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Charity Organization" VerticalAlignment="Center" Foreground="#FF062D5A" FontSize="18" FontWeight="Bold" />
                                 </StackPanel>
-                                <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center" Margin="5,10">
-                                    <TextBlock HorizontalAlignment="Left" Margin="0,0,0,3" TextWrapping="Wrap" Text="{Binding name}" VerticalAlignment="Top" Foreground="#FF062D5A" FontSize="18" FontWeight="Bold" />
-                                    <TextBlock HorizontalAlignment="Left" Margin="0" TextWrapping="Wrap" Text="{Binding study_level}" VerticalAlignment="Top" Foreground="#FF062D5A" FontSize="14" />
+                                <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center" Margin="0,5">
+                                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text=" :" VerticalAlignment="Top" Foreground="#FF062D5A" FontSize="18" FontWeight="Bold" />
+                                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text=" :" VerticalAlignment="Top" Foreground="#FF062D5A" FontSize="18" FontWeight="Bold" />
+                                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text=" :" VerticalAlignment="Top" Foreground="#FF062D5A" FontSize="18" FontWeight="Bold" />
+                                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text=" :" VerticalAlignment="Top" Foreground="#FF062D5A" FontSize="18" FontWeight="Bold" />
+                                </StackPanel>
+                                <StackPanel Grid.Column="2" Orientation="Vertical" VerticalAlignment="Center" Margin="0,5">
+                                    <TextBlock Margin="5,0,0,0" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding name}" VerticalAlignment="Center" Foreground="#FF062D5A" FontSize="18" />
+                                    <TextBlock Margin="5,0,0,0" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding children_status}" VerticalAlignment="Center" Foreground="#FF062D5A" FontSize="18" />
+                                    <TextBlock Margin="5,0,0,0" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding study_level}" VerticalAlignment="Center" Foreground="#FF062D5A" FontSize="18" />
+                                    <TextBlock Margin="5,0,0,0" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding cha_org_name}" VerticalAlignment="Center" Foreground="#FF062D5A" FontSize="18" />
                                 </StackPanel>
                             </Grid>
                             <Border Background="#FFBDBDBD" Height="2" Opacity="0.5" Width="480"/>
@@ -144,13 +139,16 @@
                 </i:Interaction.Triggers>
             </ListBox>
         </Grid>
+        <Grid Grid.Row="2">
+            <TextBlock TextWrapping="Wrap" Text="{Binding No_anak}" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,100" Opacity="0.6"/>
+        </Grid>
 
     </Grid>
-    <phone:PhoneApplicationPage.ApplicationBar>
+    <!--<phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar IsVisible="True" IsMenuEnabled="False" BackgroundColor="White" Opacity="0.925" ForegroundColor="#FF062D5A" Mode="Default">
-            <!--<shell:ApplicationBarIconButton x:Name="apbarHome" IconUri="/Assets/icons/ic_48_home.png" Text="Home" Click="apbarHome_Click"/>-->
+            --><!--<shell:ApplicationBarIconButton x:Name="apbarHome" IconUri="/Assets/icons/ic_48_home.png" Text="Home" Click="apbarHome_Click"/>--><!--
             <shell:ApplicationBarIconButton x:Name="apbarSetting" IconUri="/Assets/icons/ic_48_setting.png" Text="setting" Click="apbarSetting_Click"/>
         </shell:ApplicationBar>
-    </phone:PhoneApplicationPage.ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>-->
     
 </phone:PhoneApplicationPage>

@@ -110,10 +110,16 @@ namespace BantuAnakAsuh.ViewModels
         }
         private void GetCaptureImage1(object obj)
         {
-            CameraCaptureTask camera = new CameraCaptureTask();
-            camera.Show();
+        //    CameraCaptureTask camera = new CameraCaptureTask();
+        //    camera.Show();
 
-            camera.Completed += new EventHandler<PhotoResult>(camera_Completed);
+        //    camera.Completed += new EventHandler<PhotoResult>(camera_Completed);
+            PhotoChooserTask photoChooserTask = new PhotoChooserTask();
+            photoChooserTask.Completed += camera_Completed;
+            photoChooserTask.PixelHeight = 480;
+            photoChooserTask.PixelWidth = 480;
+            photoChooserTask.ShowCamera = true;
+            photoChooserTask.Show();
         }
         public ICommand GetImageCommand
         {
@@ -131,6 +137,9 @@ namespace BantuAnakAsuh.ViewModels
 
             _photoChooserTask.Completed += new EventHandler<PhotoResult>(camera_Completed);
             _photoChooserTask.Show(); 
+
+
+            
         }
 
         void camera_Completed(object sender, PhotoResult e)

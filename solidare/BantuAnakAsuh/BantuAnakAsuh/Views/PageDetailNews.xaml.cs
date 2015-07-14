@@ -17,7 +17,7 @@ namespace BantuAnakAsuh.Views
         public PageDetailNews()
         {
             InitializeComponent();
-            ViewModelDetailNews vmdn = new ViewModelDetailNews();
+            ViewModelNews vmdn = new ViewModelNews();
             this.DataContext = vmdn;
         }
 

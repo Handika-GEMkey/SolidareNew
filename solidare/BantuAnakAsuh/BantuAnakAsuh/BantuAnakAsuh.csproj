@@ -113,7 +113,9 @@
     <Compile Include="Models\ModelListOrder.cs" />
     <Compile Include="Models\ModelLogin.cs" />
     <Compile Include="Models\ModelNews.cs" />
+    <Compile Include="Models\ModelNotificationConfirmation.cs" />
     <Compile Include="Models\ModelOrganization.cs" />
+    <Compile Include="Models\ModelPassword.cs" />
     <Compile Include="Models\ModelProfileDonatur.cs" />
     <Compile Include="Models\ModelProgram.cs" />
     <Compile Include="Models\ModelRapot.cs" />
@@ -122,22 +124,27 @@
     <Compile Include="Models\ModelSearch.cs" />
     <Compile Include="Models\ModelSetting.cs" />
     <Compile Include="Models\ModelValidasiPost.cs" />
+    <Compile Include="ProgressRing.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\AppResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\ViewModelAnakAsuh.cs" />
     <Compile Include="ViewModels\ViewModelBank.cs" />
+    <Compile Include="ViewModels\ViewModelConfirmation.cs" />
     <Compile Include="ViewModels\ViewModelDetailAnakAsuh.cs" />
     <Compile Include="ViewModels\ViewModelDetailDonation.cs" />
     <Compile Include="ViewModels\ViewModelDetailNews.cs" />
     <Compile Include="ViewModels\ViewModelDonasi.cs" />
     <Compile Include="ViewModels\ViewModelEnvironment.cs" />
+    <Compile Include="ViewModels\ViewModelForgotPassword.cs" />
     <Compile Include="ViewModels\ViewModelGetKeranjang.cs" />
     <Compile Include="ViewModels\ViewModelHasilFilter.cs" />
     <Compile Include="ViewModels\ViewModelKeranjang.cs" />
     <Compile Include="ViewModels\ViewModelKonfirmasi.cs" />
+    <Compile Include="ViewModels\ViewModelLogin.cs" />
     <Compile Include="ViewModels\ViewModelNews.cs" />
     <Compile Include="ViewModels\ViewModelOrganization.cs" />
     <Compile Include="ViewModels\ViewModelPassword.cs" />
@@ -147,6 +154,12 @@
     <Compile Include="ViewModels\ViewModelRekomendasi.cs" />
     <Compile Include="ViewModels\ViewModelSearch.cs" />
     <Compile Include="ViewModels\ViewModelSetting.cs" />
+    <Compile Include="Views\coba.xaml.cs">
+      <DependentUpon>coba.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DetailAnakAsuhNearby.xaml.cs">
+      <DependentUpon>DetailAnakAsuhNearby.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\DetailDonation.xaml.cs">
       <DependentUpon>DetailDonation.xaml</DependentUpon>
     </Compile>
@@ -158,6 +171,12 @@
     </Compile>
     <Compile Include="Views\NewHomepage.xaml.cs">
       <DependentUpon>NewHomepage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageDetailAnak.xaml.cs">
+      <DependentUpon>PageDetailAnak.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageDetailDonatur.xaml.cs">
+      <DependentUpon>PageDetailDonatur.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PageDetailNews.xaml.cs">
       <DependentUpon>PageDetailNews.xaml</DependentUpon>
@@ -265,6 +284,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\coba.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DetailAnakAsuhNearby.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\DetailDonation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -278,6 +305,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\NewHomepage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PageDetailAnak.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PageDetailDonatur.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -411,6 +446,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
@@ -421,6 +457,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\10624671_992033550812550_3110916633634790844_n.jpg" />
+    <Content Include="Assets\Alarm_bell_128.png" />
+    <Content Include="Assets\Alarm_bell_512.png" />
     <Content Include="Assets\AlignmentGrid.png" />
     <Content Include="Assets\AppBar1\feature.email.png" />
     <Content Include="Assets\AppBar\check.png" />
@@ -439,6 +477,8 @@
     </Content>
     <Content Include="Assets\Icons\baa.png" />
     <Content Include="Assets\Icons\ic_125_markorang.png" />
+    <Content Include="Assets\Icons\ic_128_downloadReport.png" />
+    <Content Include="Assets\Icons\ic_128_report.png" />
     <Content Include="Assets\Icons\ic_256_camera.png" />
     <Content Include="Assets\Icons\ic_256_marker.png" />
     <Content Include="Assets\Icons\ic_25_mylocat.png" />
@@ -468,12 +508,14 @@
     <Content Include="Assets\Icons\ic_48_filter.png" />
     <Content Include="Assets\Icons\ic_48_getdirection.png" />
     <Content Include="Assets\Icons\ic_48_home.png" />
+    <Content Include="Assets\Icons\ic_48_letter.png" />
     <Content Include="Assets\Icons\ic_48_mail.png" />
     <Content Include="Assets\Icons\ic_48_menu.png" />
     <Content Include="Assets\Icons\ic_48_mylocat.png" />
     <Content Include="Assets\Icons\ic_48_nearby.png" />
     <Content Include="Assets\Icons\ic_48_news.png" />
     <Content Include="Assets\Icons\ic_48_phone.png" />
+    <Content Include="Assets\Icons\ic_48_report.png" />
     <Content Include="Assets\Icons\ic_48_search.png" />
     <Content Include="Assets\Icons\ic_48_setting.png" />
     <Content Include="Assets\Icons\ic_48_user.png" />
@@ -551,6 +593,9 @@
     <Reference Include="Microsoft.Phone.Controls.Maps, Version=8.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Phone.Controls.Toolkit">
       <HintPath>..\packages\WPtoolkit.4.2013.08.16\lib\wp8\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Messaging">
+      <HintPath>..\packages\WindowsAzure.Messaging.Managed.0.1.7.9\lib\windowsphone8\Microsoft.WindowsAzure.Messaging.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.0.3.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

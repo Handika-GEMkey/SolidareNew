@@ -7,6 +7,9 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using BantuAnakAsuh.Resources;
+using Microsoft.Phone.Notification;
+using Microsoft.WindowsAzure.Messaging;
+using BantuAnakAsuh.Helper;
 
 namespace BantuAnakAsuh
 {
@@ -61,6 +64,26 @@ namespace BantuAnakAsuh
         // This code will not execute when the application is reactivated
         private void Application_Launching(object sender, LaunchingEventArgs e)
         {
+            var channel = HttpNotificationChannel.Find("MyPushChannel");
+            if (channel == null)
+            {
+                channel = new HttpNotificationChannel("MyPushChannel");
+                channel.Open();
+                channel.BindToShellToast();
+            }
+
+            channel.ChannelUriUpdated += new EventHandler<NotificationChannelUriEventArgs>(async (o, args) =>
+            {
+                var hub = new NotificationHub("alixhub", "Endpoint=sb://alixnotif.servicebus.windows.net/;SharedAccessKeyName=DefaultListenSharedAccessSignature;SharedAccessKey=doOIJAPhFbdWtcijnBxeVX5KyjdUH5k1JZihJd7fP58=");
+                var result = await hub.RegisterNativeAsync(args.ChannelUri.ToString());
+
+                Debug.WriteLine(result.ChannelUri);
+                Navigation.UserChannel = result.ChannelUri.ToString();
+                //if (result.RegistrationId != null)
+                //{
+
+                //}
+            });
         }
 
         // Code to execute when the application is activated (brought to foreground)

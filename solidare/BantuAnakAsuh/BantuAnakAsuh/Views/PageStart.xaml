@@ -167,6 +167,7 @@
 
             </Border>
         </Canvas>
+        <ProgressBar x:Name="LoadingBar" Visibility="Collapsed" IsEnabled="False" IsIndeterminate="true" Height="13" HorizontalAlignment="Stretch" VerticalAlignment="Center" Foreground="#FF1565C0" Canvas.Top="398" Width="470"/>
     </Canvas>
 
 

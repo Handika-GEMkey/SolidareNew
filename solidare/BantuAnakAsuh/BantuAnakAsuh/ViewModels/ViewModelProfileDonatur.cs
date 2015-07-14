@@ -81,20 +81,6 @@ namespace BantuAnakAsuh.ViewModels
             }
         }
 
-        private ObservableCollection<ModelProfileDonatur> collectionAnakAsuh = new ObservableCollection<ModelProfileDonatur>();
-        public ObservableCollection<ModelProfileDonatur> CollectionAnakAsuh
-        {
-            get { return collectionAnakAsuh; }
-            set
-            {
-                if (this.collectionAnakAsuh != value)
-                {
-                    collectionAnakAsuh = value;
-                    RaisePropertyChanged("");
-                }
-            }
-        }
-
         private ObservableCollection<ModelNews> collectionNews = new ObservableCollection<ModelNews>();
         public ObservableCollection<ModelNews> CollectionNews
         {
@@ -144,14 +130,36 @@ namespace BantuAnakAsuh.ViewModels
                         modelLogin.Gender = item["gender"].ToString();
 
                         CollectionDonatur.Add(modelLogin);
+                        Title_name_profile = modelLogin.Nama_donatur.ToUpper().ToString()+" PROFILE";
+                        Photo_donors = modelLogin.Photo.ToString();
                     }
                 });
+            }
+            catch (NullReferenceException n)
+            {
+                MessageBox.Show("An error occured");
             }
             catch (Exception ec)
             {
                 MessageBox.Show("Failed to display, the Internet connection is unstable.");
             }
 
+        }
+
+        private String title_name_profile;
+
+        public String Title_name_profile
+        {
+            get { return title_name_profile; }
+            set { title_name_profile = value; RaisePropertyChanged(""); }
+        }
+
+        private String photo_donors;
+
+        public String Photo_donors
+        {
+            get { return photo_donors; }
+            set { photo_donors = value; RaisePropertyChanged(""); }
         }
 
         private void LoadUrlNews()
@@ -186,59 +194,9 @@ namespace BantuAnakAsuh.ViewModels
 
                 });
             }
-            catch (Exception ec)
+            catch (NullReferenceException n)
             {
-                MessageBox.Show("Failed to display, the Internet connection is unstable.");
-            }
-
-        }
-
-        private void LoadUrlFosterChildren()
-        {
-            try
-            {
-                RestRequest request = new RestRequest(URL.BASE3 + "APIv2/fosterchildren/fosterchildren.php", Method.POST);
-                request.AddHeader("content-type", "multipart/form-data");
-                request.AddParameter("id_donors", Navigation.navIdDonors);
-                request.AddParameter("token", Navigation.token);
-
-                //calling server with restClient
-                RestClient restClient = new RestClient();
-                restClient.ExecuteAsync(request, (response) =>
-                {
-
-                    JObject jRoot = JObject.Parse(response.Content);
-                    String result = jRoot.SelectToken("result").ToString();
-                    JArray JItem = JArray.Parse(jRoot.SelectToken("item").ToString());
-                    foreach (JObject item in JItem)
-                    {
-                        ModelProfileDonatur modelAnakAsuh = new ModelProfileDonatur();
-                        modelAnakAsuh.id_fosterchildren = item["id_fosterchildren"].ToString();
-                        modelAnakAsuh.name = item["name"].ToString();
-                        modelAnakAsuh.pob = item["pob"].ToString();
-                        modelAnakAsuh.dob = item["dob"].ToString();
-                        modelAnakAsuh.gender = item["gender"].ToString();
-                        modelAnakAsuh.address = item["address"].ToString();
-                        modelAnakAsuh.photo = URL.BASE3 + "modul/mod_AnakAsuh/photo/" + item["photo"].ToString();
-                        modelAnakAsuh.cost = item["cost"].ToString();
-                        modelAnakAsuh.children_status = item["children_status"].ToString();
-                        modelAnakAsuh.latitude = item["latitude"].ToString();
-                        modelAnakAsuh.longitude = item["longitude"].ToString();
-                        modelAnakAsuh.study_level = item["study_level"].ToString();
-                        modelAnakAsuh.school = item["school"].ToString();
-                        modelAnakAsuh.grade = item["grade"].ToString();
-                        modelAnakAsuh.parent_name = item["parent_name"].ToString();
-                        modelAnakAsuh.parent_address = item["parent_address"].ToString();
-                        modelAnakAsuh.jobs = item["jobs"].ToString();
-                        modelAnakAsuh.salary = item["salary"].ToString();
-                        modelAnakAsuh.id_cha_org = item["id_cha_org"].ToString();
-                        modelAnakAsuh.cha_org_name = item["cha_org_name"].ToString();
-                        modelAnakAsuh.id_program = item["id_program"].ToString();
-                        modelAnakAsuh.program_name = item["program_name"].ToString();
-                        Navigation.idProgram = modelAnakAsuh.id_cha_org.ToString();
-                        collectionAnakAsuh.Add(modelAnakAsuh);
-                    }
-                });
+                MessageBox.Show("An error occured");
             }
             catch (Exception ec)
             {
@@ -257,29 +215,6 @@ namespace BantuAnakAsuh.ViewModels
                     listIndex = value;
                 RaisePropertyChanged("");
             }
-        }
-
-        public ICommand SetAnakAsuh
-        {
-            get
-            {
-                return new DelegateCommand(SetIdAnak, CanSetIdAnak);
-            }
-        }
-
-        private bool CanSetIdAnak(object arg)
-        {
-            return true;
-        }
-
-        private void SetIdAnak(object obj)
-        {
-            ModelProfileDonatur SelectedItem = obj as ModelProfileDonatur;
-
-            if (SelectedItem != null)
-                Navigation.navIdAnak = SelectedItem.id_fosterchildren;
-
-            listIndex = -1;
         }
 
         private int listIndex1 = -1;

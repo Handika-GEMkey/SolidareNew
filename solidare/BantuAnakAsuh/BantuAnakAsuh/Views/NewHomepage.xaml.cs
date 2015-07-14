@@ -194,7 +194,29 @@ namespace BantuAnakAsuh.Views
 
         private void RecommendationBtn_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void recommendationLogo_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
             NavigationService.Navigate(new Uri("/Views/PageRekomendasi.xaml", UriKind.Relative));
+        }
+
+        protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
+        {
+            System.Windows.Application.Current.Terminate();
+            //this.NavigationService.RemoveBackEntry();
+            //base.OnBackKeyPress(e);
+            //e.Cancel = true;
+
+            //string caption = "Exit?";
+            //string message = "Are you sure you want to exit?";
+            //e.Cancel = MessageBoxResult.Cancel == MessageBox.Show(message, caption, MessageBoxButton.OKCancel);
+            //if (e.Cancel != true)
+            //{
+                
+            //}
+
         }
 
     }

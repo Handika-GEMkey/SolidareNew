@@ -8,6 +8,7 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using BantuAnakAsuh.ViewModels;
+using BantuAnakAsuh.Helper;
 
 namespace BantuAnakAsuh.Views
 {
@@ -16,8 +17,9 @@ namespace BantuAnakAsuh.Views
         public PageProfileDonatur()
         {
             InitializeComponent();
-            ViewModelProfileDonatur vmpd = new ViewModelProfileDonatur();
+            ViewModelAnakAsuh vmpd = new ViewModelAnakAsuh();
             this.DataContext = vmpd;
+
         }
 
         private void buttonMenu_Tap(object sender, System.Windows.Input.GestureEventArgs e)

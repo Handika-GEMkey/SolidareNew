@@ -17,7 +17,17 @@ namespace BantuAnakAsuh.Models
         public String foto_anak { get; set; }
         public String semester_pr { get; set; }
         public String tanggal_laporan { get; set; }
-        public String file_laporan { get; set; }     
+        public String file_laporan { get; set; }
+
+        public String id_report { get; set; }
+        public String id_fosterchildren { get; set; }
+        public String name { get; set; }
+        public String study_level { get; set; }
+        public String school { get; set; }
+        public String grade { get; set; }
+        public String semester { get; set; }
+        public String report_date { get; set; }
+        public String report_file { get; set; }
         
     }
 }

@@ -19,6 +19,7 @@ namespace BantuAnakAsuh.Views
 {
     public partial class PagePassword : PhoneApplicationPage
     {
+        Encrypt ec = new Encrypt();
         public PagePassword()
         {
             InitializeComponent();
@@ -26,13 +27,18 @@ namespace BantuAnakAsuh.Views
 
         private void apBarChangePassword_Click(object sender, EventArgs e)
         {
-            string password = textBoxPwd.Password;
-            string cpassword = textBoxCpwd.Password;
+            string cur_password = textBoxPwd.Password;
+            string new_password = textBoxCpwd.Password;
+            String ecur_pwd = ec.EncryptIt(cur_password);
+            String enew_pwb = ec.EncryptIt(new_password);
 
             StringBuilder parameter = new StringBuilder();
+            parameter.AppendFormat("{0}={1}&", "id_donors", HttpUtility.UrlEncode(Navigation.navIdDonors));
+            parameter.AppendFormat("{0}={1}&", "token", HttpUtility.UrlEncode(Navigation.token));
+            parameter.AppendFormat("{0}={1}&", "cur_password", HttpUtility.UrlEncode(cur_password.ToString()));
+            parameter.AppendFormat("{0}={1}&", "new_password", HttpUtility.UrlEncode(new_password.ToString()));
             
-            parameter.AppendFormat("{0}={1}&", "password", HttpUtility.UrlEncode(password.ToString()));
-            if (password.Equals("") || cpassword.Equals(""))
+            if (ecur_pwd.Equals("") || enew_pwb.Equals(""))
             {
                 MessageBox.Show("Please complete all field below.");
             }
@@ -43,9 +49,9 @@ namespace BantuAnakAsuh.Views
                     WebClient clientLogin = new WebClient();
                     clientLogin.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
                     clientLogin.Headers[HttpRequestHeader.ContentLength] = parameter.Length.ToString();
-                    
-                    clientLogin.UploadStringCompleted += new UploadStringCompletedEventHandler(uploadRegisterComplete);
-                    clientLogin.UploadStringAsync(new Uri(URL.BASE3 + "api/setting/changepwd.php?id_donatur=" + Navigation.navIdLogin), "POST", parameter.ToString());
+
+                    clientLogin.UploadStringCompleted += new UploadStringCompletedEventHandler(uploadChangePasswordComplete);
+                    clientLogin.UploadStringAsync(new Uri(URL.BASE3 + "APIv2/donors/change_password.php"), "POST", parameter.ToString());
                 }
                 catch
                 {
@@ -54,23 +60,23 @@ namespace BantuAnakAsuh.Views
             } 
         }
 
-        private void uploadRegisterComplete(object sender, UploadStringCompletedEventArgs e)
+        private void uploadChangePasswordComplete(object sender, UploadStringCompletedEventArgs e)
         {
             try
             {
-                string Result;
+                string Result,Message;
                 JObject jresult = JObject.Parse(e.Result);
                 Result = jresult["result"].ToString();
-
-                if (Result.Equals("sukses"))
+                Message = jresult["message"].ToString();
+                if (Result.Equals("success"))
                 {
-                    MessageBox.Show("Your account password has been updated!");
+                    MessageBox.Show("Your "+Message.ToLower());
                     
-                    NavigationService.Navigate(new Uri("/Views/PageMenu.xaml", UriKind.Relative));
+                    NavigationService.Navigate(new Uri("/Views/NewHomepage.xaml", UriKind.Relative));
                 }
                 else
                 {
-                    MessageBox.Show("An error occurred when update. Please Repeat!");
+                    MessageBox.Show(Message+", please input again!");
                 }
             }
             catch (TimeoutException)
@@ -94,7 +100,7 @@ namespace BantuAnakAsuh.Views
 
         private void buttonMenu_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/Views/PageMenu.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/Views/NewHomepage.xaml", UriKind.Relative));
         }
     }
 }

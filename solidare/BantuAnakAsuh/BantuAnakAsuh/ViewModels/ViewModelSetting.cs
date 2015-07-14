@@ -25,13 +25,14 @@ namespace BantuAnakAsuh.ViewModels
         private String id_donatur;
         private Stream bitmapFotoDonatur;
         private Random rand = new Random();
+        public string ChoosePhoto = "";
 
         private void GetImageFromGallery(object obj)
         {
             PhotoChooserTask photoChooserTask = new PhotoChooserTask();
             photoChooserTask.Show();
             photoChooserTask.Completed += new EventHandler<PhotoResult>(photoChooserTask_Completed);
-            
+            ChoosePhoto = "true";
         }
 
         private void photoChooserTask_Completed(object sender, PhotoResult e)
@@ -72,8 +73,14 @@ namespace BantuAnakAsuh.ViewModels
                 request.AddParameter("email", Email);
                 request.AddParameter("phone", Phone);
                 request.AddParameter("gender", Gender);
-                request.AddFile("photo", ReadToEnd(bitmapFotoDonatur), "photo" + rand.Next(0, 99999999).ToString() + ".jpg");
-
+                if (ChoosePhoto == "true")
+                {
+                    request.AddFile("photo", ReadToEnd(bitmapFotoDonatur), "photo" + rand.Next(0, 99999999).ToString() + ".jpg");
+                }
+                else
+                {
+                    request.AddParameter("photo", Photo);
+                }
                 //calling server with restClient
                 RestClient restClient = new RestClient();
                 restClient.ExecuteAsync(request, (response) =>
