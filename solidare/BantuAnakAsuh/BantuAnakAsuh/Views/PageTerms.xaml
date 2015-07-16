@@ -1,0 +1,64 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="BantuAnakAsuh.Views.PageTerms"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="61"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="72"/>
+        </Grid.RowDefinitions>
+
+        <ScrollViewer Grid.RowSpan="2" VerticalAlignment="Top" Margin="0,60,0,0" Height="auto">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="1" Width="420" Margin="30,10,10,0">
+                    <StackPanel Orientation="Vertical">
+                        <!--<TextBlock TextWrapping="Wrap" Text="FOSTER CHILDREN IDENTITY" FontSize="18" Foreground="Black" FontWeight="Bold" Margin="0,0,0,20"/>-->
+                        <TextBlock TextWrapping="Wrap" Text="Terms and Policy" FontSize="16" Foreground="Black" FontWeight="Bold"/>
+                        <TextBlock TextWrapping="Wrap" Text="" FontSize="16" Foreground="Black" FontWeight="Bold"/>
+                        <TextBlock TextWrapping="Wrap" Text="" FontSize="16" Foreground="Black" FontWeight="Bold"/>
+                        <TextBlock TextWrapping="Wrap" Text="1. After you do donate, you must confirm with confirmation menu. Charity organization will validate." FontSize="16" Foreground="Black" FontWeight="Bold"/>
+                        <TextBlock TextWrapping="Wrap" Text="" FontSize="16" Foreground="Black" FontWeight="Bold"/>
+                        <TextBlock TextWrapping="Wrap" Text="2.	Report card will be given per 1 semester and it can be accessed in your windows phone." FontSize="16" Foreground="Black" FontWeight="Bold"/>
+                        <TextBlock TextWrapping="Wrap" Text="" FontSize="16" Foreground="Black" FontWeight="Bold"/>
+                        <TextBlock TextWrapping="Wrap" Text="3.	'Solidare' does not save and take donation money from donors. Donation is transferred by donors directly to the charity organization account number." FontSize="16" Foreground="Black" FontWeight="Bold"/>
+                        <TextBlock TextWrapping="Wrap" Text="" FontSize="16" Foreground="Black" FontWeight="Bold"/>
+                        <TextBlock TextWrapping="Wrap" Text="4.	Donors can select 3 foster children maximum in the donation cart, after three children in the donation cart list already donated, donors are allowed to do donate to other children." FontSize="16" Foreground="Black" FontWeight="Bold"/>
+                        <TextBlock TextWrapping="Wrap" Text="" FontSize="16" Foreground="Black" FontWeight="Bold"/>
+                        <TextBlock TextWrapping="Wrap" Text="5.	If there are further questions about donation, donation program, and the charity organization you can use consultation menu." FontSize="16" Foreground="Black" FontWeight="Bold"/>
+                        <TextBlock TextWrapping="Wrap" Text="" FontSize="16" Foreground="Black" FontWeight="Bold"/>
+                        <TextBlock TextWrapping="Wrap" Text="6.	Term and condition apply." FontSize="16" Foreground="Black" FontWeight="Bold"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </ScrollViewer>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" Height="60" Width="480" Background="#0071BC" VerticalAlignment="Top">
+            <Grid x:Name="home" Grid.Column="0" Width="70" Height="60">
+                <Image x:Name="buttonMenu" Source="/Assets/Icons/ic_48_back_button.png" Stretch="UniformToFill" Width="50" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Height="50" Tap="buttonMenu_Tap"/>
+            </Grid>
+            <Grid Grid.Column="1">
+                <TextBlock Text="TERMS AND CONDITIONS" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+            </Grid>
+        </StackPanel>
+
+    </Grid>
+
+</phone:PhoneApplicationPage>

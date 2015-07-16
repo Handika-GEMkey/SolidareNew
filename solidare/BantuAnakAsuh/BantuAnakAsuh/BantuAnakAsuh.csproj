@@ -172,6 +172,9 @@
     <Compile Include="Views\NewHomepage.xaml.cs">
       <DependentUpon>NewHomepage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\PageAbout.xaml.cs">
+      <DependentUpon>PageAbout.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PageDetailAnak.xaml.cs">
       <DependentUpon>PageDetailAnak.xaml</DependentUpon>
     </Compile>
@@ -271,6 +274,9 @@
     <Compile Include="Views\PageTentang.xaml.cs">
       <DependentUpon>PageTentang.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\PageTerms.xaml.cs">
+      <DependentUpon>PageTerms.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\UCCustomToolTip.xaml.cs">
       <DependentUpon>UCCustomToolTip.xaml</DependentUpon>
     </Compile>
@@ -305,6 +311,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\NewHomepage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PageAbout.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -440,6 +450,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\PageTerms.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\UCCustomToolTip.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -536,7 +550,11 @@
     <Content Include="Assets\Images\cr1.png" />
     <Content Include="Assets\Images\cr2.png" />
     <Content Include="Assets\Images\cr3.png" />
+    <Content Include="Assets\Images\ic_copyright_alix.png" />
+    <Content Include="Assets\Images\ic_fb.png" />
     <Content Include="Assets\Images\ic_logo_launcha.png" />
+    <Content Include="Assets\Images\ic_twit.png" />
+    <Content Include="Assets\Images\ic_web.png" />
     <Content Include="Assets\Images\im_child1.jpg" />
     <Content Include="Assets\Images\im_child2.jpg" />
     <Content Include="Assets\Images\im_child3.jpg" />
@@ -546,6 +564,8 @@
     <Content Include="Assets\Images\im_pratiwialfiah.png" />
     <Content Include="Assets\Images\im_timgbsa.jpg" />
     <Content Include="Assets\Images\logo gbsa.png" />
+    <Content Include="Assets\Images\logo_berma.png" />
+    <Content Include="Assets\Images\logo_RZ.png" />
     <Content Include="Assets\Images\Solidare %28biru%29.png" />
     <Content Include="Assets\Images\Solidare.png" />
     <Content Include="Assets\logo.png" />
