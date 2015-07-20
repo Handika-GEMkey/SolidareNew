@@ -40,6 +40,9 @@ namespace BantuAnakAsuh.Helper
         public static String phone;
         public static String username;
         public static String password;
-        
+        public static String message;
+        public static String cur_password;
+        public static String new_password;
+        public static String temp_pwd;
     }
 }

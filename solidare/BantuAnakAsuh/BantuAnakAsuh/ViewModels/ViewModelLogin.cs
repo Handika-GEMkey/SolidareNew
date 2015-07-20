@@ -20,13 +20,21 @@ namespace BantuAnakAsuh.ViewModels
     {
         Encrypt et = new Encrypt();
         ModelLogin modelLogin = new ModelLogin();
+
+        private Boolean pRing;
+
+        public Boolean PRing
+        {
+            get { return pRing; }
+            set { pRing = value; RaisePropertyChanged(""); }
+        }
         
         private String Result;
         
         public ViewModelLogin()
         {
             this.LoadUrlDonorProfile();
-            
+            PRing = true;
         }
 
         private void LoadUrlDonorProfile()
@@ -81,6 +89,12 @@ namespace BantuAnakAsuh.ViewModels
                                 writer.Write(modelLogin.Token);
                                 writer.Close();
                             }
+                            //using (IsolatedStorageFileStream rawStream = isf.CreateFile("password"))
+                            //{
+                            //    StreamWriter writer = new StreamWriter(rawStream);
+                            //    writer.Write(Navigation.temp_pwd);
+                            //    writer.Close();
+                            //}
                         }
                         var frame = App.Current.RootVisual as PhoneApplicationFrame;
                         frame.Navigate(new Uri("/Views/NewHomepage.xaml", UriKind.Relative));
@@ -88,8 +102,8 @@ namespace BantuAnakAsuh.ViewModels
                     }
                     else
                     {
-                        MessageBox.Show("Email and password does not match, try again!");
-                        
+                        MessageBox.Show("Username and password does not match, try again!","",MessageBoxButton.OK);
+                        PRing = false;
                     }
                 });
             }

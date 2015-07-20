@@ -69,9 +69,10 @@ namespace BantuAnakAsuh.ViewModels
                     toast.Title = "Status Upload";
                     JObject jRoot = JObject.Parse(response.Content);
                     String result = jRoot.SelectToken("result").ToString();
+                    String message = jRoot.SelectToken("message").ToString();
                     if (result == "failed")
                     {
-                        MessageBox.Show("Failed to display!");
+                        MessageBox.Show(message);
                     }
                     else
                     {
@@ -82,7 +83,7 @@ namespace BantuAnakAsuh.ViewModels
                             if (result.Equals("success"))
                             {
 
-                                if (MessageBox.Show("Request has done, check your Donation List") == MessageBoxResult.OK)
+                                if (MessageBox.Show(message) == MessageBoxResult.OK)
                                 {
                                     var frame = App.Current.RootVisual as PhoneApplicationFrame;
                                     frame.Navigate(new Uri("/Views/PageKeranjangDonasi.xaml", UriKind.Relative));

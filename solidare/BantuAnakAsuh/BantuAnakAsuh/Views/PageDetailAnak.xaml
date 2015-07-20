@@ -15,6 +15,7 @@
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid>
+        <ProgressBar x:Name="LoadingBarNews" IsEnabled="False" IsIndeterminate="{Binding LRingNews,Mode=TwoWay}" Height="4" HorizontalAlignment="Stretch" Foreground="#4B4B4B"/>
         <Grid x:Name="LayoutRoot" Background="White">
             <Grid.RowDefinitions>
                 <RowDefinition Height="72"/>

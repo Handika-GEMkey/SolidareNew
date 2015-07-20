@@ -44,20 +44,20 @@
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="White">
         <Grid.RowDefinitions>
-            <RowDefinition Height="61"/>
+            <RowDefinition Height="72"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
 
-        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" Height="60" Width="480" Background="#0071BC" VerticalAlignment="Top">
-            <Grid x:Name="home" Grid.Column="0" Width="70" Height="60">
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" Height="72" Width="480" Background="#0071BC" VerticalAlignment="Top">
+            <Grid x:Name="home" Grid.Column="0" Width="70" Height="72">
                 <Image x:Name="buttonMenu" Source="/Assets/Icons/ic_48_back_button.png" Stretch="UniformToFill" Width="50" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Height="50" Tap="buttonMenu_Tap"/>
             </Grid>
             <Grid Grid.Column="0">
                 <TextBlock Text="THE NEAREST CHILDREN" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold"/>
             </Grid>
         </StackPanel>
-        <Grid Grid.Row="1"  HorizontalAlignment="Left" Height="660" VerticalAlignment="Top" Width="480">
+        <Grid Grid.Row="1"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="480" >
             <maps:Map  Name="MapVieMode" LandmarksEnabled="true"  PedestrianFeaturesEnabled="true" HorizontalAlignment="Left"  MinWidth="500" MinHeight="750"  VerticalAlignment="Top" Loaded="Map_Loaded" Background="Black" />
         </Grid>
         

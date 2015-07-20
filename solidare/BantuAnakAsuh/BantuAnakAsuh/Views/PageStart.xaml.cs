@@ -175,13 +175,13 @@ namespace BantuAnakAsuh.Views
                         reader.Close();
                     }
 
-                    using (IsolatedStorageFileStream rawStream = isf.OpenFile("countDonasi",System.IO.FileMode.Open))
-                    {
-                        StreamReader reader = new StreamReader(rawStream);
-                        count = reader.ReadToEnd();
-                        Navigation.countKeranjang = count; 
-                        reader.Close();
-                    }
+                    //using (IsolatedStorageFileStream rawStream = isf.OpenFile("password", System.IO.FileMode.Open))
+                    //{
+                    //    StreamReader reader = new StreamReader(rawStream);
+                    //    password = reader.ReadToEnd();
+                    //    Navigation.password = password;
+                    //    reader.Close();
+                    //}
                 }
                 catch
                 {

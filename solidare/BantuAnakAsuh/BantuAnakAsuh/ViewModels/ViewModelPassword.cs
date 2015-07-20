@@ -1,5 +1,6 @@
 ﻿using BantuAnakAsuh.Common;
 using BantuAnakAsuh.Helper;
+using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using Microsoft.Phone.Tasks;
 using Newtonsoft.Json.Linq;
@@ -7,6 +8,7 @@ using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.IsolatedStorage;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -20,46 +22,46 @@ namespace BantuAnakAsuh.ViewModels
 {
     class ViewModelPassword : ViewModelBase
     {
-        private String id_donatur;
+        string current_pwd, new_pwd;
+        private bool status;
 
-        public String Id_donatur
+        public ICommand PublishCommand
         {
-            get { return id_donatur; }
-            set { id_donatur = value; RaisePropertyChanged(""); }
+            get
+            {
+                return new DelegateCommand(PushToServer);
+            }
         }
 
-        private bool status;
         private void PushToServer(object obj)
         {
+            PRing = true;
+            current_pwd = Navigation.cur_password.ToString();
+            new_pwd = Navigation.new_password.ToString();
             try
             {
+                PRing = true;
                 status = true;
-                RestRequest request = new RestRequest(URL.BASE3 + "api/setting/changepwd.php?id_donatur=" + Navigation.navIdLogin, Method.POST);
+                RestRequest request = new RestRequest(URL.BASE3 + "APIv2/donors/change_password.php", Method.POST);
 
-                if (Password == null || Confirmpassword == null )
+                if (current_pwd.Equals("") || new_pwd.Equals(""))
                 {
-                    MessageBox.Show("All Textbox Must Be Filled");
-                    status = false;
+                    MessageBox.Show("Please complete all field below.");
                 }
                 else
                 {
                     request.AddHeader("content-type", "multipart/form-data");
-                    
-                    if (Password == Confirmpassword)
-                    {
-                        request.AddParameter("password", Password);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Confirm new password that you entered is not same with your new password, please try again!");
-                        status = false;
-                    }
-                    
+
+                    request.AddParameter("id_donors", Navigation.navIdDonors);
+                    request.AddParameter("token", Navigation.token);
+                    request.AddParameter("cur_password", current_pwd);
+                    request.AddParameter("new_password", new_pwd);
 
                     //calling server with restClient
                     RestClient restClient = new RestClient();
                     if (status == true)
                     {
+                        PRing = true;
                         restClient.ExecuteAsync(request, (response) =>
                         {
                             ShellToast toast = new ShellToast();
@@ -70,34 +72,51 @@ namespace BantuAnakAsuh.ViewModels
                             {
                                 JObject jRoot = JObject.Parse(response.Content);
                                 String result = jRoot.SelectToken("result").ToString();
+                                String message = jRoot.SelectToken("message").ToString();
                                 if (result == "failed")
                                 {
-                                    MessageBox.Show("Failed to display!");
+                                    PRing = false;
+                                    MessageBox.Show(message);
                                 }
                                 else
                                 {
                                     if (response.StatusCode == System.Net.HttpStatusCode.OK)
                                     {
-                                        if (result.Equals("sukses"))
+                                        if (result.Equals("success"))
                                         {
-                                            MessageBox.Show("Your password has been updated");
+                                            PRing = false;
+                                            MessageBox.Show("Your " + message.ToLower());
+                                            var frame = App.Current.RootVisual as PhoneApplicationFrame;
+                                            frame.Navigate(new Uri("/Views/NewHomepage.xaml", UriKind.Relative));
 
+                                            //using (IsolatedStorageFile isf = IsolatedStorageFile.GetUserStoreForApplication())
+                                            //{
+                                            //    using (IsolatedStorageFileStream rawStream = isf.CreateFile("password"))
+                                            //    {
+                                            //        StreamWriter writer = new StreamWriter(rawStream);
+                                            //        writer.Write(Navigation.new_password);
+                                            //        writer.Close();
+                                            //    }
+                                            //}
                                         }
                                         else
                                         {
-                                            MessageBox.Show("Something Wrong");
+                                            PRing = false;
+                                            MessageBox.Show(message + " please try again!");
                                         }
                                     }
                                     else
                                     {
                                         //error ocured during upload
-                                        MessageBox.Show("Failed to post, Please check your Internet connection.");
+                                        PRing = false;
+                                        MessageBox.Show("Failed to update your password, Please check your Internet connection.");
                                     }
                                 }
                             }
                             catch
                             {
-                                
+                                PRing = false;
+                                MessageBox.Show("Failed to display, the Internet connection is unstable.");
                             }
                         });
                     }
@@ -113,21 +132,14 @@ namespace BantuAnakAsuh.ViewModels
             }
         }
 
-        private String password;
+        private Boolean pRing;
 
-        public String Password
+        public Boolean PRing
         {
-            get { return password; }
-            set { password = value; }
+            get { return pRing; }
+            set { pRing = value; RaisePropertyChanged(""); }
         }
 
-        private String confirmpassword;
-
-        public String Confirmpassword
-        {
-            get { return confirmpassword; }
-            set { confirmpassword = value; }
-        }
     }
 
 

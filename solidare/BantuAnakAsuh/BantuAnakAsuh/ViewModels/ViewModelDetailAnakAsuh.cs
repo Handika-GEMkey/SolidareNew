@@ -20,6 +20,7 @@ namespace BantuAnakAsuh.ViewModels
         
         public ViewModelDetailAnakAsuh()
         {
+            LRingNews = true;
             this.LoadUrlFosterChildren();
         }
 
@@ -44,6 +45,7 @@ namespace BantuAnakAsuh.ViewModels
                     if (result == "failed")
                     {
                         MessageBox.Show("Failed to display!");
+                        LRingNews = false;
                     }
                     else
                     {
@@ -73,14 +75,24 @@ namespace BantuAnakAsuh.ViewModels
                             Program_name = item["program_name"].ToString();
                             Navigation.idProgram = Id_program;
                             Navigation.navIdAnak = Id_fosterchildren;
+                            LRingNews = false;
                         }
                     }
                 });
             }
             catch (Exception ec)
             {
+                LRingNews = false;
                 MessageBox.Show("Failed to display, the Internet connection is unstable.");
             }
+        }
+
+        private Boolean lRingNews;
+
+        public Boolean LRingNews
+        {
+            get { return lRingNews; }
+            set { lRingNews = value; RaisePropertyChanged(""); }
         }
 
         //private void LoadUrl()

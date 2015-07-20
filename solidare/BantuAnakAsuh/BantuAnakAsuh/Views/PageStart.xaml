@@ -37,13 +37,13 @@
     </toolkit:TransitionService.NavigationOutTransition>
 
 
-    <Canvas x:Name="canvas" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="800" Background="Black" ManipulationStarted="canvas_ManipulationStarted" ManipulationDelta="canvas_ManipulationDelta" ManipulationCompleted="canvas_ManipulationCompleted">
+    <Canvas x:Name="canvas" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="Black" ManipulationStarted="canvas_ManipulationStarted" ManipulationDelta="canvas_ManipulationDelta" ManipulationCompleted="canvas_ManipulationCompleted">
         <Canvas.Resources>
             <Storyboard x:Name="moveAnimation">
                 <DoubleAnimation Duration="0:0:0.2" To="0" Storyboard.TargetProperty="(Canvas.Left)" Storyboard.TargetName="LayoutRoot" d:IsOptimized="True" />
             </Storyboard>
         </Canvas.Resources>
-        <Canvas  CacheMode="BitmapCache" x:Name="LayoutRoot" Width="1920"  VerticalAlignment="Stretch" Background="Transparent" Canvas.Left="0" Height="800">
+        <Canvas  CacheMode="BitmapCache" x:Name="LayoutRoot" Width="1920"  VerticalAlignment="Stretch" Background="Transparent" Canvas.Left="0">
             <Border Width="480"  CacheMode="BitmapCache" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="{Binding ActualHeight, ElementName=canvas}">
                 <Grid>
                     <Grid.Background>

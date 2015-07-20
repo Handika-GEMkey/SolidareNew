@@ -31,6 +31,10 @@ namespace BantuAnakAsuh.Views
 {
     public partial class PageNearby : PhoneApplicationPage
     {
+        private IsolatedStorageFile Settings = IsolatedStorageFile.GetUserStoreForApplication();
+        public LocationList LocationListobj = new LocationList();
+        public List<GeoCoordinate> MyCoordinates = new List<GeoCoordinate>();
+
         public PageNearby()
         {
             InitializeComponent();
@@ -54,19 +58,47 @@ namespace BantuAnakAsuh.Views
 
         }
 
-        GeoCoordinateWatcher watcher;
-
-        //- code map
-
-        private IsolatedStorageFile Settings = IsolatedStorageFile.GetUserStoreForApplication();
-        private LocationList LocationListobj = new LocationList();
-        public List<GeoCoordinate> MyCoordinates = new List<GeoCoordinate>();
-
         private void MapView_Loaded(object sender, RoutedEventArgs e)
         {
-            LoadURLDetailAnakAsuh();
-
             ShowMyLocationOnTheMap();
+            LoadURLDetailAnakAsuh();
+            
+        }
+
+        private async void ShowMyLocationOnTheMap()
+        {
+            // Get my current location.
+            Geolocator myGeolocator = new Geolocator();
+            Geoposition myGeoposition = await myGeolocator.GetGeopositionAsync();
+            Geocoordinate myGeocoordinate = myGeoposition.Coordinate;
+            GeoCoordinate myGeoCoordinate =
+                CoordinateConverter.ConvertGeocoordinate(myGeocoordinate);
+
+            // Make my current location the center of the Map.
+            this.MapVieMode.Center = myGeoCoordinate;
+            this.MapVieMode.ZoomLevel = 16;
+
+            // Create a small circle to mark the current location.
+            BitmapImage myImage = new BitmapImage(new Uri("/Assets/Icons/ic_25_mylocat.png", UriKind.RelativeOrAbsolute));
+            var image = new Image();
+            image.Width = 50;
+            image.Height = 50;
+            image.Opacity = 100;
+            image.Stretch = Stretch.UniformToFill;
+            image.Source = myImage;
+
+            // Create a MapOverlay to contain the circle.
+            MapOverlay myLocationOverlay = new MapOverlay();
+            myLocationOverlay.Content = image;
+            myLocationOverlay.PositionOrigin = new Point(0.5, 0.5);
+            myLocationOverlay.GeoCoordinate = myGeoCoordinate;
+
+            // Create a MapLayer to contain the MapOverlay.
+            MapLayer myLocationLayer = new MapLayer();
+            myLocationLayer.Add(myLocationOverlay);
+
+            // Add the MapLayer to the Map.
+            MapVieMode.Layers.Add(myLocationLayer);
         }
 
         public async void LoadURLDetailAnakAsuh()
@@ -84,13 +116,13 @@ namespace BantuAnakAsuh.Views
 
                 var stringContent = await response.Content.ReadAsStringAsync();
 
-                LoadKejahatan(stringContent);
+                LoadAnak(stringContent);
                 myHttpClient.Dispose();
             }
             catch { }
         }
 
-        public void LoadKejahatan(String responResult)
+        public void LoadAnak(String responResult)
         {
             try
             {
@@ -100,40 +132,42 @@ namespace BantuAnakAsuh.Views
                 JArray JItem = JArray.Parse(jRoot.SelectToken("item").ToString());
                 foreach (JObject item in JItem)
                 {
+                    
                     LocationDetail lokasiDetail = new LocationDetail();
                     lokasiDetail.id_fosterchildren = item["id_fosterchildren"].ToString();
                     lokasiDetail.name = item["name"].ToString();
-                    lokasiDetail.pob = item["pob"].ToString();
-                    lokasiDetail.dob = item["dob"].ToString();
-                    lokasiDetail.gender = item["gender"].ToString();
+                    //lokasiDetail.pob = item["pob"].ToString();
+                    //lokasiDetail.dob = item["dob"].ToString();
+                    //lokasiDetail.gender = item["gender"].ToString();
                     lokasiDetail.address = item["address"].ToString();
                     lokasiDetail.photo = URL.BASE3 + "modul/mod_AnakAsuh/photo/" + item["photo"].ToString();
-                    lokasiDetail.cost = item["cost"].ToString();
-                    lokasiDetail.children_status = item["children_status"].ToString();
+                    //lokasiDetail.cost = item["cost"].ToString();
+                    //lokasiDetail.children_status = item["children_status"].ToString();
                     lokasiDetail.latitude = item["latitude"].ToString();
                     lokasiDetail.longitude = item["longitude"].ToString();
-                    lokasiDetail.study_level = item["study_level"].ToString();
-                    lokasiDetail.school = item["school"].ToString();
-                    lokasiDetail.grade = item["grade"].ToString();
-                    lokasiDetail.parent_name = item["parent_name"].ToString();
-                    lokasiDetail.parent_address = item["parent_address"].ToString();
-                    lokasiDetail.jobs = item["jobs"].ToString();
-                    lokasiDetail.salary = item["salary"].ToString();
-                    lokasiDetail.id_cha_org = item["id_cha_org"].ToString();
-                    lokasiDetail.cha_org_name = item["cha_org_name"].ToString();
-                    lokasiDetail.id_program = item["id_program"].ToString();
-                    lokasiDetail.program_name = item["program_name"].ToString();
+                    //lokasiDetail.study_level = item["study_level"].ToString();
+                    //lokasiDetail.school = item["school"].ToString();
+                    //lokasiDetail.grade = item["grade"].ToString();
+                    //lokasiDetail.parent_name = item["parent_name"].ToString();
+                    //lokasiDetail.parent_address = item["parent_address"].ToString();
+                    //lokasiDetail.jobs = item["jobs"].ToString();
+                    //lokasiDetail.salary = item["salary"].ToString();
+                    //lokasiDetail.id_cha_org = item["id_cha_org"].ToString();
+                    //lokasiDetail.cha_org_name = item["cha_org_name"].ToString();
+                    //lokasiDetail.id_program = item["id_program"].ToString();
+                    //lokasiDetail.program_name = item["program_name"].ToString();
 
                     LocationListobj.Add(lokasiDetail);
                 }
 
                 /************Add diff locations to list**************/
                 MapVieMode.Layers.Clear();
-                MapLayer mapLayer = new MapLayer();
+                //MapLayer mapLayer = new MapLayer();
                 MyCoordinates.Clear();
                 for (int i = 0; i < LocationListobj.Count; i++)
                 {
                     MyCoordinates.Add(new GeoCoordinate { Latitude = Double.Parse(LocationListobj[i].latitude), Longitude = Double.Parse(LocationListobj[i].longitude) });
+                    
                 }
                 DrawMapMarkers();
                 MapVieMode.Center = MyCoordinates[MyCoordinates.Count - 1];
@@ -142,19 +176,19 @@ namespace BantuAnakAsuh.Views
                     MapVieMode.SetView(LocationRectangle.CreateBoundingRectangle(MyCoordinates));
                 });
                 MapVieMode.SetView(MyCoordinates[MyCoordinates.Count - 1], 10, MapAnimationKind.Linear);
-
             }
             catch
             {
+                MessageBox.Show("An error occured when load data.");
             }
         }
 
-
         private void Map_Loaded(object sender, RoutedEventArgs e)
         {
-            MapsSettings.ApplicationContext.ApplicationId = "<applicationid>";
-            MapsSettings.ApplicationContext.AuthenticationToken = "<authenticationtoken>";
+            MapsSettings.ApplicationContext.ApplicationId = "b185e4b1-725e-4163-b146-92cda6056391";
+            MapsSettings.ApplicationContext.AuthenticationToken = "gcDNkfNOsMd67UT4yw7ngA";
         }
+
         private void DrawMapMarkers()
         {
             MapLayer mapLayer = new MapLayer();
@@ -197,7 +231,6 @@ namespace BantuAnakAsuh.Views
             //listIndex = -1;
         }
 
-
         private void Menuitem_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -212,7 +245,6 @@ namespace BantuAnakAsuh.Views
             {
             }
         }
-
 
         private void _tooltip_Tapimg(object sender, System.Windows.Input.GestureEventArgs e)
         {
@@ -244,70 +276,34 @@ namespace BantuAnakAsuh.Views
 
         public class LocationDetail
         {
-            public string id_fosterchildren { get; set; } //for list anak asuh donatur
-            public string name { get; set; }
-            public string pob { get; set; } //for list donatur
-            public string dob { get; set; } //for list anak asuh donatur
-            public string gender { get; set; }
-            public string address { get; set; }
-            public string photo { get; set; }
-            public string cost { get; set; }
-            public string children_status { get; set; }
-            public string latitude { get; set; }
-            public string longitude { get; set; }
-            public string study_level { get; set; } //for list anak asuh donatur
-            public string school { get; set; }
-            public string grade { get; set; }
-            public string parent_name { get; set; } //for list anak asuh donatur
-            public string parent_address { get; set; }
-            public string jobs { get; set; }
-            public string salary { get; set; }
-            public string id_cha_org { get; set; }
-            public string cha_org_name { get; set; }
-            public string id_program { get; set; }
-            public string program_name { get; set; }
+            public String id_fosterchildren { get; set; } //for list anak asuh donatur
+            public String name { get; set; }
+            public String pob { get; set; } //for list donatur
+            public String dob { get; set; } //for list anak asuh donatur
+            public String gender { get; set; }
+            public String address { get; set; }
+            public String photo { get; set; }
+            public String cost { get; set; }
+            public String children_status { get; set; }
+            public String latitude { get; set; }
+            public String longitude { get; set; }
+            public String study_level { get; set; } //for list anak asuh donatur
+            public String school { get; set; }
+            public String grade { get; set; }
+            public String parent_name { get; set; } //for list anak asuh donatur
+            public String parent_address { get; set; }
+            public String jobs { get; set; }
+            public String salary { get; set; }
+            public String id_cha_org { get; set; }
+            public String cha_org_name { get; set; }
+            public String id_program { get; set; }
+            public String program_name { get; set; }
 
         }
-
         public class LocationList : List<LocationDetail>
         {
         }
-        private async void ShowMyLocationOnTheMap()
-        {
-            // Get my current location.
-            Geolocator myGeolocator = new Geolocator();
-            Geoposition myGeoposition = await myGeolocator.GetGeopositionAsync();
-            Geocoordinate myGeocoordinate = myGeoposition.Coordinate;
-            GeoCoordinate myGeoCoordinate =
-                CoordinateConverter.ConvertGeocoordinate(myGeocoordinate);
-
-            // Make my current location the center of the Map.
-            this.MapVieMode.Center = myGeoCoordinate;
-            this.MapVieMode.ZoomLevel = 16;
-
-            // Create a small circle to mark the current location.
-            BitmapImage myImage = new BitmapImage(new Uri("/Assets/Icons/ic_25_mylocat.png", UriKind.RelativeOrAbsolute));
-            var image = new Image();
-            image.Width = 50;
-            image.Height = 50;
-            image.Opacity = 100;
-            image.Stretch = Stretch.UniformToFill;
-            image.Source = myImage;
-
-            // Create a MapOverlay to contain the circle.
-            MapOverlay myLocationOverlay = new MapOverlay();
-            myLocationOverlay.Content = image;
-            myLocationOverlay.PositionOrigin = new Point(0.5, 0.5);
-            myLocationOverlay.GeoCoordinate = myGeoCoordinate;
-
-            // Create a MapLayer to contain the MapOverlay.
-            MapLayer myLocationLayer = new MapLayer();
-            myLocationLayer.Add(myLocationOverlay);
-
-            // Add the MapLayer to the Map.
-            MapVieMode.Layers.Add(myLocationLayer);
-        }
-
+        
         public static class CoordinateConverter
         {
             public static GeoCoordinate ConvertGeocoordinate(Geocoordinate geocoordinate)
@@ -324,11 +320,5 @@ namespace BantuAnakAsuh.Views
                     );
             }
         }
-        //08994452514
-        //Alamat atau latitude longitude  -6.934801, 107.629852
-        //Email farni.nur.amalia@gmail.com
-
-
-
     }
 }

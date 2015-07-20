@@ -61,6 +61,7 @@ namespace BantuAnakAsuh.ViewModels
 
         private void PushToServer(object obj)
         {
+            PRing = true;
             try
             {
                 RestRequest request = new RestRequest(URL.BASE3 + "APIv2/donors/setting_profile.php", Method.POST);
@@ -91,20 +92,24 @@ namespace BantuAnakAsuh.ViewModels
 
                     if (jresult == "failed")
                     {
-                        MessageBox.Show("An error occured.");
+                        PRing = false;
+                        MessageBox.Show(jmessage);
                     }
                     else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
                     {
+                        PRing = false;
                         MessageBox.Show("Failed");
                     }
                     else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
                     {
+                        PRing = false;
                         MessageBox.Show("Failed");
                     }
                     else if (response.StatusCode == System.Net.HttpStatusCode.OK)
                     {
                         if (jresult.Equals("success"))
                         {
+                            PRing = false;
                             if (MessageBoxResult.OK == MessageBox.Show("Your " + jmessage))
                             {
                                 //MessageBox.Show("Success");
@@ -185,7 +190,7 @@ namespace BantuAnakAsuh.ViewModels
 
         public ViewModelSetting()
         {
-            //this.LoadUrl();
+            PRing = true;
             this.LoadProfile();
         }
 
@@ -217,6 +222,7 @@ namespace BantuAnakAsuh.ViewModels
 
                     }
                 });
+                PRing = false;
 
             }
             catch (Exception ec)
@@ -255,6 +261,14 @@ namespace BantuAnakAsuh.ViewModels
         //        konek = false;
         //    }
         //}
+
+        private Boolean pRing;
+
+        public Boolean PRing
+        {
+            get { return pRing; }
+            set { pRing = value; RaisePropertyChanged(""); }
+        }
 
         private String id_donors;
 

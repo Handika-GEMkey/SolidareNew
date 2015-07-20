@@ -319,86 +319,86 @@ namespace BantuAnakAsuh.ViewModels
         
         private void PushToServer1(object obj)
         {
-            Navigation.menuItem = "pivot_environment";
+            //Navigation.menuItem = "pivot_environment";
             try
             {
                 this.LoadID();
                 RestRequest request = new RestRequest(URL.BASE3 + "APIv2/recommendation/recommendation.php", Method.POST);
+                
+                    request.AddHeader("content-type", "multipart/form-data");
+                    request.AddParameter("id_donors", Navigation.navIdLogin);
+                    request.AddParameter("token", Navigation.token);
+                    request.AddParameter("parent_name", Nama_orangtua_asli);
+                    request.AddParameter("address", Alamat);
+                    request.AddParameter("jobs", Pekerjaan);
+                    request.AddParameter("salary", Penghasilan);
+                    request.AddParameter("children_name", Nama_anak_asuh);
+                    request.AddParameter("gender", Jk_anak_asuh);
+                    request.AddFile("photo", ReadToEnd(bitmapUserProfile), "photo" + rand.Next(0, 99999999).ToString() + ".jpg");
+                    request.AddParameter("children_status", Status_anak);
+                    request.AddParameter("latitude", Navigation.Latitude);
+                    request.AddParameter("longitude", Navigation.Longitude);
+                    Navigation.menuItem = "pivot_environment";
+                    #region Convert DatePicker
+                    //string format = "yyyy-MM-dd";
+                    //DateTime datevalue;
+                    //if(DateTime.TryParseExact(Tanggal_lahir,"M/dd/yyyy h:m:s",CultureInfo.InvariantCulture,DateTimeStyles.None,  out datevalue))
+                    //{
+                    //    Tanggal_lahir = datevalue.ToString(format);
+                    //}
+                    //else
+                    //{
+                    //    MessageBox.Show("An error occured, please try again!");
+                    //}
+                    #endregion
 
-                request.AddHeader("content-type", "multipart/form-data");
-                request.AddParameter("id_donors", Navigation.navIdLogin);
-                request.AddParameter("token", Navigation.token);
-                request.AddParameter("parent_name", Nama_orangtua_asli);
-                request.AddParameter("address", Alamat);
-                request.AddParameter("jobs", Pekerjaan);
-                request.AddParameter("salary", Penghasilan);
-                request.AddParameter("children_name", Nama_anak_asuh);
-                request.AddParameter("gender", Jk_anak_asuh);
-                request.AddFile("photo", ReadToEnd(bitmapUserProfile), "photo" + rand.Next(0, 99999999).ToString() + ".jpg");
-                request.AddParameter("children_status", Status_anak);
-                request.AddParameter("latitude", Navigation.Latitude);
-                request.AddParameter("longitude", Navigation.Longitude);
-                Navigation.menuItem = "pivot_environment";
-                #region Convert DatePicker
-                //string format = "yyyy-MM-dd";
-                //DateTime datevalue;
-                //if(DateTime.TryParseExact(Tanggal_lahir,"M/dd/yyyy h:m:s",CultureInfo.InvariantCulture,DateTimeStyles.None,  out datevalue))
-                //{
-                //    Tanggal_lahir = datevalue.ToString(format);
-                //}
-                //else
-                //{
-                //    MessageBox.Show("An error occured, please try again!");
-                //}
-                #endregion
+                    //calling server with restClient
+                    RestClient restClient = new RestClient();
+                    restClient.ExecuteAsync(request, (response) =>
+                    {
+                        JObject jRoot = JObject.Parse(response.Content);
+                        String jresult = jRoot.SelectToken("result").ToString();
+                        String jmessage = jRoot.SelectToken("message").ToString();
+                        Navigation.id_recommendation = jRoot.SelectToken("id_recommendation").ToString();
 
-                //calling server with restClient
-                RestClient restClient = new RestClient();
-                restClient.ExecuteAsync(request, (response) =>
-                {
-                    JObject jRoot = JObject.Parse(response.Content);
-                    String jresult = jRoot.SelectToken("result").ToString();
-                    String jmessage = jRoot.SelectToken("message").ToString();
-                    Navigation.id_recommendation = jRoot.SelectToken("id_recommendation").ToString();
-
-                    if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
-                    {
-                        MessageBox.Show("Failed");
-                    }
-                    else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
-                    {
-                        MessageBox.Show("Failed");
-                    }
-                    else if (response.StatusCode == System.Net.HttpStatusCode.OK)
-                    {
-                        if (jresult.Equals("success"))
+                        if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
                         {
-                            if (MessageBoxResult.OK == MessageBox.Show("Your " + jmessage))
+                            MessageBox.Show("Failed");
+                        }
+                        else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+                        {
+                            MessageBox.Show("Failed");
+                        }
+                        else if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                        {
+                            if (jresult.Equals("success"))
                             {
-                                
+                                if (MessageBoxResult.OK == MessageBox.Show("Your " + jmessage))
+                                {
+
+                                }
                             }
+                            else
+                            {
+                                if (MessageBoxResult.OK == MessageBox.Show("Your "+jmessage))
+                                {
+
+                                    MessageBox.Show("Upload failed, try again!");
+
+                                }
+                            }
+
                         }
                         else
                         {
-                            if (MessageBoxResult.OK == MessageBox.Show("Foster Children's profile upload failed"))
-                            {
-                                
-                                MessageBox.Show("Upload failed, try again!");
-                            
-                            }
+                            //error ocured during upload
+                            MessageBox.Show("Your posting failed. Please check the Internet connection.");
                         }
-
-                    }
-                    else
-                    {
-                        //error ocured during upload
-                        MessageBox.Show("Your posting failed. Please check the Internet connection.");
-                    }
-                });
-
+                    });
             }
             catch (Exception ec)
             {
+                Navigation.menuItem = "pivot_failed";
                 MessageBox.Show("Failed to display, the Internet connection is unstable.");
             }
             finally

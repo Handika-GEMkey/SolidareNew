@@ -23,6 +23,7 @@ namespace BantuAnakAsuh.ViewModels
 
         public ViewModelAnakAsuh()
         {
+            LRingNews = true;
             this.LoadUrlDonorProfile();
             this.LoadUrlFosterChildren();
             
@@ -72,25 +73,30 @@ namespace BantuAnakAsuh.ViewModels
                             modelAnakAsuh.cha_org_name = item["cha_org_name"].ToString();
                             Navigation.id_fosterchildren = modelAnakAsuh.id_fosterchildren.ToString();
                             collectionAnakAsuh.Add(modelAnakAsuh);
+                            LRingNews = false;
                         }
                     }
                     else
                     {
-                        
                         No_anak = "You don't have foster children.";
+                        LRingNews = false;
                     }
+                    
                 });
             }
             catch (NullReferenceException e)
             {
+                LRingNews = false;
                 MessageBox.Show("An error occured!");
             }
             catch (Exception ec)
             {
+                LRingNews = false;
                 MessageBox.Show("Failed to display, the Internet connection is unstable.");
             }
             catch
             {
+                LRingNews = false;
                 konek = false;
             }
 
@@ -142,6 +148,14 @@ namespace BantuAnakAsuh.ViewModels
                 konek = false;
             }
 
+        }
+
+        private Boolean lRingNews;
+
+        public Boolean LRingNews
+        {
+            get { return lRingNews; }
+            set { lRingNews = value; RaisePropertyChanged(""); }
         }
 
         private String no_anak;

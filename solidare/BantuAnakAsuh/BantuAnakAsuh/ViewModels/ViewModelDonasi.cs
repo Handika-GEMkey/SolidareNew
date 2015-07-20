@@ -51,6 +51,7 @@ namespace BantuAnakAsuh.ViewModels
 
         public ViewModelDonasi()
         {
+            LRingNews = true;
             this.LoadUrl();
             this.LoadUrlDonorProfile();
             //this.LoadUrlFosterChildren();
@@ -165,6 +166,7 @@ namespace BantuAnakAsuh.ViewModels
                         {
                             NewHomepage homepage = new NewHomepage();
                             homepage.LoadingBar.Visibility = Visibility.Collapsed;
+                            LRingNews = false;
                         }
                         else
                         {
@@ -267,6 +269,14 @@ namespace BantuAnakAsuh.ViewModels
             set { email_donatur = value; RaisePropertyChanged(""); }
         }
 
+        private Boolean lRingNews;
+
+        public Boolean LRingNews
+        {
+            get { return lRingNews; }
+            set { lRingNews = value; RaisePropertyChanged(""); }
+        }
+
 
         private ObservableCollection<ModelLogin> collectionDonatur = new ObservableCollection<ModelLogin>();
         public ObservableCollection<ModelLogin> CollectionDonatur
@@ -311,6 +321,7 @@ namespace BantuAnakAsuh.ViewModels
 
                         CollectionDonatur.Add(modelLogin);
                     }
+                    LRingNews = false;
                 });
             }
             catch (Exception ec)

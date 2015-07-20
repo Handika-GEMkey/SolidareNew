@@ -80,30 +80,34 @@
             <TextBlock TextWrapping="Wrap" Text="YOUR DETAIL IDENTITY" FontSize="20" Foreground="#1565C0" FontWeight="Bold" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Center"/>
         </Grid>
 
-        <ListBox Grid.Row="3" x:Name="ListProfileDonatur" Height="auto" ItemsSource="{Binding CollectionDonatur}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Vertical" Width="420" Margin="20,0,10,0">
-                        
-                        <TextBlock TextWrapping="Wrap" Text="Username" FontSize="16" Foreground="Black" FontWeight="Bold"/>
-                        <TextBlock x:Name="username" TextWrapping="Wrap" Text="{Binding Username}" FontSize="16" Foreground="Black" Margin="0,0,0,10"/>
+        <StackPanel Grid.Row="3" Height="auto">
+            <ProgressBar x:Name="LoadingBarNews" IsEnabled="False" IsIndeterminate="{Binding LRingNews,Mode=TwoWay}" Height="4" HorizontalAlignment="Stretch" Foreground="#4B4B4B"/>
 
-                        <TextBlock TextWrapping="Wrap" Text="Name" FontSize="16" Foreground="Black" FontWeight="Bold"/>
-                        <TextBlock x:Name="name" TextWrapping="Wrap" Text="{Binding Nama_donatur}" FontSize="16" Foreground="Black" Margin="0,0,0,10"/>
+            <ListBox Grid.Row="3" x:Name="ListProfileDonatur" Height="auto" ItemsSource="{Binding CollectionDonatur}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical" Width="420" Margin="20,0,10,0">
 
-                        <TextBlock TextWrapping="Wrap" Text="Address" FontSize="16" Foreground="Black" FontWeight="Bold"/>
-                        <TextBlock x:Name="address" TextWrapping="Wrap" Text="{Binding Alamat_donatur}" FontSize="16" Foreground="Black" Margin="0,0,0,10"/>
+                            <TextBlock TextWrapping="Wrap" Text="Username" FontSize="16" Foreground="Black" FontWeight="Bold"/>
+                            <TextBlock x:Name="username" TextWrapping="Wrap" Text="{Binding Username}" FontSize="16" Foreground="Black" Margin="0,0,0,10"/>
 
-                        <TextBlock TextWrapping="Wrap" Text="Email" FontSize="16" Foreground="Black" FontWeight="Bold"/>
-                        <TextBlock x:Name="email" TextWrapping="Wrap" Text="{Binding Email_donatur}" FontSize="16" Foreground="Black" Margin="0,0,0,10"/>
+                            <TextBlock TextWrapping="Wrap" Text="Name" FontSize="16" Foreground="Black" FontWeight="Bold"/>
+                            <TextBlock x:Name="name" TextWrapping="Wrap" Text="{Binding Nama_donatur}" FontSize="16" Foreground="Black" Margin="0,0,0,10"/>
 
-                        <TextBlock TextWrapping="Wrap" Text="Phone number" FontSize="16" Foreground="Black" FontWeight="Bold"/>
-                        <TextBlock x:Name="phone" TextWrapping="Wrap" Text="{Binding No_tlp}" FontSize="16" Foreground="Black" Margin="0,0,0,10"/>
+                            <TextBlock TextWrapping="Wrap" Text="Address" FontSize="16" Foreground="Black" FontWeight="Bold"/>
+                            <TextBlock x:Name="address" TextWrapping="Wrap" Text="{Binding Alamat_donatur}" FontSize="16" Foreground="Black" Margin="0,0,0,10"/>
 
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+                            <TextBlock TextWrapping="Wrap" Text="Email" FontSize="16" Foreground="Black" FontWeight="Bold"/>
+                            <TextBlock x:Name="email" TextWrapping="Wrap" Text="{Binding Email_donatur}" FontSize="16" Foreground="Black" Margin="0,0,0,10"/>
+
+                            <TextBlock TextWrapping="Wrap" Text="Phone number" FontSize="16" Foreground="Black" FontWeight="Bold"/>
+                            <TextBlock x:Name="phone" TextWrapping="Wrap" Text="{Binding No_tlp}" FontSize="16" Foreground="Black" Margin="0,0,0,10"/>
+
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
 
         <!--<StackPanel Grid.Row="4" Orientation="Horizontal">
             <Grid Width="480" >

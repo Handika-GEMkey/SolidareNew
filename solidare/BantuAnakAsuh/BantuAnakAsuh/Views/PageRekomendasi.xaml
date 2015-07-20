@@ -354,7 +354,7 @@
                         <!-- Name -->
                         <StackPanel Grid.Row="1" Visibility="Visible" VerticalAlignment="Bottom" >
                             <TextBlock TextWrapping="Wrap" Text="Name" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
-                            <TextBox x:Name="nama_anakasuh" FontSize="16" Text="{Binding Nama_anak_asuh, Mode=TwoWay}" Background="#FFF4F4F4" Height="90" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754"/>
+                            <TextBox x:Name="nama_anakasuh" FontSize="20" Text="{Binding Nama_anak_asuh, Mode=TwoWay}" Background="#FFF4F4F4" Height="90" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754"/>
                         </StackPanel>
 
                         <!-- Gender -->
@@ -384,7 +384,7 @@
                         <!-- Address -->
                         <StackPanel Grid.Row="4" VerticalAlignment="Bottom" >
                             <TextBlock TextWrapping="Wrap" Text="Address" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
-                            <TextBox x:Name="alamat_anakasuh" FontSize="16" Text="{Binding Alamat, Mode=TwoWay}" Background="#FFF4F4F4" Height="90" Margin="15,-8,150,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754" />
+                            <TextBox x:Name="alamat_anakasuh" FontSize="20" Text="{Binding Alamat, Mode=TwoWay}" Background="#FFF4F4F4" Height="90" Margin="15,-8,150,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754" />
 
                         </StackPanel>
 
@@ -397,7 +397,7 @@
                         <StackPanel Grid.Row="5" VerticalAlignment="Bottom" Margin="30,0,30,0">
                             <!--<Controls:Map x:Name="mapLocation" Height="250" Width="480"/>-->
                             <maps:Map
-                                Width="400" Height="250" Name="map1" Center="60.22,24.81" ZoomLevel="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" LandmarksEnabled="True">
+                                Width="400" Height="250" x:Name="map1" Center="60.22,24.81" ZoomLevel="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" LandmarksEnabled="True">
                             </maps:Map>
                         </StackPanel>
 
@@ -409,19 +409,19 @@
                         <!--Parent name-->
                         <StackPanel Grid.Row="7" VerticalAlignment="Bottom" >
                             <TextBlock TextWrapping="Wrap" Text="Name of parent" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
-                            <TextBox x:Name="nama_orangtua" FontSize="16" Text="{Binding Nama_orangtua_asli, Mode=TwoWay}" Background="#FFF4F4F4" Height="90" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754" />
+                            <TextBox x:Name="nama_orangtua" FontSize="20" Text="{Binding Nama_orangtua_asli, Mode=TwoWay}" Background="#FFF4F4F4" Height="90" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754" />
                         </StackPanel>
 
                         <!-- Parent job -->
                         <StackPanel Grid.Row="8" VerticalAlignment="Bottom" >
                             <TextBlock TextWrapping="Wrap" Text="Job" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
-                            <TextBox x:Name="job_orangtua" FontSize="16" Text="{Binding Pekerjaan, Mode=TwoWay}" Background="#FFF4F4F4" Height="90" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754"/>
+                            <TextBox x:Name="job_orangtua" FontSize="20" Text="{Binding Pekerjaan, Mode=TwoWay}" Background="#FFF4F4F4" Height="90" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754"/>
                         </StackPanel>
 
                         <!-- Parent salary -->
                         <StackPanel Grid.Row="9" VerticalAlignment="Bottom" >
                             <TextBlock TextWrapping="Wrap" Text="Salary" Foreground="#FF032754" Margin="31,0,30,0" FontSize="18"/>
-                            <TextBox x:Name="penghasilan" FontSize="16" Text="{Binding Penghasilan, Mode=TwoWay}" Background="#FFF4F4F4" Height="90" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754" InputScope="Number"/>
+                            <TextBox x:Name="penghasilan" FontSize="20" Text="{Binding Penghasilan, Mode=TwoWay}" Background="#FFF4F4F4" Height="90" Margin="15,-8,15,0" SelectionBackground="#FF032754" Style="{StaticResource TextBoxSaya}" Foreground="#FF032754" InputScope="Number"/>
                         </StackPanel>
 
                         <!--<Button x:Name="buttoncoba" Grid.Row="10" Height="88" Width="400"  Content="Submit" Command="{Binding PublishCommand1}" Background="#FF032754" Click="Button_Click"></Button>-->

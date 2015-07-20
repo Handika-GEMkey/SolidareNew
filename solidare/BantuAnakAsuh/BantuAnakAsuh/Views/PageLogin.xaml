@@ -576,7 +576,7 @@
 
         <TextBlock x:Name="textForgot" Grid.Row="3" Text="Forgot your password?" Foreground="Black" VerticalAlignment="Bottom" Margin="31,0" FontSize="16" TextDecorations="Underline" Tap="textForgot_Tap"/>
 
-        <controls:ProgressRing x:Name="LoadingRing" Grid.RowSpan="6" Width="70" HorizontalAlignment="Center" VerticalAlignment="Center" Height="70" IsActive="False" Foreground="Black" />
+        <controls:ProgressRing x:Name="LoadingRing" Grid.RowSpan="6" Width="70" HorizontalAlignment="Center" VerticalAlignment="Center" Height="70" IsActive="{Binding PRing,Mode=TwoWay}" Foreground="Black" />
         
         <ProgressBar x:Name="LoadingBar" Visibility="Collapsed" IsEnabled="False" IsIndeterminate="true" Height="4" HorizontalAlignment="Stretch" VerticalAlignment="Center" Foreground="#FF1565C0"/>
     </Grid>

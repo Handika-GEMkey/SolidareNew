@@ -24,6 +24,14 @@ namespace BantuAnakAsuh.ViewModels
         private String Result;
         public bool konek = true;
 
+        private Boolean lRingNews;
+
+        public Boolean LRingNews
+        {
+            get { return lRingNews; }
+            set { lRingNews = value; RaisePropertyChanged(""); }
+        }
+
         private String no_anak;
 
         public String No_anak
@@ -98,6 +106,7 @@ namespace BantuAnakAsuh.ViewModels
         
         public ViewModelProfileDonatur()
         {
+            LRingNews = true;
             this.LoadUrlDonorProfile();
             this.LoadUrlNews();
         }
@@ -121,6 +130,7 @@ namespace BantuAnakAsuh.ViewModels
                     if (result == "failed")
                     {
                         MessageBox.Show("Failed to display!");
+                        LRingNews = false;
                     }
                     else
                     {
@@ -139,6 +149,7 @@ namespace BantuAnakAsuh.ViewModels
                             Title_name_profile = modelLogin.Nama_donatur.ToUpper().ToString() + " PROFILE";
                             Photo_donors = modelLogin.Photo.ToString();
                         }
+                        LRingNews = false;
                     }
                 });
             }
@@ -150,6 +161,16 @@ namespace BantuAnakAsuh.ViewModels
             {
                 MessageBox.Show("Failed to display, the Internet connection is unstable.");
             }
+            catch
+            {
+                MessageBox.Show("An error occured when load data, check your internet connection!");
+                System.Windows.Application.Current.Terminate();
+            }
+            //finally
+            //{
+            //    MessageBox.Show("An error occured when load data, check your internet connection!");
+            //    System.Windows.Application.Current.Terminate();
+            //}
 
         }
 
@@ -188,6 +209,7 @@ namespace BantuAnakAsuh.ViewModels
                     if (result == "failed")
                     {
                         MessageBox.Show("Failed to display!");
+                        LRingNews = false;
                     }
                     else
                     {
@@ -205,6 +227,7 @@ namespace BantuAnakAsuh.ViewModels
                             collectionNews.Add(modelNews);
                         }
                     }
+                    LRingNews = false;
                 });
             }
             catch (NullReferenceException n)
@@ -215,6 +238,16 @@ namespace BantuAnakAsuh.ViewModels
             {
                 MessageBox.Show("Failed to display, the Internet connection is unstable.");
             }
+            catch
+            {
+                MessageBox.Show("An error occured when load data, check your internet connection!");
+                System.Windows.Application.Current.Terminate();
+            }
+            //finally
+            //{
+            //    MessageBox.Show("An error occured when load data, check your internet connection!");
+            //    System.Windows.Application.Current.Terminate();
+            //}
 
         }
 

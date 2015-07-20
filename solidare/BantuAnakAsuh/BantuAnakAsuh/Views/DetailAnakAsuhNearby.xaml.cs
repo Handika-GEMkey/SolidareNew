@@ -112,7 +112,7 @@ namespace BantuAnakAsuh.Views
         //Back to home
         private void buttonMenu_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/Views/NewHomepage.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/Views/PageNearby.xaml", UriKind.Relative));
         }
 
         //Donasi
